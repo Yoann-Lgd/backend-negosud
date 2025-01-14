@@ -44,7 +44,9 @@ public class UtilisateurRepository : IUtilisateurRepository
             var entityEntry = new Utilisateur
             {
                 Email = utilisateurInputDto.Email,
-                MotDePasse = utilisateurInputDto.MotDePasse
+                MotDePasse = utilisateurInputDto.MotDePasse,
+                AccessToken = utilisateurInputDto.access_token,
+                Role = _mapper.Map<Role>(utilisateurInputDto.RoleDto)
                 
             };
 
