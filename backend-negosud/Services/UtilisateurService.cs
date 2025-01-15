@@ -8,16 +8,19 @@ namespace backend_negosud.Services;
 public class UtilisateurService : IUtilisateurService
 {
     private readonly IUtilisateurRepository _utilisateurRepository;
+    
 
     public UtilisateurService(IUtilisateurRepository utilisateurRepository)
     {
         _utilisateurRepository = utilisateurRepository;
+       
     }
 
     public async Task<IResponseModel> CreateUtilisateur(UtilisateurInputDto utilisateur)
     {
         try
         {
+          
             return await _utilisateurRepository.CreateAsync(utilisateur);
         }
         catch (Exception e)

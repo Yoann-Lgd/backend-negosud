@@ -1,14 +1,27 @@
+using System.Security.Cryptography;
 using backend_negosud.Endpoints;
 using backend_negosud.entities;
 using backend_negosud.Repository;
 using backend_negosud.Services;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using Npgsql;
 using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
-
+RSA rsa = RSA.Create();
+const string keyFileName = "key.bin";
+if (!File.Exists(keyFileName))
+{
+    var key = rsa.ExportRSAPrivateKey();
+    File.WriteAllBytes(keyFileName, key);
+}
+else
+{
+    rsa.ImportRSAPrivateKey(File.ReadAllBytes(keyFileName), out _);
+}
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowAll",
@@ -18,8 +31,24 @@ builder.Services.AddCors(options =>
             .AllowAnyHeader());
 });
 
+builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+    .AddJwtBearer((options =>
+    {
+        options.TokenValidationParameters = new TokenValidationParameters
+        {
+            ValidateIssuerSigningKey = true,
+            IssuerSigningKey = new RsaSecurityKey(rsa),
+            ValidateIssuer = true,
+            ValidateAudience = true,
+            ValidIssuer = builder.Configuration["Jwt:Issuer"],
+            ValidAudience = builder.Configuration["Jwt:Audience"],
+            ClockSkew = TimeSpan.Zero
+        };
+    }));
+
 builder.Services.AddScoped<IUtilisateurRepository, UtilisateurRepository>();
 builder.Services.AddScoped<IUtilisateurService, UtilisateurService>();
+builder.Services.AddScoped<IJwtService, JwtService>();
 
 // Add services to the container.
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -30,12 +59,29 @@ builder.Services.AddAuthorization();
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddAutoMapper(typeof(Program));
-builder.Services.AddSwaggerGen(c =>
+builder.Services.AddSwaggerGen(opt =>
 {
-    c.SwaggerDoc("v1", new OpenApiInfo
+    opt.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
     {
-        Title = "Passeports Backend",
-        Version = "v1"
+        Name = "Authorization",
+        In = ParameterLocation.Header,
+        Type = SecuritySchemeType.ApiKey,
+        Scheme = "Bearer",
+        Description = "Token JWT. Saisir \"Bearer {Token}\""
+    });
+    opt.AddSecurityRequirement(new OpenApiSecurityRequirement
+    {
+        {
+            new OpenApiSecurityScheme
+            {
+                Reference = new OpenApiReference
+                {
+                    Id = "Bearer",
+                    Type = ReferenceType.SecurityScheme
+                }
+            },
+            new List<string>()
+        }
     });
 });
 
