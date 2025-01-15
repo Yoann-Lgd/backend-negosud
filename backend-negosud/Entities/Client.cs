@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace backend_negosud.entities;
 
-public partial class Client
+public class Client
 {
     public int ClientId { get; set; }
 

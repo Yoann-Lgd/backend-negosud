@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace backend_negosud.entities;
 
-public partial class Reglement
+public class Reglement
 {
     public int ReglementId { get; set; }
 

@@ -1,0 +1,1641 @@
+2025-01-15 21:37:41.314 +01:00 [ERR] Failed executing DbCommand (39ms) [Parameters=[@p0='?', @p1='?' (DbType = Boolean), @p2='?', @p3='?', @p4='?', @p5='?', @p6='?', @p7='?' (DbType = Boolean), @p8='?', @p9='?', @p10='?', @p11='?', @p12='?', @p13='?' (DbType = Boolean), @p14='?', @p15='?', @p16='?', @p17='?', @p18='?', @p19='?' (DbType = Boolean), @p20='?', @p21='?', @p22='?', @p23='?', @p24='?', @p25='?' (DbType = Boolean), @p26='?', @p27='?', @p28='?', @p29='?', @p30='?', @p31='?' (DbType = Boolean), @p32='?', @p33='?', @p34='?', @p35='?', @p36='?', @p37='?' (DbType = Boolean), @p38='?', @p39='?', @p40='?', @p41='?', @p42='?', @p43='?' (DbType = Boolean), @p44='?', @p45='?', @p46='?', @p47='?', @p48='?', @p49='?' (DbType = Boolean), @p50='?', @p51='?', @p52='?', @p53='?', @p54='?', @p55='?' (DbType = Boolean), @p56='?', @p57='?', @p58='?', @p59='?', @p60='?', @p61='?' (DbType = Boolean), @p62='?', @p63='?', @p64='?', @p65='?', @p66='?', @p67='?' (DbType = Boolean), @p68='?', @p69='?', @p70='?', @p71='?', @p72='?', @p73='?' (DbType = Boolean), @p74='?', @p75='?', @p76='?', @p77='?', @p78='?', @p79='?' (DbType = Boolean), @p80='?', @p81='?', @p82='?', @p83='?', @p84='?', @p85='?' (DbType = Boolean), @p86='?', @p87='?', @p88='?', @p89='?', @p90='?', @p91='?' (DbType = Boolean), @p92='?', @p93='?', @p94='?', @p95='?', @p96='?', @p97='?' (DbType = Boolean), @p98='?', @p99='?', @p100='?', @p101='?', @p102='?', @p103='?' (DbType = Boolean), @p104='?', @p105='?', @p106='?', @p107='?', @p108='?', @p109='?' (DbType = Boolean), @p110='?', @p111='?', @p112='?', @p113='?', @p114='?', @p115='?' (DbType = Boolean), @p116='?', @p117='?', @p118='?', @p119='?', @p120='?', @p121='?' (DbType = Boolean), @p122='?', @p123='?', @p124='?', @p125='?', @p126='?', @p127='?' (DbType = Boolean), @p128='?', @p129='?', @p130='?', @p131='?', @p132='?', @p133='?' (DbType = Boolean), @p134='?', @p135='?', @p136='?', @p137='?', @p138='?', @p139='?' (DbType = Boolean), @p140='?', @p141='?', @p142='?', @p143='?', @p144='?', @p145='?' (DbType = Boolean), @p146='?', @p147='?', @p148='?', @p149='?', @p150='?', @p151='?' (DbType = Boolean), @p152='?', @p153='?', @p154='?', @p155='?', @p156='?', @p157='?' (DbType = Boolean), @p158='?', @p159='?', @p160='?', @p161='?', @p162='?', @p163='?' (DbType = Boolean), @p164='?', @p165='?', @p166='?', @p167='?', @p168='?', @p169='?' (DbType = Boolean), @p170='?', @p171='?', @p172='?', @p173='?', @p174='?', @p175='?' (DbType = Boolean), @p176='?', @p177='?', @p178='?', @p179='?', @p180='?', @p181='?' (DbType = Boolean), @p182='?', @p183='?', @p184='?', @p185='?', @p186='?', @p187='?' (DbType = Boolean), @p188='?', @p189='?', @p190='?', @p191='?', @p192='?', @p193='?' (DbType = Boolean), @p194='?', @p195='?', @p196='?', @p197='?', @p198='?', @p199='?' (DbType = Boolean), @p200='?', @p201='?', @p202='?', @p203='?', @p204='?', @p205='?' (DbType = Boolean), @p206='?', @p207='?', @p208='?', @p209='?', @p210='?', @p211='?' (DbType = Boolean), @p212='?', @p213='?', @p214='?', @p215='?', @p216='?', @p217='?' (DbType = Boolean), @p218='?', @p219='?', @p220='?', @p221='?', @p222='?', @p223='?' (DbType = Boolean), @p224='?', @p225='?', @p226='?', @p227='?', @p228='?', @p229='?' (DbType = Boolean), @p230='?', @p231='?', @p232='?', @p233='?', @p234='?', @p235='?' (DbType = Boolean), @p236='?', @p237='?', @p238='?', @p239='?', @p240='?', @p241='?' (DbType = Boolean), @p242='?', @p243='?', @p244='?', @p245='?', @p246='?', @p247='?' (DbType = Boolean), @p248='?', @p249='?', @p250='?', @p251='?', @p252='?', @p253='?' (DbType = Boolean), @p254='?', @p255='?', @p256='?', @p257='?', @p258='?', @p259='?' (DbType = Boolean), @p260='?', @p261='?', @p262='?', @p263='?', @p264='?', @p265='?' (DbType = Boolean), @p266='?', @p267='?', @p268='?', @p269='?', @p270='?', @p271='?' (DbType = Boolean), @p272='?', @p273='?', @p274='?', @p275='?', @p276='?', @p277='?' (DbType = Boolean), @p278='?', @p279='?', @p280='?', @p281='?', @p282='?', @p283='?' (DbType = Boolean), @p284='?', @p285='?', @p286='?', @p287='?', @p288='?', @p289='?' (DbType = Boolean), @p290='?', @p291='?', @p292='?', @p293='?', @p294='?', @p295='?' (DbType = Boolean), @p296='?', @p297='?', @p298='?', @p299='?'], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p6, @p7, @p8, @p9, @p10, @p11)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p12, @p13, @p14, @p15, @p16, @p17)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p18, @p19, @p20, @p21, @p22, @p23)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p24, @p25, @p26, @p27, @p28, @p29)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p30, @p31, @p32, @p33, @p34, @p35)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p36, @p37, @p38, @p39, @p40, @p41)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p42, @p43, @p44, @p45, @p46, @p47)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p48, @p49, @p50, @p51, @p52, @p53)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p54, @p55, @p56, @p57, @p58, @p59)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p60, @p61, @p62, @p63, @p64, @p65)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p66, @p67, @p68, @p69, @p70, @p71)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p72, @p73, @p74, @p75, @p76, @p77)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p78, @p79, @p80, @p81, @p82, @p83)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p84, @p85, @p86, @p87, @p88, @p89)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p90, @p91, @p92, @p93, @p94, @p95)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p96, @p97, @p98, @p99, @p100, @p101)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p102, @p103, @p104, @p105, @p106, @p107)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p108, @p109, @p110, @p111, @p112, @p113)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p114, @p115, @p116, @p117, @p118, @p119)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p120, @p121, @p122, @p123, @p124, @p125)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p126, @p127, @p128, @p129, @p130, @p131)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p132, @p133, @p134, @p135, @p136, @p137)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p138, @p139, @p140, @p141, @p142, @p143)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p144, @p145, @p146, @p147, @p148, @p149)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p150, @p151, @p152, @p153, @p154, @p155)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p156, @p157, @p158, @p159, @p160, @p161)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p162, @p163, @p164, @p165, @p166, @p167)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p168, @p169, @p170, @p171, @p172, @p173)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p174, @p175, @p176, @p177, @p178, @p179)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p180, @p181, @p182, @p183, @p184, @p185)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p186, @p187, @p188, @p189, @p190, @p191)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p192, @p193, @p194, @p195, @p196, @p197)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p198, @p199, @p200, @p201, @p202, @p203)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p204, @p205, @p206, @p207, @p208, @p209)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p210, @p211, @p212, @p213, @p214, @p215)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p216, @p217, @p218, @p219, @p220, @p221)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p222, @p223, @p224, @p225, @p226, @p227)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p228, @p229, @p230, @p231, @p232, @p233)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p234, @p235, @p236, @p237, @p238, @p239)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p240, @p241, @p242, @p243, @p244, @p245)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p246, @p247, @p248, @p249, @p250, @p251)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p252, @p253, @p254, @p255, @p256, @p257)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p258, @p259, @p260, @p261, @p262, @p263)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p264, @p265, @p266, @p267, @p268, @p269)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p270, @p271, @p272, @p273, @p274, @p275)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p276, @p277, @p278, @p279, @p280, @p281)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p282, @p283, @p284, @p285, @p286, @p287)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p288, @p289, @p290, @p291, @p292, @p293)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p294, @p295, @p296, @p297, @p298, @p299)
+RETURNING client_id;
+2025-01-15 21:37:41.379 +01:00 [ERR] An exception occurred in the database while saving changes for context type 'backend_negosud.entities.PostgresContext'.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Npgsql.PostgresException (0x80004005): 42P01: relation "client" does not exist
+
+POSITION: 13
+   at Npgsql.Internal.NpgsqlConnector.ReadMessageLong(Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult()
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.Execute(IRelationalConnection connection)
+  Exception data:
+    Severity: ERROR
+    SqlState: 42P01
+    MessageText: relation "client" does not exist
+    Position: 13
+    File: parse_relation.c
+    Line: 1452
+    Routine: parserOpenTable
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.Execute(IRelationalConnection connection)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.Execute(IEnumerable`1 commandBatches, IRelationalConnection connection)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabase.SaveChanges(IList`1 entries)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(IList`1 entriesToSave)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(StateManager stateManager, Boolean acceptAllChangesOnSuccess)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.<>c.<SaveChanges>b__112_0(DbContext _, ValueTuple`2 t)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(Boolean acceptAllChangesOnSuccess)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChanges(Boolean acceptAllChangesOnSuccess)
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Npgsql.PostgresException (0x80004005): 42P01: relation "client" does not exist
+
+POSITION: 13
+   at Npgsql.Internal.NpgsqlConnector.ReadMessageLong(Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult()
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.Execute(IRelationalConnection connection)
+  Exception data:
+    Severity: ERROR
+    SqlState: 42P01
+    MessageText: relation "client" does not exist
+    Position: 13
+    File: parse_relation.c
+    Line: 1452
+    Routine: parserOpenTable
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.Execute(IRelationalConnection connection)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.Execute(IEnumerable`1 commandBatches, IRelationalConnection connection)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabase.SaveChanges(IList`1 entries)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(IList`1 entriesToSave)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(StateManager stateManager, Boolean acceptAllChangesOnSuccess)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.<>c.<SaveChanges>b__112_0(DbContext _, ValueTuple`2 t)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(Boolean acceptAllChangesOnSuccess)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChanges(Boolean acceptAllChangesOnSuccess)
+2025-01-15 21:45:12.430 +01:00 [INF] No action descriptors found. This may indicate an incorrectly configured application or missing application parts. To learn more, visit https://aka.ms/aspnet/mvc/app-parts
+2025-01-15 21:45:12.874 +01:00 [INF] Connexion réussie à la base de données PostgreSQL.
+2025-01-15 21:45:12.889 +01:00 [INF] User profile is available. Using '/Users/yoann/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-01-15 21:45:12.980 +01:00 [INF] Now listening on: http://localhost:5141
+2025-01-15 21:45:12.982 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-01-15 21:45:12.983 +01:00 [INF] Hosting environment: Development
+2025-01-15 21:45:12.983 +01:00 [INF] Content root path: /Users/yoann/Workspace/CESI DI 2023/STIVE/backend/backend-negosud
+2025-01-15 21:45:13.987 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5141/swagger/index.html - null null
+2025-01-15 21:45:14.107 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5141/swagger/index.html - 200 null text/html;charset=utf-8 120.4046ms
+2025-01-15 21:45:14.179 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5141/swagger/swagger-ui.css - null null
+2025-01-15 21:45:14.183 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5141/swagger/swagger-ui-bundle.js - null null
+2025-01-15 21:45:14.195 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5141/swagger/swagger-ui-standalone-preset.js - null null
+2025-01-15 21:45:14.259 +01:00 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+2025-01-15 21:45:14.259 +01:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2025-01-15 21:45:14.261 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5141/swagger/swagger-ui.css - 200 152034 text/css 101.1916ms
+2025-01-15 21:45:14.261 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5141/swagger/swagger-ui-standalone-preset.js - 200 230280 text/javascript 65.8753ms
+2025-01-15 21:45:14.266 +01:00 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+2025-01-15 21:45:14.266 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5141/swagger/swagger-ui-bundle.js - 200 1456926 text/javascript 82.5022ms
+2025-01-15 21:45:14.510 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5141/swagger/v1/swagger.json - null null
+2025-01-15 21:45:14.562 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5141/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 52.6009ms
+2025-01-15 21:50:50.667 +01:00 [INF] Application is shutting down...
+2025-01-15 21:50:53.877 +01:00 [ERR] Failed executing DbCommand (39ms) [Parameters=[@p0='?', @p1='?' (DbType = Boolean), @p2='?', @p3='?', @p4='?', @p5='?', @p6='?', @p7='?' (DbType = Boolean), @p8='?', @p9='?', @p10='?', @p11='?', @p12='?', @p13='?' (DbType = Boolean), @p14='?', @p15='?', @p16='?', @p17='?', @p18='?', @p19='?' (DbType = Boolean), @p20='?', @p21='?', @p22='?', @p23='?', @p24='?', @p25='?' (DbType = Boolean), @p26='?', @p27='?', @p28='?', @p29='?', @p30='?', @p31='?' (DbType = Boolean), @p32='?', @p33='?', @p34='?', @p35='?', @p36='?', @p37='?' (DbType = Boolean), @p38='?', @p39='?', @p40='?', @p41='?', @p42='?', @p43='?' (DbType = Boolean), @p44='?', @p45='?', @p46='?', @p47='?', @p48='?', @p49='?' (DbType = Boolean), @p50='?', @p51='?', @p52='?', @p53='?', @p54='?', @p55='?' (DbType = Boolean), @p56='?', @p57='?', @p58='?', @p59='?', @p60='?', @p61='?' (DbType = Boolean), @p62='?', @p63='?', @p64='?', @p65='?', @p66='?', @p67='?' (DbType = Boolean), @p68='?', @p69='?', @p70='?', @p71='?', @p72='?', @p73='?' (DbType = Boolean), @p74='?', @p75='?', @p76='?', @p77='?', @p78='?', @p79='?' (DbType = Boolean), @p80='?', @p81='?', @p82='?', @p83='?', @p84='?', @p85='?' (DbType = Boolean), @p86='?', @p87='?', @p88='?', @p89='?', @p90='?', @p91='?' (DbType = Boolean), @p92='?', @p93='?', @p94='?', @p95='?', @p96='?', @p97='?' (DbType = Boolean), @p98='?', @p99='?', @p100='?', @p101='?', @p102='?', @p103='?' (DbType = Boolean), @p104='?', @p105='?', @p106='?', @p107='?', @p108='?', @p109='?' (DbType = Boolean), @p110='?', @p111='?', @p112='?', @p113='?', @p114='?', @p115='?' (DbType = Boolean), @p116='?', @p117='?', @p118='?', @p119='?', @p120='?', @p121='?' (DbType = Boolean), @p122='?', @p123='?', @p124='?', @p125='?', @p126='?', @p127='?' (DbType = Boolean), @p128='?', @p129='?', @p130='?', @p131='?', @p132='?', @p133='?' (DbType = Boolean), @p134='?', @p135='?', @p136='?', @p137='?', @p138='?', @p139='?' (DbType = Boolean), @p140='?', @p141='?', @p142='?', @p143='?', @p144='?', @p145='?' (DbType = Boolean), @p146='?', @p147='?', @p148='?', @p149='?', @p150='?', @p151='?' (DbType = Boolean), @p152='?', @p153='?', @p154='?', @p155='?', @p156='?', @p157='?' (DbType = Boolean), @p158='?', @p159='?', @p160='?', @p161='?', @p162='?', @p163='?' (DbType = Boolean), @p164='?', @p165='?', @p166='?', @p167='?', @p168='?', @p169='?' (DbType = Boolean), @p170='?', @p171='?', @p172='?', @p173='?', @p174='?', @p175='?' (DbType = Boolean), @p176='?', @p177='?', @p178='?', @p179='?', @p180='?', @p181='?' (DbType = Boolean), @p182='?', @p183='?', @p184='?', @p185='?', @p186='?', @p187='?' (DbType = Boolean), @p188='?', @p189='?', @p190='?', @p191='?', @p192='?', @p193='?' (DbType = Boolean), @p194='?', @p195='?', @p196='?', @p197='?', @p198='?', @p199='?' (DbType = Boolean), @p200='?', @p201='?', @p202='?', @p203='?', @p204='?', @p205='?' (DbType = Boolean), @p206='?', @p207='?', @p208='?', @p209='?', @p210='?', @p211='?' (DbType = Boolean), @p212='?', @p213='?', @p214='?', @p215='?', @p216='?', @p217='?' (DbType = Boolean), @p218='?', @p219='?', @p220='?', @p221='?', @p222='?', @p223='?' (DbType = Boolean), @p224='?', @p225='?', @p226='?', @p227='?', @p228='?', @p229='?' (DbType = Boolean), @p230='?', @p231='?', @p232='?', @p233='?', @p234='?', @p235='?' (DbType = Boolean), @p236='?', @p237='?', @p238='?', @p239='?', @p240='?', @p241='?' (DbType = Boolean), @p242='?', @p243='?', @p244='?', @p245='?', @p246='?', @p247='?' (DbType = Boolean), @p248='?', @p249='?', @p250='?', @p251='?', @p252='?', @p253='?' (DbType = Boolean), @p254='?', @p255='?', @p256='?', @p257='?', @p258='?', @p259='?' (DbType = Boolean), @p260='?', @p261='?', @p262='?', @p263='?', @p264='?', @p265='?' (DbType = Boolean), @p266='?', @p267='?', @p268='?', @p269='?', @p270='?', @p271='?' (DbType = Boolean), @p272='?', @p273='?', @p274='?', @p275='?', @p276='?', @p277='?' (DbType = Boolean), @p278='?', @p279='?', @p280='?', @p281='?', @p282='?', @p283='?' (DbType = Boolean), @p284='?', @p285='?', @p286='?', @p287='?', @p288='?', @p289='?' (DbType = Boolean), @p290='?', @p291='?', @p292='?', @p293='?', @p294='?', @p295='?' (DbType = Boolean), @p296='?', @p297='?', @p298='?', @p299='?'], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p6, @p7, @p8, @p9, @p10, @p11)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p12, @p13, @p14, @p15, @p16, @p17)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p18, @p19, @p20, @p21, @p22, @p23)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p24, @p25, @p26, @p27, @p28, @p29)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p30, @p31, @p32, @p33, @p34, @p35)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p36, @p37, @p38, @p39, @p40, @p41)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p42, @p43, @p44, @p45, @p46, @p47)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p48, @p49, @p50, @p51, @p52, @p53)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p54, @p55, @p56, @p57, @p58, @p59)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p60, @p61, @p62, @p63, @p64, @p65)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p66, @p67, @p68, @p69, @p70, @p71)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p72, @p73, @p74, @p75, @p76, @p77)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p78, @p79, @p80, @p81, @p82, @p83)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p84, @p85, @p86, @p87, @p88, @p89)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p90, @p91, @p92, @p93, @p94, @p95)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p96, @p97, @p98, @p99, @p100, @p101)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p102, @p103, @p104, @p105, @p106, @p107)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p108, @p109, @p110, @p111, @p112, @p113)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p114, @p115, @p116, @p117, @p118, @p119)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p120, @p121, @p122, @p123, @p124, @p125)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p126, @p127, @p128, @p129, @p130, @p131)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p132, @p133, @p134, @p135, @p136, @p137)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p138, @p139, @p140, @p141, @p142, @p143)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p144, @p145, @p146, @p147, @p148, @p149)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p150, @p151, @p152, @p153, @p154, @p155)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p156, @p157, @p158, @p159, @p160, @p161)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p162, @p163, @p164, @p165, @p166, @p167)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p168, @p169, @p170, @p171, @p172, @p173)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p174, @p175, @p176, @p177, @p178, @p179)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p180, @p181, @p182, @p183, @p184, @p185)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p186, @p187, @p188, @p189, @p190, @p191)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p192, @p193, @p194, @p195, @p196, @p197)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p198, @p199, @p200, @p201, @p202, @p203)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p204, @p205, @p206, @p207, @p208, @p209)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p210, @p211, @p212, @p213, @p214, @p215)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p216, @p217, @p218, @p219, @p220, @p221)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p222, @p223, @p224, @p225, @p226, @p227)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p228, @p229, @p230, @p231, @p232, @p233)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p234, @p235, @p236, @p237, @p238, @p239)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p240, @p241, @p242, @p243, @p244, @p245)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p246, @p247, @p248, @p249, @p250, @p251)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p252, @p253, @p254, @p255, @p256, @p257)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p258, @p259, @p260, @p261, @p262, @p263)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p264, @p265, @p266, @p267, @p268, @p269)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p270, @p271, @p272, @p273, @p274, @p275)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p276, @p277, @p278, @p279, @p280, @p281)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p282, @p283, @p284, @p285, @p286, @p287)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p288, @p289, @p290, @p291, @p292, @p293)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p294, @p295, @p296, @p297, @p298, @p299)
+RETURNING client_id;
+2025-01-15 21:50:53.944 +01:00 [ERR] An exception occurred in the database while saving changes for context type 'backend_negosud.entities.PostgresContext'.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Npgsql.PostgresException (0x80004005): 42P01: relation "client" does not exist
+
+POSITION: 13
+   at Npgsql.Internal.NpgsqlConnector.ReadMessageLong(Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult()
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.Execute(IRelationalConnection connection)
+  Exception data:
+    Severity: ERROR
+    SqlState: 42P01
+    MessageText: relation "client" does not exist
+    Position: 13
+    File: parse_relation.c
+    Line: 1452
+    Routine: parserOpenTable
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.Execute(IRelationalConnection connection)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.Execute(IEnumerable`1 commandBatches, IRelationalConnection connection)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabase.SaveChanges(IList`1 entries)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(IList`1 entriesToSave)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(StateManager stateManager, Boolean acceptAllChangesOnSuccess)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.<>c.<SaveChanges>b__112_0(DbContext _, ValueTuple`2 t)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(Boolean acceptAllChangesOnSuccess)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChanges(Boolean acceptAllChangesOnSuccess)
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Npgsql.PostgresException (0x80004005): 42P01: relation "client" does not exist
+
+POSITION: 13
+   at Npgsql.Internal.NpgsqlConnector.ReadMessageLong(Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult()
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.Execute(IRelationalConnection connection)
+  Exception data:
+    Severity: ERROR
+    SqlState: 42P01
+    MessageText: relation "client" does not exist
+    Position: 13
+    File: parse_relation.c
+    Line: 1452
+    Routine: parserOpenTable
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.Execute(IRelationalConnection connection)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.Execute(IEnumerable`1 commandBatches, IRelationalConnection connection)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabase.SaveChanges(IList`1 entries)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(IList`1 entriesToSave)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(StateManager stateManager, Boolean acceptAllChangesOnSuccess)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.<>c.<SaveChanges>b__112_0(DbContext _, ValueTuple`2 t)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(Boolean acceptAllChangesOnSuccess)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChanges(Boolean acceptAllChangesOnSuccess)
+2025-01-15 21:56:23.649 +01:00 [ERR] Failed executing DbCommand (36ms) [Parameters=[@p0='?', @p1='?' (DbType = Boolean), @p2='?', @p3='?', @p4='?', @p5='?', @p6='?', @p7='?' (DbType = Boolean), @p8='?', @p9='?', @p10='?', @p11='?', @p12='?', @p13='?' (DbType = Boolean), @p14='?', @p15='?', @p16='?', @p17='?', @p18='?', @p19='?' (DbType = Boolean), @p20='?', @p21='?', @p22='?', @p23='?', @p24='?', @p25='?' (DbType = Boolean), @p26='?', @p27='?', @p28='?', @p29='?', @p30='?', @p31='?' (DbType = Boolean), @p32='?', @p33='?', @p34='?', @p35='?', @p36='?', @p37='?' (DbType = Boolean), @p38='?', @p39='?', @p40='?', @p41='?', @p42='?', @p43='?' (DbType = Boolean), @p44='?', @p45='?', @p46='?', @p47='?', @p48='?', @p49='?' (DbType = Boolean), @p50='?', @p51='?', @p52='?', @p53='?', @p54='?', @p55='?' (DbType = Boolean), @p56='?', @p57='?', @p58='?', @p59='?', @p60='?', @p61='?' (DbType = Boolean), @p62='?', @p63='?', @p64='?', @p65='?', @p66='?', @p67='?' (DbType = Boolean), @p68='?', @p69='?', @p70='?', @p71='?', @p72='?', @p73='?' (DbType = Boolean), @p74='?', @p75='?', @p76='?', @p77='?', @p78='?', @p79='?' (DbType = Boolean), @p80='?', @p81='?', @p82='?', @p83='?', @p84='?', @p85='?' (DbType = Boolean), @p86='?', @p87='?', @p88='?', @p89='?', @p90='?', @p91='?' (DbType = Boolean), @p92='?', @p93='?', @p94='?', @p95='?', @p96='?', @p97='?' (DbType = Boolean), @p98='?', @p99='?', @p100='?', @p101='?', @p102='?', @p103='?' (DbType = Boolean), @p104='?', @p105='?', @p106='?', @p107='?', @p108='?', @p109='?' (DbType = Boolean), @p110='?', @p111='?', @p112='?', @p113='?', @p114='?', @p115='?' (DbType = Boolean), @p116='?', @p117='?', @p118='?', @p119='?', @p120='?', @p121='?' (DbType = Boolean), @p122='?', @p123='?', @p124='?', @p125='?', @p126='?', @p127='?' (DbType = Boolean), @p128='?', @p129='?', @p130='?', @p131='?', @p132='?', @p133='?' (DbType = Boolean), @p134='?', @p135='?', @p136='?', @p137='?', @p138='?', @p139='?' (DbType = Boolean), @p140='?', @p141='?', @p142='?', @p143='?', @p144='?', @p145='?' (DbType = Boolean), @p146='?', @p147='?', @p148='?', @p149='?', @p150='?', @p151='?' (DbType = Boolean), @p152='?', @p153='?', @p154='?', @p155='?', @p156='?', @p157='?' (DbType = Boolean), @p158='?', @p159='?', @p160='?', @p161='?', @p162='?', @p163='?' (DbType = Boolean), @p164='?', @p165='?', @p166='?', @p167='?', @p168='?', @p169='?' (DbType = Boolean), @p170='?', @p171='?', @p172='?', @p173='?', @p174='?', @p175='?' (DbType = Boolean), @p176='?', @p177='?', @p178='?', @p179='?', @p180='?', @p181='?' (DbType = Boolean), @p182='?', @p183='?', @p184='?', @p185='?', @p186='?', @p187='?' (DbType = Boolean), @p188='?', @p189='?', @p190='?', @p191='?', @p192='?', @p193='?' (DbType = Boolean), @p194='?', @p195='?', @p196='?', @p197='?', @p198='?', @p199='?' (DbType = Boolean), @p200='?', @p201='?', @p202='?', @p203='?', @p204='?', @p205='?' (DbType = Boolean), @p206='?', @p207='?', @p208='?', @p209='?', @p210='?', @p211='?' (DbType = Boolean), @p212='?', @p213='?', @p214='?', @p215='?', @p216='?', @p217='?' (DbType = Boolean), @p218='?', @p219='?', @p220='?', @p221='?', @p222='?', @p223='?' (DbType = Boolean), @p224='?', @p225='?', @p226='?', @p227='?', @p228='?', @p229='?' (DbType = Boolean), @p230='?', @p231='?', @p232='?', @p233='?', @p234='?', @p235='?' (DbType = Boolean), @p236='?', @p237='?', @p238='?', @p239='?', @p240='?', @p241='?' (DbType = Boolean), @p242='?', @p243='?', @p244='?', @p245='?', @p246='?', @p247='?' (DbType = Boolean), @p248='?', @p249='?', @p250='?', @p251='?', @p252='?', @p253='?' (DbType = Boolean), @p254='?', @p255='?', @p256='?', @p257='?', @p258='?', @p259='?' (DbType = Boolean), @p260='?', @p261='?', @p262='?', @p263='?', @p264='?', @p265='?' (DbType = Boolean), @p266='?', @p267='?', @p268='?', @p269='?', @p270='?', @p271='?' (DbType = Boolean), @p272='?', @p273='?', @p274='?', @p275='?', @p276='?', @p277='?' (DbType = Boolean), @p278='?', @p279='?', @p280='?', @p281='?', @p282='?', @p283='?' (DbType = Boolean), @p284='?', @p285='?', @p286='?', @p287='?', @p288='?', @p289='?' (DbType = Boolean), @p290='?', @p291='?', @p292='?', @p293='?', @p294='?', @p295='?' (DbType = Boolean), @p296='?', @p297='?', @p298='?', @p299='?'], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p6, @p7, @p8, @p9, @p10, @p11)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p12, @p13, @p14, @p15, @p16, @p17)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p18, @p19, @p20, @p21, @p22, @p23)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p24, @p25, @p26, @p27, @p28, @p29)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p30, @p31, @p32, @p33, @p34, @p35)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p36, @p37, @p38, @p39, @p40, @p41)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p42, @p43, @p44, @p45, @p46, @p47)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p48, @p49, @p50, @p51, @p52, @p53)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p54, @p55, @p56, @p57, @p58, @p59)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p60, @p61, @p62, @p63, @p64, @p65)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p66, @p67, @p68, @p69, @p70, @p71)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p72, @p73, @p74, @p75, @p76, @p77)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p78, @p79, @p80, @p81, @p82, @p83)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p84, @p85, @p86, @p87, @p88, @p89)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p90, @p91, @p92, @p93, @p94, @p95)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p96, @p97, @p98, @p99, @p100, @p101)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p102, @p103, @p104, @p105, @p106, @p107)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p108, @p109, @p110, @p111, @p112, @p113)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p114, @p115, @p116, @p117, @p118, @p119)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p120, @p121, @p122, @p123, @p124, @p125)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p126, @p127, @p128, @p129, @p130, @p131)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p132, @p133, @p134, @p135, @p136, @p137)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p138, @p139, @p140, @p141, @p142, @p143)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p144, @p145, @p146, @p147, @p148, @p149)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p150, @p151, @p152, @p153, @p154, @p155)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p156, @p157, @p158, @p159, @p160, @p161)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p162, @p163, @p164, @p165, @p166, @p167)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p168, @p169, @p170, @p171, @p172, @p173)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p174, @p175, @p176, @p177, @p178, @p179)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p180, @p181, @p182, @p183, @p184, @p185)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p186, @p187, @p188, @p189, @p190, @p191)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p192, @p193, @p194, @p195, @p196, @p197)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p198, @p199, @p200, @p201, @p202, @p203)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p204, @p205, @p206, @p207, @p208, @p209)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p210, @p211, @p212, @p213, @p214, @p215)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p216, @p217, @p218, @p219, @p220, @p221)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p222, @p223, @p224, @p225, @p226, @p227)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p228, @p229, @p230, @p231, @p232, @p233)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p234, @p235, @p236, @p237, @p238, @p239)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p240, @p241, @p242, @p243, @p244, @p245)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p246, @p247, @p248, @p249, @p250, @p251)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p252, @p253, @p254, @p255, @p256, @p257)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p258, @p259, @p260, @p261, @p262, @p263)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p264, @p265, @p266, @p267, @p268, @p269)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p270, @p271, @p272, @p273, @p274, @p275)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p276, @p277, @p278, @p279, @p280, @p281)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p282, @p283, @p284, @p285, @p286, @p287)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p288, @p289, @p290, @p291, @p292, @p293)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p294, @p295, @p296, @p297, @p298, @p299)
+RETURNING client_id;
+2025-01-15 21:56:23.708 +01:00 [ERR] An exception occurred in the database while saving changes for context type 'backend_negosud.entities.PostgresContext'.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Npgsql.PostgresException (0x80004005): 42P01: relation "client" does not exist
+
+POSITION: 13
+   at Npgsql.Internal.NpgsqlConnector.ReadMessageLong(Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult()
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.Execute(IRelationalConnection connection)
+  Exception data:
+    Severity: ERROR
+    SqlState: 42P01
+    MessageText: relation "client" does not exist
+    Position: 13
+    File: parse_relation.c
+    Line: 1452
+    Routine: parserOpenTable
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.Execute(IRelationalConnection connection)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.Execute(IEnumerable`1 commandBatches, IRelationalConnection connection)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabase.SaveChanges(IList`1 entries)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(IList`1 entriesToSave)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(StateManager stateManager, Boolean acceptAllChangesOnSuccess)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.<>c.<SaveChanges>b__112_0(DbContext _, ValueTuple`2 t)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(Boolean acceptAllChangesOnSuccess)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChanges(Boolean acceptAllChangesOnSuccess)
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Npgsql.PostgresException (0x80004005): 42P01: relation "client" does not exist
+
+POSITION: 13
+   at Npgsql.Internal.NpgsqlConnector.ReadMessageLong(Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult()
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.Execute(IRelationalConnection connection)
+  Exception data:
+    Severity: ERROR
+    SqlState: 42P01
+    MessageText: relation "client" does not exist
+    Position: 13
+    File: parse_relation.c
+    Line: 1452
+    Routine: parserOpenTable
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.Execute(IRelationalConnection connection)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.Execute(IEnumerable`1 commandBatches, IRelationalConnection connection)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabase.SaveChanges(IList`1 entries)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(IList`1 entriesToSave)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(StateManager stateManager, Boolean acceptAllChangesOnSuccess)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.<>c.<SaveChanges>b__112_0(DbContext _, ValueTuple`2 t)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(Boolean acceptAllChangesOnSuccess)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChanges(Boolean acceptAllChangesOnSuccess)
+2025-01-15 21:58:19.452 +01:00 [ERR] Failed executing DbCommand (41ms) [Parameters=[@p0='?', @p1='?' (DbType = Boolean), @p2='?', @p3='?', @p4='?', @p5='?', @p6='?', @p7='?' (DbType = Boolean), @p8='?', @p9='?', @p10='?', @p11='?', @p12='?', @p13='?' (DbType = Boolean), @p14='?', @p15='?', @p16='?', @p17='?', @p18='?', @p19='?' (DbType = Boolean), @p20='?', @p21='?', @p22='?', @p23='?', @p24='?', @p25='?' (DbType = Boolean), @p26='?', @p27='?', @p28='?', @p29='?', @p30='?', @p31='?' (DbType = Boolean), @p32='?', @p33='?', @p34='?', @p35='?', @p36='?', @p37='?' (DbType = Boolean), @p38='?', @p39='?', @p40='?', @p41='?', @p42='?', @p43='?' (DbType = Boolean), @p44='?', @p45='?', @p46='?', @p47='?', @p48='?', @p49='?' (DbType = Boolean), @p50='?', @p51='?', @p52='?', @p53='?', @p54='?', @p55='?' (DbType = Boolean), @p56='?', @p57='?', @p58='?', @p59='?', @p60='?', @p61='?' (DbType = Boolean), @p62='?', @p63='?', @p64='?', @p65='?', @p66='?', @p67='?' (DbType = Boolean), @p68='?', @p69='?', @p70='?', @p71='?', @p72='?', @p73='?' (DbType = Boolean), @p74='?', @p75='?', @p76='?', @p77='?', @p78='?', @p79='?' (DbType = Boolean), @p80='?', @p81='?', @p82='?', @p83='?', @p84='?', @p85='?' (DbType = Boolean), @p86='?', @p87='?', @p88='?', @p89='?', @p90='?', @p91='?' (DbType = Boolean), @p92='?', @p93='?', @p94='?', @p95='?', @p96='?', @p97='?' (DbType = Boolean), @p98='?', @p99='?', @p100='?', @p101='?', @p102='?', @p103='?' (DbType = Boolean), @p104='?', @p105='?', @p106='?', @p107='?', @p108='?', @p109='?' (DbType = Boolean), @p110='?', @p111='?', @p112='?', @p113='?', @p114='?', @p115='?' (DbType = Boolean), @p116='?', @p117='?', @p118='?', @p119='?', @p120='?', @p121='?' (DbType = Boolean), @p122='?', @p123='?', @p124='?', @p125='?', @p126='?', @p127='?' (DbType = Boolean), @p128='?', @p129='?', @p130='?', @p131='?', @p132='?', @p133='?' (DbType = Boolean), @p134='?', @p135='?', @p136='?', @p137='?', @p138='?', @p139='?' (DbType = Boolean), @p140='?', @p141='?', @p142='?', @p143='?', @p144='?', @p145='?' (DbType = Boolean), @p146='?', @p147='?', @p148='?', @p149='?', @p150='?', @p151='?' (DbType = Boolean), @p152='?', @p153='?', @p154='?', @p155='?', @p156='?', @p157='?' (DbType = Boolean), @p158='?', @p159='?', @p160='?', @p161='?', @p162='?', @p163='?' (DbType = Boolean), @p164='?', @p165='?', @p166='?', @p167='?', @p168='?', @p169='?' (DbType = Boolean), @p170='?', @p171='?', @p172='?', @p173='?', @p174='?', @p175='?' (DbType = Boolean), @p176='?', @p177='?', @p178='?', @p179='?', @p180='?', @p181='?' (DbType = Boolean), @p182='?', @p183='?', @p184='?', @p185='?', @p186='?', @p187='?' (DbType = Boolean), @p188='?', @p189='?', @p190='?', @p191='?', @p192='?', @p193='?' (DbType = Boolean), @p194='?', @p195='?', @p196='?', @p197='?', @p198='?', @p199='?' (DbType = Boolean), @p200='?', @p201='?', @p202='?', @p203='?', @p204='?', @p205='?' (DbType = Boolean), @p206='?', @p207='?', @p208='?', @p209='?', @p210='?', @p211='?' (DbType = Boolean), @p212='?', @p213='?', @p214='?', @p215='?', @p216='?', @p217='?' (DbType = Boolean), @p218='?', @p219='?', @p220='?', @p221='?', @p222='?', @p223='?' (DbType = Boolean), @p224='?', @p225='?', @p226='?', @p227='?', @p228='?', @p229='?' (DbType = Boolean), @p230='?', @p231='?', @p232='?', @p233='?', @p234='?', @p235='?' (DbType = Boolean), @p236='?', @p237='?', @p238='?', @p239='?', @p240='?', @p241='?' (DbType = Boolean), @p242='?', @p243='?', @p244='?', @p245='?', @p246='?', @p247='?' (DbType = Boolean), @p248='?', @p249='?', @p250='?', @p251='?', @p252='?', @p253='?' (DbType = Boolean), @p254='?', @p255='?', @p256='?', @p257='?', @p258='?', @p259='?' (DbType = Boolean), @p260='?', @p261='?', @p262='?', @p263='?', @p264='?', @p265='?' (DbType = Boolean), @p266='?', @p267='?', @p268='?', @p269='?', @p270='?', @p271='?' (DbType = Boolean), @p272='?', @p273='?', @p274='?', @p275='?', @p276='?', @p277='?' (DbType = Boolean), @p278='?', @p279='?', @p280='?', @p281='?', @p282='?', @p283='?' (DbType = Boolean), @p284='?', @p285='?', @p286='?', @p287='?', @p288='?', @p289='?' (DbType = Boolean), @p290='?', @p291='?', @p292='?', @p293='?', @p294='?', @p295='?' (DbType = Boolean), @p296='?', @p297='?', @p298='?', @p299='?'], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p6, @p7, @p8, @p9, @p10, @p11)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p12, @p13, @p14, @p15, @p16, @p17)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p18, @p19, @p20, @p21, @p22, @p23)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p24, @p25, @p26, @p27, @p28, @p29)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p30, @p31, @p32, @p33, @p34, @p35)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p36, @p37, @p38, @p39, @p40, @p41)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p42, @p43, @p44, @p45, @p46, @p47)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p48, @p49, @p50, @p51, @p52, @p53)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p54, @p55, @p56, @p57, @p58, @p59)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p60, @p61, @p62, @p63, @p64, @p65)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p66, @p67, @p68, @p69, @p70, @p71)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p72, @p73, @p74, @p75, @p76, @p77)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p78, @p79, @p80, @p81, @p82, @p83)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p84, @p85, @p86, @p87, @p88, @p89)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p90, @p91, @p92, @p93, @p94, @p95)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p96, @p97, @p98, @p99, @p100, @p101)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p102, @p103, @p104, @p105, @p106, @p107)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p108, @p109, @p110, @p111, @p112, @p113)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p114, @p115, @p116, @p117, @p118, @p119)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p120, @p121, @p122, @p123, @p124, @p125)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p126, @p127, @p128, @p129, @p130, @p131)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p132, @p133, @p134, @p135, @p136, @p137)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p138, @p139, @p140, @p141, @p142, @p143)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p144, @p145, @p146, @p147, @p148, @p149)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p150, @p151, @p152, @p153, @p154, @p155)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p156, @p157, @p158, @p159, @p160, @p161)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p162, @p163, @p164, @p165, @p166, @p167)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p168, @p169, @p170, @p171, @p172, @p173)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p174, @p175, @p176, @p177, @p178, @p179)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p180, @p181, @p182, @p183, @p184, @p185)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p186, @p187, @p188, @p189, @p190, @p191)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p192, @p193, @p194, @p195, @p196, @p197)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p198, @p199, @p200, @p201, @p202, @p203)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p204, @p205, @p206, @p207, @p208, @p209)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p210, @p211, @p212, @p213, @p214, @p215)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p216, @p217, @p218, @p219, @p220, @p221)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p222, @p223, @p224, @p225, @p226, @p227)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p228, @p229, @p230, @p231, @p232, @p233)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p234, @p235, @p236, @p237, @p238, @p239)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p240, @p241, @p242, @p243, @p244, @p245)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p246, @p247, @p248, @p249, @p250, @p251)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p252, @p253, @p254, @p255, @p256, @p257)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p258, @p259, @p260, @p261, @p262, @p263)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p264, @p265, @p266, @p267, @p268, @p269)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p270, @p271, @p272, @p273, @p274, @p275)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p276, @p277, @p278, @p279, @p280, @p281)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p282, @p283, @p284, @p285, @p286, @p287)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p288, @p289, @p290, @p291, @p292, @p293)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p294, @p295, @p296, @p297, @p298, @p299)
+RETURNING client_id;
+2025-01-15 21:58:19.515 +01:00 [ERR] An exception occurred in the database while saving changes for context type 'backend_negosud.entities.PostgresContext'.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Npgsql.PostgresException (0x80004005): 42P01: relation "client" does not exist
+
+POSITION: 13
+   at Npgsql.Internal.NpgsqlConnector.ReadMessageLong(Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult()
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.Execute(IRelationalConnection connection)
+  Exception data:
+    Severity: ERROR
+    SqlState: 42P01
+    MessageText: relation "client" does not exist
+    Position: 13
+    File: parse_relation.c
+    Line: 1452
+    Routine: parserOpenTable
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.Execute(IRelationalConnection connection)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.Execute(IEnumerable`1 commandBatches, IRelationalConnection connection)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabase.SaveChanges(IList`1 entries)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(IList`1 entriesToSave)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(StateManager stateManager, Boolean acceptAllChangesOnSuccess)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.<>c.<SaveChanges>b__112_0(DbContext _, ValueTuple`2 t)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(Boolean acceptAllChangesOnSuccess)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChanges(Boolean acceptAllChangesOnSuccess)
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Npgsql.PostgresException (0x80004005): 42P01: relation "client" does not exist
+
+POSITION: 13
+   at Npgsql.Internal.NpgsqlConnector.ReadMessageLong(Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult()
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.Execute(IRelationalConnection connection)
+  Exception data:
+    Severity: ERROR
+    SqlState: 42P01
+    MessageText: relation "client" does not exist
+    Position: 13
+    File: parse_relation.c
+    Line: 1452
+    Routine: parserOpenTable
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.Execute(IRelationalConnection connection)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.Execute(IEnumerable`1 commandBatches, IRelationalConnection connection)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabase.SaveChanges(IList`1 entries)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(IList`1 entriesToSave)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(StateManager stateManager, Boolean acceptAllChangesOnSuccess)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.<>c.<SaveChanges>b__112_0(DbContext _, ValueTuple`2 t)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(Boolean acceptAllChangesOnSuccess)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChanges(Boolean acceptAllChangesOnSuccess)
+2025-01-15 21:59:01.492 +01:00 [ERR] Failed executing DbCommand (33ms) [Parameters=[@p0='?', @p1='?' (DbType = Boolean), @p2='?', @p3='?', @p4='?', @p5='?', @p6='?', @p7='?' (DbType = Boolean), @p8='?', @p9='?', @p10='?', @p11='?', @p12='?', @p13='?' (DbType = Boolean), @p14='?', @p15='?', @p16='?', @p17='?', @p18='?', @p19='?' (DbType = Boolean), @p20='?', @p21='?', @p22='?', @p23='?', @p24='?', @p25='?' (DbType = Boolean), @p26='?', @p27='?', @p28='?', @p29='?', @p30='?', @p31='?' (DbType = Boolean), @p32='?', @p33='?', @p34='?', @p35='?', @p36='?', @p37='?' (DbType = Boolean), @p38='?', @p39='?', @p40='?', @p41='?', @p42='?', @p43='?' (DbType = Boolean), @p44='?', @p45='?', @p46='?', @p47='?', @p48='?', @p49='?' (DbType = Boolean), @p50='?', @p51='?', @p52='?', @p53='?', @p54='?', @p55='?' (DbType = Boolean), @p56='?', @p57='?', @p58='?', @p59='?', @p60='?', @p61='?' (DbType = Boolean), @p62='?', @p63='?', @p64='?', @p65='?', @p66='?', @p67='?' (DbType = Boolean), @p68='?', @p69='?', @p70='?', @p71='?', @p72='?', @p73='?' (DbType = Boolean), @p74='?', @p75='?', @p76='?', @p77='?', @p78='?', @p79='?' (DbType = Boolean), @p80='?', @p81='?', @p82='?', @p83='?', @p84='?', @p85='?' (DbType = Boolean), @p86='?', @p87='?', @p88='?', @p89='?', @p90='?', @p91='?' (DbType = Boolean), @p92='?', @p93='?', @p94='?', @p95='?', @p96='?', @p97='?' (DbType = Boolean), @p98='?', @p99='?', @p100='?', @p101='?', @p102='?', @p103='?' (DbType = Boolean), @p104='?', @p105='?', @p106='?', @p107='?', @p108='?', @p109='?' (DbType = Boolean), @p110='?', @p111='?', @p112='?', @p113='?', @p114='?', @p115='?' (DbType = Boolean), @p116='?', @p117='?', @p118='?', @p119='?', @p120='?', @p121='?' (DbType = Boolean), @p122='?', @p123='?', @p124='?', @p125='?', @p126='?', @p127='?' (DbType = Boolean), @p128='?', @p129='?', @p130='?', @p131='?', @p132='?', @p133='?' (DbType = Boolean), @p134='?', @p135='?', @p136='?', @p137='?', @p138='?', @p139='?' (DbType = Boolean), @p140='?', @p141='?', @p142='?', @p143='?', @p144='?', @p145='?' (DbType = Boolean), @p146='?', @p147='?', @p148='?', @p149='?', @p150='?', @p151='?' (DbType = Boolean), @p152='?', @p153='?', @p154='?', @p155='?', @p156='?', @p157='?' (DbType = Boolean), @p158='?', @p159='?', @p160='?', @p161='?', @p162='?', @p163='?' (DbType = Boolean), @p164='?', @p165='?', @p166='?', @p167='?', @p168='?', @p169='?' (DbType = Boolean), @p170='?', @p171='?', @p172='?', @p173='?', @p174='?', @p175='?' (DbType = Boolean), @p176='?', @p177='?', @p178='?', @p179='?', @p180='?', @p181='?' (DbType = Boolean), @p182='?', @p183='?', @p184='?', @p185='?', @p186='?', @p187='?' (DbType = Boolean), @p188='?', @p189='?', @p190='?', @p191='?', @p192='?', @p193='?' (DbType = Boolean), @p194='?', @p195='?', @p196='?', @p197='?', @p198='?', @p199='?' (DbType = Boolean), @p200='?', @p201='?', @p202='?', @p203='?', @p204='?', @p205='?' (DbType = Boolean), @p206='?', @p207='?', @p208='?', @p209='?', @p210='?', @p211='?' (DbType = Boolean), @p212='?', @p213='?', @p214='?', @p215='?', @p216='?', @p217='?' (DbType = Boolean), @p218='?', @p219='?', @p220='?', @p221='?', @p222='?', @p223='?' (DbType = Boolean), @p224='?', @p225='?', @p226='?', @p227='?', @p228='?', @p229='?' (DbType = Boolean), @p230='?', @p231='?', @p232='?', @p233='?', @p234='?', @p235='?' (DbType = Boolean), @p236='?', @p237='?', @p238='?', @p239='?', @p240='?', @p241='?' (DbType = Boolean), @p242='?', @p243='?', @p244='?', @p245='?', @p246='?', @p247='?' (DbType = Boolean), @p248='?', @p249='?', @p250='?', @p251='?', @p252='?', @p253='?' (DbType = Boolean), @p254='?', @p255='?', @p256='?', @p257='?', @p258='?', @p259='?' (DbType = Boolean), @p260='?', @p261='?', @p262='?', @p263='?', @p264='?', @p265='?' (DbType = Boolean), @p266='?', @p267='?', @p268='?', @p269='?', @p270='?', @p271='?' (DbType = Boolean), @p272='?', @p273='?', @p274='?', @p275='?', @p276='?', @p277='?' (DbType = Boolean), @p278='?', @p279='?', @p280='?', @p281='?', @p282='?', @p283='?' (DbType = Boolean), @p284='?', @p285='?', @p286='?', @p287='?', @p288='?', @p289='?' (DbType = Boolean), @p290='?', @p291='?', @p292='?', @p293='?', @p294='?', @p295='?' (DbType = Boolean), @p296='?', @p297='?', @p298='?', @p299='?'], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p6, @p7, @p8, @p9, @p10, @p11)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p12, @p13, @p14, @p15, @p16, @p17)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p18, @p19, @p20, @p21, @p22, @p23)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p24, @p25, @p26, @p27, @p28, @p29)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p30, @p31, @p32, @p33, @p34, @p35)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p36, @p37, @p38, @p39, @p40, @p41)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p42, @p43, @p44, @p45, @p46, @p47)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p48, @p49, @p50, @p51, @p52, @p53)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p54, @p55, @p56, @p57, @p58, @p59)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p60, @p61, @p62, @p63, @p64, @p65)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p66, @p67, @p68, @p69, @p70, @p71)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p72, @p73, @p74, @p75, @p76, @p77)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p78, @p79, @p80, @p81, @p82, @p83)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p84, @p85, @p86, @p87, @p88, @p89)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p90, @p91, @p92, @p93, @p94, @p95)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p96, @p97, @p98, @p99, @p100, @p101)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p102, @p103, @p104, @p105, @p106, @p107)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p108, @p109, @p110, @p111, @p112, @p113)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p114, @p115, @p116, @p117, @p118, @p119)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p120, @p121, @p122, @p123, @p124, @p125)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p126, @p127, @p128, @p129, @p130, @p131)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p132, @p133, @p134, @p135, @p136, @p137)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p138, @p139, @p140, @p141, @p142, @p143)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p144, @p145, @p146, @p147, @p148, @p149)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p150, @p151, @p152, @p153, @p154, @p155)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p156, @p157, @p158, @p159, @p160, @p161)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p162, @p163, @p164, @p165, @p166, @p167)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p168, @p169, @p170, @p171, @p172, @p173)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p174, @p175, @p176, @p177, @p178, @p179)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p180, @p181, @p182, @p183, @p184, @p185)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p186, @p187, @p188, @p189, @p190, @p191)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p192, @p193, @p194, @p195, @p196, @p197)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p198, @p199, @p200, @p201, @p202, @p203)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p204, @p205, @p206, @p207, @p208, @p209)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p210, @p211, @p212, @p213, @p214, @p215)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p216, @p217, @p218, @p219, @p220, @p221)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p222, @p223, @p224, @p225, @p226, @p227)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p228, @p229, @p230, @p231, @p232, @p233)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p234, @p235, @p236, @p237, @p238, @p239)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p240, @p241, @p242, @p243, @p244, @p245)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p246, @p247, @p248, @p249, @p250, @p251)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p252, @p253, @p254, @p255, @p256, @p257)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p258, @p259, @p260, @p261, @p262, @p263)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p264, @p265, @p266, @p267, @p268, @p269)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p270, @p271, @p272, @p273, @p274, @p275)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p276, @p277, @p278, @p279, @p280, @p281)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p282, @p283, @p284, @p285, @p286, @p287)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p288, @p289, @p290, @p291, @p292, @p293)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p294, @p295, @p296, @p297, @p298, @p299)
+RETURNING client_id;
+2025-01-15 21:59:01.555 +01:00 [ERR] An exception occurred in the database while saving changes for context type 'backend_negosud.entities.PostgresContext'.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Npgsql.PostgresException (0x80004005): 42P01: relation "client" does not exist
+
+POSITION: 13
+   at Npgsql.Internal.NpgsqlConnector.ReadMessageLong(Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult()
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.Execute(IRelationalConnection connection)
+  Exception data:
+    Severity: ERROR
+    SqlState: 42P01
+    MessageText: relation "client" does not exist
+    Position: 13
+    File: parse_relation.c
+    Line: 1452
+    Routine: parserOpenTable
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.Execute(IRelationalConnection connection)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.Execute(IEnumerable`1 commandBatches, IRelationalConnection connection)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabase.SaveChanges(IList`1 entries)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(IList`1 entriesToSave)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(StateManager stateManager, Boolean acceptAllChangesOnSuccess)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.<>c.<SaveChanges>b__112_0(DbContext _, ValueTuple`2 t)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(Boolean acceptAllChangesOnSuccess)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChanges(Boolean acceptAllChangesOnSuccess)
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Npgsql.PostgresException (0x80004005): 42P01: relation "client" does not exist
+
+POSITION: 13
+   at Npgsql.Internal.NpgsqlConnector.ReadMessageLong(Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult()
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.Execute(IRelationalConnection connection)
+  Exception data:
+    Severity: ERROR
+    SqlState: 42P01
+    MessageText: relation "client" does not exist
+    Position: 13
+    File: parse_relation.c
+    Line: 1452
+    Routine: parserOpenTable
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.Execute(IRelationalConnection connection)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.Execute(IEnumerable`1 commandBatches, IRelationalConnection connection)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabase.SaveChanges(IList`1 entries)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(IList`1 entriesToSave)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(StateManager stateManager, Boolean acceptAllChangesOnSuccess)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.<>c.<SaveChanges>b__112_0(DbContext _, ValueTuple`2 t)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(Boolean acceptAllChangesOnSuccess)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChanges(Boolean acceptAllChangesOnSuccess)
+2025-01-15 21:59:44.388 +01:00 [INF] Executed DbCommand (27ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1 FROM pg_catalog.pg_class c
+    JOIN pg_catalog.pg_namespace n ON n.oid=c.relnamespace
+    WHERE n.nspname='public' AND
+          c.relname='__EFMigrationsHistory'
+)
+2025-01-15 21:59:44.462 +01:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1 FROM pg_catalog.pg_class c
+    JOIN pg_catalog.pg_namespace n ON n.oid=c.relnamespace
+    WHERE n.nspname='public' AND
+          c.relname='__EFMigrationsHistory'
+)
+2025-01-15 21:59:44.528 +01:00 [INF] Executed DbCommand (16ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE "__EFMigrationsHistory" (
+    "MigrationId" character varying(150) NOT NULL,
+    "ProductVersion" character varying(32) NOT NULL,
+    CONSTRAINT "PK___EFMigrationsHistory" PRIMARY KEY ("MigrationId")
+);
+2025-01-15 21:59:44.550 +01:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1 FROM pg_catalog.pg_class c
+    JOIN pg_catalog.pg_namespace n ON n.oid=c.relnamespace
+    WHERE n.nspname='public' AND
+          c.relname='__EFMigrationsHistory'
+)
+2025-01-15 21:59:44.552 +01:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2025-01-15 21:59:44.560 +01:00 [INF] Applying migration '20250113171315_InitialMigration'.
+2025-01-15 21:59:44.601 +01:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE client (
+    client_id integer GENERATED BY DEFAULT AS IDENTITY,
+    nom character varying(50),
+    prenom character varying(50),
+    email character varying(100),
+    mot_de_passe character varying(300) NOT NULL,
+    tel character varying(15),
+    est_valide boolean NOT NULL,
+    CONSTRAINT client_pkey PRIMARY KEY (client_id)
+);
+2025-01-15 21:59:44.602 +01:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE famille (
+    famille_id integer GENERATED BY DEFAULT AS IDENTITY,
+    nom character varying(100),
+    CONSTRAINT famille_pkey PRIMARY KEY (famille_id)
+);
+2025-01-15 21:59:44.603 +01:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE fournisseur (
+    fournisseur_id integer GENERATED BY DEFAULT AS IDENTITY,
+    nom character varying(50),
+    raison_sociale character varying(150),
+    email character varying(100) NOT NULL,
+    tel character varying(15),
+    CONSTRAINT fournisseur_pkey PRIMARY KEY (fournisseur_id)
+);
+2025-01-15 21:59:44.604 +01:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE livraison (
+    livraison_id integer GENERATED BY DEFAULT AS IDENTITY,
+    date_estimee timestamp without time zone,
+    date_livraison timestamp without time zone,
+    livree boolean,
+    CONSTRAINT livraison_pkey PRIMARY KEY (livraison_id)
+);
+2025-01-15 21:59:44.605 +01:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE pays (
+    pays_id integer GENERATED BY DEFAULT AS IDENTITY,
+    nom character varying(50),
+    CONSTRAINT pays_pkey PRIMARY KEY (pays_id)
+);
+2025-01-15 21:59:44.606 +01:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE role (
+    role_id integer GENERATED BY DEFAULT AS IDENTITY,
+    nom character varying(70),
+    CONSTRAINT role_pkey PRIMARY KEY (role_id)
+);
+2025-01-15 21:59:44.607 +01:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE tva (
+    tva_id integer GENERATED BY DEFAULT AS IDENTITY,
+    valeur double precision,
+    CONSTRAINT tva_pkey PRIMARY KEY (tva_id)
+);
+2025-01-15 21:59:44.610 +01:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE ligne_livraison (
+    ligne_livraison_id integer GENERATED BY DEFAULT AS IDENTITY,
+    quantite integer NOT NULL,
+    livraison_id integer NOT NULL,
+    CONSTRAINT ligne_livraison_pkey PRIMARY KEY (ligne_livraison_id),
+    CONSTRAINT ligne_livraison_livraison_id_fkey FOREIGN KEY (livraison_id) REFERENCES livraison (livraison_id)
+);
+2025-01-15 21:59:44.611 +01:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE utilisateur (
+    utilisateur_id integer GENERATED BY DEFAULT AS IDENTITY,
+    nom character varying(50),
+    prenom character varying(50),
+    email character varying(100),
+    mot_de_passe character varying(300) NOT NULL,
+    telephone character varying(15),
+    access_token character varying(300) NOT NULL,
+    role_id integer NOT NULL,
+    CONSTRAINT utilisateur_pkey PRIMARY KEY (utilisateur_id),
+    CONSTRAINT utilisateur_role_id_fkey FOREIGN KEY (role_id) REFERENCES role (role_id)
+);
+2025-01-15 21:59:44.613 +01:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE article (
+    article_id integer GENERATED BY DEFAULT AS IDENTITY,
+    libelle character varying(150),
+    reference character varying(25),
+    prix double precision,
+    famille_id integer NOT NULL,
+    fournisseur_id integer NOT NULL,
+    tva_id integer NOT NULL,
+    CONSTRAINT article_pkey PRIMARY KEY (article_id),
+    CONSTRAINT article_famille_id_fkey FOREIGN KEY (famille_id) REFERENCES famille (famille_id),
+    CONSTRAINT article_fournisseur_id_fkey FOREIGN KEY (fournisseur_id) REFERENCES fournisseur (fournisseur_id),
+    CONSTRAINT article_tva_id_fkey FOREIGN KEY (tva_id) REFERENCES tva (tva_id)
+);
+2025-01-15 21:59:44.615 +01:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE adresse (
+    adresse_id integer GENERATED BY DEFAULT AS IDENTITY,
+    numero integer,
+    ville character varying,
+    code_postal integer,
+    departement character varying(50) NOT NULL,
+    pays_id integer NOT NULL,
+    client_id integer NOT NULL,
+    utilisateur_id integer NOT NULL,
+    fournisseur_id integer NOT NULL,
+    CONSTRAINT adresse_pkey PRIMARY KEY (adresse_id),
+    CONSTRAINT adresse_client_id_fkey FOREIGN KEY (client_id) REFERENCES client (client_id),
+    CONSTRAINT adresse_fournisseur_id_fkey FOREIGN KEY (fournisseur_id) REFERENCES fournisseur (fournisseur_id),
+    CONSTRAINT adresse_pays_id_fkey FOREIGN KEY (pays_id) REFERENCES pays (pays_id),
+    CONSTRAINT adresse_utilisateur_id_fkey FOREIGN KEY (utilisateur_id) REFERENCES utilisateur (utilisateur_id)
+);
+2025-01-15 21:59:44.618 +01:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE bon_commande (
+    bon_commande_id integer GENERATED BY DEFAULT AS IDENTITY,
+    status character varying(50),
+    reference character varying(25),
+    prix numeric(15,3),
+    utilisateur_id integer NOT NULL,
+    CONSTRAINT bon_commande_pkey PRIMARY KEY (bon_commande_id),
+    CONSTRAINT bon_commande_utilisateur_id_fkey FOREIGN KEY (utilisateur_id) REFERENCES utilisateur (utilisateur_id)
+);
+2025-01-15 21:59:44.619 +01:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE reinitialisation_mdp (
+    reinitialisation_mdp_id integer GENERATED BY DEFAULT AS IDENTITY,
+    date_demande timestamp without time zone,
+    mot_de_passe character varying(300),
+    reset_token character varying(300) NOT NULL,
+    utilisateur_id integer NOT NULL,
+    client_id integer NOT NULL,
+    CONSTRAINT reinitialisation_mdp_pkey PRIMARY KEY (reinitialisation_mdp_id),
+    CONSTRAINT reinitialisation_mdp_client_id_fkey FOREIGN KEY (client_id) REFERENCES client (client_id),
+    CONSTRAINT reinitialisation_mdp_utilisateur_id_fkey FOREIGN KEY (utilisateur_id) REFERENCES utilisateur (utilisateur_id)
+);
+2025-01-15 21:59:44.621 +01:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE image (
+    image_id integer GENERATED BY DEFAULT AS IDENTITY,
+    libelle character varying(150),
+    format character varying(10),
+    slug character varying(300),
+    article_id integer NOT NULL,
+    CONSTRAINT image_pkey PRIMARY KEY (image_id),
+    CONSTRAINT image_article_id_fkey FOREIGN KEY (article_id) REFERENCES article (article_id)
+);
+2025-01-15 21:59:44.622 +01:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE stock (
+    stock_id integer GENERATED BY DEFAULT AS IDENTITY,
+    ref_lot character varying(50),
+    quantite integer,
+    seuil_minimum double precision,
+    reapprovisionnement_auto boolean NOT NULL,
+    article_id integer NOT NULL,
+    CONSTRAINT stock_pkey PRIMARY KEY (stock_id),
+    CONSTRAINT stock_article_id_fkey FOREIGN KEY (article_id) REFERENCES article (article_id)
+);
+2025-01-15 21:59:44.623 +01:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE lier (
+    adresse_id integer NOT NULL,
+    livraison_id integer NOT NULL,
+    CONSTRAINT lier_pkey PRIMARY KEY (adresse_id, livraison_id),
+    CONSTRAINT lier_adresse_id_fkey FOREIGN KEY (adresse_id) REFERENCES adresse (adresse_id),
+    CONSTRAINT lier_livraison_id_fkey FOREIGN KEY (livraison_id) REFERENCES livraison (livraison_id)
+);
+2025-01-15 21:59:44.624 +01:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE ligne_bon_commande (
+    ligne_bon_commande_id integer GENERATED BY DEFAULT AS IDENTITY,
+    quantite integer NOT NULL,
+    prix_unitaire double precision NOT NULL,
+    article_id integer NOT NULL,
+    bon_commande_id integer NOT NULL,
+    ligne_livraison_id integer,
+    CONSTRAINT ligne_bon_commande_pkey PRIMARY KEY (ligne_bon_commande_id),
+    CONSTRAINT ligne_bon_commande_article_id_fkey FOREIGN KEY (article_id) REFERENCES article (article_id),
+    CONSTRAINT ligne_bon_commande_bon_commande_id_fkey FOREIGN KEY (bon_commande_id) REFERENCES bon_commande (bon_commande_id),
+    CONSTRAINT ligne_bon_commande_ligne_livraison_id_fkey FOREIGN KEY (ligne_livraison_id) REFERENCES ligne_livraison (ligne_livraison_id)
+);
+2025-01-15 21:59:44.626 +01:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE inventorier (
+    utilisateur_id integer NOT NULL,
+    stock_id integer NOT NULL,
+    date_modification timestamp without time zone NOT NULL,
+    type_modification character varying(70) NOT NULL,
+    quantite_precedente integer NOT NULL,
+    quantite_post_modification integer NOT NULL,
+    CONSTRAINT inventorier_pkey PRIMARY KEY (utilisateur_id, stock_id),
+    CONSTRAINT inventorier_stock_id_fkey FOREIGN KEY (stock_id) REFERENCES stock (stock_id),
+    CONSTRAINT inventorier_utilisateur_id_fkey FOREIGN KEY (utilisateur_id) REFERENCES utilisateur (utilisateur_id)
+);
+2025-01-15 21:59:44.627 +01:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE commande (
+    commande_id integer GENERATED BY DEFAULT AS IDENTITY,
+    date_creation timestamp without time zone,
+    quantite integer NOT NULL,
+    valide boolean NOT NULL,
+    client_id integer NOT NULL,
+    livraison_id integer NOT NULL,
+    facture_id integer,
+    CONSTRAINT commande_pkey PRIMARY KEY (commande_id),
+    CONSTRAINT commande_client_id_fkey FOREIGN KEY (client_id) REFERENCES client (client_id),
+    CONSTRAINT commande_livraison_id_fkey FOREIGN KEY (livraison_id) REFERENCES livraison (livraison_id)
+);
+2025-01-15 21:59:44.628 +01:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE facture (
+    facture_id integer GENERATED BY DEFAULT AS IDENTITY,
+    reference character varying(50),
+    date_facturation timestamp without time zone,
+    montant_ht double precision NOT NULL,
+    montant_ttc double precision NOT NULL,
+    montant_tva double precision NOT NULL,
+    client_id integer NOT NULL,
+    commande_id integer,
+    CONSTRAINT facture_pkey PRIMARY KEY (facture_id),
+    CONSTRAINT facture_client_id_fkey FOREIGN KEY (client_id) REFERENCES client (client_id),
+    CONSTRAINT facture_commande_id_fkey FOREIGN KEY (commande_id) REFERENCES commande (commande_id)
+);
+2025-01-15 21:59:44.630 +01:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE ligne_commande (
+    ligne_commande_id integer GENERATED BY DEFAULT AS IDENTITY,
+    quantite integer NOT NULL,
+    commande_id integer NOT NULL,
+    article_id integer NOT NULL,
+    CONSTRAINT ligne_commande_pkey PRIMARY KEY (ligne_commande_id),
+    CONSTRAINT ligne_commande_article_id_fkey FOREIGN KEY (article_id) REFERENCES article (article_id),
+    CONSTRAINT ligne_commande_commande_id_fkey FOREIGN KEY (commande_id) REFERENCES commande (commande_id)
+);
+2025-01-15 21:59:44.631 +01:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE reglement (
+    reglement_id integer GENERATED BY DEFAULT AS IDENTITY,
+    reference character varying(50),
+    montant double precision,
+    date timestamp without time zone NOT NULL,
+    commande_id integer NOT NULL,
+    CONSTRAINT reglement_pkey PRIMARY KEY (reglement_id),
+    CONSTRAINT reglement_commande_id_fkey FOREIGN KEY (commande_id) REFERENCES commande (commande_id)
+);
+2025-01-15 21:59:44.632 +01:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX "IX_adresse_client_id" ON adresse (client_id);
+2025-01-15 21:59:44.633 +01:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX "IX_adresse_fournisseur_id" ON adresse (fournisseur_id);
+2025-01-15 21:59:44.633 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX "IX_adresse_pays_id" ON adresse (pays_id);
+2025-01-15 21:59:44.634 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX "IX_adresse_utilisateur_id" ON adresse (utilisateur_id);
+2025-01-15 21:59:44.634 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX "IX_article_famille_id" ON article (famille_id);
+2025-01-15 21:59:44.635 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX "IX_article_fournisseur_id" ON article (fournisseur_id);
+2025-01-15 21:59:44.635 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX "IX_article_tva_id" ON article (tva_id);
+2025-01-15 21:59:44.636 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX "IX_bon_commande_utilisateur_id" ON bon_commande (utilisateur_id);
+2025-01-15 21:59:44.636 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE UNIQUE INDEX commande_facture_id_key ON commande (facture_id);
+2025-01-15 21:59:44.638 +01:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX "IX_commande_client_id" ON commande (client_id);
+2025-01-15 21:59:44.639 +01:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX "IX_commande_livraison_id" ON commande (livraison_id);
+2025-01-15 21:59:44.640 +01:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE UNIQUE INDEX facture_commande_id_key ON facture (commande_id);
+2025-01-15 21:59:44.641 +01:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX "IX_facture_client_id" ON facture (client_id);
+2025-01-15 21:59:44.641 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX "IX_image_article_id" ON image (article_id);
+2025-01-15 21:59:44.642 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX "IX_inventorier_stock_id" ON inventorier (stock_id);
+2025-01-15 21:59:44.642 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX "IX_lier_livraison_id" ON lier (livraison_id);
+2025-01-15 21:59:44.643 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX "IX_ligne_bon_commande_article_id" ON ligne_bon_commande (article_id);
+2025-01-15 21:59:44.643 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX "IX_ligne_bon_commande_bon_commande_id" ON ligne_bon_commande (bon_commande_id);
+2025-01-15 21:59:44.644 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX "IX_ligne_bon_commande_ligne_livraison_id" ON ligne_bon_commande (ligne_livraison_id);
+2025-01-15 21:59:44.645 +01:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX "IX_ligne_commande_article_id" ON ligne_commande (article_id);
+2025-01-15 21:59:44.645 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX "IX_ligne_commande_commande_id" ON ligne_commande (commande_id);
+2025-01-15 21:59:44.646 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX "IX_ligne_livraison_livraison_id" ON ligne_livraison (livraison_id);
+2025-01-15 21:59:44.646 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX "IX_reglement_commande_id" ON reglement (commande_id);
+2025-01-15 21:59:44.647 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX "IX_reinitialisation_mdp_client_id" ON reinitialisation_mdp (client_id);
+2025-01-15 21:59:44.647 +01:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX "IX_reinitialisation_mdp_utilisateur_id" ON reinitialisation_mdp (utilisateur_id);
+2025-01-15 21:59:44.648 +01:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX "IX_stock_article_id" ON stock (article_id);
+2025-01-15 21:59:44.648 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX "IX_utilisateur_role_id" ON utilisateur (role_id);
+2025-01-15 21:59:44.650 +01:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE commande ADD CONSTRAINT commande_facture_id_fkey FOREIGN KEY (facture_id) REFERENCES facture (facture_id);
+2025-01-15 21:59:44.650 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "__EFMigrationsHistory" ("MigrationId", "ProductVersion")
+VALUES ('20250113171315_InitialMigration', '8.0.11');
+2025-01-15 21:59:55.057 +01:00 [ERR] Failed executing DbCommand (28ms) [Parameters=[@p0='?', @p1='?' (DbType = Boolean), @p2='?', @p3='?', @p4='?', @p5='?', @p6='?', @p7='?' (DbType = Boolean), @p8='?', @p9='?', @p10='?', @p11='?', @p12='?', @p13='?' (DbType = Boolean), @p14='?', @p15='?', @p16='?', @p17='?', @p18='?', @p19='?' (DbType = Boolean), @p20='?', @p21='?', @p22='?', @p23='?', @p24='?', @p25='?' (DbType = Boolean), @p26='?', @p27='?', @p28='?', @p29='?', @p30='?', @p31='?' (DbType = Boolean), @p32='?', @p33='?', @p34='?', @p35='?', @p36='?', @p37='?' (DbType = Boolean), @p38='?', @p39='?', @p40='?', @p41='?', @p42='?', @p43='?' (DbType = Boolean), @p44='?', @p45='?', @p46='?', @p47='?', @p48='?', @p49='?' (DbType = Boolean), @p50='?', @p51='?', @p52='?', @p53='?', @p54='?', @p55='?' (DbType = Boolean), @p56='?', @p57='?', @p58='?', @p59='?', @p60='?', @p61='?' (DbType = Boolean), @p62='?', @p63='?', @p64='?', @p65='?', @p66='?', @p67='?' (DbType = Boolean), @p68='?', @p69='?', @p70='?', @p71='?', @p72='?', @p73='?' (DbType = Boolean), @p74='?', @p75='?', @p76='?', @p77='?', @p78='?', @p79='?' (DbType = Boolean), @p80='?', @p81='?', @p82='?', @p83='?', @p84='?', @p85='?' (DbType = Boolean), @p86='?', @p87='?', @p88='?', @p89='?', @p90='?', @p91='?' (DbType = Boolean), @p92='?', @p93='?', @p94='?', @p95='?', @p96='?', @p97='?' (DbType = Boolean), @p98='?', @p99='?', @p100='?', @p101='?', @p102='?', @p103='?' (DbType = Boolean), @p104='?', @p105='?', @p106='?', @p107='?', @p108='?', @p109='?' (DbType = Boolean), @p110='?', @p111='?', @p112='?', @p113='?', @p114='?', @p115='?' (DbType = Boolean), @p116='?', @p117='?', @p118='?', @p119='?', @p120='?', @p121='?' (DbType = Boolean), @p122='?', @p123='?', @p124='?', @p125='?', @p126='?', @p127='?' (DbType = Boolean), @p128='?', @p129='?', @p130='?', @p131='?', @p132='?', @p133='?' (DbType = Boolean), @p134='?', @p135='?', @p136='?', @p137='?', @p138='?', @p139='?' (DbType = Boolean), @p140='?', @p141='?', @p142='?', @p143='?', @p144='?', @p145='?' (DbType = Boolean), @p146='?', @p147='?', @p148='?', @p149='?', @p150='?', @p151='?' (DbType = Boolean), @p152='?', @p153='?', @p154='?', @p155='?', @p156='?', @p157='?' (DbType = Boolean), @p158='?', @p159='?', @p160='?', @p161='?', @p162='?', @p163='?' (DbType = Boolean), @p164='?', @p165='?', @p166='?', @p167='?', @p168='?', @p169='?' (DbType = Boolean), @p170='?', @p171='?', @p172='?', @p173='?', @p174='?', @p175='?' (DbType = Boolean), @p176='?', @p177='?', @p178='?', @p179='?', @p180='?', @p181='?' (DbType = Boolean), @p182='?', @p183='?', @p184='?', @p185='?', @p186='?', @p187='?' (DbType = Boolean), @p188='?', @p189='?', @p190='?', @p191='?', @p192='?', @p193='?' (DbType = Boolean), @p194='?', @p195='?', @p196='?', @p197='?', @p198='?', @p199='?' (DbType = Boolean), @p200='?', @p201='?', @p202='?', @p203='?', @p204='?', @p205='?' (DbType = Boolean), @p206='?', @p207='?', @p208='?', @p209='?', @p210='?', @p211='?' (DbType = Boolean), @p212='?', @p213='?', @p214='?', @p215='?', @p216='?', @p217='?' (DbType = Boolean), @p218='?', @p219='?', @p220='?', @p221='?', @p222='?', @p223='?' (DbType = Boolean), @p224='?', @p225='?', @p226='?', @p227='?', @p228='?', @p229='?' (DbType = Boolean), @p230='?', @p231='?', @p232='?', @p233='?', @p234='?', @p235='?' (DbType = Boolean), @p236='?', @p237='?', @p238='?', @p239='?', @p240='?', @p241='?' (DbType = Boolean), @p242='?', @p243='?', @p244='?', @p245='?', @p246='?', @p247='?' (DbType = Boolean), @p248='?', @p249='?', @p250='?', @p251='?', @p252='?', @p253='?' (DbType = Boolean), @p254='?', @p255='?', @p256='?', @p257='?', @p258='?', @p259='?' (DbType = Boolean), @p260='?', @p261='?', @p262='?', @p263='?', @p264='?', @p265='?' (DbType = Boolean), @p266='?', @p267='?', @p268='?', @p269='?', @p270='?', @p271='?' (DbType = Boolean), @p272='?', @p273='?', @p274='?', @p275='?', @p276='?', @p277='?' (DbType = Boolean), @p278='?', @p279='?', @p280='?', @p281='?', @p282='?', @p283='?' (DbType = Boolean), @p284='?', @p285='?', @p286='?', @p287='?', @p288='?', @p289='?' (DbType = Boolean), @p290='?', @p291='?', @p292='?', @p293='?', @p294='?', @p295='?' (DbType = Boolean), @p296='?', @p297='?', @p298='?', @p299='?'], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p6, @p7, @p8, @p9, @p10, @p11)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p12, @p13, @p14, @p15, @p16, @p17)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p18, @p19, @p20, @p21, @p22, @p23)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p24, @p25, @p26, @p27, @p28, @p29)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p30, @p31, @p32, @p33, @p34, @p35)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p36, @p37, @p38, @p39, @p40, @p41)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p42, @p43, @p44, @p45, @p46, @p47)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p48, @p49, @p50, @p51, @p52, @p53)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p54, @p55, @p56, @p57, @p58, @p59)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p60, @p61, @p62, @p63, @p64, @p65)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p66, @p67, @p68, @p69, @p70, @p71)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p72, @p73, @p74, @p75, @p76, @p77)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p78, @p79, @p80, @p81, @p82, @p83)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p84, @p85, @p86, @p87, @p88, @p89)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p90, @p91, @p92, @p93, @p94, @p95)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p96, @p97, @p98, @p99, @p100, @p101)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p102, @p103, @p104, @p105, @p106, @p107)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p108, @p109, @p110, @p111, @p112, @p113)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p114, @p115, @p116, @p117, @p118, @p119)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p120, @p121, @p122, @p123, @p124, @p125)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p126, @p127, @p128, @p129, @p130, @p131)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p132, @p133, @p134, @p135, @p136, @p137)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p138, @p139, @p140, @p141, @p142, @p143)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p144, @p145, @p146, @p147, @p148, @p149)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p150, @p151, @p152, @p153, @p154, @p155)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p156, @p157, @p158, @p159, @p160, @p161)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p162, @p163, @p164, @p165, @p166, @p167)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p168, @p169, @p170, @p171, @p172, @p173)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p174, @p175, @p176, @p177, @p178, @p179)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p180, @p181, @p182, @p183, @p184, @p185)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p186, @p187, @p188, @p189, @p190, @p191)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p192, @p193, @p194, @p195, @p196, @p197)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p198, @p199, @p200, @p201, @p202, @p203)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p204, @p205, @p206, @p207, @p208, @p209)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p210, @p211, @p212, @p213, @p214, @p215)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p216, @p217, @p218, @p219, @p220, @p221)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p222, @p223, @p224, @p225, @p226, @p227)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p228, @p229, @p230, @p231, @p232, @p233)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p234, @p235, @p236, @p237, @p238, @p239)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p240, @p241, @p242, @p243, @p244, @p245)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p246, @p247, @p248, @p249, @p250, @p251)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p252, @p253, @p254, @p255, @p256, @p257)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p258, @p259, @p260, @p261, @p262, @p263)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p264, @p265, @p266, @p267, @p268, @p269)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p270, @p271, @p272, @p273, @p274, @p275)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p276, @p277, @p278, @p279, @p280, @p281)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p282, @p283, @p284, @p285, @p286, @p287)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p288, @p289, @p290, @p291, @p292, @p293)
+RETURNING client_id;
+INSERT INTO client (email, est_valide, mot_de_passe, nom, prenom, tel)
+VALUES (@p294, @p295, @p296, @p297, @p298, @p299)
+RETURNING client_id;
+2025-01-15 21:59:55.110 +01:00 [ERR] An exception occurred in the database while saving changes for context type 'backend_negosud.entities.PostgresContext'.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Npgsql.PostgresException (0x80004005): 22001: value too long for type character varying(15)
+   at Npgsql.Internal.NpgsqlConnector.ReadMessageLong(Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult()
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.Execute(IRelationalConnection connection)
+  Exception data:
+    Severity: ERROR
+    SqlState: 22001
+    MessageText: value too long for type character varying(15)
+    File: varchar.c
+    Line: 641
+    Routine: varchar
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.Execute(IRelationalConnection connection)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.Execute(IEnumerable`1 commandBatches, IRelationalConnection connection)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabase.SaveChanges(IList`1 entries)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(IList`1 entriesToSave)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(StateManager stateManager, Boolean acceptAllChangesOnSuccess)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.<>c.<SaveChanges>b__112_0(DbContext _, ValueTuple`2 t)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(Boolean acceptAllChangesOnSuccess)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChanges(Boolean acceptAllChangesOnSuccess)
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Npgsql.PostgresException (0x80004005): 22001: value too long for type character varying(15)
+   at Npgsql.Internal.NpgsqlConnector.ReadMessageLong(Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult()
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.Execute(IRelationalConnection connection)
+  Exception data:
+    Severity: ERROR
+    SqlState: 22001
+    MessageText: value too long for type character varying(15)
+    File: varchar.c
+    Line: 641
+    Routine: varchar
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.Execute(IRelationalConnection connection)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.Execute(IEnumerable`1 commandBatches, IRelationalConnection connection)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabase.SaveChanges(IList`1 entries)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(IList`1 entriesToSave)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(StateManager stateManager, Boolean acceptAllChangesOnSuccess)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.<>c.<SaveChanges>b__112_0(DbContext _, ValueTuple`2 t)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(Boolean acceptAllChangesOnSuccess)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChanges(Boolean acceptAllChangesOnSuccess)

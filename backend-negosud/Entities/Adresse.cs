@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace backend_negosud.entities;
 
-public partial class Adresse
+public class Adresse
 {
     public int AdresseId { get; set; }
 
@@ -27,7 +27,7 @@ public partial class Adresse
 
     public virtual Fournisseur Fournisseur { get; set; } = null!;
 
-    public virtual Pay Pays { get; set; } = null!;
+    public virtual Pays Pays { get; set; } = null!;
 
     public virtual Utilisateur Utilisateur { get; set; } = null!;
 

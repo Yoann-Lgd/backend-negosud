@@ -43,7 +43,7 @@ public partial class PostgresContext : DbContext
 
     public virtual DbSet<Livraison> Livraisons { get; set; }
 
-    public virtual DbSet<Pay> Pays { get; set; }
+    public virtual DbSet<Pays> Pays { get; set; }
 
     public virtual DbSet<Reglement> Reglements { get; set; }
 
@@ -56,10 +56,6 @@ public partial class PostgresContext : DbContext
     public virtual DbSet<Tva> Tvas { get; set; }
 
     public virtual DbSet<Utilisateur> Utilisateurs { get; set; }
-
-    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
-        => optionsBuilder.UseNpgsql("Host=localhost:5432;Username=postgres;Password=nego69;Database=postgres");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -202,7 +198,7 @@ public partial class PostgresContext : DbContext
                 .HasMaxLength(50)
                 .HasColumnName("prenom");
             entity.Property(e => e.Tel)
-                .HasMaxLength(15)
+                .HasMaxLength(20)
                 .HasColumnName("tel");
         });
 
@@ -437,7 +433,7 @@ public partial class PostgresContext : DbContext
             entity.Property(e => e.Livree).HasColumnName("livree");
         });
 
-        modelBuilder.Entity<Pay>(entity =>
+        modelBuilder.Entity<Pays>(entity =>
         {
             entity.HasKey(e => e.PaysId).HasName("pays_pkey");
 

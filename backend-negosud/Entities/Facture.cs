@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace backend_negosud.entities;
 
-public partial class Facture
+public class Facture
 {
     public int FactureId { get; set; }
 
