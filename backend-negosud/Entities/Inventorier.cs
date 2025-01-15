@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace backend_negosud.entities;
 
-public partial class Inventorier
+public class Inventorier
 {
     public int UtilisateurId { get; set; }
 

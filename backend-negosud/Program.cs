@@ -4,6 +4,7 @@ using backend_negosud.Repository;
 using backend_negosud.Services;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
+using backend_negosud.Seeds;
 using Npgsql;
 using Serilog;
 
@@ -20,6 +21,7 @@ builder.Services.AddCors(options =>
 
 builder.Services.AddScoped<IUtilisateurRepository, UtilisateurRepository>();
 builder.Services.AddScoped<IUtilisateurService, UtilisateurService>();
+builder.Services.AddScoped<DatabaseSeeder>();
 
 // Add services to the container.
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -50,6 +52,16 @@ string connectionString = builder.Configuration.GetConnectionString("DefaultConn
 builder.Services.AddDbContext<PostgresContext>(options => options.UseNpgsql(connectionString));
 
 var app = builder.Build();
+
+// On peuple la base de données à l'aide de notre classe dédiée et alimnentée par le package Bogus
+using (var scope = app.Services.CreateScope())
+{
+    // var seeder = scope.ServiceProvider.GetRequiredService<DatabaseSeeder>();
+    var services = scope.ServiceProvider;
+    var context = services.GetRequiredService<PostgresContext>();
+    var seedData = new DatabaseSeeder(context);
+    seedData.SeedDatabase();
+}
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace backend_negosud.entities;
 
-public partial class Image
+public class Image
 {
     public int ImageId { get; set; }
 

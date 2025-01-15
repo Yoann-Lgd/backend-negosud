@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace backend_negosud.entities;
 
-public partial class Tva
+public class Tva
 {
     public int TvaId { get; set; }
 
