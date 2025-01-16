@@ -7,13 +7,13 @@ public class Fournisseur
 {
     public int FournisseurId { get; set; }
 
-    public string? Nom { get; set; }
+    public string Nom { get; set; }
 
-    public string? RaisonSociale { get; set; }
+    public string RaisonSociale { get; set; }
 
     public string Email { get; set; } = null!;
 
-    public string? Tel { get; set; }
+    public string Tel { get; set; }
 
     public virtual ICollection<Adresse> Adresses { get; set; } = new List<Adresse>();
 

@@ -66,26 +66,34 @@ public partial class PostgresContext : DbContext
             entity.ToTable("adresse");
 
             entity.Property(e => e.AdresseId).HasColumnName("adresse_id");
-            entity.Property(e => e.ClientId).HasColumnName("client_id");
+            entity.Property(e => e.ClientId)
+                .HasColumnName("client_id")
+                .IsRequired(false);
             entity.Property(e => e.CodePostal).HasColumnName("code_postal");
             entity.Property(e => e.Departement)
                 .HasMaxLength(50)
                 .HasColumnName("departement");
-            entity.Property(e => e.FournisseurId).HasColumnName("fournisseur_id");
+            entity.Property(e => e.FournisseurId)
+                .HasColumnName("fournisseur_id")
+                .IsRequired(false);
             entity.Property(e => e.Numero).HasColumnName("numero");
             entity.Property(e => e.PaysId).HasColumnName("pays_id");
-            entity.Property(e => e.UtilisateurId).HasColumnName("utilisateur_id");
+            entity.Property(e => e.UtilisateurId)
+                .HasColumnName("utilisateur_id")
+                .IsRequired(false);
             entity.Property(e => e.Ville)
                 .HasColumnType("character varying")
                 .HasColumnName("ville");
 
             entity.HasOne(d => d.Client).WithMany(p => p.Adresses)
                 .HasForeignKey(d => d.ClientId)
+                .IsRequired(false)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("adresse_client_id_fkey");
 
             entity.HasOne(d => d.Fournisseur).WithMany(p => p.Adresses)
                 .HasForeignKey(d => d.FournisseurId)
+                .IsRequired(false)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("adresse_fournisseur_id_fkey");
 
@@ -96,6 +104,7 @@ public partial class PostgresContext : DbContext
 
             entity.HasOne(d => d.Utilisateur).WithMany(p => p.Adresses)
                 .HasForeignKey(d => d.UtilisateurId)
+                .IsRequired(false)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("adresse_utilisateur_id_fkey");
 
@@ -103,6 +112,7 @@ public partial class PostgresContext : DbContext
                 .UsingEntity<Dictionary<string, object>>(
                     "Lier",
                     r => r.HasOne<Livraison>().WithMany()
+                        .IsRequired(false)
                         .HasForeignKey("LivraisonId")
                         .OnDelete(DeleteBehavior.ClientSetNull)
                         .HasConstraintName("lier_livraison_id_fkey"),
@@ -441,7 +451,7 @@ public partial class PostgresContext : DbContext
 
             entity.Property(e => e.PaysId).HasColumnName("pays_id");
             entity.Property(e => e.Nom)
-                .HasMaxLength(50)
+                .HasMaxLength(100)
                 .HasColumnName("nom");
         });
 

@@ -11,7 +11,7 @@ public class Livraison
 
     public DateTime? DateLivraison { get; set; }
 
-    public bool? Livree { get; set; }
+    public bool Livree { get; set; }
 
     public virtual ICollection<Commande> Commandes { get; set; } = new List<Commande>();
 

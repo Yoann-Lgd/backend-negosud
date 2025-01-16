@@ -7,11 +7,11 @@ public class Article
 {
     public int ArticleId { get; set; }
 
-    public string? Libelle { get; set; }
+    public string Libelle { get; set; }
 
-    public string? Reference { get; set; }
+    public string Reference { get; set; }
 
-    public double? Prix { get; set; }
+    public double Prix { get; set; }
 
     public int FamilleId { get; set; }
 
