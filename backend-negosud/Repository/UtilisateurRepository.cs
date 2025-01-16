@@ -1,7 +1,6 @@
 using AutoMapper;
 using backend_negosud.DTOs;
 using backend_negosud.entities;
-using backend_negosud.Mapper;
 using backend_negosud.Models;
 using backend_negosud.Services;
 using Microsoft.EntityFrameworkCore;
@@ -13,37 +12,45 @@ public class UtilisateurRepository : IUtilisateurRepository
     private readonly PostgresContext _context;
     private readonly IMapper _mapper;
     private readonly IJwtService _jwtService;
-    public UtilisateurRepository(PostgresContext context, IMapper mapper, IJwtService jwtService)
+    private readonly IHashMotDePasseService _hash;
+    private readonly ILogger<UtilisateurRepository> _logger;
+
+    public UtilisateurRepository(
+        PostgresContext context, 
+        IMapper mapper, 
+        IJwtService jwtService, 
+        IHashMotDePasseService hash,
+        ILogger<UtilisateurRepository> logger)
     {
         _context = context ?? throw new ArgumentNullException(nameof(context));
         _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
-        _jwtService = jwtService ?? throw new ArgumentException(nameof(jwtService));
-        
+        _jwtService = jwtService ?? throw new ArgumentNullException(nameof(jwtService));
+        _hash = hash ?? throw new ArgumentNullException(nameof(hash));
+        _logger = logger ?? throw new ArgumentNullException(nameof(logger));
     }
 
     public async Task<IResponseDataModel<UtilisateurOutputDto>> CreateAsync(UtilisateurInputDto utilisateurInputDto)
     {
-
         try
         {
-            var mail = utilisateurInputDto.Email;
-            
+            // Validation des entrées
             if (string.IsNullOrEmpty(utilisateurInputDto.Email) || string.IsNullOrEmpty(utilisateurInputDto.MotDePasse))
             {
-                Console.WriteLine("UtilisateurInputDto : " + utilisateurInputDto);
-                return new  ResponseDataModel<UtilisateurOutputDto>
+                _logger.LogWarning("Tentative de création d'utilisateur avec email ou mot de passe vide");
+                return new ResponseDataModel<UtilisateurOutputDto>
                 {
                     Success = false,
                     Message = "Email ou mot de passe non spécifié"
                 };
             }
             
-            
-
-            
-            var mailExistant = await _context.Utilisateurs.AnyAsync(u => u.Email == mail);
+            // Vérification de l'unicité de l'email
+            var mailExistant = await _context.Utilisateurs
+                .AnyAsync(u => u.Email.ToLower() == utilisateurInputDto.Email.ToLower());
+                
             if (mailExistant)
             {
+                _logger.LogWarning("Tentative de création d'un compte avec un email déjà existant: {Email}", utilisateurInputDto.Email);
                 return new ResponseDataModel<UtilisateurOutputDto>
                 {
                     Success = false,
@@ -51,13 +58,21 @@ public class UtilisateurRepository : IUtilisateurRepository
                 };
             }
 
-            // Mapper directement de InputDto vers l'entité Utilisateur
+            // Création de l'utilisateur
             var utilisateur = _mapper.Map<Utilisateur>(utilisateurInputDto);
-            var tokenJWT = _jwtService.GenererToken(utilisateur);
+            utilisateur.MotDePasse = _hash.HashMotDePasse(utilisateur.MotDePasse);
+            
+            // Sauvegarde initiale pour obtenir l'ID
             await _context.Utilisateurs.AddAsync(utilisateur);
             await _context.SaveChangesAsync();
 
-            // Mapper l'entité vers OutputDto pour la réponse
+            // Génération du token avec l'ID maintenant disponible
+            var tokenJWT = _jwtService.GenererToken(utilisateur);
+            utilisateur.AccessToken = tokenJWT;
+            
+            // Mise à jour du token dans la base
+            await _context.SaveChangesAsync();
+
             var userOutput = _mapper.Map<UtilisateurOutputDto>(utilisateur);
 
             return new ResponseDataModel<UtilisateurOutputDto>
@@ -66,15 +81,14 @@ public class UtilisateurRepository : IUtilisateurRepository
                 Success = true,
                 Data = userOutput
             };
-            
-            
         }
         catch (Exception e)
         {
+            _logger.LogError(e, "Erreur lors de la création de l'utilisateur");
             return new ResponseDataModel<UtilisateurOutputDto>
             {
                 Success = false,
-                Message = $"Une erreur est survenue : {e.Message}"
+                Message = "Une erreur est survenue lors de la création de l'utilisateur"
             };
         }
     }

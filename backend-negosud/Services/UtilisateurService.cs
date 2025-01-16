@@ -43,4 +43,9 @@ public class UtilisateurService : IUtilisateurService
         _context.Utilisateurs.Update(utilisateur);
         await _context.SaveChangesAsync();
     }
+
+    public async Task<Utilisateur> GetUtilisateuByEmail(string email)
+    {
+        return await _context.Utilisateurs.FirstOrDefaultAsync(u => u.Email == email);
+    }
 }

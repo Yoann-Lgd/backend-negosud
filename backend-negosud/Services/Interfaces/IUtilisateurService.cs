@@ -12,4 +12,6 @@ public interface IUtilisateurService
     Task<Utilisateur> GetUtilisateurByToken(string token);
 
     Task UpdateUtilisateur(Utilisateur utilisateur);
+
+    Task <Utilisateur>GetUtilisateuByEmail(string email);
 }

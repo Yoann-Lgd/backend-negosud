@@ -5,5 +5,5 @@ namespace backend_negosud.Services;
 public interface IJwtService
 {
     string GenererToken(Utilisateur utilisateur);
-    bool ValidateToken(string token);
+    Task<bool> ValidateToken(string token, int id);
 }

@@ -23,16 +23,16 @@ public class VerifierEmailService : IVerifierEmailService
             };
         }
 
-        if (user.MailValide)
+        /*if (user.MailValide)
         {
             return new ResponseModel
             {
                 Success = false,
                 Message = "L'email a déjà été vérifié."
             };
-        }
+        }*/
 
-        user.MailValide = true;
+        /*user.MailValide = true;*/
         user.AccessToken = null;
 
         await _utilisateurService.UpdateUtilisateur(user);

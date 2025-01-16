@@ -19,7 +19,7 @@ public partial class Utilisateur
 
     public string AccessToken { get; set; } = null!;
     
-    public bool MailValide { get; set; }
+    /*public bool MailValide { get; set; }*/
 
     public int RoleId { get; set; }
 
