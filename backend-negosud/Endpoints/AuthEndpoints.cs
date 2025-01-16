@@ -14,6 +14,19 @@ public static class AuthEndpoints
             var result = await service.CreateUtilisateur(UtilisateurDto);
             return result.Success ? Results.Ok(result) : Results.BadRequest(result);
         });
+        endpoints.MapPost("/login",
+            async ([FromServices] IAuthService auth, [FromBody] UtilisateurInputDto utilisateurInputDto) =>
+            {
+                var result = await auth.Login(utilisateurInputDto.Email, utilisateurInputDto.MotDePasse);
+                return result.Success ? Results.Ok(result) : Results.BadRequest(result);
+            });
+        endpoints.MapPost("/resetmotDepasse",
+            async ([FromServices] IAuthService auth, [FromBody] UtilisateurInputDto utilisateurInputDto) =>
+            {
+                var result = await auth.ResetMotDePasse(utilisateurInputDto.Email);
+                return result.Success ? Results.Ok(result) : Results.BadRequest(result);
+            });
+        
         endpoints.MapGet("/protectedTest", [Authorize] async (HttpContext context) =>
         {
             var result = "Hello autorized";
