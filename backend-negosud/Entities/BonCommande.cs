@@ -7,11 +7,11 @@ public class BonCommande
 {
     public int BonCommandeId { get; set; }
 
-    public string? Status { get; set; }
+    public string Status { get; set; }
 
-    public string? Reference { get; set; }
+    public string Reference { get; set; }
 
-    public decimal? Prix { get; set; }
+    public double Prix { get; set; }
 
     public int UtilisateurId { get; set; }
 

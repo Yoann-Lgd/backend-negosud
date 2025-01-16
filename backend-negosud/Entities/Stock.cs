@@ -7,9 +7,9 @@ public class Stock
 {
     public int StockId { get; set; }
 
-    public string? RefLot { get; set; }
+    public string RefLot { get; set; }
 
-    public int? Quantite { get; set; }
+    public int Quantite { get; set; }
 
     public double? SeuilMinimum { get; set; }
 

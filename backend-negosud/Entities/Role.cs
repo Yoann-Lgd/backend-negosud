@@ -7,7 +7,7 @@ public class Role
 {
     public int RoleId { get; set; }
 
-    public string? Nom { get; set; }
+    public string Nom { get; set; }
 
     public virtual ICollection<Utilisateur> Utilisateurs { get; set; } = new List<Utilisateur>();
 }

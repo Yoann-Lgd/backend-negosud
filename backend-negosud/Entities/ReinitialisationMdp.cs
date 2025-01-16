@@ -7,9 +7,9 @@ public class ReinitialisationMdp
 {
     public int ReinitialisationMdpId { get; set; }
 
-    public DateTime? DateDemande { get; set; }
+    public DateTime DateDemande { get; set; }
 
-    public string? MotDePasse { get; set; }
+    public string MotDePasse { get; set; }
 
     public string ResetToken { get; set; } = null!;
 

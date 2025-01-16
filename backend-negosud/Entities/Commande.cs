@@ -7,7 +7,7 @@ public class Commande
 {
     public int CommandeId { get; set; }
 
-    public DateTime? DateCreation { get; set; }
+    public DateTime DateCreation { get; set; }
 
     public int Quantite { get; set; }
 
