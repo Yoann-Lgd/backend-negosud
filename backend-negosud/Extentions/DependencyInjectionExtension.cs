@@ -14,6 +14,7 @@ public static class DependencyInjectionExtension
     {
         builder.AddRepositories();
         builder.AddServices();
+        builder.Services.AddControllers();
         builder.AddSeeder();
         builder.AddEFCoreConfiguration();
         builder.CorseConfiguration();
