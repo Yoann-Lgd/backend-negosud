@@ -149,6 +149,7 @@ public class DatabaseSeeder
             var utilisateurs = utilisateurFaker.Generate(20);
             _context.Utilisateurs.AddRange(utilisateurs);
             _context.SaveChanges();
+            
 
             // table : Inventorier
             var inventorierFaker = new Faker<Inventorier>("fr")
@@ -163,7 +164,9 @@ public class DatabaseSeeder
 
             foreach (var inventorier in inventoriers)
             {
+                // vérifie si l'entité existe déjà dans la base
                 var existingInventorier = _context.Inventoriers
+                    .AsNoTracking() // on désactive le suivi pour éviter les conflits
                     .SingleOrDefault(i => i.UtilisateurId == inventorier.UtilisateurId && i.StockId == inventorier.StockId);
 
                 if (existingInventorier == null)
@@ -172,17 +175,14 @@ public class DatabaseSeeder
                 }
                 else
                 {
-                    // met à jour les propriétés
-                    existingInventorier.DateModification = inventorier.DateModification;
-                    existingInventorier.QuantitePostModification = inventorier.QuantitePostModification;
-                    existingInventorier.QuantitePrecedente = inventorier.QuantitePrecedente;
-                    existingInventorier.TypeModification = inventorier.TypeModification;
-
-                    // détacg l'entité après modification
-                    _context.Entry(existingInventorier).State = EntityState.Detached;
+                    inventorier.UtilisateurId = existingInventorier.UtilisateurId;
+                    _context.Inventoriers.Update(inventorier);
                 }
             }
+
+// Sauvegarder les modifications dans la base
             _context.SaveChanges();
+
             
                 // table : Livraison
             var livraisonFaker = new Faker<Livraison>("fr")
