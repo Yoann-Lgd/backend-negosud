@@ -1,4 +1,4 @@
-using backend_negosud.entities;
+using backend_negosud.Entities;
 using backend_negosud.Repository;
 using backend_negosud.Seeds;
 using backend_negosud.Services;

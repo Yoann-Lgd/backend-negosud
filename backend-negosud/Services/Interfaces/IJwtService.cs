@@ -1,4 +1,4 @@
-using backend_negosud.entities;
+using backend_negosud.Entities;
 
 namespace backend_negosud.Services;
 

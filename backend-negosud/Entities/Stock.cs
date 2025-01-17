@@ -1,17 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace backend_negosud.entities;
+namespace backend_negosud.Entities;
 
-public class Stock
+public partial class Stock
 {
     public int StockId { get; set; }
 
-    public string RefLot { get; set; }
+    public string RefLot { get; set; } = null!;
 
     public int Quantite { get; set; }
 
-    public double? SeuilMinimum { get; set; }
+    public int SeuilMinimum { get; set; }
 
     public bool ReapprovisionnementAuto { get; set; }
 

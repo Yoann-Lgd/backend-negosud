@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace backend_negosud.entities;
+namespace backend_negosud.Entities;
 
-public class Commande
+public partial class Commande
 {
     public int CommandeId { get; set; }
 
@@ -21,7 +21,7 @@ public class Commande
 
     public virtual Client Client { get; set; } = null!;
 
-    public virtual Facture? Facture { get; set; }
+    public virtual Facture Facture { get; set; } = null!;
 
     public virtual Facture? FactureNavigation { get; set; }
 

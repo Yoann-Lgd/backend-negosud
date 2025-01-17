@@ -1,13 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace backend_negosud.entities;
+namespace backend_negosud.Entities;
 
-public class Facture
+public partial class Facture
 {
     public int FactureId { get; set; }
 
-    public string Reference { get; set; }
+    public string Reference { get; set; } = null!;
 
     public DateTime DateFacturation { get; set; }
 
@@ -23,7 +23,7 @@ public class Facture
 
     public virtual Client Client { get; set; } = null!;
 
-    public virtual Commande Commande { get; set; }
+    public virtual Commande? Commande { get; set; }
 
-    public virtual Commande? CommandeNavigation { get; set; }
+    public virtual Commande CommandeNavigation { get; set; } = null!;
 }

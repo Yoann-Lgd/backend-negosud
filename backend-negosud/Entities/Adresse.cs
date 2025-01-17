@@ -1,15 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace backend_negosud.entities;
+namespace backend_negosud.Entities;
 
-public class Adresse
+public partial class Adresse
 {
     public int AdresseId { get; set; }
 
     public int Numero { get; set; }
 
-    public string Ville { get; set; }
+    public string Ville { get; set; } = null!;
 
     public int CodePostal { get; set; }
 
@@ -23,13 +23,11 @@ public class Adresse
 
     public int? FournisseurId { get; set; }
 
-    public virtual Client Client { get; set; }
+    public virtual Client? Client { get; set; }
 
-    public virtual Fournisseur Fournisseur { get; set; }
+    public virtual Fournisseur? Fournisseur { get; set; }
 
     public virtual Pays Pays { get; set; } = null!;
 
-    public virtual Utilisateur Utilisateur { get; set; }
-
-    public virtual ICollection<Livraison> Livraisons { get; set; } = new List<Livraison>();
+    public virtual Utilisateur? Utilisateur { get; set; }
 }

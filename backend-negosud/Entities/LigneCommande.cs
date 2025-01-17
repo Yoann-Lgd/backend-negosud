@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace backend_negosud.entities;
+namespace backend_negosud.Entities;
 
-public class LigneCommande
+public partial class LigneCommande
 {
     public int LigneCommandeId { get; set; }
 

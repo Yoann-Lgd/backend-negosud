@@ -1,23 +1,25 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace backend_negosud.entities;
+namespace backend_negosud.Entities;
 
-public class Client
+public partial class Client
 {
     public int ClientId { get; set; }
 
-    public string Nom { get; set; }
+    public string Nom { get; set; } = null!;
 
-    public string Prenom { get; set; }
+    public string Prenom { get; set; } = null!;
 
-    public string Email { get; set; }
+    public string Email { get; set; } = null!;
 
     public string MotDePasse { get; set; } = null!;
 
-    public string Tel { get; set; }
+    public string Tel { get; set; } = null!;
 
     public bool EstValide { get; set; }
+
+    public string AcessToken { get; set; } = null!;
 
     public virtual ICollection<Adresse> Adresses { get; set; } = new List<Adresse>();
 
