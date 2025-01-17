@@ -60,27 +60,61 @@ public class AuthService : IAuthService
        
     }
 
-    public async Task<IResponseDataModel<string>> ResetMotDePasse(string email)
+   public async Task<IResponseDataModel<string>> ResetMotDePasse(string email)
+{
+    var utilisateur = await _utilisateurService.GetUtilisateuByEmail(email);
+    if (utilisateur == null)
     {
-      
-      var NouveauMotDePasse = _hash.RandomMotDePasseTemporaire();
-      var utilisateur = await _utilisateurService.GetUtilisateuByEmail(email);
-      utilisateur.MotDePasse = NouveauMotDePasse;
-      await _context.SaveChangesAsync();
-      var emailSubject = "Réinitialisation du mot de passe";
-      var emailBody = $@"
-                    <h2>Mot de passe réinitialisé</h2>
-                    <p>Votre mot de passe a été réinitialisé avec succès. Voici votre nouveau mot de passe :</p>
-                    <p><strong>{NouveauMotDePasse}</strong></p>
-                    <p>Vous pouvez vous connecter à l'application en utilisant ce mot de passe. Nous vous recommandons de le changer dès que possible.</p>
-                    <p>Cordialement,<br>L'équipe de NegoSud</p>";
-
-      await _emailService.SendEmailAsync(email, emailSubject, emailBody, isHtml: true);
-      return new ResponseDataModel<string>
-      {
-          Message = "Nouveau mot de passe:" + NouveauMotDePasse,
-          Success = true
-      };
-
+        return new ResponseDataModel<string>
+        {
+            Message = "Utilisateur non trouvé",
+            Success = false
+        };
     }
+    
+    var derniereDemande = await _context.ReinitialisationMdps
+        .Where(r => r.UtilisateurId == utilisateur.UtilisateurId)
+        .OrderByDescending(r => r.DateDemande)
+        .FirstOrDefaultAsync();
+
+    if (derniereDemande != null && derniereDemande.DateDemande.AddMinutes(5) > DateTime.Now)
+    {
+        return new ResponseDataModel<string>
+        {
+            Message = "Email de reset envoyé, réessayez dans 5min",
+            Success = false
+        };
+    }
+
+    var motDePasseTemporaire = _hash.RandomMotDePasseTemporaire();
+    var motDePasseHash = _hash.HashMotDePasse(motDePasseTemporaire);
+    
+    utilisateur.MotDePasse = motDePasseHash;
+    
+    var nouvelleDemande = new ReinitialisationMdp
+    {
+        UtilisateurId = utilisateur.UtilisateurId,
+        DateDemande = DateTime.Now,
+        MotDePasse = motDePasseHash  // Stocker le hash, pas le mot de passe en clair
+    };
+
+    _context.ReinitialisationMdps.Add(nouvelleDemande);
+    await _context.SaveChangesAsync();
+
+    var emailSubject = "Réinitialisation du mot de passe";
+    var emailBody = $@"
+                <h2>Mot de passe réinitialisé</h2>
+                <p>Votre mot de passe a été réinitialisé avec succès. Voici votre nouveau mot de passe temporaire :</p>
+                <p><strong>{motDePasseTemporaire}</strong></p>
+                <p>Pour des raisons de sécurité, veuillez changer ce mot de passe dès votre prochaine connexion.</p>
+                <p>Cordialement,<br>L'équipe de NegoSud</p>";
+
+    await _emailService.SendEmailAsync(email, emailSubject, emailBody, isHtml: true);
+    
+    return new ResponseDataModel<string>
+    {
+        Message = "Un nouveau mot de passe vous a été envoyé par email",
+        Success = true
+    };
+}
 }

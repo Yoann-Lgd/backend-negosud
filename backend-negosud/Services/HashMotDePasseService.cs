@@ -17,12 +17,9 @@ public class HashMotDePasseService : IHashMotDePasseService
 
     public string RandomMotDePasseTemporaire()
     {
-        var randomNumberA = new byte[4];
-        var randomNumberB = new byte[4];
-        RandomNumberGenerator.Fill(randomNumberA);
-        RandomNumberGenerator.Fill(randomNumberB);
-        var intA = BitConverter.ToInt32(randomNumberA, 0);
-        var intB = BitConverter.ToInt32(randomNumberB, 0);
+        Random rnd = new Random();
+        int intA  = rnd.Next(1, 13);
+        int intB   = rnd.Next(1, 7);
         var sqids = new SqidsEncoder<int>();
         var MotDePasseTemporaire = sqids.Encode(intA, intB);
         return MotDePasseTemporaire;

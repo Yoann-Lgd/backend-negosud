@@ -10,6 +10,7 @@ using Microsoft.OpenApi.Models;
 using Npgsql;
 using Serilog;
 
+DotNetEnv.Env.Load();
 var builder = WebApplication.CreateBuilder(args);
 RSA rsa = RSA.Create();
 const string keyFileName = "key.bin";
@@ -55,6 +56,7 @@ builder.Services.AddScoped<IEnvoieEmailService, EnvoieEmailService>();
 
 // Add services to the container.
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+builder.Configuration.AddEnvironmentVariables();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddAuthentication();
