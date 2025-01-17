@@ -20,7 +20,7 @@ public static class AuthEndpoints
                 var result = await auth.Login(utilisateurInputDto.Email, utilisateurInputDto.MotDePasse);
                 return result.Success ? Results.Ok(result) : Results.BadRequest(result);
             });
-        endpoints.MapPost("/resetmotDepasse",
+        endpoints.MapPost("/resetmotdepasse",
             async ([FromServices] IAuthService auth, [FromBody] UtilisateurInputDto utilisateurInputDto) =>
             {
                 var result = await auth.ResetMotDePasse(utilisateurInputDto.Email);
