@@ -3,15 +3,15 @@ using System.Collections.Generic;
 
 namespace backend_negosud.entities;
 
-public partial class Article
+public class Article
 {
     public int ArticleId { get; set; }
 
-    public string? Libelle { get; set; }
+    public string Libelle { get; set; }
 
-    public string? Reference { get; set; }
+    public string Reference { get; set; }
 
-    public double? Prix { get; set; }
+    public double Prix { get; set; }
 
     public int FamilleId { get; set; }
 

@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using backend_negosud.entities;
@@ -11,9 +12,11 @@ using backend_negosud.entities;
 namespace backend_negosud.Migrations
 {
     [DbContext(typeof(PostgresContext))]
-    partial class PostgresContextModelSnapshot : ModelSnapshot
+    [Migration("20250115213158_modificationLongueurTelClient")]
+    partial class modificationLongueurTelClient
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -49,11 +52,11 @@ namespace backend_negosud.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("AdresseId"));
 
-                    b.Property<int?>("ClientId")
+                    b.Property<int>("ClientId")
                         .HasColumnType("integer")
                         .HasColumnName("client_id");
 
-                    b.Property<int>("CodePostal")
+                    b.Property<int?>("CodePostal")
                         .HasColumnType("integer")
                         .HasColumnName("code_postal");
 
@@ -63,11 +66,11 @@ namespace backend_negosud.Migrations
                         .HasColumnType("character varying(50)")
                         .HasColumnName("departement");
 
-                    b.Property<int?>("FournisseurId")
+                    b.Property<int>("FournisseurId")
                         .HasColumnType("integer")
                         .HasColumnName("fournisseur_id");
 
-                    b.Property<int>("Numero")
+                    b.Property<int?>("Numero")
                         .HasColumnType("integer")
                         .HasColumnName("numero");
 
@@ -75,12 +78,11 @@ namespace backend_negosud.Migrations
                         .HasColumnType("integer")
                         .HasColumnName("pays_id");
 
-                    b.Property<int?>("UtilisateurId")
+                    b.Property<int>("UtilisateurId")
                         .HasColumnType("integer")
                         .HasColumnName("utilisateur_id");
 
                     b.Property<string>("Ville")
-                        .IsRequired()
                         .HasColumnType("character varying")
                         .HasColumnName("ville");
 
@@ -583,8 +585,8 @@ namespace backend_negosud.Migrations
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("PaysId"));
 
                     b.Property<string>("Nom")
-                        .HasMaxLength(100)
-                        .HasColumnType("character varying(100)")
+                        .HasMaxLength(50)
+                        .HasColumnType("character varying(50)")
                         .HasColumnName("nom");
 
                     b.HasKey("PaysId")
@@ -810,6 +812,7 @@ namespace backend_negosud.Migrations
                     b.HasOne("backend_negosud.entities.Livraison", null)
                         .WithMany()
                         .HasForeignKey("LivraisonId")
+                        .IsRequired()
                         .HasConstraintName("lier_livraison_id_fkey");
                 });
 
@@ -818,11 +821,13 @@ namespace backend_negosud.Migrations
                     b.HasOne("backend_negosud.entities.Client", "Client")
                         .WithMany("Adresses")
                         .HasForeignKey("ClientId")
+                        .IsRequired()
                         .HasConstraintName("adresse_client_id_fkey");
 
                     b.HasOne("backend_negosud.entities.Fournisseur", "Fournisseur")
                         .WithMany("Adresses")
                         .HasForeignKey("FournisseurId")
+                        .IsRequired()
                         .HasConstraintName("adresse_fournisseur_id_fkey");
 
                     b.HasOne("backend_negosud.entities.Pays", "Pays")
@@ -834,6 +839,7 @@ namespace backend_negosud.Migrations
                     b.HasOne("backend_negosud.entities.Utilisateur", "Utilisateur")
                         .WithMany("Adresses")
                         .HasForeignKey("UtilisateurId")
+                        .IsRequired()
                         .HasConstraintName("adresse_utilisateur_id_fkey");
 
                     b.Navigation("Client");

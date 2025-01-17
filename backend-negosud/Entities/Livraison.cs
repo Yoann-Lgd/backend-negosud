@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace backend_negosud.entities;
 
-public partial class Livraison
+public class Livraison
 {
     public int LivraisonId { get; set; }
 
@@ -11,7 +11,7 @@ public partial class Livraison
 
     public DateTime? DateLivraison { get; set; }
 
-    public bool? Livree { get; set; }
+    public bool Livree { get; set; }
 
     public virtual ICollection<Commande> Commandes { get; set; } = new List<Commande>();
 

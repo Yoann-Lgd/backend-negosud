@@ -3,13 +3,13 @@ using System.Collections.Generic;
 
 namespace backend_negosud.entities;
 
-public partial class Stock
+public class Stock
 {
     public int StockId { get; set; }
 
-    public string? RefLot { get; set; }
+    public string RefLot { get; set; }
 
-    public int? Quantite { get; set; }
+    public int Quantite { get; set; }
 
     public double? SeuilMinimum { get; set; }
 

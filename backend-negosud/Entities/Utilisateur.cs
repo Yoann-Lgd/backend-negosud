@@ -3,15 +3,15 @@ using System.Collections.Generic;
 
 namespace backend_negosud.entities;
 
-public partial class Utilisateur
+public class Utilisateur
 {
     public int UtilisateurId { get; set; }
 
-    public string? Nom { get; set; }
+    public string Nom { get; set; }
 
-    public string? Prenom { get; set; }
+    public string Prenom { get; set; }
 
-    public string? Email { get; set; }
+    public string Email { get; set; }
 
     public string MotDePasse { get; set; } = null!;
 

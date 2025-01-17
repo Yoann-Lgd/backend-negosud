@@ -43,7 +43,7 @@ public partial class PostgresContext : DbContext
 
     public virtual DbSet<Livraison> Livraisons { get; set; }
 
-    public virtual DbSet<Pay> Pays { get; set; }
+    public virtual DbSet<Pays> Pays { get; set; }
 
     public virtual DbSet<Reglement> Reglements { get; set; }
 
@@ -57,10 +57,6 @@ public partial class PostgresContext : DbContext
 
     public virtual DbSet<Utilisateur> Utilisateurs { get; set; }
 
-    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
-        => optionsBuilder.UseNpgsql("Host=localhost:5432;Username=postgres;Password=nego69;Database=postgres");
-
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<Adresse>(entity =>
@@ -70,26 +66,34 @@ public partial class PostgresContext : DbContext
             entity.ToTable("adresse");
 
             entity.Property(e => e.AdresseId).HasColumnName("adresse_id");
-            entity.Property(e => e.ClientId).HasColumnName("client_id");
+            entity.Property(e => e.ClientId)
+                .HasColumnName("client_id")
+                .IsRequired(false);
             entity.Property(e => e.CodePostal).HasColumnName("code_postal");
             entity.Property(e => e.Departement)
                 .HasMaxLength(50)
                 .HasColumnName("departement");
-            entity.Property(e => e.FournisseurId).HasColumnName("fournisseur_id");
+            entity.Property(e => e.FournisseurId)
+                .HasColumnName("fournisseur_id")
+                .IsRequired(false);
             entity.Property(e => e.Numero).HasColumnName("numero");
             entity.Property(e => e.PaysId).HasColumnName("pays_id");
-            entity.Property(e => e.UtilisateurId).HasColumnName("utilisateur_id");
+            entity.Property(e => e.UtilisateurId)
+                .HasColumnName("utilisateur_id")
+                .IsRequired(false);
             entity.Property(e => e.Ville)
                 .HasColumnType("character varying")
                 .HasColumnName("ville");
 
             entity.HasOne(d => d.Client).WithMany(p => p.Adresses)
                 .HasForeignKey(d => d.ClientId)
+                .IsRequired(false)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("adresse_client_id_fkey");
 
             entity.HasOne(d => d.Fournisseur).WithMany(p => p.Adresses)
                 .HasForeignKey(d => d.FournisseurId)
+                .IsRequired(false)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("adresse_fournisseur_id_fkey");
 
@@ -100,6 +104,7 @@ public partial class PostgresContext : DbContext
 
             entity.HasOne(d => d.Utilisateur).WithMany(p => p.Adresses)
                 .HasForeignKey(d => d.UtilisateurId)
+                .IsRequired(false)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("adresse_utilisateur_id_fkey");
 
@@ -107,6 +112,7 @@ public partial class PostgresContext : DbContext
                 .UsingEntity<Dictionary<string, object>>(
                     "Lier",
                     r => r.HasOne<Livraison>().WithMany()
+                        .IsRequired(false)
                         .HasForeignKey("LivraisonId")
                         .OnDelete(DeleteBehavior.ClientSetNull)
                         .HasConstraintName("lier_livraison_id_fkey"),
@@ -202,7 +208,7 @@ public partial class PostgresContext : DbContext
                 .HasMaxLength(50)
                 .HasColumnName("prenom");
             entity.Property(e => e.Tel)
-                .HasMaxLength(15)
+                .HasMaxLength(20)
                 .HasColumnName("tel");
         });
 
@@ -437,7 +443,7 @@ public partial class PostgresContext : DbContext
             entity.Property(e => e.Livree).HasColumnName("livree");
         });
 
-        modelBuilder.Entity<Pay>(entity =>
+        modelBuilder.Entity<Pays>(entity =>
         {
             entity.HasKey(e => e.PaysId).HasName("pays_pkey");
 
@@ -445,7 +451,7 @@ public partial class PostgresContext : DbContext
 
             entity.Property(e => e.PaysId).HasColumnName("pays_id");
             entity.Property(e => e.Nom)
-                .HasMaxLength(50)
+                .HasMaxLength(100)
                 .HasColumnName("nom");
         });
 

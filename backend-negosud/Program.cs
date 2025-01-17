@@ -1,17 +1,20 @@
 using System.Security.Cryptography;
 using backend_negosud.Endpoints;
 using backend_negosud.entities;
+using backend_negosud.Extentions;
 using backend_negosud.Repository;
 using backend_negosud.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+using backend_negosud.Seeds;
 using Npgsql;
 using Serilog;
 
 DotNetEnv.Env.Load();
 var builder = WebApplication.CreateBuilder(args);
+
 RSA rsa = RSA.Create();
 const string keyFileName = "key.bin";
 if (!File.Exists(keyFileName))
@@ -23,14 +26,6 @@ else
 {
     rsa.ImportRSAPrivateKey(File.ReadAllBytes(keyFileName), out _);
 }
-builder.Services.AddCors(options =>
-{
-    options.AddPolicy("AllowAll",
-        builder => builder
-            .AllowAnyOrigin()
-            .AllowAnyMethod()
-            .AllowAnyHeader());
-});
 
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer((options =>
@@ -47,8 +42,7 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
         };
     }));
 
-builder.Services.AddScoped<IUtilisateurRepository, UtilisateurRepository>();
-builder.Services.AddScoped<IUtilisateurService, UtilisateurService>();
+
 builder.Services.AddScoped<IJwtService, JwtService>();
 builder.Services.AddScoped<IHashMotDePasseService, HashMotDePasseService>();
 builder.Services.AddScoped<IAuthService, AuthService>();
@@ -57,12 +51,6 @@ builder.Services.AddScoped<IEnvoieEmailService, EnvoieEmailService>();
 // Add services to the container.
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Configuration.AddEnvironmentVariables();
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
-builder.Services.AddAuthentication();
-builder.Services.AddAuthorization();
-builder.Services.AddControllers();
-builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddAutoMapper(typeof(Program));
 builder.Services.AddSwaggerGen(opt =>
 {
@@ -90,6 +78,10 @@ builder.Services.AddSwaggerGen(opt =>
     });
 });
 
+
+builder.InjectDependencies();
+
+
 // Configuration de Serilog
 var loggerConfiguration = new LoggerConfiguration()
     .WriteTo.Console()
@@ -97,11 +89,19 @@ var loggerConfiguration = new LoggerConfiguration()
 var logger = loggerConfiguration.CreateLogger();
 builder.Logging.AddSerilog(logger);
 
-// Configuration de la connexion à la base de données
-string connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
-builder.Services.AddDbContext<PostgresContext>(options => options.UseNpgsql(connectionString));
+
 
 var app = builder.Build();
+
+// On peuple la base de données à l'aide de notre classe dédiée et alimnentée par le package Bogus
+using (var scope = app.Services.CreateScope())
+{
+    // var seeder = scope.ServiceProvider.GetRequiredService<DatabaseSeeder>();
+    var services = scope.ServiceProvider;
+    var context = services.GetRequiredService<PostgresContext>();
+    var seedData = new DatabaseSeeder(context);
+    seedData.SeedDatabase();
+}
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
@@ -117,20 +117,6 @@ app.UseHttpsRedirection();
 app.UseAuthentication();
 app.UseAuthorization();
 app.MapControllers();
-
-// Test de connexion à la base de données
-try
-{
-    using (var connection = new NpgsqlConnection(connectionString))
-    {
-        connection.Open();
-        logger.Information("Connexion réussie à la base de données PostgreSQL.");
-    }
-}
-catch (Exception ex)
-{
-    logger.Error(ex, "Erreur lors de la connexion à la base de données");
-}
 
 app.MapGroup("/auth").MapAuthEndpoints();
 

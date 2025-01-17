@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace backend_negosud.entities;
 
-public partial class LigneLivraison
+public class LigneLivraison
 {
     public int LigneLivraisonId { get; set; }
 

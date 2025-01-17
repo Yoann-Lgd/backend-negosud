@@ -3,19 +3,19 @@ using System.Collections.Generic;
 
 namespace backend_negosud.entities;
 
-public partial class Client
+public class Client
 {
     public int ClientId { get; set; }
 
-    public string? Nom { get; set; }
+    public string Nom { get; set; }
 
-    public string? Prenom { get; set; }
+    public string Prenom { get; set; }
 
-    public string? Email { get; set; }
+    public string Email { get; set; }
 
     public string MotDePasse { get; set; } = null!;
 
-    public string? Tel { get; set; }
+    public string Tel { get; set; }
 
     public bool EstValide { get; set; }
 

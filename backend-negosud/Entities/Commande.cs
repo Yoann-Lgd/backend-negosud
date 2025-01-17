@@ -3,11 +3,11 @@ using System.Collections.Generic;
 
 namespace backend_negosud.entities;
 
-public partial class Commande
+public class Commande
 {
     public int CommandeId { get; set; }
 
-    public DateTime? DateCreation { get; set; }
+    public DateTime DateCreation { get; set; }
 
     public int Quantite { get; set; }
 
