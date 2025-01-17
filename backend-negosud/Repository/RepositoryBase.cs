@@ -1,4 +1,4 @@
-using backend_negosud.entities;
+using backend_negosud.Entities;
 using Microsoft.EntityFrameworkCore;
 
 namespace backend_negosud.Repository;

@@ -1,15 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace backend_negosud.entities;
+namespace backend_negosud.Entities;
 
-public class Article
+public partial class Article
 {
     public int ArticleId { get; set; }
 
-    public string Libelle { get; set; }
+    public string Libelle { get; set; } = null!;
 
-    public string Reference { get; set; }
+    public string Reference { get; set; } = null!;
 
     public double Prix { get; set; }
 

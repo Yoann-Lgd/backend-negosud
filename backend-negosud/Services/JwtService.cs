@@ -1,7 +1,7 @@
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Security.Cryptography;
-using backend_negosud.entities;
+using backend_negosud.Entities;
 using backend_negosud.Services;
 using Microsoft.IdentityModel.Tokens;
 

@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace backend_negosud.entities;
+namespace backend_negosud.Entities;
 
-public class LigneBonCommande
+public partial class LigneBonCommande
 {
     public int LigneBonCommandeId { get; set; }
 
@@ -14,8 +14,6 @@ public class LigneBonCommande
     public int ArticleId { get; set; }
 
     public int BonCommandeId { get; set; }
-
-    public int? LigneLivraisonId { get; set; }
 
     public virtual Article Article { get; set; } = null!;
 

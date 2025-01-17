@@ -1,6 +1,6 @@
 using AutoMapper;
 using backend_negosud.DTOs;
-using backend_negosud.entities;
+using backend_negosud.Entities;
 using backend_negosud.Models;
 using backend_negosud.Services;
 using Microsoft.EntityFrameworkCore;

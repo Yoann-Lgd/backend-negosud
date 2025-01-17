@@ -1,6 +1,8 @@
-using backend_negosud.entities;
+using backend_negosud.Entities;
 using Bogus;
 using Bogus.Extensions.Portugal;
+using FluentValidation.AspNetCore;
+using Microsoft.EntityFrameworkCore;
 using Supabase.Postgrest.Attributes;
 
 namespace backend_negosud.Seeds;
@@ -25,7 +27,8 @@ public class DatabaseSeeder
                 .RuleFor(c => c.Email, f => f.Internet.Email())
                 .RuleFor(c => c.Tel, f => f.Phone.PhoneNumber())
                 .RuleFor(c => c.MotDePasse, f => f.Internet.Password(20))
-                .RuleFor(c => c.EstValide, f => f.Random.Bool());
+                .RuleFor(c => c.EstValide, f => f.Random.Bool())
+                .RuleFor(c => c.AcessToken, f => $"{f.Random.AlphaNumeric(10)}.{f.Random.AlphaNumeric(10)}.{f.Random.AlphaNumeric(10)}");
 
             var clients = clientFaker.Generate(50);
             _context.Clients.AddRange(clients);
@@ -141,7 +144,7 @@ public class DatabaseSeeder
                 .RuleFor(u => u.Email, f => f.Person.Email)
                 .RuleFor(u => u.RoleId, f => f.PickRandom(roles).RoleId)
                 .RuleFor(u => u.MotDePasse, f => f.Internet.Password(15))
-                .RuleFor(u => u.AccessToken, f => f.Lorem.Slug());
+                .RuleFor(u => u.AccessToken, f => $"{f.Random.AlphaNumeric(10)}.{f.Random.AlphaNumeric(10)}.{f.Random.AlphaNumeric(10)}");
 
             var utilisateurs = utilisateurFaker.Generate(20);
             _context.Utilisateurs.AddRange(utilisateurs);
@@ -166,6 +169,17 @@ public class DatabaseSeeder
                 if (existingInventorier == null)
                 {
                     _context.Inventoriers.Add(inventorier);
+                }
+                else
+                {
+                    // met à jour les propriétés
+                    existingInventorier.DateModification = inventorier.DateModification;
+                    existingInventorier.QuantitePostModification = inventorier.QuantitePostModification;
+                    existingInventorier.QuantitePrecedente = inventorier.QuantitePrecedente;
+                    existingInventorier.TypeModification = inventorier.TypeModification;
+
+                    // détacg l'entité après modification
+                    _context.Entry(existingInventorier).State = EntityState.Detached;
                 }
             }
             _context.SaveChanges();
@@ -198,7 +212,8 @@ public class DatabaseSeeder
             var bonCommandeFaker = new Faker<BonCommande>()
                 .RuleFor(b => b.Prix, f => f.Random.Double())
                 .RuleFor(b => b.UtilisateurId, f => f.PickRandom(utilisateurs).UtilisateurId)
-                .RuleFor(b => b.Status, f => f.Random.ArrayElement(status));
+                .RuleFor(b => b.Status, f => f.Random.ArrayElement(status))
+                .RuleFor(b => b.Reference, f => f.Commerce.Ean13());
 
             var bonCommandes = bonCommandeFaker.Generate(50);
             _context.BonCommandes.AddRange(bonCommandes);

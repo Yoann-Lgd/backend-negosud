@@ -1,25 +1,23 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace backend_negosud.entities;
+namespace backend_negosud.Entities;
 
-public class Utilisateur
+public partial class Utilisateur
 {
     public int UtilisateurId { get; set; }
 
-    public string Nom { get; set; }
+    public string Nom { get; set; } = null!;
 
-    public string Prenom { get; set; }
+    public string Prenom { get; set; } = null!;
 
-    public string Email { get; set; }
+    public string Email { get; set; } = null!;
 
     public string MotDePasse { get; set; } = null!;
 
     public string? Telephone { get; set; }
 
     public string AccessToken { get; set; } = null!;
-    
-    /*public bool MailValide { get; set; }*/
 
     public int RoleId { get; set; }
 

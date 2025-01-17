@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace backend_negosud.entities;
+namespace backend_negosud.Entities;
 
-public class LigneLivraison
+public partial class LigneLivraison
 {
     public int LigneLivraisonId { get; set; }
 
@@ -11,7 +11,9 @@ public class LigneLivraison
 
     public int LivraisonId { get; set; }
 
-    public virtual ICollection<LigneBonCommande> LigneBonCommandes { get; set; } = new List<LigneBonCommande>();
+    public int LigneBonCommandeId { get; set; }
+
+    public virtual LigneBonCommande LigneBonCommande { get; set; } = null!;
 
     public virtual Livraison Livraison { get; set; } = null!;
 }

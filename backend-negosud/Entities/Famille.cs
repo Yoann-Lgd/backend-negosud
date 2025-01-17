@@ -1,13 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace backend_negosud.entities;
+namespace backend_negosud.Entities;
 
-public class Famille
+public partial class Famille
 {
     public int FamilleId { get; set; }
 
-    public string Nom { get; set; }
+    public string Nom { get; set; } = null!;
 
     public virtual ICollection<Article> Articles { get; set; } = new List<Article>();
 }
