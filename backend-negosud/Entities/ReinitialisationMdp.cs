@@ -13,11 +13,11 @@ public class ReinitialisationMdp
 
     public string ResetToken { get; set; } = null!;
 
-    public int UtilisateurId { get; set; }
+    public int? UtilisateurId { get; set; }
 
-    public int ClientId { get; set; }
+    public int? ClientId { get; set; }
 
-    public virtual Client Client { get; set; } = null!;
+    public virtual Client Client { get; set; }
 
-    public virtual Utilisateur Utilisateur { get; set; } = null!;
+    public virtual Utilisateur Utilisateur { get; set; }
 }

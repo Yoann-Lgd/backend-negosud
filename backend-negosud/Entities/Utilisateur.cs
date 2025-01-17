@@ -18,6 +18,8 @@ public class Utilisateur
     public string? Telephone { get; set; }
 
     public string AccessToken { get; set; } = null!;
+    
+    /*public bool MailValide { get; set; }*/
 
     public int RoleId { get; set; }
 
