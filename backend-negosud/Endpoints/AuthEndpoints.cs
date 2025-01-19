@@ -26,7 +26,7 @@ public static class AuthEndpoints
                 var result = await auth.ResetMotDePasse(utilisateurInputDto.Email);
                 return result.Success ? Results.Ok(result) : Results.BadRequest(result);
             });
-        
+
         endpoints.MapGet("/protectedTest", [Authorize] async (HttpContext context) =>
         {
             var result = "Hello autorized";
