@@ -7,7 +7,7 @@ namespace backend_negosud.Services;
 
 public interface IUtilisateurService
 {
-    Task<IResponseModel> CreateUtilisateur(UtilisateurInputDto utilisateur);
+    Task<IResponseDataModel<UtilisateurOutputDto>> CreateUtilisateur(UtilisateurInputDto utilisateurInputDto);
 
     Task<Utilisateur> GetUtilisateurByToken(string token);
 

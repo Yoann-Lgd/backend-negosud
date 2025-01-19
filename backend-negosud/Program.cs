@@ -13,6 +13,7 @@ using FluentValidation;
 using FluentValidation.AspNetCore;
 using Npgsql;
 using Serilog;
+using ILogger = Microsoft.Extensions.Logging.ILogger;
 
 DotNetEnv.Env.Load();
 var builder = WebApplication.CreateBuilder(args);
@@ -49,6 +50,7 @@ builder.Services.AddScoped<IJwtService, JwtService>();
 builder.Services.AddScoped<IHashMotDePasseService, HashMotDePasseService>();
 builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddScoped<IEnvoieEmailService, EnvoieEmailService>();
+builder.Services.AddScoped<ILogger<Program>, Logger<Program>>();
 builder.Services.AddValidatorsFromAssemblyContaining<Program>();
 builder.Services.AddFluentValidationAutoValidation();
 
@@ -92,7 +94,7 @@ var loggerConfiguration = new LoggerConfiguration()
     .WriteTo.File("logs/log.txt", rollingInterval: RollingInterval.Hour);
 var logger = loggerConfiguration.CreateLogger();
 builder.Logging.AddSerilog(logger);
-
+builder.Services.AddLogging();
 
 
 var app = builder.Build();
