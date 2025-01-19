@@ -9,24 +9,26 @@ namespace backend_negosud.Services;
 
 public class ClientService : IClientService
 {
-    
+    private readonly IVerificationEmailService _verificationEmail;
     private readonly PostgresContext _context;
-    private readonly IClientRepository _repository;
     private readonly IMapper _mapper;
     private readonly IJwtService _jwtService;
     private readonly IHashMotDePasseService _hash;
     private readonly ILogger<ClientService> _logger;
+    private readonly IClientRepository _clientRepository;
     
-    public ClientService(IClientRepository clientRepository, PostgresContext context, IMapper mapper, IJwtService jwtService, IHashMotDePasseService hash, ILogger<ClientService> logger)
+    public ClientService(IClientRepository clientRepository, IVerificationEmailService verificationEmail, PostgresContext context, IMapper mapper, IJwtService jwtService, IHashMotDePasseService hash, ILogger<ClientService> logger)
     {
-        _repository = clientRepository;
+        
         _context = context;
         _mapper = mapper;
         _jwtService = jwtService;
         _hash = hash;
         _logger = logger;
+        _verificationEmail = verificationEmail;
+        _clientRepository = clientRepository;
     }
-    public Task<IResponseDataModel<ClientOutputDto>> CreateClient(Client client)
+    public async Task<IResponseDataModel<ClientOutputDto>> CreateClient(Client client)
     {
                 try
         {
@@ -42,7 +44,7 @@ public class ClientService : IClientService
             }
 
             // Vérification email existant
-            if (await _repository.EmailExistsAsync(client.Email))
+            if (await _verificationEmail.EmailExistsAsync(client.Email))
             {
                 return new ResponseDataModel<ClientOutputDto>
                 {
@@ -72,7 +74,7 @@ public class ClientService : IClientService
             await _repository.AddAsync(client);
 
             // Génération token
-            var tokenJWT = _jwtService.GenererToken(client);
+            var tokenJWT = _jwtService.GenererToken(client as T);
             client.AccessToken = tokenJWT;
 
             await _repository.UpdateAsync(client);

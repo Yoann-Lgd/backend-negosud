@@ -60,7 +60,7 @@ public class JwtService : IJwtService
         }
     }
 
-    public string GenererToken(Utilisateur utilisateur)
+    public string GenererToken(T generic)
     {
         try
         {

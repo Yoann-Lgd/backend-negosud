@@ -14,19 +14,21 @@ public class UtilisateurService : IUtilisateurService
   
     private readonly  PostgresContext _context;
     private readonly IUtilisateurRepository _repository;
+    private readonly IVerificationEmailService _verificationEmail;
     private readonly IMapper _mapper;
     private readonly IJwtService _jwtService;
     private readonly IHashMotDePasseService _hash;
     private readonly ILogger<UtilisateurService> _logger;
 
-    public UtilisateurService(IUtilisateurRepository utilisateurRepository, PostgresContext context, IMapper mapper, IJwtService jwtService, IHashMotDePasseService hash, ILogger<UtilisateurService> logger)
+    public UtilisateurService(IUtilisateurRepository repository, IVerificationEmailService verificationEmail, PostgresContext context, IMapper mapper, IJwtService jwtService, IHashMotDePasseService hash, ILogger<UtilisateurService> logger)
     {
-        _repository = utilisateurRepository;
+        _verificationEmail = verificationEmail;
         _context = context;
         _mapper = mapper;
         _jwtService = jwtService;
         _hash = hash;
         _logger = logger;
+        _repository = repository;
     }
 
         public async Task<IResponseDataModel<UtilisateurOutputDto>> CreateUtilisateur(UtilisateurInputDto utilisateurInputDto)
@@ -45,7 +47,7 @@ public class UtilisateurService : IUtilisateurService
             }
 
             // Vérification email existant
-            if (await _repository.EmailExistsAsync(utilisateurInputDto.Email))
+            if (await _verificationEmail.EmailExistsAsync(utilisateurInputDto.Email))
             {
                 return new ResponseDataModel<UtilisateurOutputDto>
                 {
