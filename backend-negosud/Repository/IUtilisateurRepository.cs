@@ -4,9 +4,9 @@ using backend_negosud.Models;
 
 namespace backend_negosud.Repository;
 
-public interface IUtilisateurRepository
+public interface IUtilisateurRepository : IRepositoryBase<Utilisateur , UtilisateurOutputDto>
 {
-    Task<IResponseDataModel<UtilisateurOutputDto>> CreateAsync(UtilisateurInputDto UtilisateurInputDto);
-    
-    
+    /*Task<IResponseDataModel<UtilisateurOutputDto>> CreateAsync(UtilisateurInputDto UtilisateurInputDto);*/
+
+    Task<bool> EmailExistsAsync(string email);
 }
