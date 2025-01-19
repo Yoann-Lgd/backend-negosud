@@ -14,7 +14,9 @@ public class AutoMapperProfile : Profile
 
         CreateMap<UtilisateurInputDto, Utilisateur>()
             .ForMember(dest => dest.AccessToken, opt => opt.MapFrom(src => src.access_token))
-            .ForMember(dest => dest.RoleId, opt => opt.MapFrom(src => src.RoleDto.RoleId));
+            .ForMember(dest => dest.RoleId, opt => opt.MapFrom(src => src.RoleDto.RoleId))
+            .ForMember(dest => dest.Nom, opt => opt.MapFrom(src => src.Nom))
+            .ForMember(dest => dest.Prenom, opt => opt.MapFrom(src => src.Prenom));
 
         CreateMap<Adresse, AdresseDto>();
         CreateMap<RoleDto, Role>()

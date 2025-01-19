@@ -3,6 +3,9 @@ using backend_negosud.DTOs;
 using backend_negosud.Entities;
 using backend_negosud.Models;
 using backend_negosud.Services;
+using backend_negosud.Validation;
+using FluentValidation.Results;
+
 using Microsoft.EntityFrameworkCore;
 
 namespace backend_negosud.Repository;
@@ -55,6 +58,21 @@ public class UtilisateurRepository : IUtilisateurRepository
                 {
                     Success = false,
                     Message = "Email déjà utilisé"
+                };
+            }
+            
+            // Utilisation du validator pou verifier le format des données rentrées
+            UtilisateurValidation validation = new UtilisateurValidation();
+            ValidationResult result = validation.Validate(utilisateurInputDto);
+
+            if (!result.IsValid) 
+            {
+                _logger.LogWarning("Validation échouée pour la création d'utilisateur: {Errors}", 
+                    string.Join(", ", result.Errors.Select(e => e.ErrorMessage)));
+                return new ResponseDataModel<UtilisateurOutputDto>
+                {
+                    Success = false,
+                    Message = "Données utilisateur invalides: " + string.Join(", ", result.Errors.Select(e => e.ErrorMessage))
                 };
             }
 
