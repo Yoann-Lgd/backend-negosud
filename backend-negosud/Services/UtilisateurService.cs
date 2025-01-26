@@ -15,7 +15,7 @@ public class UtilisateurService : IUtilisateurService
     private readonly PostgresContext _context;
     private readonly IUtilisateurRepository _repository;
     private readonly IMapper _mapper;
-    private readonly IJwtService _jwtService;
+
     private readonly IHashMotDePasseService _hash;
     private readonly ILogger<UtilisateurService> _logger;
 

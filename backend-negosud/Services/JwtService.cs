@@ -1,24 +1,32 @@
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Security.Cryptography;
+using AutoMapper;
 using backend_negosud.Entities;
+using backend_negosud.Mapper;
 using backend_negosud.Services;
 using Microsoft.IdentityModel.Tokens;
 
-public class JwtService : IJwtService
+public class JwtService<TEntity, TInputDto, TOutputDto> : IJwtService<TEntity, TInputDto, TOutputDto>
+    where TEntity : class
+    where TInputDto : class
+    where TOutputDto : class
 {
     private readonly IConfiguration _configuration;
     private readonly PostgresContext _context;
+    private readonly  IMapper _mapper;
     private readonly string _keyPath;
-    private readonly ILogger<JwtService> _logger;
+    private readonly ILogger _logger;
 
     public JwtService(
         IConfiguration configuration, 
         PostgresContext context,
-        ILogger<JwtService> logger)
+        IMapper mapper,
+        ILogger logger)
     {
         _configuration = configuration;
         _context = context;
+        _mapper = mapper;
         _logger = logger;
         _keyPath = _configuration["Jwt:KeyPath"] ?? "key.bin";
     }
@@ -60,18 +68,32 @@ public class JwtService : IJwtService
         }
     }
 
-    public string GenererToken(Utilisateur utilisateur)
+public string GenererToken(TInputDto inputDto)
     {
         try
         {
+            var entity = _mapper.Map<TEntity>(inputDto);
+
             using var rsa = LoadOrCreateRsaKey();
             var key = new RsaSecurityKey(rsa);
             var credentials = new SigningCredentials(key, SecurityAlgorithms.RsaSha256);
 
+            // Utilisation de réflexion pour obtenir l'ID et l'email
+            var idProperty = typeof(TEntity).GetProperties()
+                .FirstOrDefault(p => p.Name.EndsWith("Id", StringComparison.OrdinalIgnoreCase));
+            
+            var emailProperty = typeof(TEntity).GetProperties()
+                .FirstOrDefault(p => p.Name.Equals("Email", StringComparison.OrdinalIgnoreCase));
+
+            if (idProperty == null || emailProperty == null)
+            {
+                throw new InvalidOperationException("Impossible de trouver les propriétés ID et Email");
+            }
+
             var claims = new[]
             {
-                new Claim(ClaimTypes.NameIdentifier, utilisateur.UtilisateurId.ToString()),
-                new Claim(ClaimTypes.Email, utilisateur.Email),
+                new Claim(ClaimTypes.NameIdentifier, idProperty.GetValue(entity).ToString()),
+                new Claim(ClaimTypes.Email, emailProperty.GetValue(entity).ToString()),
                 new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
                 new Claim(JwtRegisteredClaimNames.Iat, DateTimeOffset.UtcNow.ToUnixTimeSeconds().ToString()),
             };
@@ -93,21 +115,21 @@ public class JwtService : IJwtService
         }
         catch (Exception ex)
         {
-            _logger.LogError(ex, "Erreur lors de la génération du token pour l'utilisateur {UserId}", utilisateur.UtilisateurId);
+            _logger.LogError(ex, "Erreur lors de la génération du token");
             throw;
         }
     }
 
-    public async Task<bool> ValidateToken(string token, int id)
+    public async Task<TOutputDto> ValidateToken(string token, int id)
     {
         try
         {
             var tokenHandler = new JwtSecurityTokenHandler();
-            var utilisateur = await _context.Utilisateurs.FindAsync(id);
+            var entity = await _context.FindAsync<TEntity>(id);
             
-            if (utilisateur == null)
+            if (entity == null)
             {
-                return false;
+                return null;
             }
 
             using var rsa = LoadOrCreateRsaKey();
@@ -127,22 +149,26 @@ public class JwtService : IJwtService
 
             var principal = tokenHandler.ValidateToken(token, validationParameters, out var validatedToken);
             
-            // Vérification supplémentaire que l'ID dans le token correspond
             var nameIdClaim = principal.FindFirst(ClaimTypes.NameIdentifier);
             if (nameIdClaim == null || !int.TryParse(nameIdClaim.Value, out var tokenUserId) || tokenUserId != id)
             {
-                return false;
+                return null;
             }
 
-            utilisateur.AccessToken = token;
-            await _context.SaveChangesAsync();
+            // Mettre à jour le token d'accès si nécessaire
+            var accessTokenProperty = entity.GetType().GetProperty("AccessToken");
+            if (accessTokenProperty != null)
+            {
+                accessTokenProperty.SetValue(entity, token);
+                await _context.SaveChangesAsync();
+            }
 
-            return true;
+            return _mapper.Map<TOutputDto>(entity);
         }
         catch (Exception ex)
         {
-            _logger.LogError(ex, "Erreur lors de la validation du token pour l'utilisateur {UserId}", id);
-            return false;
+            _logger.LogError(ex, "Erreur lors de la validation du token pour l'ID {Id}", id);
+            return null;
         }
     }
 }
