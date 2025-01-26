@@ -19,12 +19,18 @@ public static class DependencyInjectionExtension
         builder.AddEFCoreConfiguration();
         builder.CorseConfiguration();
         builder.AddSwagger();
+        builder.AddControllers();
     }
 
     public static void AddRepositories(this WebApplicationBuilder builder)
     {
         builder.Services.AddScoped<IUtilisateurRepository, UtilisateurRepository>();
-    }    
+    }
+
+    public static void AddControllers(this WebApplicationBuilder builder)
+    {
+        builder.Services.AddControllers();
+    }
     
     public static void AddServices(this WebApplicationBuilder builder)
     {
@@ -59,7 +65,7 @@ public static class DependencyInjectionExtension
     public static void AddSwagger(this WebApplicationBuilder builder)
     {
         // Add services to the container.
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+        // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
         builder.Services.AddEndpointsApiExplorer();
         builder.Services.AddSwaggerGen();
         builder.Services.AddAuthentication();
