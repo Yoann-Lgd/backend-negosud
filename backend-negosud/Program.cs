@@ -1,5 +1,4 @@
 using System.Security.Cryptography;
-using backend_negosud.Endpoints;
 using backend_negosud.Entities;
 using backend_negosud.Extentions;
 using backend_negosud.Repository;
@@ -117,13 +116,11 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-
+app.UseRouting();
 app.UseCors("AllowAll");
 app.UseHttpsRedirection();
 app.UseAuthentication();
 app.UseAuthorization();
 app.MapControllers();
-
-app.MapGroup("/auth").MapAuthEndpoints();
 
 app.Run();
