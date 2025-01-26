@@ -16,13 +16,13 @@ public class JwtService<TEntity, TInputDto, TOutputDto> : IJwtService<TEntity, T
     private readonly PostgresContext _context;
     private readonly  IMapper _mapper;
     private readonly string _keyPath;
-    private readonly ILogger _logger;
+    private readonly ILogger<JwtService<TEntity, TInputDto, TOutputDto>> _logger;
 
     public JwtService(
         IConfiguration configuration, 
         PostgresContext context,
         IMapper mapper,
-        ILogger logger)
+        ILogger<JwtService<TEntity, TInputDto, TOutputDto>> logger)
     {
         _configuration = configuration;
         _context = context;

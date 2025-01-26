@@ -3,7 +3,7 @@ using backend_negosud.Models;
 
 namespace backend_negosud.Services;
 
-public interface IGenericAuthService<TEntity, TInputDto, TOutputDto>
+public interface IAuthService<TEntity, TInputDto, TOutputDto>
     where TEntity : class
     where TInputDto : class
     where TOutputDto : class

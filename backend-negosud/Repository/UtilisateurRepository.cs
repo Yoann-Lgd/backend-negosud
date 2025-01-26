@@ -2,9 +2,6 @@ using AutoMapper;
 using backend_negosud.DTOs;
 using backend_negosud.Entities;
 using backend_negosud.Models;
-using backend_negosud.Services;
-using backend_negosud.Validation;
-using FluentValidation.Results;
 
 using Microsoft.EntityFrameworkCore;
 
@@ -14,21 +11,18 @@ public class UtilisateurRepository : IUtilisateurRepository
 {
     private readonly PostgresContext _context;
     private readonly IMapper _mapper;
-    private readonly IJwtService _jwtService;
-    private readonly IHashMotDePasseService _hash;
+
     private readonly ILogger<UtilisateurRepository> _logger;
 
     public UtilisateurRepository(
         PostgresContext context, 
         IMapper mapper, 
-        IJwtService jwtService, 
-        IHashMotDePasseService hash,
+
         ILogger<UtilisateurRepository> logger)
     {
         _context = context ?? throw new ArgumentNullException(nameof(context));
         _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
-        _jwtService = jwtService ?? throw new ArgumentNullException(nameof(jwtService));
-        _hash = hash ?? throw new ArgumentNullException(nameof(hash));
+
         _logger = logger ?? throw new ArgumentNullException(nameof(logger));
     }
 

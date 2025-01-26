@@ -5,7 +5,7 @@ using Supabase.Gotrue;
 
 namespace backend_negosud.Services;
 
-public interface IUtilisateurService
+public interface IUtilisateurService : IAuthService<Utilisateur, UtilisateurInputDto, UtilisateurOutputDto>
 {
     Task<IResponseDataModel<UtilisateurOutputDto>> CreateUtilisateur(UtilisateurInputDto utilisateurInputDto);
 
@@ -14,4 +14,8 @@ public interface IUtilisateurService
     Task UpdateUtilisateur(Utilisateur utilisateur);
 
     Task <Utilisateur>GetUtilisateuByEmail(string email);
+
+    Task<IResponseDataModel<UtilisateurOutputDto>> Login(string email, string motDePasse);
+
+    Task<IResponseDataModel<string>> ResetMotDePasse(string email);
 }
