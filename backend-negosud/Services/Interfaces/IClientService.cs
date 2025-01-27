@@ -6,7 +6,6 @@ namespace backend_negosud.Services;
 
 public interface IClientService : IAuthService<Client, ClientInputDto, ClientOutputDto>
 {
-    Task<IResponseDataModel<ClientOutputDto>> CreateClient(ClientInputDto clientInputDto);
 
     Task<Client> GetClientByToken(string token);
 
@@ -15,6 +14,8 @@ public interface IClientService : IAuthService<Client, ClientInputDto, ClientOut
     Task <Client>GetClientByEmail(string email);
 
     Task<bool> ValidationClientEmail(ClientInputDto clientInputDto);
+   Task<IResponseDataModel<string>> VerifierCodeValidation(string email, string code);
+  Task<IResponseDataModel<ClientOutputDto>> CreateClient(ClientInputDto ClientInputDto);
 
     Task<IResponseDataModel<ClientOutputDto>> Login(string email, string motDePasse);
 
