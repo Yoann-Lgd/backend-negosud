@@ -49,6 +49,10 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
 builder.Services.AddScoped<IJwtService<Utilisateur, UtilisateurInputDto, UtilisateurOutputDto>, JwtService<Utilisateur, UtilisateurInputDto, UtilisateurOutputDto>>();
 builder.Services.AddScoped<IAuthService<Utilisateur, UtilisateurInputDto, UtilisateurOutputDto>, UtilisateurService>();
 
+// Services client
+builder.Services.AddScoped<IJwtService<Client, ClientInputDto, ClientOutputDto>, JwtService<Client, ClientInputDto, ClientOutputDto>>();
+builder.Services.AddScoped<IAuthService<Client, ClientInputDto, ClientOutputDto>, ClientService>();
+builder.Services.AddScoped<IClientRepository, ClientRepository>();
 
 // Reste des services \
 builder.Services.AddScoped<IHashMotDePasseService, HashMotDePasseService>();
