@@ -1,4 +1,5 @@
 using System.Security.Cryptography;
+using backend_negosud.DTOs;
 using backend_negosud.Entities;
 using backend_negosud.Extentions;
 using backend_negosud.Repository;
@@ -44,10 +45,17 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
         };
     }));
 
+// Services utilisateur
+builder.Services.AddScoped<IJwtService<Utilisateur, UtilisateurInputDto, UtilisateurOutputDto>, JwtService<Utilisateur, UtilisateurInputDto, UtilisateurOutputDto>>();
+builder.Services.AddScoped<IAuthService<Utilisateur, UtilisateurInputDto, UtilisateurOutputDto>, UtilisateurService>();
 
-builder.Services.AddScoped<IJwtService, JwtService>();
+// Services client
+builder.Services.AddScoped<IJwtService<Client, ClientInputDto, ClientOutputDto>, JwtService<Client, ClientInputDto, ClientOutputDto>>();
+builder.Services.AddScoped<IAuthService<Client, ClientInputDto, ClientOutputDto>, ClientService>();
+builder.Services.AddScoped<IClientRepository, ClientRepository>();
+
+// Reste des services \
 builder.Services.AddScoped<IHashMotDePasseService, HashMotDePasseService>();
-builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddScoped<IEnvoieEmailService, EnvoieEmailService>();
 builder.Services.AddScoped<ILogger<Program>, Logger<Program>>();
 builder.Services.AddValidatorsFromAssemblyContaining<Program>();

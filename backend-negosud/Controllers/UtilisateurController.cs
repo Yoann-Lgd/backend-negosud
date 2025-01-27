@@ -1,4 +1,5 @@
 using backend_negosud.DTOs;
+using backend_negosud.Entities;
 using backend_negosud.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -10,14 +11,13 @@ namespace backend_negosud.Controllers;
 public class UtilisateurController : ControllerBase
 {
     private readonly IUtilisateurService _utilisateurService;
-    private readonly IAuthService _authService;
+
 
     public UtilisateurController(
-        IUtilisateurService utilisateurService, 
-        IAuthService authService)
+        IUtilisateurService utilisateurService)
     {
         _utilisateurService = utilisateurService;
-        _authService = authService;
+        
     }
 
     [HttpPost("register")]
@@ -30,14 +30,14 @@ public class UtilisateurController : ControllerBase
     [HttpPost("login")]
     public async Task<IActionResult> Login([FromBody] UtilisateurInputDto utilisateurInputDto)
     {
-        var result = await _authService.Login(utilisateurInputDto.Email, utilisateurInputDto.MotDePasse);
+        var result = await _utilisateurService.Login(utilisateurInputDto.Email, utilisateurInputDto.MotDePasse);
         return result.Success ? Ok(result) : BadRequest(result);
     }
 
     [HttpPost("resetmotdepasse")]
     public async Task<IActionResult> ResetMotDePasse([FromBody] UtilisateurInputDto utilisateurInputDto)
     {
-        var result = await _authService.ResetMotDePasse(utilisateurInputDto.Email);
+        var result = await _utilisateurService.ResetMotDePasse(utilisateurInputDto.Email);
         return result.Success ? Ok(result) : BadRequest(result);
     }
 
