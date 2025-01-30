@@ -237,14 +237,16 @@ namespace backend_negosud.Migrations
                         .HasColumnName("client_id");
 
                     b.Property<DateTime>("DateCreation")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("timestamp without time zone")
-                        .HasColumnName("date_creation");
+                        .HasColumnName("date_creation")
+                        .HasDefaultValueSql("CURRENT_TIMESTAMP");
 
                     b.Property<int?>("FactureId")
                         .HasColumnType("integer")
                         .HasColumnName("facture_id");
 
-                    b.Property<int>("LivraisonId")
+                    b.Property<int?>("LivraisonId")
                         .HasColumnType("integer")
                         .HasColumnName("livraison_id");
 
@@ -252,8 +254,19 @@ namespace backend_negosud.Migrations
                         .HasColumnType("integer")
                         .HasColumnName("quantite");
 
+                    b.Property<int>("Statut")
+                        .HasColumnType("integer")
+                        .HasColumnName("statut");
+
+                    b.Property<decimal>("Total")
+                        .HasPrecision(10, 2)
+                        .HasColumnType("numeric(10,2)")
+                        .HasColumnName("total");
+
                     b.Property<bool>("Valide")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("boolean")
+                        .HasDefaultValue(false)
                         .HasColumnName("valide");
 
                     b.HasKey("CommandeId")
@@ -286,6 +299,9 @@ namespace backend_negosud.Migrations
                         .HasColumnType("integer")
                         .HasColumnName("commande_id");
 
+                    b.Property<int>("CommandeNavigationCommandeId")
+                        .HasColumnType("integer");
+
                     b.Property<DateTime>("DateFacturation")
                         .HasColumnType("timestamp without time zone")
                         .HasColumnName("date_facturation");
@@ -312,6 +328,8 @@ namespace backend_negosud.Migrations
                         .HasName("facture_pk");
 
                     b.HasIndex("ClientId");
+
+                    b.HasIndex("CommandeNavigationCommandeId");
 
                     b.HasIndex(new[] { "CommandeId" }, "facture_commande0_ak")
                         .IsUnique();
@@ -906,6 +924,7 @@ namespace backend_negosud.Migrations
                     b.HasOne("backend_negosud.Entities.Client", "Client")
                         .WithMany("Commandes")
                         .HasForeignKey("ClientId")
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired()
                         .HasConstraintName("commande_client0_fk");
 
@@ -917,7 +936,6 @@ namespace backend_negosud.Migrations
                     b.HasOne("backend_negosud.Entities.Livraison", "Livraison")
                         .WithMany("Commandes")
                         .HasForeignKey("LivraisonId")
-                        .IsRequired()
                         .HasConstraintName("commande_livraison1_fk");
 
                     b.Navigation("Client");
@@ -936,10 +954,10 @@ namespace backend_negosud.Migrations
                         .HasConstraintName("facture_client0_fk");
 
                     b.HasOne("backend_negosud.Entities.Commande", "CommandeNavigation")
-                        .WithOne("FactureNavigation")
-                        .HasForeignKey("backend_negosud.Entities.Facture", "CommandeId")
-                        .IsRequired()
-                        .HasConstraintName("facture_commande1_fk");
+                        .WithMany()
+                        .HasForeignKey("CommandeNavigationCommandeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Client");
 
@@ -1125,8 +1143,6 @@ namespace backend_negosud.Migrations
 
             modelBuilder.Entity("backend_negosud.Entities.Commande", b =>
                 {
-                    b.Navigation("FactureNavigation");
-
                     b.Navigation("LigneCommandes");
 
                     b.Navigation("Reglements");

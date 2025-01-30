@@ -186,39 +186,63 @@ public partial class PostgresContext : DbContext
         });
 
         modelBuilder.Entity<Commande>(entity =>
-        {
-            entity.HasKey(e => e.CommandeId).HasName("commande_pk");
+            {
+                entity.HasKey(e => e.CommandeId).HasName("commande_pk");
 
-            entity.ToTable("commande");
+                entity.ToTable("commande");
 
-            entity.HasIndex(e => e.FactureId, "commande_facture0_ak").IsUnique();
+                entity.HasIndex(e => e.FactureId, "commande_facture0_ak").IsUnique();
 
-            entity.Property(e => e.CommandeId).HasColumnName("commande_id");
-            entity.Property(e => e.ClientId).HasColumnName("client_id");
-            entity.Property(e => e.DateCreation)
-                .HasColumnType("timestamp without time zone")
-                .HasColumnName("date_creation");
-            entity.Property(e => e.FactureId).HasColumnName("facture_id");
-            entity.Property(e => e.LivraisonId).HasColumnName("livraison_id");
-            entity.Property(e => e.Quantite).HasColumnName("quantite");
-            entity.Property(e => e.Valide).HasColumnName("valide");
+                entity.Property(e => e.CommandeId).HasColumnName("commande_id");
+                entity.Property(e => e.ClientId).HasColumnName("client_id");
+                entity.Property(e => e.DateCreation)
+                    .HasColumnType("timestamp without time zone")
+                    .HasColumnName("date_creation")
+                    .HasDefaultValueSql("CURRENT_TIMESTAMP");
 
-            entity.HasOne(d => d.Client).WithMany(p => p.Commandes)
-                .HasForeignKey(d => d.ClientId)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("commande_client0_fk");
+                entity.Property(e => e.Quantite).HasColumnName("quantite");
 
-            entity.HasOne(d => d.Facture).WithOne(p => p.Commande)
-                .HasForeignKey<Commande>(d => d.FactureId)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .IsRequired(false)
-                .HasConstraintName("commande_facture2_fk");
+                entity.Property(e => e.Total)
+                    .HasPrecision(10, 2)
+                    .HasColumnName("total");
 
-            entity.HasOne(d => d.Livraison).WithMany(p => p.Commandes)
-                .HasForeignKey(d => d.LivraisonId)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("commande_livraison1_fk");
-        });
+                entity.Property(e => e.Statut)
+                    .HasColumnName("statut")
+                    .HasConversion<int>();
+
+                entity.Property(e => e.Valide)
+                    .HasColumnName("valide")
+                    .HasDefaultValue(false);
+
+                entity.Property(e => e.FactureId)
+                    .HasColumnName("facture_id")
+                    .IsRequired(false);
+
+                entity.Property(e => e.LivraisonId)
+                    .HasColumnName("livraison_id")
+                    .IsRequired(false);
+                
+                entity.HasOne(d => d.Client)
+                    .WithMany(p => p.Commandes)
+                    .HasForeignKey(d => d.ClientId)
+                    .OnDelete(DeleteBehavior.Cascade) 
+                    .HasConstraintName("commande_client0_fk");
+
+                entity.HasOne(d => d.Facture)
+                    .WithOne(p => p.Commande)
+                    .HasForeignKey<Commande>(d => d.FactureId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .IsRequired(false)
+                    .HasConstraintName("commande_facture2_fk");
+
+                entity.HasOne(d => d.Livraison)
+                    .WithMany(p => p.Commandes)
+                    .HasForeignKey(d => d.LivraisonId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .IsRequired(false)
+                    .HasConstraintName("commande_livraison1_fk");
+            });
+
 
         modelBuilder.Entity<Facture>(entity =>
         {
@@ -245,11 +269,6 @@ public partial class PostgresContext : DbContext
                 .HasForeignKey(d => d.ClientId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("facture_client0_fk");
-
-            entity.HasOne(d => d.CommandeNavigation).WithOne(p => p.FactureNavigation)
-                .HasForeignKey<Facture>(d => d.CommandeId)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("facture_commande1_fk");
         });
 
         modelBuilder.Entity<Famille>(entity =>
