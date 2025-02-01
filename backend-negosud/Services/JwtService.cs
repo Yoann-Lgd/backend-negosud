@@ -74,7 +74,7 @@ public string GenererToken(TInputDto inputDto)
         {
             var entity = _mapper.Map<TEntity>(inputDto);
 
-            using var rsa = LoadOrCreateRsaKey();
+            RSA rsa = LoadOrCreateRsaKey();
             var key = new RsaSecurityKey(rsa);
             var credentials = new SigningCredentials(key, SecurityAlgorithms.RsaSha256);
 

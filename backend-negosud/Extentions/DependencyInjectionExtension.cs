@@ -1,7 +1,10 @@
+using backend_negosud.DTOs;
 using backend_negosud.Entities;
 using backend_negosud.Repository;
 using backend_negosud.Seeds;
 using backend_negosud.Services;
+using FluentValidation;
+using FluentValidation.AspNetCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
 
@@ -25,6 +28,9 @@ public static class DependencyInjectionExtension
     public static void AddRepositories(this WebApplicationBuilder builder)
     {
         builder.Services.AddScoped<IUtilisateurRepository, UtilisateurRepository>();
+        builder.Services.AddScoped<IRoleRepository, RoleRepository>();
+        builder.Services.AddScoped<IStockRepository, StockRepository>();
+        builder.Services.AddScoped<IClientRepository, ClientRepository>();
     }
 
     public static void AddControllers(this WebApplicationBuilder builder)
@@ -35,6 +41,16 @@ public static class DependencyInjectionExtension
     public static void AddServices(this WebApplicationBuilder builder)
     {
         builder.Services.AddScoped<IUtilisateurService, UtilisateurService>();
+        builder.Services.AddScoped<IStockService, StockService>();
+        builder.Services.AddScoped<IJwtService<Client, ClientInputDto, ClientOutputDto>, JwtService<Client, ClientInputDto, ClientOutputDto>>();
+        builder.Services.AddScoped<IAuthService<Client, ClientInputDto, ClientOutputDto>, ClientService>();
+        builder.Services.AddScoped<IJwtService<Utilisateur, UtilisateurInputDto, UtilisateurOutputDto>, JwtService<Utilisateur, UtilisateurInputDto, UtilisateurOutputDto>>();
+        builder.Services.AddScoped<IAuthService<Utilisateur, UtilisateurInputDto, UtilisateurOutputDto>, UtilisateurService>();
+        builder.Services.AddScoped<IHashMotDePasseService, HashMotDePasseService>();
+        builder.Services.AddScoped<IEnvoieEmailService, EnvoieEmailService>();
+        builder.Services.AddScoped<ILogger<Program>, Logger<Program>>();
+        builder.Services.AddValidatorsFromAssemblyContaining<Program>();
+        builder.Services.AddFluentValidationAutoValidation();
     }    
     
     public static void AddSeeder(this WebApplicationBuilder builder)

@@ -45,27 +45,6 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
         };
     }));
 
-// Services utilisateur
-builder.Services.AddScoped<IJwtService<Utilisateur, UtilisateurInputDto, UtilisateurOutputDto>, JwtService<Utilisateur, UtilisateurInputDto, UtilisateurOutputDto>>();
-builder.Services.AddScoped<IAuthService<Utilisateur, UtilisateurInputDto, UtilisateurOutputDto>, UtilisateurService>();
-
-// Services client
-builder.Services.AddScoped<IJwtService<Client, ClientInputDto, ClientOutputDto>, JwtService<Client, ClientInputDto, ClientOutputDto>>();
-builder.Services.AddScoped<IAuthService<Client, ClientInputDto, ClientOutputDto>, ClientService>();
-builder.Services.AddScoped<IClientRepository, ClientRepository>();
-
-
-// Services Stock
-builder.Services.AddScoped<IStockRepository, StockRepository>();
-builder.Services.AddScoped<IStockService, StockService>();
-
-// Reste des services \
-builder.Services.AddScoped<IHashMotDePasseService, HashMotDePasseService>();
-builder.Services.AddScoped<IEnvoieEmailService, EnvoieEmailService>();
-builder.Services.AddScoped<ILogger<Program>, Logger<Program>>();
-builder.Services.AddValidatorsFromAssemblyContaining<Program>();
-builder.Services.AddFluentValidationAutoValidation();
-
 // Add services to the container.
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Configuration.AddEnvironmentVariables();

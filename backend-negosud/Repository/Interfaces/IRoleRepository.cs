@@ -2,7 +2,7 @@ using backend_negosud.Entities;
 
 namespace backend_negosud.Repository;
 
-public interface IStockRepository : IRepositoryBase<Stock>
+public interface IRoleRepository : IRepositoryBase<Role>
 {
     
 }
