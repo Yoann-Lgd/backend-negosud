@@ -202,7 +202,6 @@ public partial class PostgresContext : DbContext
                 .HasColumnName("date_creation");
             entity.Property(e => e.FactureId).HasColumnName("facture_id");
             entity.Property(e => e.LivraisonId).HasColumnName("livraison_id");
-            entity.Property(e => e.Quantite).HasColumnName("quantite");
             entity.Property(e => e.Valide).HasColumnName("valide");
 
             entity.HasOne(d => d.Client).WithMany(p => p.Commandes)

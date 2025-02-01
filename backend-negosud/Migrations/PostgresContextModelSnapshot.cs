@@ -249,8 +249,7 @@ namespace backend_negosud.Migrations
                         .HasColumnName("livraison_id");
 
                     b.Property<int>("Quantite")
-                        .HasColumnType("integer")
-                        .HasColumnName("quantite");
+                        .HasColumnType("integer");
 
                     b.Property<bool>("Valide")
                         .HasColumnType("boolean")
