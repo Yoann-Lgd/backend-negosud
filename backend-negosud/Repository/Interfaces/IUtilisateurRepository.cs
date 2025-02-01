@@ -7,6 +7,6 @@ namespace backend_negosud.Repository;
 public interface IUtilisateurRepository : IRepositoryBase<Utilisateur , UtilisateurOutputDto>
 {
     /*Task<IResponseDataModel<UtilisateurOutputDto>> CreateAsync(UtilisateurInputDto UtilisateurInputDto);*/
-
+    // TODO faire une interface qui mutualise cette methode
     Task<bool> EmailExistsAsync(string email);
 }
