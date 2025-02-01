@@ -61,6 +61,8 @@ public partial class PostgresContext : DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+        modelBuilder.UseIdentityByDefaultColumns();
+        modelBuilder.HasPostgresExtension("timestamptz");
         modelBuilder.Entity<Adresse>(entity =>
         {
             entity.HasKey(e => e.AdresseId).HasName("adresse_pk");
@@ -196,7 +198,7 @@ public partial class PostgresContext : DbContext
             entity.Property(e => e.CommandeId).HasColumnName("commande_id");
             entity.Property(e => e.ClientId).HasColumnName("client_id");
             entity.Property(e => e.DateCreation)
-                .HasColumnType("timestamp without time zone")
+                .HasColumnType("timestamp with time zone")
                 .HasColumnName("date_creation");
             entity.Property(e => e.FactureId).HasColumnName("facture_id");
             entity.Property(e => e.LivraisonId).HasColumnName("livraison_id");

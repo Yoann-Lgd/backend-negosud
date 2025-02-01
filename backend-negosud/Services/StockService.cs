@@ -14,7 +14,8 @@ public class StockService : ControllerBase, IStockService
         _context = context;
     }
     
-    public async Task<IResponseDataModel<Stock>> AddArticleToStock(int articleId, int quantite, string refLot, int seuilMinimum, bool reapprovisionnementAuto)
+    public async Task<IResponseDataModel<Stock>> AddArticleToStock(int articleId, int quantite, string refLot,
+        int seuilMinimum, bool reapprovisionnementAuto)
     {
         var article = await _context.Articles.FindAsync(articleId); // TODO: quand article repository fini, appeler findarticlebyId ici
         if (article == null)
@@ -45,43 +46,59 @@ public class StockService : ControllerBase, IStockService
         };
     }
 
-    public async Task<IResponseDataModel<Stock>>  UpdateStockQuantity(int stockId, int nouvelleQuantite, int utilisateurId, string typeModification)
+    public async Task<IResponseDataModel<Stock>> UpdateStockQuantity(int stockId, int nouvelleQuantite, int utilisateurId, string typeModification)
     {
-        var stock = await _context.Stocks.FindAsync(stockId);
-        if (stock == null)
+        using var transaction = await _context.Database.BeginTransactionAsync();
+        try
         {
+            var stock = await _context.Stocks.FindAsync(stockId);
+            if (stock == null)
+            {
+                return new ResponseDataModel<Stock>
+                {
+                    Success = false,
+                    Message = "Stock non trouvé"
+                };
+            }
+
+            // Enregistrer l'ancienne quantité
+            int ancienneQuantite = stock.Quantite;
+
+            // Mettre à jour la quantité
+            stock.Quantite = nouvelleQuantite;
+            await _context.SaveChangesAsync();
+
+            // Enregistrer l'historique dans la table Inventorier
+            var inventorier = new Inventorier
+            {
+                UtilisateurId = utilisateurId,
+                StockId = stockId,
+                QuantitePrecedente = ancienneQuantite,
+                QuantitePostModification = nouvelleQuantite,
+                TypeModification = typeModification,
+                DateModification = DateTime.UtcNow.ToLocalTime()
+            };
+
+            _context.Inventoriers.Update(inventorier);
+            await _context.SaveChangesAsync();
+
+            await transaction.CommitAsync();
+
+            return new ResponseDataModel<Stock>
+            {
+                Success = true,
+                Message = "Stock mis à jour avec succès"
+            };
+        }
+        catch (Exception ex)
+        {
+            await transaction.RollbackAsync();
             return new ResponseDataModel<Stock>
             {
                 Success = false,
-                Message = "Stock non trouvé"
+                Message = $"Erreur lors de la mise à jour du stock : {ex.Message}"
             };
         }
-
-        // Enregistrer l'ancienne quantité
-        int ancienneQuantite = stock.Quantite;
-
-        // Mettre à jour la quantité
-        stock.Quantite = nouvelleQuantite;
-
-        // Enregistrer l'historique dans la table Inventorier
-        var inventorier = new Inventorier
-        {
-            UtilisateurId = utilisateurId,
-            StockId = stockId,
-            QuantitePrecedente = ancienneQuantite,
-            QuantitePostModification = nouvelleQuantite,
-            TypeModification = typeModification,
-            DateModification = DateTime.UtcNow
-        };
-
-        _context.Inventoriers.Add(inventorier);
-        await _context.SaveChangesAsync();
-
-        return new ResponseDataModel<Stock>
-        {
-            Success = true,
-            Message = "Stock mis à jour."
-        };
     }
 
     public async Task<IResponseDataModel<Stock>>  CheckStockLevel(int articleId, int quantiteDemandee)
