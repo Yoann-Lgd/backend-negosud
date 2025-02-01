@@ -54,6 +54,11 @@ builder.Services.AddScoped<IJwtService<Client, ClientInputDto, ClientOutputDto>,
 builder.Services.AddScoped<IAuthService<Client, ClientInputDto, ClientOutputDto>, ClientService>();
 builder.Services.AddScoped<IClientRepository, ClientRepository>();
 
+
+// Services Stock
+builder.Services.AddScoped<IStockRepository, StockRepository>();
+builder.Services.AddScoped<IStockService, StockService>();
+
 // Reste des services \
 builder.Services.AddScoped<IHashMotDePasseService, HashMotDePasseService>();
 builder.Services.AddScoped<IEnvoieEmailService, EnvoieEmailService>();
