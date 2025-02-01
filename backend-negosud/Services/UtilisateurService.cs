@@ -14,15 +14,17 @@ public class UtilisateurService : IUtilisateurService
     
     private readonly PostgresContext _context;
     private readonly IUtilisateurRepository _repository;
+    private readonly IRoleRepository _role_repository;
     private readonly IMapper _mapper;
     private readonly IJwtService<Utilisateur, UtilisateurInputDto, UtilisateurOutputDto> _jwtService;
     private readonly IHashMotDePasseService _hash;
     private readonly ILogger<UtilisateurService> _logger;
     private readonly IEnvoieEmailService _emailService;
 
-    public UtilisateurService(IEnvoieEmailService emailService, IUtilisateurRepository utilisateurRepository, PostgresContext context, IMapper mapper, IJwtService<Utilisateur, UtilisateurInputDto, UtilisateurOutputDto> jwtService, IHashMotDePasseService hash, ILogger<UtilisateurService> logger)
+    public UtilisateurService(IEnvoieEmailService emailService, IUtilisateurRepository utilisateurRepository,  IRoleRepository roleRepository, PostgresContext context, IMapper mapper, IJwtService<Utilisateur, UtilisateurInputDto, UtilisateurOutputDto> jwtService, IHashMotDePasseService hash, ILogger<UtilisateurService> logger)
     {
         _repository = utilisateurRepository;
+        _role_repository = roleRepository;
         _context = context;
         _mapper = mapper;
         _jwtService = jwtService;
@@ -68,10 +70,22 @@ public class UtilisateurService : IUtilisateurService
                     Message = "Données utilisateur invalides: " + string.Join(", ", result.Errors)
                 };
             }
+            
+            var role = await _role_repository.GetByIdAsync(utilisateurInputDto.RoleId); 
+
+            if (role == null)
+            {
+                return new ResponseDataModel<UtilisateurOutputDto>
+                {
+                    Success = false,
+                    Message = "Le rôle spécifié n'existe pas."
+                };
+            }
 
             // Création utilisateur
             var utilisateur = _mapper.Map<Utilisateur>(utilisateurInputDto);
             utilisateur.MotDePasse = _hash.HashMotDePasse(utilisateur.MotDePasse);
+            utilisateur.Role = role;
 
             // Sauvegarde via repository
             await _repository.AddAsync(utilisateur);

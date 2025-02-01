@@ -12,5 +12,5 @@ public class UtilisateurInputDto
     public string Prenom { get; set; }
     public required string access_token { get; set; }
     
-    public required RoleDto RoleDto { get; set; }
+    public required int RoleId { get; set; }
 }
