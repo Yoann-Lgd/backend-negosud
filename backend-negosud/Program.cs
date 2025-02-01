@@ -1,3 +1,4 @@
+using System.Reflection;
 using System.Security.Cryptography;
 using backend_negosud.DTOs;
 using backend_negosud.Entities;
@@ -73,6 +74,8 @@ builder.Services.AddSwaggerGen(opt =>
             new List<string>()
         }
     });
+    var xmlFilename = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+    opt.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, xmlFilename));
 });
 
 

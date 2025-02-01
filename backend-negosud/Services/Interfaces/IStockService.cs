@@ -6,7 +6,7 @@ namespace backend_negosud.Services;
 
 public interface IStockService
 {
-    Task<IResponseDataModel<Stock>>AddArticleToStock(int articleId, int quantite, string refLot, int seuilMinimum,
+    Task<IResponseDataModel<Stock>> AddArticleToStock(int articleId, int quantite, string refLot, int seuilMinimum,
         bool reapprovisionnementAuto);
 
     Task<IResponseDataModel<Stock>> UpdateStockQuantity(int stockId, int nouvelleQuantite, int utilisateurId,
