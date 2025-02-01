@@ -42,4 +42,9 @@
       <Folder Include="Migrations\" />
     </ItemGroup>
 
+    <ItemGroup>
+      <None Remove="logs\log2025013019.txt" />
+      <None Remove="key.bin" />
+    </ItemGroup>
+
 </Project>
