@@ -1,6 +1,9 @@
-namespace backend_negosud.Controllers;
+using Microsoft.AspNetCore.Mvc;
 
-public class CommandeController
+namespace backend_negosud.Controllers;
+[ApiController]
+[Route("api/[controller]")]
+public class CommandeController : ControllerBase
 {
     
 }

@@ -6,10 +6,11 @@ namespace backend_negosud.Services;
 
 public interface ICommandeService
 {
-    Task<IResponseDataModel<Commande>> CreateCommandeAsync(int clientId);
-    Task<IResponseDataModel<string>> AddLigneCommandeAsync(int commandeId, int produitId, int quantite, decimal prix);
-    Task<IResponseDataModel<string>> ValidateCommandeAsync(int commandeId);
-    Task<IResponseDataModel<string>> CancelCommandeAsync(int commandeId);
-    Task<IResponseDataModel<Commande>> GetCommandeByIdAsync(int commandeId);
-    Task<IResponseDataModel<List<Commande>>> GetCommandesByStatutAsync(StatutCommande statut);
+    Task<Commande> AddAsync(Commande commande, CancellationToken cancellationToken = default);
+    Task<Commande?> GetByIdAsync(int id, CancellationToken cancellationToken = default);
+    Task<List<Commande>> GetAllAsync(CancellationToken cancellationToken = default);
+    Task UpdateAsync(Commande commande, CancellationToken cancellationToken = default);
+    Task DeleteAsync(Commande commande, CancellationToken cancellationToken = default);
+    Task<Commande?> GetCommandeByStatutAsync(int clientId, StatutCommande statut, CancellationToken cancellationToken = default);
+    Task<decimal> GetPrixProduitAsync(int produitId, CancellationToken cancellationToken = default);
 }

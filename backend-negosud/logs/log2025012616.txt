@@ -1,0 +1,42 @@
+2025-01-26 16:49:08.694 +01:00 [INF] Executed DbCommand (14ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM client AS c)
+2025-01-26 16:49:08.828 +01:00 [INF] User profile is available. Using '/Users/yoann/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-01-26 16:49:08.859 +01:00 [INF] Now listening on: http://localhost:5141
+2025-01-26 16:49:08.861 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-01-26 16:49:08.862 +01:00 [INF] Hosting environment: Development
+2025-01-26 16:49:08.862 +01:00 [INF] Content root path: /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud
+2025-01-26 16:49:09.108 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5141/swagger/index.html - null null
+2025-01-26 16:49:09.197 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5141/swagger/index.html - 200 null text/html;charset=utf-8 89.1201ms
+2025-01-26 16:49:09.513 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5141/swagger/v1/swagger.json - null null
+2025-01-26 16:49:09.566 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5141/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 53.1968ms
+2025-01-26 16:49:16.599 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5141/api/Utilisateur/protectedTest - null null
+2025-01-26 16:49:16.609 +01:00 [WRN] Failed to determine the https port for redirect.
+2025-01-26 16:49:16.635 +01:00 [WRN] Failed to determine the https port for redirect.
+2025-01-26 16:49:16.667 +01:00 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2025-01-26 16:49:16.669 +01:00 [INF] AuthenticationScheme: Bearer was challenged.
+2025-01-26 16:49:16.670 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5141/api/Utilisateur/protectedTest - 401 0 null 71.0809ms
+2025-01-26 16:49:28.720 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5141/api/Utilisateur/protectedTest - null null
+2025-01-26 16:49:28.768 +01:00 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenInvalidAudienceException: IDX10208: Unable to validate audience. validationParameters.ValidAudience is null or whitespace and validationParameters.ValidAudiences is null.
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateAudience(IEnumerable`1 audiences, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateTokenPayloadAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateJWSAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+2025-01-26 16:49:28.779 +01:00 [INF] Bearer was not authenticated. Failure message: IDX10208: Unable to validate audience. validationParameters.ValidAudience is null or whitespace and validationParameters.ValidAudiences is null.
+2025-01-26 16:49:28.780 +01:00 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2025-01-26 16:49:28.781 +01:00 [INF] AuthenticationScheme: Bearer was challenged.
+2025-01-26 16:49:28.781 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5141/api/Utilisateur/protectedTest - 401 0 null 60.9008ms
+2025-01-26 16:50:18.879 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5141/api/Utilisateur/protectedTest - null null
+2025-01-26 16:50:18.898 +01:00 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenInvalidAudienceException: IDX10208: Unable to validate audience. validationParameters.ValidAudience is null or whitespace and validationParameters.ValidAudiences is null.
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateAudience(IEnumerable`1 audiences, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateTokenPayloadAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateJWSAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+2025-01-26 16:50:18.899 +01:00 [INF] Bearer was not authenticated. Failure message: IDX10208: Unable to validate audience. validationParameters.ValidAudience is null or whitespace and validationParameters.ValidAudiences is null.
+2025-01-26 16:50:18.901 +01:00 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2025-01-26 16:50:18.901 +01:00 [INF] AuthenticationScheme: Bearer was challenged.
+2025-01-26 16:50:18.901 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5141/api/Utilisateur/protectedTest - 401 0 null 23.8156ms

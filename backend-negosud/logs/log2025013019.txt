@@ -1,0 +1,69 @@
+2025-01-30 19:45:23.496 +01:00 [INF] Executed DbCommand (27ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1 FROM pg_catalog.pg_class c
+    JOIN pg_catalog.pg_namespace n ON n.oid=c.relnamespace
+    WHERE n.nspname='public' AND
+          c.relname='__EFMigrationsHistory'
+)
+2025-01-30 19:45:23.539 +01:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2025-01-30 19:45:23.571 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1 FROM pg_catalog.pg_class c
+    JOIN pg_catalog.pg_namespace n ON n.oid=c.relnamespace
+    WHERE n.nspname='public' AND
+          c.relname='__EFMigrationsHistory'
+)
+2025-01-30 19:45:23.584 +01:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1 FROM pg_catalog.pg_class c
+    JOIN pg_catalog.pg_namespace n ON n.oid=c.relnamespace
+    WHERE n.nspname='public' AND
+          c.relname='__EFMigrationsHistory'
+)
+2025-01-30 19:45:23.585 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2025-01-30 19:45:23.593 +01:00 [INF] Applying migration '20250130184510_AddConfigurationForBasket'.
+2025-01-30 19:45:23.635 +01:00 [INF] Executed DbCommand (9ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE commande DROP CONSTRAINT commande_client0_fk;
+2025-01-30 19:45:23.635 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE facture DROP CONSTRAINT facture_commande1_fk;
+2025-01-30 19:45:23.639 +01:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE facture ADD "CommandeNavigationCommandeId" integer NOT NULL DEFAULT 0;
+2025-01-30 19:45:23.639 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE commande ALTER COLUMN valide SET DEFAULT FALSE;
+2025-01-30 19:45:23.639 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE commande ALTER COLUMN livraison_id DROP NOT NULL;
+2025-01-30 19:45:23.639 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE commande ALTER COLUMN date_creation SET DEFAULT (CURRENT_TIMESTAMP);
+2025-01-30 19:45:23.640 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE commande ADD statut integer NOT NULL DEFAULT 0;
+2025-01-30 19:45:23.640 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE commande ADD total numeric(10,2) NOT NULL DEFAULT 0.0;
+2025-01-30 19:45:23.642 +01:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX "IX_facture_CommandeNavigationCommandeId" ON facture ("CommandeNavigationCommandeId");
+2025-01-30 19:45:23.645 +01:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE commande ADD CONSTRAINT commande_client0_fk FOREIGN KEY (client_id) REFERENCES client (client_id) ON DELETE CASCADE;
+2025-01-30 19:45:23.645 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE facture ADD CONSTRAINT "FK_facture_commande_CommandeNavigationCommandeId" FOREIGN KEY ("CommandeNavigationCommandeId") REFERENCES commande (commande_id) ON DELETE CASCADE;
+2025-01-30 19:45:23.645 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "__EFMigrationsHistory" ("MigrationId", "ProductVersion")
+VALUES ('20250130184510_AddConfigurationForBasket', '8.0.11');
+2025-01-30 19:48:05.347 +01:00 [INF] Executed DbCommand (13ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM client AS c)
+2025-01-30 19:48:05.452 +01:00 [INF] User profile is available. Using '/Users/yoann/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-01-30 19:48:05.482 +01:00 [INF] Now listening on: http://localhost:5141
+2025-01-30 19:48:05.484 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-01-30 19:48:05.484 +01:00 [INF] Hosting environment: Development
+2025-01-30 19:48:05.484 +01:00 [INF] Content root path: /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud
+2025-01-30 19:48:06.200 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5141/swagger/index.html - null null
+2025-01-30 19:48:06.323 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5141/swagger/index.html - 200 null text/html;charset=utf-8 124.2887ms
+2025-01-30 19:48:06.580 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5141/swagger/v1/swagger.json - null null
+2025-01-30 19:48:06.634 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5141/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 54.1961ms
+2025-01-30 19:51:40.570 +01:00 [INF] Application is shutting down...
