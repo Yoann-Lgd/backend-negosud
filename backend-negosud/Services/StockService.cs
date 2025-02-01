@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace backend_negosud.Services;
 
-public class StockService : ControllerBase, IStockInterface
+public class StockService : ControllerBase, IStockService
 {
     private readonly PostgresContext _context;
 

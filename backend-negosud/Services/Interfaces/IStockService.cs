@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace backend_negosud.Services;
 
-public interface IStockInterface
+public interface IStockService
 {
     Task<IResponseDataModel<Stock>>AddArticleToStock(int articleId, int quantite, string refLot, int seuilMinimum,
         bool reapprovisionnementAuto);
