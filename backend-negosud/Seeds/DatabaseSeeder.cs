@@ -199,7 +199,6 @@ public class DatabaseSeeder
                 var commandeFaker = new Faker<Commande>("fr")
                     .RuleFor(c => c.ClientId, f => f.PickRandom(clients).ClientId)
                     .RuleFor(c => c.DateCreation, f => f.Date.Past())
-                    .RuleFor(c => c.Quantite, f => f.Random.Int(1, 80))
                     .RuleFor(c => c.Valide, f => f.Random.Bool())
                     .RuleFor(c => c.LivraisonId, f => f.PickRandom(livraisons).LivraisonId);
 

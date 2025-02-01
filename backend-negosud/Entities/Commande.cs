@@ -9,8 +9,6 @@ public partial class Commande
 
     public DateTime DateCreation { get; set; }
 
-    public int Quantite { get; set; }
-
     public bool Valide { get; set; }
 
     public int ClientId { get; set; }

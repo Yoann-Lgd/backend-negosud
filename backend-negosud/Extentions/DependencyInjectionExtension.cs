@@ -23,6 +23,7 @@ public static class DependencyInjectionExtension
         builder.CorseConfiguration();
         builder.AddSwagger();
         builder.AddControllers();
+        // builder.AddReferenceHandler();
     }
 
     public static void AddRepositories(this WebApplicationBuilder builder)
@@ -31,6 +32,7 @@ public static class DependencyInjectionExtension
         builder.Services.AddScoped<IRoleRepository, RoleRepository>();
         builder.Services.AddScoped<IStockRepository, StockRepository>();
         builder.Services.AddScoped<IClientRepository, ClientRepository>();
+        builder.Services.AddScoped<ICommandeRepository, CommandeRepository>();
     }
 
     public static void AddControllers(this WebApplicationBuilder builder)
@@ -42,6 +44,8 @@ public static class DependencyInjectionExtension
     {
         builder.Services.AddScoped<IUtilisateurService, UtilisateurService>();
         builder.Services.AddScoped<IStockService, StockService>();
+        builder.Services.AddScoped<ICommandeService, CommandeService>();
+        builder.Services.AddScoped<PanierService>();
         builder.Services.AddScoped<IJwtService<Client, ClientInputDto, ClientOutputDto>, JwtService<Client, ClientInputDto, ClientOutputDto>>();
         builder.Services.AddScoped<IAuthService<Client, ClientInputDto, ClientOutputDto>, ClientService>();
         builder.Services.AddScoped<IJwtService<Utilisateur, UtilisateurInputDto, UtilisateurOutputDto>, JwtService<Utilisateur, UtilisateurInputDto, UtilisateurOutputDto>>();
@@ -77,6 +81,16 @@ public static class DependencyInjectionExtension
                     .AllowAnyHeader());
         }); 
     }
+
+    // public static void AddReferenceHandler(this WebApplicationBuilder builder)
+    // {
+    //     builder.Services.AddControllers().AddJsonOptions(options =>
+    //     {
+    //         options.JsonSerializerOptions.ReferenceHandler = System.Text.Json.Serialization.ReferenceHandler.Preserve;
+    //         options.JsonSerializerOptions.WriteIndented = true;
+    //     });
+    //
+    // }
 
     public static void AddSwagger(this WebApplicationBuilder builder)
     {
