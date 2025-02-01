@@ -7,9 +7,8 @@ using Microsoft.EntityFrameworkCore;
 
 namespace backend_negosud.Repository;
 
-public class UtilisateurRepository : IUtilisateurRepository
+public class UtilisateurRepository : RepositoryBase<Utilisateur>, IUtilisateurRepository
 {
-    private readonly PostgresContext _context;
     private readonly IMapper _mapper;
 
     private readonly ILogger<UtilisateurRepository> _logger;
@@ -17,10 +16,8 @@ public class UtilisateurRepository : IUtilisateurRepository
     public UtilisateurRepository(
         PostgresContext context, 
         IMapper mapper, 
-
-        ILogger<UtilisateurRepository> logger)
+        ILogger<UtilisateurRepository> logger):base(context)
     {
-        _context = context ?? throw new ArgumentNullException(nameof(context));
         _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
 
         _logger = logger ?? throw new ArgumentNullException(nameof(logger));
