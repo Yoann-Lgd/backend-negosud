@@ -120,8 +120,10 @@ public class UtilisateurService : IUtilisateurService
 
     public async Task UpdateUtilisateur(Utilisateur utilisateur)
     {
+        
         _context.Utilisateurs.Update(utilisateur);
         await _context.SaveChangesAsync();
+        
     }
 
     public async Task<Utilisateur> GetUtilisateuByEmail(string email)

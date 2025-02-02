@@ -48,7 +48,7 @@ public class StockService : ControllerBase, IStockService
 
     public async Task<IResponseDataModel<Stock>> UpdateStockQuantity(int stockId, int nouvelleQuantite, int utilisateurId, string typeModification)
     {
-        using var transaction = await _context.Database.BeginTransactionAsync();
+        using var transaction = await _context.Database.BeginTransactionAsync(); // Les transactions permettent à plusieurs opérations de base de données d’être traitées de manière atomique. Utile ici comme on a plusieurs saveChange
         try
         {
             var stock = await _context.Stocks.FindAsync(stockId);

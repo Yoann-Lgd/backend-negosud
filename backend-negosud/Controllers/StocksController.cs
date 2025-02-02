@@ -6,6 +6,7 @@ using backend_negosud.DTOs;
 using backend_negosud.Services;
 using backend_negosud.Entities;
 using backend_negosud.Repository;
+using backend_negosud.Validation;
 
 namespace backend_negosud.Controllers
 {
@@ -51,9 +52,11 @@ namespace backend_negosud.Controllers
         [HttpPost]
         public async Task<ActionResult<StockSummaryDto>> CreateStock([FromBody] StockInputDto createStockDto)
         {
-            if (!ModelState.IsValid)
+            var validation = new StockValidation();
+            var validationResult = validation.Validate(createStockDto);
+            if (!validationResult.IsValid)
             {
-                return BadRequest(ModelState);
+                return BadRequest(validationResult.Errors);
             }
 
             var result = await _stockService.AddArticleToStock(
@@ -83,9 +86,11 @@ namespace backend_negosud.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdateStockQuntity(int id, [FromBody] StockUpdateDto updateStockDto)
         {
-            if (!ModelState.IsValid)
+            var validation = new StockValidationUpdate();
+            var validationResult = validation.Validate(updateStockDto);
+            if (!validationResult.IsValid)
             {
-                return BadRequest(ModelState);
+                return BadRequest(validationResult.Errors);
             }
 
             var stock = await _repository.GetByIdAsync(id);
