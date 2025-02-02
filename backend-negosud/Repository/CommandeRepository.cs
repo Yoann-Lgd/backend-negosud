@@ -27,5 +27,9 @@ public class CommandeRepository : RepositoryBase<Commande> , ICommandeRepository
             .ToListAsync();
     }
 
-    
+    public async Task<Commande> GetByIdAndLigneCommandesAsync(int id)
+    {
+        return await _context.Commandes.Include(c => c.LigneCommandes).ThenInclude(l => l.Article).FirstOrDefaultAsync(c => c.CommandeId == id);
+    }
+
 }

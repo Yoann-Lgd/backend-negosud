@@ -18,4 +18,10 @@ public class CommandeController : ControllerBase
     {
         return Ok(await _commandeService.GetAllCommandes());
     }
+
+    [HttpGet("{id}")]
+    public async Task<IActionResult> GetCommandeById(int id)
+    {
+        return Ok(await _commandeService.GetCommandeById(id));
+    }
 }

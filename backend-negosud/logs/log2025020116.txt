@@ -1,0 +1,188 @@
+2025-02-01 16:03:42.095 +01:00 [INF] Executed DbCommand (15ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM client AS c)
+2025-02-01 16:03:42.227 +01:00 [INF] User profile is available. Using '/Users/yoann/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-02-01 16:03:42.253 +01:00 [INF] Now listening on: http://localhost:5141
+2025-02-01 16:03:42.256 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-02-01 16:03:42.256 +01:00 [INF] Hosting environment: Development
+2025-02-01 16:03:42.256 +01:00 [INF] Content root path: /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud
+2025-02-01 16:03:43.091 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5141/swagger/index.html - null null
+2025-02-01 16:03:43.192 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5141/swagger/index.html - 200 null text/html;charset=utf-8 101.3772ms
+2025-02-01 16:03:43.459 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5141/swagger/v1/swagger.json - null null
+2025-02-01 16:03:43.521 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5141/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 62.5709ms
+2025-02-01 16:04:39.174 +01:00 [INF] Request starting HTTP/1.1 POST http://localhost:5141/api/Utilisateur/register - application/json 158
+2025-02-01 16:04:39.191 +01:00 [WRN] Failed to determine the https port for redirect.
+2025-02-01 16:04:39.212 +01:00 [INF] CORS policy execution successful.
+2025-02-01 16:04:39.213 +01:00 [WRN] Failed to determine the https port for redirect.
+2025-02-01 16:04:39.246 +01:00 [INF] Executing endpoint 'backend_negosud.Controllers.UtilisateurController.Register (backend-negosud)'
+2025-02-01 16:04:39.262 +01:00 [INF] Route matched with {action = "Register", controller = "Utilisateur"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Register(backend_negosud.DTOs.UtilisateurInputDto) on controller backend_negosud.Controllers.UtilisateurController (backend-negosud).
+2025-02-01 16:04:39.407 +01:00 [INF] Executing action method backend_negosud.Controllers.UtilisateurController.Register (backend-negosud) - Validation state: "Valid"
+2025-02-01 16:04:39.511 +01:00 [INF] Executed DbCommand (17ms) [Parameters=[@__ToLower_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM utilisateur AS u
+    WHERE lower(u.email) = @__ToLower_0)
+2025-02-01 16:04:39.558 +01:00 [INF] Executed DbCommand (9ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT r.role_id, r.nom
+FROM role AS r
+WHERE r.role_id = @__p_0
+LIMIT 1
+2025-02-01 16:04:40.222 +01:00 [INF] Executed DbCommand (6ms) [Parameters=[@p0='?', @p1='?', @p2='?', @p3='?', @p4='?', @p5='?' (DbType = Int32), @p6='?'], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO utilisateur (access_token, email, mot_de_passe, nom, prenom, role_id, telephone)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6)
+RETURNING utilisateur_id;
+2025-02-01 16:04:40.275 +01:00 [INF] Executed DbCommand (5ms) [Parameters=[@p7='?' (DbType = Int32), @p0='?', @p1='?', @p2='?', @p3='?', @p4='?', @p5='?' (DbType = Int32), @p6='?'], CommandType='"Text"', CommandTimeout='30']
+UPDATE utilisateur SET access_token = @p0, email = @p1, mot_de_passe = @p2, nom = @p3, prenom = @p4, role_id = @p5, telephone = @p6
+WHERE utilisateur_id = @p7;
+2025-02-01 16:04:40.282 +01:00 [INF] Executed action method backend_negosud.Controllers.UtilisateurController.Register (backend-negosud), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 872.0697ms.
+2025-02-01 16:04:40.289 +01:00 [INF] Executing OkObjectResult, writing value of type 'backend_negosud.Models.ResponseDataModel`1[[backend_negosud.DTOs.UtilisateurOutputDto, backend-negosud, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-02-01 16:04:40.309 +01:00 [INF] Executed action backend_negosud.Controllers.UtilisateurController.Register (backend-negosud) in 1042.8172ms
+2025-02-01 16:04:40.309 +01:00 [INF] Executed endpoint 'backend_negosud.Controllers.UtilisateurController.Register (backend-negosud)'
+2025-02-01 16:04:40.317 +01:00 [INF] Request finished HTTP/1.1 POST http://localhost:5141/api/Utilisateur/register - 200 null application/json; charset=utf-8 1143.8497ms
+2025-02-01 16:05:41.398 +01:00 [INF] Request starting HTTP/1.1 POST http://localhost:5141/api/Utilisateur/login - application/json 158
+2025-02-01 16:05:41.410 +01:00 [INF] CORS policy execution successful.
+2025-02-01 16:05:41.412 +01:00 [INF] Executing endpoint 'backend_negosud.Controllers.UtilisateurController.Login (backend-negosud)'
+2025-02-01 16:05:41.421 +01:00 [INF] Route matched with {action = "Login", controller = "Utilisateur"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(backend_negosud.DTOs.UtilisateurInputDto) on controller backend_negosud.Controllers.UtilisateurController (backend-negosud).
+2025-02-01 16:05:41.426 +01:00 [INF] Executing action method backend_negosud.Controllers.UtilisateurController.Login (backend-negosud) - Validation state: "Valid"
+2025-02-01 16:05:41.478 +01:00 [INF] Executed DbCommand (1ms) [Parameters=[@__email_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT u.utilisateur_id, u.access_token, u.email, u.mot_de_passe, u.nom, u.prenom, u.role_id, u.telephone
+FROM utilisateur AS u
+WHERE u.email = @__email_0
+LIMIT 1
+2025-02-01 16:05:41.874 +01:00 [ERR] Erreur lors de la génération du token
+System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'System.Security.Cryptography.RSAImplementation+RSASecurityTransforms'.
+   at System.Security.Cryptography.RSAImplementation.RSASecurityTransforms.SignHash(Byte[] hash, HashAlgorithmName hashAlgorithm, RSASignaturePadding padding)
+   at Microsoft.IdentityModel.Tokens.AsymmetricAdapter.SignRsa(Byte[] bytes)
+   at Microsoft.IdentityModel.Tokens.AsymmetricAdapter.Sign(Byte[] bytes)
+   at Microsoft.IdentityModel.Tokens.AsymmetricSignatureProvider.Sign(Byte[] input)
+   at Microsoft.IdentityModel.JsonWebTokens.JwtTokenUtilities.CreateEncodedSignature(String input, SigningCredentials signingCredentials)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.WriteToken(SecurityToken token)
+   at JwtService`3.GenererToken(TInputDto inputDto) in /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud/Services/JwtService.cs:line 114
+2025-02-01 16:05:41.875 +01:00 [ERR] Erreur lors de la connexion
+System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'System.Security.Cryptography.RSAImplementation+RSASecurityTransforms'.
+   at System.Security.Cryptography.RSAImplementation.RSASecurityTransforms.SignHash(Byte[] hash, HashAlgorithmName hashAlgorithm, RSASignaturePadding padding)
+   at Microsoft.IdentityModel.Tokens.AsymmetricAdapter.SignRsa(Byte[] bytes)
+   at Microsoft.IdentityModel.Tokens.AsymmetricAdapter.Sign(Byte[] bytes)
+   at Microsoft.IdentityModel.Tokens.AsymmetricSignatureProvider.Sign(Byte[] input)
+   at Microsoft.IdentityModel.JsonWebTokens.JwtTokenUtilities.CreateEncodedSignature(String input, SigningCredentials signingCredentials)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.WriteToken(SecurityToken token)
+   at JwtService`3.GenererToken(TInputDto inputDto) in /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud/Services/JwtService.cs:line 114
+   at backend_negosud.Services.UtilisateurService.Login(String email, String motDePasse) in /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud/Services/UtilisateurService.cs:line 155
+2025-02-01 16:05:41.876 +01:00 [INF] Executed action method backend_negosud.Controllers.UtilisateurController.Login (backend-negosud), returned result Microsoft.AspNetCore.Mvc.BadRequestObjectResult in 449.1404ms.
+2025-02-01 16:05:41.876 +01:00 [INF] Executing BadRequestObjectResult, writing value of type 'backend_negosud.Models.ResponseDataModel`1[[backend_negosud.DTOs.UtilisateurOutputDto, backend-negosud, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-02-01 16:05:41.877 +01:00 [INF] Executed action backend_negosud.Controllers.UtilisateurController.Login (backend-negosud) in 455.6445ms
+2025-02-01 16:05:41.877 +01:00 [INF] Executed endpoint 'backend_negosud.Controllers.UtilisateurController.Login (backend-negosud)'
+2025-02-01 16:05:41.877 +01:00 [INF] Request finished HTTP/1.1 POST http://localhost:5141/api/Utilisateur/login - 400 null application/json; charset=utf-8 478.7297ms
+2025-02-01 16:15:44.455 +01:00 [INF] Application is shutting down...
+2025-02-01 16:15:49.460 +01:00 [INF] Executed DbCommand (14ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM client AS c)
+2025-02-01 16:15:49.624 +01:00 [INF] User profile is available. Using '/Users/yoann/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-02-01 16:15:49.654 +01:00 [INF] Now listening on: http://localhost:5141
+2025-02-01 16:15:49.656 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-02-01 16:15:49.657 +01:00 [INF] Hosting environment: Development
+2025-02-01 16:15:49.657 +01:00 [INF] Content root path: /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud
+2025-02-01 16:15:49.988 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5141/swagger/index.html - null null
+2025-02-01 16:15:50.080 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5141/swagger/index.html - 200 null text/html;charset=utf-8 92.918ms
+2025-02-01 16:15:50.346 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5141/swagger/v1/swagger.json - null null
+2025-02-01 16:15:50.438 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5141/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 92.6048ms
+2025-02-01 16:16:19.689 +01:00 [INF] Request starting HTTP/1.1 POST http://localhost:5141/api/Utilisateur/login - application/json 158
+2025-02-01 16:16:19.701 +01:00 [WRN] Failed to determine the https port for redirect.
+2025-02-01 16:16:19.717 +01:00 [INF] CORS policy execution successful.
+2025-02-01 16:16:19.718 +01:00 [WRN] Failed to determine the https port for redirect.
+2025-02-01 16:16:19.749 +01:00 [INF] Executing endpoint 'backend_negosud.Controllers.UtilisateurController.Login (backend-negosud)'
+2025-02-01 16:16:19.766 +01:00 [INF] Route matched with {action = "Login", controller = "Utilisateur"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(backend_negosud.DTOs.UtilisateurInputDto) on controller backend_negosud.Controllers.UtilisateurController (backend-negosud).
+2025-02-01 16:16:19.910 +01:00 [INF] Executing action method backend_negosud.Controllers.UtilisateurController.Login (backend-negosud) - Validation state: "Valid"
+2025-02-01 16:16:20.013 +01:00 [INF] Executed DbCommand (18ms) [Parameters=[@__email_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT u.utilisateur_id, u.access_token, u.email, u.mot_de_passe, u.nom, u.prenom, u.role_id, u.telephone
+FROM utilisateur AS u
+WHERE u.email = @__email_0
+LIMIT 1
+2025-02-01 16:16:20.590 +01:00 [INF] Executed action method backend_negosud.Controllers.UtilisateurController.Login (backend-negosud), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 677.1941ms.
+2025-02-01 16:16:20.596 +01:00 [INF] Executing OkObjectResult, writing value of type 'backend_negosud.Models.ResponseDataModel`1[[backend_negosud.DTOs.UtilisateurOutputDto, backend-negosud, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-02-01 16:16:20.612 +01:00 [INF] Executed action backend_negosud.Controllers.UtilisateurController.Login (backend-negosud) in 842.7144ms
+2025-02-01 16:16:20.613 +01:00 [INF] Executed endpoint 'backend_negosud.Controllers.UtilisateurController.Login (backend-negosud)'
+2025-02-01 16:16:20.620 +01:00 [INF] Request finished HTTP/1.1 POST http://localhost:5141/api/Utilisateur/login - 200 null application/json; charset=utf-8 930.6077ms
+2025-02-01 16:16:44.224 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5141/api/Utilisateur/protectedTest - null null
+2025-02-01 16:16:44.244 +01:00 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2025-02-01 16:16:44.248 +01:00 [INF] AuthenticationScheme: Bearer was challenged.
+2025-02-01 16:16:44.248 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5141/api/Utilisateur/protectedTest - 401 0 null 23.5979ms
+2025-02-01 16:16:58.398 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5141/api/Utilisateur/protectedTest - null null
+2025-02-01 16:16:58.445 +01:00 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenInvalidAudienceException: IDX10208: Unable to validate audience. validationParameters.ValidAudience is null or whitespace and validationParameters.ValidAudiences is null.
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateAudience(IEnumerable`1 audiences, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateTokenPayloadAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateJWSAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+2025-02-01 16:16:58.459 +01:00 [INF] Bearer was not authenticated. Failure message: IDX10208: Unable to validate audience. validationParameters.ValidAudience is null or whitespace and validationParameters.ValidAudiences is null.
+2025-02-01 16:16:58.461 +01:00 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2025-02-01 16:16:58.462 +01:00 [INF] AuthenticationScheme: Bearer was challenged.
+2025-02-01 16:16:58.462 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5141/api/Utilisateur/protectedTest - 401 0 null 64.8346ms
+2025-02-01 16:17:57.512 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5141/api/Utilisateur/protectedTest - null null
+2025-02-01 16:17:57.524 +01:00 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2025-02-01 16:17:57.525 +01:00 [INF] AuthenticationScheme: Bearer was challenged.
+2025-02-01 16:17:57.527 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5141/api/Utilisateur/protectedTest - 401 0 null 15.0614ms
+2025-02-01 16:21:49.174 +01:00 [INF] Application is shutting down...
+2025-02-01 16:27:35.409 +01:00 [INF] Executed DbCommand (14ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM client AS c)
+2025-02-01 16:27:35.522 +01:00 [INF] User profile is available. Using '/Users/yoann/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-02-01 16:27:35.553 +01:00 [INF] Now listening on: http://localhost:5141
+2025-02-01 16:27:35.559 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-02-01 16:27:35.559 +01:00 [INF] Hosting environment: Development
+2025-02-01 16:27:35.559 +01:00 [INF] Content root path: /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud
+2025-02-01 16:27:36.255 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5141/swagger/index.html - null null
+2025-02-01 16:27:36.360 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5141/swagger/index.html - 200 null text/html;charset=utf-8 106.6818ms
+2025-02-01 16:27:36.670 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5141/swagger/v1/swagger.json - null null
+2025-02-01 16:27:36.737 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5141/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 67.6559ms
+2025-02-01 16:27:54.496 +01:00 [INF] Request starting HTTP/1.1 POST http://localhost:5141/api/Utilisateur/register - application/json 154
+2025-02-01 16:27:54.513 +01:00 [WRN] Failed to determine the https port for redirect.
+2025-02-01 16:27:54.527 +01:00 [INF] CORS policy execution successful.
+2025-02-01 16:27:54.528 +01:00 [WRN] Failed to determine the https port for redirect.
+2025-02-01 16:27:54.557 +01:00 [INF] Executing endpoint 'backend_negosud.Controllers.UtilisateurController.Register (backend-negosud)'
+2025-02-01 16:27:54.576 +01:00 [INF] Route matched with {action = "Register", controller = "Utilisateur"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Register(backend_negosud.DTOs.UtilisateurInputDto) on controller backend_negosud.Controllers.UtilisateurController (backend-negosud).
+2025-02-01 16:27:54.723 +01:00 [INF] Executing action method backend_negosud.Controllers.UtilisateurController.Register (backend-negosud) - Validation state: "Valid"
+2025-02-01 16:27:54.831 +01:00 [INF] Executed DbCommand (19ms) [Parameters=[@__ToLower_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM utilisateur AS u
+    WHERE lower(u.email) = @__ToLower_0)
+2025-02-01 16:27:54.873 +01:00 [INF] Executed DbCommand (3ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT r.role_id, r.nom
+FROM role AS r
+WHERE r.role_id = @__p_0
+LIMIT 1
+2025-02-01 16:27:55.536 +01:00 [INF] Executed DbCommand (7ms) [Parameters=[@p0='?', @p1='?', @p2='?', @p3='?', @p4='?', @p5='?' (DbType = Int32), @p6='?'], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO utilisateur (access_token, email, mot_de_passe, nom, prenom, role_id, telephone)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6)
+RETURNING utilisateur_id;
+2025-02-01 16:27:55.593 +01:00 [INF] Executed DbCommand (3ms) [Parameters=[@p7='?' (DbType = Int32), @p0='?', @p1='?', @p2='?', @p3='?', @p4='?', @p5='?' (DbType = Int32), @p6='?'], CommandType='"Text"', CommandTimeout='30']
+UPDATE utilisateur SET access_token = @p0, email = @p1, mot_de_passe = @p2, nom = @p3, prenom = @p4, role_id = @p5, telephone = @p6
+WHERE utilisateur_id = @p7;
+2025-02-01 16:27:55.600 +01:00 [INF] Executed action method backend_negosud.Controllers.UtilisateurController.Register (backend-negosud), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 873.7671ms.
+2025-02-01 16:27:55.609 +01:00 [INF] Executing OkObjectResult, writing value of type 'backend_negosud.Models.ResponseDataModel`1[[backend_negosud.DTOs.UtilisateurOutputDto, backend-negosud, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-02-01 16:27:55.636 +01:00 [INF] Executed action backend_negosud.Controllers.UtilisateurController.Register (backend-negosud) in 1056.1902ms
+2025-02-01 16:27:55.637 +01:00 [INF] Executed endpoint 'backend_negosud.Controllers.UtilisateurController.Register (backend-negosud)'
+2025-02-01 16:27:55.646 +01:00 [INF] Request finished HTTP/1.1 POST http://localhost:5141/api/Utilisateur/register - 200 null application/json; charset=utf-8 1150.0755ms
+2025-02-01 16:28:34.091 +01:00 [INF] Request starting HTTP/1.1 POST http://localhost:5141/api/Utilisateur/login - application/json 154
+2025-02-01 16:28:34.097 +01:00 [INF] CORS policy execution successful.
+2025-02-01 16:28:34.103 +01:00 [INF] Executing endpoint 'backend_negosud.Controllers.UtilisateurController.Login (backend-negosud)'
+2025-02-01 16:28:34.109 +01:00 [INF] Route matched with {action = "Login", controller = "Utilisateur"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(backend_negosud.DTOs.UtilisateurInputDto) on controller backend_negosud.Controllers.UtilisateurController (backend-negosud).
+2025-02-01 16:28:34.114 +01:00 [INF] Executing action method backend_negosud.Controllers.UtilisateurController.Login (backend-negosud) - Validation state: "Valid"
+2025-02-01 16:28:34.173 +01:00 [INF] Executed DbCommand (3ms) [Parameters=[@__email_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT u.utilisateur_id, u.access_token, u.email, u.mot_de_passe, u.nom, u.prenom, u.role_id, u.telephone
+FROM utilisateur AS u
+WHERE u.email = @__email_0
+LIMIT 1
+2025-02-01 16:28:34.570 +01:00 [INF] Executed action method backend_negosud.Controllers.UtilisateurController.Login (backend-negosud), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 455.956ms.
+2025-02-01 16:28:34.571 +01:00 [INF] Executing OkObjectResult, writing value of type 'backend_negosud.Models.ResponseDataModel`1[[backend_negosud.DTOs.UtilisateurOutputDto, backend-negosud, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-02-01 16:28:34.571 +01:00 [INF] Executed action backend_negosud.Controllers.UtilisateurController.Login (backend-negosud) in 461.9652ms
+2025-02-01 16:28:34.571 +01:00 [INF] Executed endpoint 'backend_negosud.Controllers.UtilisateurController.Login (backend-negosud)'
+2025-02-01 16:28:34.572 +01:00 [INF] Request finished HTTP/1.1 POST http://localhost:5141/api/Utilisateur/login - 200 null application/json; charset=utf-8 483.5199ms

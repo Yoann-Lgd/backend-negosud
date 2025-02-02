@@ -1,0 +1,357 @@
+2025-02-01 15:00:19.870 +01:00 [INF] Application is shutting down...
+2025-02-01 15:00:23.074 +01:00 [INF] Executed DbCommand (13ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM client AS c)
+2025-02-01 15:00:23.184 +01:00 [INF] User profile is available. Using '/Users/yoann/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-02-01 15:00:23.214 +01:00 [INF] Now listening on: http://localhost:5141
+2025-02-01 15:00:23.216 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-02-01 15:00:23.217 +01:00 [INF] Hosting environment: Development
+2025-02-01 15:00:23.217 +01:00 [INF] Content root path: /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud
+2025-02-01 15:00:23.915 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5141/swagger/index.html - null null
+2025-02-01 15:00:24.029 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5141/swagger/index.html - 200 null text/html;charset=utf-8 114.5696ms
+2025-02-01 15:00:24.420 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5141/swagger/v1/swagger.json - null null
+2025-02-01 15:00:24.508 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5141/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 87.9647ms
+2025-02-01 15:01:15.594 +01:00 [INF] Application is shutting down...
+2025-02-01 15:01:18.589 +01:00 [INF] Executed DbCommand (15ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM client AS c)
+2025-02-01 15:01:18.696 +01:00 [INF] User profile is available. Using '/Users/yoann/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-02-01 15:01:18.722 +01:00 [INF] Now listening on: http://localhost:5141
+2025-02-01 15:01:18.724 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-02-01 15:01:18.725 +01:00 [INF] Hosting environment: Development
+2025-02-01 15:01:18.725 +01:00 [INF] Content root path: /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud
+2025-02-01 15:01:19.540 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5141/swagger/index.html - null null
+2025-02-01 15:01:19.633 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5141/swagger/index.html - 200 null text/html;charset=utf-8 95.3119ms
+2025-02-01 15:01:19.904 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5141/swagger/v1/swagger.json - null null
+2025-02-01 15:01:19.980 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5141/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 76.9849ms
+2025-02-01 15:01:40.729 +01:00 [INF] Application is shutting down...
+2025-02-01 15:01:42.622 +01:00 [INF] Executed DbCommand (15ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM client AS c)
+2025-02-01 15:01:42.737 +01:00 [INF] User profile is available. Using '/Users/yoann/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-02-01 15:01:42.762 +01:00 [INF] Now listening on: http://localhost:5141
+2025-02-01 15:01:42.765 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-02-01 15:01:42.765 +01:00 [INF] Hosting environment: Development
+2025-02-01 15:01:42.765 +01:00 [INF] Content root path: /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud
+2025-02-01 15:01:43.188 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5141/swagger/index.html - null null
+2025-02-01 15:01:43.274 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5141/swagger/index.html - 200 null text/html;charset=utf-8 86.2008ms
+2025-02-01 15:01:43.561 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5141/swagger/v1/swagger.json - null null
+2025-02-01 15:01:43.632 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5141/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 71.201ms
+2025-02-01 15:02:04.165 +01:00 [INF] Request starting HTTP/1.1 POST http://localhost:5141/api/Utilisateur/register - application/json 149
+2025-02-01 15:02:04.184 +01:00 [WRN] Failed to determine the https port for redirect.
+2025-02-01 15:02:04.215 +01:00 [INF] CORS policy execution successful.
+2025-02-01 15:02:04.216 +01:00 [WRN] Failed to determine the https port for redirect.
+2025-02-01 15:02:04.253 +01:00 [INF] Executing endpoint 'backend_negosud.Controllers.UtilisateurController.Register (backend-negosud)'
+2025-02-01 15:02:04.268 +01:00 [INF] Route matched with {action = "Register", controller = "Utilisateur"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Register(backend_negosud.DTOs.UtilisateurInputDto) on controller backend_negosud.Controllers.UtilisateurController (backend-negosud).
+2025-02-01 15:02:04.407 +01:00 [INF] Executing action method backend_negosud.Controllers.UtilisateurController.Register (backend-negosud) - Validation state: "Valid"
+2025-02-01 15:02:04.510 +01:00 [INF] Executed DbCommand (17ms) [Parameters=[@__ToLower_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM utilisateur AS u
+    WHERE lower(u.email) = @__ToLower_0)
+2025-02-01 15:02:04.554 +01:00 [INF] Executed DbCommand (4ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT r.role_id, r.nom
+FROM role AS r
+WHERE r.role_id = @__p_0
+LIMIT 1
+2025-02-01 15:02:05.228 +01:00 [ERR] Failed executing DbCommand (10ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?', @p2='?', @p3='?', @p4='?', @p5='?', @p6='?', @p7='?' (DbType = Int32), @p8='?'], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO role (role_id, nom)
+VALUES (@p0, @p1);
+INSERT INTO utilisateur (access_token, email, mot_de_passe, nom, prenom, role_id, telephone)
+VALUES (@p2, @p3, @p4, @p5, @p6, @p7, @p8)
+RETURNING utilisateur_id;
+2025-02-01 15:02:05.257 +01:00 [ERR] An exception occurred in the database while saving changes for context type 'backend_negosud.Entities.PostgresContext'.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Npgsql.PostgresException (0x80004005): 23505: duplicate key value violates unique constraint "role_pk"
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information.
+   at Npgsql.Internal.NpgsqlConnector.ReadMessageLong(Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+  Exception data:
+    Severity: ERROR
+    SqlState: 23505
+    MessageText: duplicate key value violates unique constraint "role_pk"
+    Detail: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information.
+    SchemaName: public
+    TableName: role
+    ConstraintName: role_pk
+    File: nbtinsert.c
+    Line: 673
+    Routine: _bt_check_unique
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Npgsql.PostgresException (0x80004005): 23505: duplicate key value violates unique constraint "role_pk"
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information.
+   at Npgsql.Internal.NpgsqlConnector.ReadMessageLong(Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+  Exception data:
+    Severity: ERROR
+    SqlState: 23505
+    MessageText: duplicate key value violates unique constraint "role_pk"
+    Detail: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information.
+    SchemaName: public
+    TableName: role
+    ConstraintName: role_pk
+    File: nbtinsert.c
+    Line: 673
+    Routine: _bt_check_unique
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+2025-02-01 15:02:05.265 +01:00 [ERR] Erreur lors de la création de l'utilisateur
+System.Exception: Error adding entity.
+ ---> System.Exception: Error saving changes to the database.
+ ---> Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Npgsql.PostgresException (0x80004005): 23505: duplicate key value violates unique constraint "role_pk"
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information.
+   at Npgsql.Internal.NpgsqlConnector.ReadMessageLong(Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+  Exception data:
+    Severity: ERROR
+    SqlState: 23505
+    MessageText: duplicate key value violates unique constraint "role_pk"
+    Detail: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information.
+    SchemaName: public
+    TableName: role
+    ConstraintName: role_pk
+    File: nbtinsert.c
+    Line: 673
+    Routine: _bt_check_unique
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at backend_negosud.Repository.RepositoryBase`1.SaveChangesAsync(CancellationToken cancellationToken) in /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud/Repository/RepositoryBase.cs:line 88
+   --- End of inner exception stack trace ---
+   at backend_negosud.Repository.RepositoryBase`1.SaveChangesAsync(CancellationToken cancellationToken) in /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud/Repository/RepositoryBase.cs:line 92
+   at backend_negosud.Repository.RepositoryBase`1.AddAsync(TEntity entity, CancellationToken cancellationToken) in /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud/Repository/RepositoryBase.cs:line 25
+   --- End of inner exception stack trace ---
+   at backend_negosud.Repository.RepositoryBase`1.AddAsync(TEntity entity, CancellationToken cancellationToken) in /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud/Repository/RepositoryBase.cs:line 30
+   at backend_negosud.Services.UtilisateurService.CreateUtilisateur(UtilisateurInputDto utilisateurInputDto) in /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud/Services/UtilisateurService.cs:line 93
+2025-02-01 15:02:05.278 +01:00 [INF] Executed action backend_negosud.Controllers.UtilisateurController.Register (backend-negosud) in 1006.396ms
+2025-02-01 15:02:05.279 +01:00 [INF] Executed endpoint 'backend_negosud.Controllers.UtilisateurController.Register (backend-negosud)'
+2025-02-01 15:02:05.285 +01:00 [ERR] An unhandled exception has occurred while executing the request.
+System.Exception: Error adding entity.
+ ---> System.Exception: Error saving changes to the database.
+ ---> Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Npgsql.PostgresException (0x80004005): 23505: duplicate key value violates unique constraint "role_pk"
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information.
+   at Npgsql.Internal.NpgsqlConnector.ReadMessageLong(Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+  Exception data:
+    Severity: ERROR
+    SqlState: 23505
+    MessageText: duplicate key value violates unique constraint "role_pk"
+    Detail: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information.
+    SchemaName: public
+    TableName: role
+    ConstraintName: role_pk
+    File: nbtinsert.c
+    Line: 673
+    Routine: _bt_check_unique
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at backend_negosud.Repository.RepositoryBase`1.SaveChangesAsync(CancellationToken cancellationToken) in /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud/Repository/RepositoryBase.cs:line 88
+   --- End of inner exception stack trace ---
+   at backend_negosud.Repository.RepositoryBase`1.SaveChangesAsync(CancellationToken cancellationToken) in /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud/Repository/RepositoryBase.cs:line 92
+   at backend_negosud.Repository.RepositoryBase`1.AddAsync(TEntity entity, CancellationToken cancellationToken) in /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud/Repository/RepositoryBase.cs:line 25
+   --- End of inner exception stack trace ---
+   at backend_negosud.Repository.RepositoryBase`1.AddAsync(TEntity entity, CancellationToken cancellationToken) in /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud/Repository/RepositoryBase.cs:line 30
+   at backend_negosud.Services.UtilisateurService.CreateUtilisateur(UtilisateurInputDto utilisateurInputDto) in /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud/Services/UtilisateurService.cs:line 93
+   at backend_negosud.Controllers.UtilisateurController.Register(UtilisateurInputDto utilisateurDto) in /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud/Controllers/UtilisateurController.cs:line 26
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-02-01 15:02:05.300 +01:00 [INF] Request finished HTTP/1.1 POST http://localhost:5141/api/Utilisateur/register - 500 null text/plain; charset=utf-8 1135.5125ms
+2025-02-01 15:05:50.941 +01:00 [INF] Application is shutting down...
+2025-02-01 15:05:54.069 +01:00 [INF] Executed DbCommand (12ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM client AS c)
+2025-02-01 15:05:54.175 +01:00 [INF] User profile is available. Using '/Users/yoann/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-02-01 15:05:54.199 +01:00 [INF] Now listening on: http://localhost:5141
+2025-02-01 15:05:54.202 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-02-01 15:05:54.202 +01:00 [INF] Hosting environment: Development
+2025-02-01 15:05:54.202 +01:00 [INF] Content root path: /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud
+2025-02-01 15:05:55.031 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5141/swagger/index.html - null null
+2025-02-01 15:05:55.146 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5141/swagger/index.html - 200 null text/html;charset=utf-8 119.736ms
+2025-02-01 15:05:55.479 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5141/swagger/v1/swagger.json - null null
+2025-02-01 15:05:55.613 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5141/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 136.6798ms
+2025-02-01 15:06:29.378 +01:00 [INF] Request starting HTTP/1.1 POST http://localhost:5141/api/Utilisateur/register - application/json 149
+2025-02-01 15:06:29.394 +01:00 [WRN] Failed to determine the https port for redirect.
+2025-02-01 15:06:29.416 +01:00 [INF] CORS policy execution successful.
+2025-02-01 15:06:29.416 +01:00 [WRN] Failed to determine the https port for redirect.
+2025-02-01 15:06:29.449 +01:00 [INF] Executing endpoint 'backend_negosud.Controllers.UtilisateurController.Register (backend-negosud)'
+2025-02-01 15:06:29.465 +01:00 [INF] Route matched with {action = "Register", controller = "Utilisateur"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Register(backend_negosud.DTOs.UtilisateurInputDto) on controller backend_negosud.Controllers.UtilisateurController (backend-negosud).
+2025-02-01 15:06:29.610 +01:00 [INF] Executing action method backend_negosud.Controllers.UtilisateurController.Register (backend-negosud) - Validation state: "Valid"
+2025-02-01 15:06:29.717 +01:00 [INF] Executed DbCommand (18ms) [Parameters=[@__ToLower_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM utilisateur AS u
+    WHERE lower(u.email) = @__ToLower_0)
+2025-02-01 15:06:29.760 +01:00 [INF] Executed DbCommand (3ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT r.role_id, r.nom
+FROM role AS r
+WHERE r.role_id = @__p_0
+LIMIT 1
+2025-02-01 15:06:30.428 +01:00 [INF] Executed DbCommand (4ms) [Parameters=[@p0='?', @p1='?', @p2='?', @p3='?', @p4='?', @p5='?' (DbType = Int32), @p6='?'], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO utilisateur (access_token, email, mot_de_passe, nom, prenom, role_id, telephone)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6)
+RETURNING utilisateur_id;
+2025-02-01 15:06:30.463 +01:00 [ERR] Erreur lors de la création de l'utilisateur
+AutoMapper.AutoMapperMappingException: Missing type map configuration or unsupported mapping.
+
+Mapping types:
+Utilisateur -> UtilisateurInputDto
+backend_negosud.Entities.Utilisateur -> backend_negosud.DTOs.UtilisateurInputDto
+   at lambda_method204(Closure, Object, UtilisateurInputDto, ResolutionContext)
+   at backend_negosud.Services.UtilisateurService.CreateUtilisateur(UtilisateurInputDto utilisateurInputDto) in /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud/Services/UtilisateurService.cs:line 94
+2025-02-01 15:06:30.471 +01:00 [INF] Executed action backend_negosud.Controllers.UtilisateurController.Register (backend-negosud) in 1002.0753ms
+2025-02-01 15:06:30.472 +01:00 [INF] Executed endpoint 'backend_negosud.Controllers.UtilisateurController.Register (backend-negosud)'
+2025-02-01 15:06:30.477 +01:00 [ERR] An unhandled exception has occurred while executing the request.
+AutoMapper.AutoMapperMappingException: Missing type map configuration or unsupported mapping.
+
+Mapping types:
+Utilisateur -> UtilisateurInputDto
+backend_negosud.Entities.Utilisateur -> backend_negosud.DTOs.UtilisateurInputDto
+   at lambda_method204(Closure, Object, UtilisateurInputDto, ResolutionContext)
+   at backend_negosud.Services.UtilisateurService.CreateUtilisateur(UtilisateurInputDto utilisateurInputDto) in /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud/Services/UtilisateurService.cs:line 94
+   at backend_negosud.Controllers.UtilisateurController.Register(UtilisateurInputDto utilisateurDto) in /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud/Controllers/UtilisateurController.cs:line 26
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-02-01 15:06:30.489 +01:00 [INF] Request finished HTTP/1.1 POST http://localhost:5141/api/Utilisateur/register - 500 null text/plain; charset=utf-8 1110.9077ms
+2025-02-01 15:07:37.476 +01:00 [INF] Application is shutting down...
+2025-02-01 15:07:40.583 +01:00 [INF] Executed DbCommand (14ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM client AS c)
+2025-02-01 15:07:40.686 +01:00 [INF] User profile is available. Using '/Users/yoann/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-02-01 15:07:40.712 +01:00 [INF] Now listening on: http://localhost:5141
+2025-02-01 15:07:40.714 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-02-01 15:07:40.714 +01:00 [INF] Hosting environment: Development
+2025-02-01 15:07:40.714 +01:00 [INF] Content root path: /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud
+2025-02-01 15:07:41.478 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5141/swagger/index.html - null null
+2025-02-01 15:07:41.580 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5141/swagger/index.html - 200 null text/html;charset=utf-8 102.8945ms
+2025-02-01 15:07:41.841 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5141/swagger/v1/swagger.json - null null
+2025-02-01 15:07:41.907 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5141/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 66.7387ms
+2025-02-01 15:07:59.044 +01:00 [INF] Request starting HTTP/1.1 POST http://localhost:5141/api/Utilisateur/register - application/json 146
+2025-02-01 15:07:59.069 +01:00 [WRN] Failed to determine the https port for redirect.
+2025-02-01 15:07:59.082 +01:00 [INF] CORS policy execution successful.
+2025-02-01 15:07:59.083 +01:00 [WRN] Failed to determine the https port for redirect.
+2025-02-01 15:07:59.114 +01:00 [INF] Executing endpoint 'backend_negosud.Controllers.UtilisateurController.Register (backend-negosud)'
+2025-02-01 15:07:59.130 +01:00 [INF] Route matched with {action = "Register", controller = "Utilisateur"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Register(backend_negosud.DTOs.UtilisateurInputDto) on controller backend_negosud.Controllers.UtilisateurController (backend-negosud).
+2025-02-01 15:07:59.273 +01:00 [INF] Executing action method backend_negosud.Controllers.UtilisateurController.Register (backend-negosud) - Validation state: "Valid"
+2025-02-01 15:07:59.375 +01:00 [INF] Executed DbCommand (18ms) [Parameters=[@__ToLower_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM utilisateur AS u
+    WHERE lower(u.email) = @__ToLower_0)
+2025-02-01 15:07:59.417 +01:00 [INF] Executed DbCommand (4ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT r.role_id, r.nom
+FROM role AS r
+WHERE r.role_id = @__p_0
+LIMIT 1
+2025-02-01 15:08:00.075 +01:00 [INF] Executed DbCommand (6ms) [Parameters=[@p0='?', @p1='?', @p2='?', @p3='?', @p4='?', @p5='?' (DbType = Int32), @p6='?'], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO utilisateur (access_token, email, mot_de_passe, nom, prenom, role_id, telephone)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6)
+RETURNING utilisateur_id;
+2025-02-01 15:08:00.129 +01:00 [INF] Executed DbCommand (4ms) [Parameters=[@p7='?' (DbType = Int32), @p0='?', @p1='?', @p2='?', @p3='?', @p4='?', @p5='?' (DbType = Int32), @p6='?'], CommandType='"Text"', CommandTimeout='30']
+UPDATE utilisateur SET access_token = @p0, email = @p1, mot_de_passe = @p2, nom = @p3, prenom = @p4, role_id = @p5, telephone = @p6
+WHERE utilisateur_id = @p7;
+2025-02-01 15:08:00.135 +01:00 [INF] Executed action method backend_negosud.Controllers.UtilisateurController.Register (backend-negosud), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 859.4343ms.
+2025-02-01 15:08:00.143 +01:00 [INF] Executing OkObjectResult, writing value of type 'backend_negosud.Models.ResponseDataModel`1[[backend_negosud.DTOs.UtilisateurOutputDto, backend-negosud, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-02-01 15:08:00.163 +01:00 [INF] Executed action backend_negosud.Controllers.UtilisateurController.Register (backend-negosud) in 1028.9197ms
+2025-02-01 15:08:00.164 +01:00 [INF] Executed endpoint 'backend_negosud.Controllers.UtilisateurController.Register (backend-negosud)'
+2025-02-01 15:08:00.172 +01:00 [INF] Request finished HTTP/1.1 POST http://localhost:5141/api/Utilisateur/register - 200 null application/json; charset=utf-8 1128.1659ms
+2025-02-01 15:08:12.066 +01:00 [INF] Application is shutting down...

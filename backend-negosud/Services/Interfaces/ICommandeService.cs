@@ -8,4 +8,5 @@ namespace backend_negosud.Services;
 public interface ICommandeService
 {
     Task<IResponseDataModel<List<CommandeOutputDto>>> GetAllCommandes();
+    Task<CommandeOutputDto> GetCommandeById(int id);
 }

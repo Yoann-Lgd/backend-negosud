@@ -7,6 +7,7 @@ using FluentValidation;
 using FluentValidation.AspNetCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
+using Stripe;
 
 namespace backend_negosud.Extentions;
 
@@ -22,6 +23,7 @@ public static class DependencyInjectionExtension
         builder.AddEFCoreConfiguration();
         builder.CorseConfiguration();
         builder.AddSwagger();
+        builder.AddStripeConfiguration();
         // builder.AddReferenceHandler();
     }
 
@@ -38,6 +40,7 @@ public static class DependencyInjectionExtension
     public static void AddServices(this WebApplicationBuilder builder)
     {
         builder.Services.AddScoped<IUtilisateurService, UtilisateurService>();
+        builder.Services.AddScoped<StripeService>();
         builder.Services.AddScoped<IStockService, StockService>();
         builder.Services.AddScoped<ICommandeService, CommandeService>();
         builder.Services.AddScoped<IPanierService, PanierService>();        
@@ -63,6 +66,12 @@ public static class DependencyInjectionExtension
         // Configuration de la connexion à la base de données
         string connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
         builder.Services.AddDbContext<PostgresContext>(options => options.UseNpgsql(connectionString));
+    }
+
+    public static void AddStripeConfiguration(this WebApplicationBuilder builder)
+    {
+        var stripeSettings = builder.Configuration.GetSection("Stripe");
+        StripeConfiguration.ApiKey = stripeSettings["SecretKey"];
     }
     
     
