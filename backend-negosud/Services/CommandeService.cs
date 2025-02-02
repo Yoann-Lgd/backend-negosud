@@ -19,6 +19,12 @@ public class CommandeService : ICommandeService
         _logger = logger;
     }
 
+    public async Task<CommandeOutputDto> GetCommandeById(int id)
+    {
+        var commande = await _commandeRepository.GetByIdAndLigneCommandesAsync(id);
+        var commandeOutputDto = _mapper.Map<CommandeOutputDto>(commande);
+        return commandeOutputDto;
+    }
     public async Task<IResponseDataModel<List<CommandeOutputDto>>> GetAllCommandes()
     {
         try
