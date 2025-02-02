@@ -48,6 +48,16 @@ public ClientService(IEnvoieEmailService emailService, IClientRepository ClientR
         throw new NotImplementedException();
     }
 
+    public async Task<IResponseDataModel<Client>> GetClientBydId(int id)
+    {
+        var client = await _repository.GetByIdAsync(id);
+        return new ResponseDataModel<Client>
+        {
+            StatusCode = 200,
+            Data = client,
+        };
+    }
+
     public async Task<bool> ValidationClientEmail(ClientInputDto clientInputDto)
     {
         try 

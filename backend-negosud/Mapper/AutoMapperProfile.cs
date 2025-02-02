@@ -1,5 +1,6 @@
 using AutoMapper;
 using backend_negosud.DTOs;
+using backend_negosud.DTOs.Commande_client;
 using backend_negosud.DTOs.Commande_client.Outputs;
 using backend_negosud.Entities;
 
@@ -21,7 +22,21 @@ public class AutoMapperProfile : Profile
             .ForMember(dest => dest.Prenom, opt => opt.MapFrom(src => src.Prenom));
         
         CreateMap<Utilisateur, UtilisateurInputDto>();
+        
+        CreateMap<PanierCreateInputDto, Commande>()
+            .ForMember(dest => dest.DateCreation, opt => opt.MapFrom(_ => DateTime.UtcNow))
+            .ForMember(dest => dest.Valide, opt => opt.MapFrom(_ => false)) 
+            .ForMember(dest => dest.LigneCommandes, opt => opt.MapFrom(src => src.LigneCommandes));
 
+        CreateMap<Commande, PanierCreateOutputDto>()
+            .ForMember(dest => dest.LigneCommandes, opt => opt.MapFrom(src => src.LigneCommandes));
+
+        CreateMap<LigneCommande, LigneCommandeOutputDto>();
+
+        CreateMap<LigneCommandeCreateInputDto, LigneCommande>()
+            .ForMember(dest => dest.LigneCommandeId, opt => opt.Ignore());
+
+        
         CreateMap<Commande, CommandeOutputDto>()
             .ForMember(dest => dest.CommandeId, opt => opt.MapFrom(src => src.CommandeId))
             .ForMember(dest => dest.DateCreation, opt => opt.MapFrom(src => src.DateCreation))

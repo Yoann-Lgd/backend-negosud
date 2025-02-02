@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using backend_negosud.Entities;
@@ -11,9 +12,11 @@ using backend_negosud.Entities;
 namespace backend_negosud.Migrations
 {
     [DbContext(typeof(PostgresContext))]
-    partial class PostgresContextModelSnapshot : ModelSnapshot
+    [Migration("20250201181656_DeleteQuantiteInCommande")]
+    partial class DeleteQuantiteInCommande
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -237,16 +240,19 @@ namespace backend_negosud.Migrations
                         .HasColumnName("client_id");
 
                     b.Property<DateTime>("DateCreation")
-                        .HasColumnType("timestamp with time zone")
+                        .HasColumnType("timestamp without time zone")
                         .HasColumnName("date_creation");
 
                     b.Property<int?>("FactureId")
                         .HasColumnType("integer")
                         .HasColumnName("facture_id");
 
-                    b.Property<int?>("LivraisonId")
+                    b.Property<int>("LivraisonId")
                         .HasColumnType("integer")
                         .HasColumnName("livraison_id");
+
+                    b.Property<int>("Quantite")
+                        .HasColumnType("integer");
 
                     b.Property<bool>("Valide")
                         .HasColumnType("boolean")
@@ -913,6 +919,7 @@ namespace backend_negosud.Migrations
                     b.HasOne("backend_negosud.Entities.Livraison", "Livraison")
                         .WithMany("Commandes")
                         .HasForeignKey("LivraisonId")
+                        .IsRequired()
                         .HasConstraintName("commande_livraison1_fk");
 
                     b.Navigation("Client");

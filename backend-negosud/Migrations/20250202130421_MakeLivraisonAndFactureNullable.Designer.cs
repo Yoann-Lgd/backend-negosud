@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using backend_negosud.Entities;
@@ -11,9 +12,11 @@ using backend_negosud.Entities;
 namespace backend_negosud.Migrations
 {
     [DbContext(typeof(PostgresContext))]
-    partial class PostgresContextModelSnapshot : ModelSnapshot
+    [Migration("20250202130421_MakeLivraisonAndFactureNullable")]
+    partial class MakeLivraisonAndFactureNullable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -237,7 +240,7 @@ namespace backend_negosud.Migrations
                         .HasColumnName("client_id");
 
                     b.Property<DateTime>("DateCreation")
-                        .HasColumnType("timestamp with time zone")
+                        .HasColumnType("timestamp without time zone")
                         .HasColumnName("date_creation");
 
                     b.Property<int?>("FactureId")

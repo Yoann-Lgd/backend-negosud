@@ -51,6 +51,13 @@ public class ClientController : ControllerBase
     {
         return Ok("Hello authorized client");
     }
+    
+    [HttpGet("{id}")]
+    public async Task<ActionResult> GetStockById(int id)
+    {
+        var result = await _clientService.GetClientBydId(id);
+        return result.Success ? Ok(result) : BadRequest(result);
+    }
 
     [HttpPost("resend-validation")]
     public async Task<IActionResult> ResendValidation([FromBody] ClientInputDto clientInputDto)
