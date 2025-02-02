@@ -62,7 +62,6 @@ public partial class PostgresContext : DbContext
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.UseIdentityByDefaultColumns();
-        modelBuilder.HasPostgresExtension("timestamptz");
         modelBuilder.Entity<Adresse>(entity =>
         {
             entity.HasKey(e => e.AdresseId).HasName("adresse_pk");
@@ -382,7 +381,7 @@ public partial class PostgresContext : DbContext
 
             entity.ToTable("ligne_commande");
 
-            entity.Property(e => e.LigneCommandeId).HasColumnName("ligne_commande_id");
+            entity.Property(e => e.LigneCommandeId).HasColumnName("ligne_commande_id").ValueGeneratedOnAdd();
             entity.Property(e => e.ArticleId).HasColumnName("article_id");
             entity.Property(e => e.CommandeId).HasColumnName("commande_id");
             entity.Property(e => e.Quantite).HasColumnName("quantite");

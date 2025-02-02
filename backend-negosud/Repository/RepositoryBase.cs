@@ -3,6 +3,7 @@ using backend_negosud.Models;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.Linq.Expressions;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -30,6 +31,12 @@ namespace backend_negosud.Repository
                 throw new Exception("Error adding entity.", ex);
             }
         }
+        
+        public virtual async Task<bool> AnyAsync(Expression<Func<TEntity, bool>> predicate,  CancellationToken cancellationToken = default)
+        {
+            return await _context.Set<TEntity>().AnyAsync(predicate, cancellationToken);
+        }
+
         
         public virtual async Task<List<TEntity>> GetAllAsync(CancellationToken cancellationToken = default)
         {
@@ -60,7 +67,7 @@ namespace backend_negosud.Repository
         {
             try
             {
-                return await _context.FindAsync<TEntity>([id], cancellationToken);
+                return await _context.FindAsync<TEntity>(id, cancellationToken);
             }
             catch (Exception ex)
             {
