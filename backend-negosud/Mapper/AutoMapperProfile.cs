@@ -68,6 +68,8 @@ public class AutoMapperProfile : Profile
             .ForMember(dest => dest.RoleId, opt => opt.MapFrom(src => src.RoleId));
 
         CreateMap<Stock, StockHistoryDto>();
+        
+        CreateMap<Inventorier, StockHistoryDto>();
 
         CreateMap<Stock, StockDetailDto>();
 

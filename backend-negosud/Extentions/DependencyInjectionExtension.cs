@@ -33,6 +33,9 @@ public static class DependencyInjectionExtension
         builder.Services.AddScoped<IRoleRepository, RoleRepository>();
         builder.Services.AddScoped<IStockRepository, StockRepository>();
         builder.Services.AddScoped<IClientRepository, ClientRepository>();
+        builder.Services.AddScoped<IBonCommandeRepository, BonCommandeRepository>();
+        builder.Services.AddScoped<IInventorierRepository, InventorierRepository>();
+        builder.Services.AddScoped<ILigneBonCommandeRepository, LigneBonCommandeRepository>();
         builder.Services.AddScoped<ICommandeRepository, CommandeRepository>();
         builder.Services.AddScoped<IArticleRepository, ArticleRepository>();
     }

@@ -1,3 +1,4 @@
+using backend_negosud.DTOs;
 using backend_negosud.Entities;
 using backend_negosud.Models;
 using Microsoft.AspNetCore.Mvc;
@@ -15,6 +16,11 @@ public interface IStockService
     Task<IResponseDataModel<Stock>>  CheckStockLevel(int articleId, int quantiteDemandee);
 
     Task<IResponseDataModel<Stock>>  CheckAndReapprovisionner();
+    Task<IResponseDataModel<Stock>> GetById(int id);
+    Task<IResponseDataModel<String>> Delete(Stock stock);
+
+    Task<IResponseDataModel<List<StockSummaryDto>>> GetAllStocks();
 
     Task<IResponseDataModel<List<Inventorier>>> GetStockHistory(int stockId);
+    
 }
