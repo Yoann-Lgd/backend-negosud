@@ -11,4 +11,10 @@ public class StockRepository : RepositoryBase<Stock>, IStockRepository
     {
     }
     
+    public async Task<List<Stock>> GetStocksAReapprovisionnerAsync()
+    {
+        return await _context.Stocks
+            .Where(s => s.Quantite <= s.SeuilMinimum && s.ReapprovisionnementAuto)
+            .ToListAsync();
+    }
 }

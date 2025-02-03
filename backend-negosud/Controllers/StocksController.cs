@@ -16,35 +16,33 @@ namespace backend_negosud.Controllers
     {
         private readonly IStockService _stockService;
         private readonly IMapper _mapper;
-        private readonly IStockRepository _repository;
 
-        public StocksController(IStockService stockService, IMapper mapper, IStockRepository repository)
+        public StocksController(IStockService stockService, IMapper mapper)
         {
-            _stockService = stockService;
-            _mapper = mapper;
-            _repository = repository;
+            _stockService = stockService ?? throw new ArgumentNullException(nameof(stockService));
+            _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
         }
+
 
         // GET: api/stocks
         [HttpGet]
         public async Task<ActionResult<IEnumerable<StockSummaryDto>>> GetAllStocks()
         {
-            var stocks = await _repository.GetAllAsync();
-            var stockDtos = _mapper.Map<List<StockSummaryDto>>(stocks);
-            return Ok(stockDtos);
+            var stocks = await _stockService.GetAllStocks();
+            return Ok(stocks);
         }
 
         // GET: api/stocks/{id}
         [HttpGet("{id}")]
         public async Task<ActionResult<StockDetailDto>> GetStockById(int id)
         {
-            var stock = await _repository.GetByIdAsync(id);
-            if (stock == null)
+            var stock = await _stockService.GetById(id);
+            if (stock.Data == null)
             {
                 return NotFound();
             }
 
-            var stockDto = _mapper.Map<StockDetailDto>(stock);
+            var stockDto = _mapper.Map<StockDetailDto>(stock.Data);
             return Ok(stockDto);
         }
 
@@ -72,9 +70,10 @@ namespace backend_negosud.Controllers
                 return BadRequest(result.Message);
             }
 
-            var stock = await _repository.GetByIdAsync(result.Data.StockId);
-            var stockDto = _mapper.Map<StockSummaryDto>(stock);
-            return CreatedAtAction(nameof(GetStockById), new { id = stock.StockId }, stockDto);
+            Console.WriteLine(result.Data.StockId);
+            var stock = await _stockService.GetById(result.Data.StockId);
+            var stockDto = _mapper.Map<StockSummaryDto>(stock.Data);
+            return CreatedAtAction(nameof(GetStockById), new { id = stock.Data.StockId }, stockDto);
         }
 
         // PUT: api/stocks/{id}
@@ -93,8 +92,8 @@ namespace backend_negosud.Controllers
                 return BadRequest(validationResult.Errors);
             }
 
-            var stock = await _repository.GetByIdAsync(id);
-            if (stock == null)
+            var stock = await _stockService.GetById(id);
+            if (stock.Data == null)
             {
                 return NotFound();
             }
@@ -118,13 +117,13 @@ namespace backend_negosud.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteStock(int id)
         {
-            var stock = await _repository.GetByIdAsync(id);
+            var stock = await _stockService.GetById(id);
             if (stock == null)
             {
                 return NotFound();
             }
 
-            await _repository.DeleteAsync(stock);
+            await _stockService.Delete(stock.Data);
             return NoContent();
         }
 

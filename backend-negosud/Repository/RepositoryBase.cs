@@ -49,6 +49,10 @@ namespace backend_negosud.Repository
                 throw new Exception("Error retrieving entities.", ex);
             }
         }
+        public virtual async Task<TEntity?> FirstOrDefaultAsync(Expression<Func<TEntity, bool>> predicate, CancellationToken cancellationToken = default)
+        {
+            return await _context.Set<TEntity>().FirstOrDefaultAsync(predicate, cancellationToken);
+        }
         
         public virtual async Task UpdateAsync(TEntity entity, CancellationToken cancellationToken = default)
         {

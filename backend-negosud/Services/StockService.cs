@@ -1,23 +1,39 @@
+using AutoMapper;
+using backend_negosud.DTOs;
 using backend_negosud.Entities;
 using backend_negosud.Models;
+using backend_negosud.Repository;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace backend_negosud.Services;
 
-public class StockService : ControllerBase, IStockService
+public class StockService : IStockService
 {
+    private IStockRepository _stockRepository;
+    private IArticleRepository _articleRepository;
+    private IBonCommandeRepository _bonCommandeRepository;
+    private ILigneBonCommandeRepository _ligneBonCommandeRepository;
+    private IInventorierRepository _inventorierRepository;
+    private readonly IMapper _mapper;
+    private readonly ILogger<StockService> _logger;
     private readonly PostgresContext _context;
 
-    public StockService(PostgresContext context)
+    public StockService(IMapper mapper, IStockRepository stockRepository, IArticleRepository articleRepository, IBonCommandeRepository bonCommandeRepository, IInventorierRepository inventorierRepository, PostgresContext context, ILogger<StockService> logger)
     {
+        _stockRepository = stockRepository;
+        _articleRepository = articleRepository;
+        _bonCommandeRepository = bonCommandeRepository;
+        _inventorierRepository = inventorierRepository;
         _context = context;
+        _mapper = mapper;
+        _logger = logger;
     }
     
     public async Task<IResponseDataModel<Stock>> AddArticleToStock(int articleId, int quantite, string refLot,
         int seuilMinimum, bool reapprovisionnementAuto)
     {
-        var article = await _context.Articles.FindAsync(articleId); // TODO: quand article repository fini, appeler findarticlebyId ici
+        var article = await _articleRepository.GetByIdAsync(articleId); // TODO: quand article repository fini, appeler findarticlebyId ici
         if (article == null)
         {
             return new ResponseDataModel<Stock>
@@ -35,14 +51,14 @@ public class StockService : ControllerBase, IStockService
             SeuilMinimum = seuilMinimum,
             ReapprovisionnementAuto = reapprovisionnementAuto
         };
-
-        _context.Stocks.Add(stock);
-        await _context.SaveChangesAsync();
+        
+        var stockCreated = await _stockRepository.AddAsync(stock);
 
         return new ResponseDataModel<Stock>
         {
             Success = true,
-            Message = "Article ajouté au stock avec succès"
+            Message = "Article ajouté au stock avec succès",
+            Data = stockCreated,
         };
     }
 
@@ -51,7 +67,7 @@ public class StockService : ControllerBase, IStockService
         using var transaction = await _context.Database.BeginTransactionAsync(); // Les transactions permettent à plusieurs opérations de base de données d’être traitées de manière atomique. Utile ici comme on a plusieurs saveChange
         try
         {
-            var stock = await _context.Stocks.FindAsync(stockId);
+            var stock = await _stockRepository.GetByIdAsync(stockId);
             if (stock == null)
             {
                 return new ResponseDataModel<Stock>
@@ -66,7 +82,7 @@ public class StockService : ControllerBase, IStockService
 
             // Mettre à jour la quantité
             stock.Quantite = nouvelleQuantite;
-            await _context.SaveChangesAsync();
+            await _stockRepository.UpdateAsync(stock);
 
             // Enregistrer l'historique dans la table Inventorier
             var inventorier = new Inventorier
@@ -79,8 +95,7 @@ public class StockService : ControllerBase, IStockService
                 DateModification = DateTime.UtcNow.ToLocalTime()
             };
 
-            _context.Inventoriers.Update(inventorier);
-            await _context.SaveChangesAsync();
+            await _inventorierRepository.AddAsync(inventorier);
 
             await transaction.CommitAsync();
 
@@ -103,7 +118,7 @@ public class StockService : ControllerBase, IStockService
 
     public async Task<IResponseDataModel<Stock>>  CheckStockLevel(int articleId, int quantiteDemandee)
     {
-        var stock = await _context.Stocks.FirstOrDefaultAsync(s => s.ArticleId == articleId);
+        var stock = await _stockRepository.FirstOrDefaultAsync(s => s.ArticleId == articleId);
         if (stock == null)
         {
             return new ResponseDataModel<Stock>
@@ -129,7 +144,38 @@ public class StockService : ControllerBase, IStockService
         };
     }
 
-    public async Task<IResponseDataModel<Stock>>  CheckAndReapprovisionner()
+    public async Task<IResponseDataModel<List<StockSummaryDto>>> GetAllStocks()
+    {
+        var stocks = await _stockRepository.GetAllAsync();
+        var stockDtos = _mapper.Map<List<StockSummaryDto>>(stocks);
+        return new ResponseDataModel<List<StockSummaryDto>>
+        {
+            Success = true,
+            Data = stockDtos,
+        };
+    }
+
+    public async Task<IResponseDataModel<Stock>> GetById(int id)
+    {
+        var stock = await _stockRepository.GetByIdAsync(id);
+        return new ResponseDataModel<Stock>
+        {
+            Success = true,
+            Data = stock,
+        };
+    }    
+    
+    public async Task<IResponseDataModel<String>> Delete(Stock stock)
+    {
+        await _stockRepository.DeleteAsync(stock);
+        return new ResponseDataModel<String>()
+        {
+            Success = true,
+            Data = stock.StockId.ToString()
+        };
+    }
+
+    public async Task<IResponseDataModel<Stock>> CheckAndReapprovisionner()
     {
         var stocksAReapprovisionner = await _context.Stocks
             .Where(s => s.Quantite <= s.SeuilMinimum && s.ReapprovisionnementAuto)
@@ -172,12 +218,22 @@ public class StockService : ControllerBase, IStockService
         };
     }
 
-    public async Task<IResponseDataModel<List<Inventorier>>>  GetStockHistory(int stockId)
+
+
+
+
+    public async Task<IResponseDataModel<List<Inventorier>>> GetStockHistory(int stockId)
     {
-        var history = await _context.Inventoriers
-            .Where(i => i.StockId == stockId)
-            .OrderByDescending(i => i.DateModification)
-            .ToListAsync();
+        var history = await _inventorierRepository.GetInventoriersByStockIdAsync(stockId);
+
+        if (history == null || !history.Any())
+        {
+            return new ResponseDataModel<List<Inventorier>>
+            {
+                Success = false,
+                Message = "Aucun historique trouvé pour ce stock."
+            };
+        }
 
         return new ResponseDataModel<List<Inventorier>>
         {
@@ -186,4 +242,5 @@ public class StockService : ControllerBase, IStockService
             Data = history
         };
     }
+
 }
