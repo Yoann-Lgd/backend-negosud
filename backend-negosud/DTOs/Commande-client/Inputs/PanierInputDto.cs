@@ -1,6 +1,6 @@
 namespace backend_negosud.DTOs.Commande_client;
 
-public class PanierCreateInputDto
+public class PanierInputDto
 {
     public DateTime DateCreation { get; set; }
     public bool Valide { get; set; }

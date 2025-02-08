@@ -25,12 +25,17 @@ public class AutoMapperProfile : Profile
         
         CreateMap<Utilisateur, UtilisateurInputDto>();
         
-        CreateMap<PanierCreateInputDto, Commande>()
+        CreateMap<PanierInputDto, Commande>()
             .ForMember(dest => dest.DateCreation, opt => opt.MapFrom(_ => DateTime.UtcNow))
             .ForMember(dest => dest.Valide, opt => opt.MapFrom(_ => false)) 
             .ForMember(dest => dest.LigneCommandes, opt => opt.MapFrom(src => src.LigneCommandes));
+        
+        CreateMap<PanierUpdateInputDto, Commande>()
+            .ForMember(dest => dest.CommandeId, opt => opt.MapFrom(src => src.CommandId))
+            .ForMember(dest => dest.LigneCommandes, opt => opt.MapFrom(src => src.LigneCommandes))
+            .ForMember(dest => dest.ClientId, opt => opt.MapFrom(src => src.ClientId));
 
-        CreateMap<Commande, PanierCreateOutputDto>()
+        CreateMap<Commande, PanierOutputDto>()
             .ForMember(dest => dest.LigneCommandes, opt => opt.MapFrom(src => src.LigneCommandes));
 
         CreateMap<LigneCommande, LigneCommandeOutputDto>();
@@ -53,6 +58,11 @@ public class AutoMapperProfile : Profile
             .ForMember(dest => dest.CommandeId, opt => opt.MapFrom(src => src.CommandeId))
             .ForMember(dest => dest.Article, opt => opt.MapFrom(src => src.Article))
             .ForMember(dest => dest.Quantite, opt => opt.MapFrom(src => src.Quantite));
+        
+        CreateMap<LigneCommandeUpdateInputDto, LigneCommande>()
+            .ForMember(dest => dest.LigneCommandeId, opt => opt.MapFrom(src => src.LigneCommandeId))
+            .ForMember(dest => dest.Quantite, opt => opt.MapFrom(src => src.Quantite))
+            .ForMember(dest => dest.ArticleId, opt => opt.MapFrom(src => src.ArticleId));
         
         CreateMap<Article, ArticleOutputDto>()
             .ForMember(dest => dest.ArticleId, opt => opt.MapFrom(src => src.ArticleId))
