@@ -350,4 +350,70 @@ public class PanierService : IPanierService
             };
         }
     }
+
+    public async Task<IResponseDataModel<CommandeOutputDto>> BasketToCommand(int id)
+    {
+        try
+        {
+            var commande = await _commandeRepository.GetActiveBasketByClientIdAsync(id);
+
+            if (commande == null)
+            {
+                _logger.LogWarning("Aucun panier actif trouvé pour le client avec l'ID: {ClientId}", id);
+                return new ResponseDataModel<CommandeOutputDto>
+                {
+                    Success = false,
+                    Message = "Aucun panier actif trouvé pour ce client.",
+                    StatusCode = 404,
+                    Data = null
+                };
+            }
+
+            commande.Valide = true;
+            commande.DateCreation = DateTime.UtcNow;
+            commande.ExpirationDate = null; 
+            
+            var livraison = new Livraison
+            {
+                DateEstimee = DateTime.UtcNow.AddDays(5), //date purement arbitraire, 5 jours 
+                Livree = false
+            };
+
+            commande.Livraison = livraison;
+
+            await _commandeRepository.UpdateAsync(commande);
+            
+            var outputDto = _mapper.Map<CommandeOutputDto>(commande);
+
+            return new ResponseDataModel<CommandeOutputDto>
+            {
+                Success = true,
+                Data = outputDto,
+                Message = "La commande a bien été créée",
+                StatusCode = 200,
+            };
+        }
+        catch (AutoMapperMappingException mappingException)
+        {
+            _logger.LogError(mappingException, "Erreur de mappage lors de la création de la commande");
+            return new ResponseDataModel<CommandeOutputDto>
+            {
+                Success = false,
+                Message = "Une erreur de mappage s'est produite.",
+                StatusCode = 500,
+                Data = null
+            };
+        }
+        catch (Exception e)
+        {
+            _logger.LogError(e, "Erreur lors de la crátion de la commande.");
+            return new ResponseDataModel<CommandeOutputDto>
+            {
+                Success = false,
+                Message = "Une erreur s'est produite lors de la crátion de la commande.",
+                StatusCode = 500,
+                Data = null
+            };
+        }
+    }
 }

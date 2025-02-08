@@ -43,6 +43,7 @@
     </ItemGroup>
 
     <ItemGroup>
+      <Folder Include="DTOs\Livraison\Inputs\" />
       <Folder Include="Migrations\" />
     </ItemGroup>
 

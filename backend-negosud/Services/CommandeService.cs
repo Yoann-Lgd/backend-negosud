@@ -25,6 +25,7 @@ public class CommandeService : ICommandeService
         var commandeOutputDto = _mapper.Map<CommandeOutputDto>(commande);
         return commandeOutputDto;
     }
+
     public async Task<IResponseDataModel<List<CommandeOutputDto>>> GetAllCommandes()
     {
         try

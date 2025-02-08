@@ -241,7 +241,7 @@ public partial class PostgresContext : DbContext
             entity.Property(e => e.ClientId).HasColumnName("client_id");
             entity.Property(e => e.CommandeId).HasColumnName("commande_id");
             entity.Property(e => e.DateFacturation)
-                .HasColumnType("timestamp without time zone")
+                .HasColumnType("timestamp with time zone")
                 .HasColumnName("date_facturation");
             entity.Property(e => e.MontantHt).HasColumnName("montant_ht");
             entity.Property(e => e.MontantTtc).HasColumnName("montant_ttc");
@@ -327,7 +327,7 @@ public partial class PostgresContext : DbContext
             entity.Property(e => e.UtilisateurId).HasColumnName("utilisateur_id");
             entity.Property(e => e.StockId).HasColumnName("stock_id");
             entity.Property(e => e.DateModification)
-                .HasColumnType("timestamp without time zone")
+                .HasColumnType("timestamp with time zone")
                 .HasColumnName("date_modification");
             entity.Property(e => e.QuantitePostModification).HasColumnName("quantite_post_modification");
             entity.Property(e => e.QuantitePrecedente).HasColumnName("quantite_precedente");
@@ -439,10 +439,10 @@ public partial class PostgresContext : DbContext
 
             entity.Property(e => e.LivraisonId).HasColumnName("livraison_id");
             entity.Property(e => e.DateEstimee)
-                .HasColumnType("timestamp without time zone")
+                .HasColumnType("timestamp with time zone")
                 .HasColumnName("date_estimee");
             entity.Property(e => e.DateLivraison)
-                .HasColumnType("timestamp without time zone")
+                .HasColumnType("timestamp with time zone")
                 .HasColumnName("date_livraison");
             entity.Property(e => e.Livree).HasColumnName("livree");
         });
@@ -468,7 +468,7 @@ public partial class PostgresContext : DbContext
             entity.Property(e => e.ReglementId).HasColumnName("reglement_id");
             entity.Property(e => e.CommandeId).HasColumnName("commande_id");
             entity.Property(e => e.Date)
-                .HasColumnType("timestamp without time zone")
+                .HasColumnType("timestamp with time zone")
                 .HasColumnName("date");
             entity.Property(e => e.Montant).HasColumnName("montant");
             entity.Property(e => e.Reference)
@@ -490,7 +490,7 @@ public partial class PostgresContext : DbContext
             entity.Property(e => e.ReinitialisationMdpId).HasColumnName("reinitialisation_mdp_id");
             entity.Property(e => e.ClientId).HasColumnName("client_id");
             entity.Property(e => e.DateDemande)
-                .HasColumnType("timestamp without time zone")
+                .HasColumnType("timestamp with time zone")
                 .HasColumnName("date_demande");
             entity.Property(e => e.MotDePasse)
                 .HasMaxLength(300)

@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using backend_negosud.Entities;
@@ -11,9 +12,11 @@ using backend_negosud.Entities;
 namespace backend_negosud.Migrations
 {
     [DbContext(typeof(PostgresContext))]
-    partial class PostgresContextModelSnapshot : ModelSnapshot
+    [Migration("20250208230726_ExpirationDateNullable")]
+    partial class ExpirationDateNullable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -287,7 +290,7 @@ namespace backend_negosud.Migrations
                         .HasColumnName("commande_id");
 
                     b.Property<DateTime>("DateFacturation")
-                        .HasColumnType("timestamp with time zone")
+                        .HasColumnType("timestamp without time zone")
                         .HasColumnName("date_facturation");
 
                     b.Property<double>("MontantHt")
@@ -429,7 +432,7 @@ namespace backend_negosud.Migrations
                         .HasColumnName("stock_id");
 
                     b.Property<DateTime>("DateModification")
-                        .HasColumnType("timestamp with time zone")
+                        .HasColumnType("timestamp without time zone")
                         .HasColumnName("date_modification");
 
                     b.Property<int>("QuantitePostModification")
@@ -580,11 +583,11 @@ namespace backend_negosud.Migrations
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("LivraisonId"));
 
                     b.Property<DateTime?>("DateEstimee")
-                        .HasColumnType("timestamp with time zone")
+                        .HasColumnType("timestamp without time zone")
                         .HasColumnName("date_estimee");
 
-                    b.Property<DateTime?>("DateLivraison")
-                        .HasColumnType("timestamp with time zone")
+                    b.Property<DateTime>("DateLivraison")
+                        .HasColumnType("timestamp without time zone")
                         .HasColumnName("date_livraison");
 
                     b.Property<bool>("Livree")
@@ -632,7 +635,7 @@ namespace backend_negosud.Migrations
                         .HasColumnName("commande_id");
 
                     b.Property<DateTime>("Date")
-                        .HasColumnType("timestamp with time zone")
+                        .HasColumnType("timestamp without time zone")
                         .HasColumnName("date");
 
                     b.Property<double>("Montant")
@@ -667,7 +670,7 @@ namespace backend_negosud.Migrations
                         .HasColumnName("client_id");
 
                     b.Property<DateTime>("DateDemande")
-                        .HasColumnType("timestamp with time zone")
+                        .HasColumnType("timestamp without time zone")
                         .HasColumnName("date_demande");
 
                     b.Property<string>("MotDePasse")

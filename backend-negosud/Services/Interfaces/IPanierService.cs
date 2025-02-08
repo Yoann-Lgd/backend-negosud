@@ -12,4 +12,5 @@ public interface IPanierService
     Task<IResponseDataModel<string>> DeletePanier(int id);
     Task<IResponseDataModel<PanierOutputDto>> GetBasketByClientId(int id);
     Task<IResponseDataModel<string>> ExtendDurationBasket(int id);
+    Task<IResponseDataModel<CommandeOutputDto>> BasketToCommand(int id);
 }
