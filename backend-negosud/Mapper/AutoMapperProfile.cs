@@ -24,6 +24,11 @@ public class AutoMapperProfile : Profile
             .ForMember(dest => dest.Prenom, opt => opt.MapFrom(src => src.Prenom));
         
         CreateMap<Utilisateur, UtilisateurInputDto>();
+
+        CreateMap<ClientInputDto, Client>();
+        CreateMap<Client, ClientInputDto>();
+        CreateMap<Client, ClientOutputDto>();
+        CreateMap<ClientOutputDto, Client>();
         
         CreateMap<PanierCreateInputDto, Commande>()
             .ForMember(dest => dest.DateCreation, opt => opt.MapFrom(_ => DateTime.UtcNow))

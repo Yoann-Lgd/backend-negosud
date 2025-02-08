@@ -6,15 +6,20 @@ public class CodeEmailDataTable : BaseDataTable
 {
     public CodeEmailDataTable(string tableName) : base(tableName)
     {
-        this.Columns.Add("CodeEmail", typeof(int));
-        this.SetPrimaryKeyColumn("ID");
+        // Ajout de toutes les colonnes nécessaires
+        /*Columns.Add("ID", typeof(int));*/
+        Columns.Add("Email", typeof(string));
+        Columns.Add("CodeEmail", typeof(string)); 
+        Columns.Add("DateCreation", typeof(DateTime)); 
+    
+        SetPrimaryKeyColumn("ID");
     }
     
 
     public void AddCodeEmail(string email, string codeEmail)
     {
         DataRow row = this.NewRow();
-        row["ID"] = Guid.NewGuid(); // Utilisation d'un GUID comme identifiant unique
+        row["ID"] = new Random().Next(); // Utilisation d'un entier aléatoire comme identifiant unique
         row["Email"] = email;
         row["CodeEmail"] = codeEmail;
         row["DateCreation"] = DateTime.Now;
