@@ -2,6 +2,8 @@ using AutoMapper;
 using backend_negosud.DTOs;
 using backend_negosud.DTOs.Commande_client;
 using backend_negosud.DTOs.Commande_client.Outputs;
+using backend_negosud.DTOs.Famille;
+using backend_negosud.DTOs.Famille.Outputs;
 using backend_negosud.Entities;
 
 namespace backend_negosud.Mapper;
@@ -58,8 +60,14 @@ public class AutoMapperProfile : Profile
             .ForMember(dest => dest.Prix, opt => opt.MapFrom(src => src.Prix))
             .ForMember(dest => dest.Reference, opt => opt.MapFrom(src => src.Reference));
 
+        CreateMap<Famille, FamilleOutputDto>()
+            .ForMember(dest => dest.FamilleId, opt => opt.MapFrom(src => src.FamilleId))
+            .ForMember(dest => dest.Nom, opt => opt.MapFrom(src => src.Nom))
+            .ForMember(dest => dest.Articles, opt => opt.MapFrom(src => src.Articles));
+
    
         CreateMap<Adresse, AdresseDto>();
+        CreateMap<FamilleCreateInputDto, Famille>();
         
         CreateMap<RoleDto, Role>()
             .ForMember(dest => dest.RoleId, opt => opt.MapFrom(src => src.RoleId));
