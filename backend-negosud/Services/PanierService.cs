@@ -67,7 +67,9 @@ public class PanierService : IPanierService
             
             await _commandeRepository.AddAsync(commande);
             
-            var outputDto = _mapper.Map<PanierOutputDto>(commande);
+            var createdCommande = await _commandeRepository.GetByIdAndLigneCommandesAsync(commande.CommandeId);
+            
+            var outputDto = _mapper.Map<PanierOutputDto>(createdCommande);
 
             return new ResponseDataModel<PanierOutputDto>
             {
@@ -186,6 +188,58 @@ public class PanierService : IPanierService
             };
         }
     }
+    
+    public async Task<IResponseDataModel<string>> DeletePanier(int id)
+    {
+        try
+        {
+            var panier = await _commandeRepository.GetByIdAsync(id);
+            if (panier == null)
+            {
+                _logger.LogError("Panier introuvable pour l'ID: {PanierId}", id);
+                return new ResponseDataModel<string>
+                {
+                    Success = false,
+                    Message = "Panier introuvable.",
+                    StatusCode = 404
+                };
+            }
+
+            if (panier.Valide)
+            {
+                _logger.LogError("Le panier est déjà validé.");
+                return new ResponseDataModel<string>
+                {
+                    Success = false,
+                    Message = "Le panier est déjà validé.",
+                    StatusCode = 400
+                };
+            }
+
+
+            await _commandeRepository.DeleteAsync(panier);
+
+            return new ResponseDataModel<string>
+            {
+                Success = true,
+                Message = "Panier supprimé avec succès.",
+                StatusCode = 200,
+                Data = id.ToString()
+            };
+        }
+        catch (Exception e)
+        {
+            _logger.LogError(e, "Erreur lors de la suppression du panier.");
+            return new ResponseDataModel<string>
+            {
+                Success = false,
+                Message = "Une erreur s'est produite lors de la suppression du panier.",
+                StatusCode = 500,
+                Data = id.ToString()
+            };
+        }
+    }
+
 
 
 }

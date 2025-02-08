@@ -43,7 +43,8 @@ public class AutoMapperProfile : Profile
         CreateMap<Commande, PanierOutputDto>()
             .ForMember(dest => dest.LigneCommandes, opt => opt.MapFrom(src => src.LigneCommandes));
 
-        CreateMap<LigneCommande, LigneCommandeOutputDto>();
+        CreateMap<LigneCommande, LigneCommandeOutputDto>()
+            .ForMember(dest => dest.Article, opt => opt.MapFrom(src => src.Article));
 
         CreateMap<LigneCommandeCreateInputDto, LigneCommande>()
             .ForMember(dest => dest.LigneCommandeId, opt => opt.Ignore());
