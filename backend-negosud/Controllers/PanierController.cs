@@ -60,6 +60,18 @@ public class PanierController : ControllerBase
     {
         var result = await _panierService.ExtendDurationBasket(id);
         return result.Success ? Ok(result) : BadRequest(result);
+    }    
+    
+    // PUT: api/panier/valid/{od}
+    /// <summary>
+    /// Il faut fournir un au minimum : l'id du client.
+    /// </summary>
+    /// <returns>La commande</returns>
+    [HttpPut("valid/{id}")]
+    public async Task<IActionResult> BasketToCommand(int id)
+    {
+        var result = await _panierService.BasketToCommand(id);
+        return result.Success ? Ok(result) : BadRequest(result);
     }
 
     

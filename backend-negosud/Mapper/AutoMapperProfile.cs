@@ -4,6 +4,7 @@ using backend_negosud.DTOs.Commande_client;
 using backend_negosud.DTOs.Commande_client.Outputs;
 using backend_negosud.DTOs.Famille;
 using backend_negosud.DTOs.Famille.Outputs;
+using backend_negosud.DTOs.Livraison.Outputs;
 using backend_negosud.Entities;
 
 namespace backend_negosud.Mapper;
@@ -83,6 +84,7 @@ public class AutoMapperProfile : Profile
 
    
         CreateMap<Adresse, AdresseDto>();
+        CreateMap<Livraison, LivraisonOutputDto>();
         CreateMap<FamilleCreateInputDto, Famille>();
         
         CreateMap<RoleDto, Role>()
