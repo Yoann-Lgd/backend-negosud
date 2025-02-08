@@ -198,7 +198,10 @@ public partial class PostgresContext : DbContext
             entity.Property(e => e.ClientId).HasColumnName("client_id");
             entity.Property(e => e.DateCreation)
                 .HasColumnType("timestamp with time zone")
-                .HasColumnName("date_creation");
+                .HasColumnName("date_creation");            
+            entity.Property(e => e.ExpirationDate)
+                .HasColumnType("timestamp with time zone")
+                .HasColumnName("date_expiration");
             entity.Property(e => e.FactureId).HasColumnName("facture_id");
             entity.Property(e => e.LivraisonId).HasColumnName("livraison_id");
             entity.Property(e => e.Valide).HasColumnName("valide");

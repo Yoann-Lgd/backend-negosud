@@ -15,7 +15,8 @@ public class PanierService : IPanierService
     private readonly IMapper _mapper;
     private readonly ILogger<PanierService> _logger;
 
-    public PanierService(IMapper mapper, ICommandeRepository commandeRepository,IClientRepository clientRepository, IArticleRepository articleRepository, ILogger<PanierService> logger)
+    public PanierService(IMapper mapper, ICommandeRepository commandeRepository, IClientRepository clientRepository,
+        IArticleRepository articleRepository, ILogger<PanierService> logger)
     {
         _commandeRepository = commandeRepository;
         _clientRepository = clientRepository;
@@ -23,7 +24,7 @@ public class PanierService : IPanierService
         _mapper = mapper;
         _logger = logger;
     }
-    
+
     public async Task<IResponseDataModel<PanierOutputDto>> CreatePanier(PanierInputDto panierInputDto)
     {
         try
@@ -37,10 +38,10 @@ public class PanierService : IPanierService
                     Message = "ClientId invalide."
                 };
             }
-            
+
             _logger.LogInformation("Tentative de récupération du client avec ID: {ClientId}", panierInputDto.ClientId);
             var client = await _clientRepository.GetByIdAsync(panierInputDto.ClientId);
-            
+
             if (client == null)
             {
                 _logger.LogError("Client introuvable pour l'ID: {ClientId}", panierInputDto.ClientId);
@@ -51,7 +52,7 @@ public class PanierService : IPanierService
                     StatusCode = 404
                 };
             }
-            
+
             var ligneCommandes = _mapper.Map<List<LigneCommande>>(panierInputDto.LigneCommandes);
             foreach (var ligne in ligneCommandes)
             {
@@ -64,11 +65,12 @@ public class PanierService : IPanierService
 
             var commande = _mapper.Map<Commande>(panierInputDto);
             commande.LigneCommandes = ligneCommandes;
-            
+            commande.ExpirationDate = DateTime.UtcNow.AddHours(1);
+
             await _commandeRepository.AddAsync(commande);
-            
+
             var createdCommande = await _commandeRepository.GetByIdAndLigneCommandesAsync(commande.CommandeId);
-            
+
             var outputDto = _mapper.Map<PanierOutputDto>(createdCommande);
 
             return new ResponseDataModel<PanierOutputDto>
@@ -92,7 +94,7 @@ public class PanierService : IPanierService
             };
         }
     }
-    
+
     public async Task<IResponseDataModel<PanierOutputDto>> UpdatePanier(PanierUpdateInputDto panierUpdateDto)
     {
         try
@@ -136,7 +138,8 @@ public class PanierService : IPanierService
             var existingLigneCommandes = panier.LigneCommandes.ToList();
             foreach (var newLigneDto in panierUpdateDto.LigneCommandes)
             {
-                var existingLigne = existingLigneCommandes.FirstOrDefault(lc => lc.LigneCommandeId == newLigneDto.LigneCommandeId);
+                var existingLigne =
+                    existingLigneCommandes.FirstOrDefault(lc => lc.LigneCommandeId == newLigneDto.LigneCommandeId);
                 if (existingLigne != null)
                 {
                     existingLigne.Quantite = newLigneDto.Quantite;
@@ -157,12 +160,14 @@ public class PanierService : IPanierService
             }
 
             // supprime les lignes de commande qui ne sont plus présentes dans le DTO
-            var ligneCommandesToRemove = existingLigneCommandes.Where(lc => !panierUpdateDto.LigneCommandes.Any(dto => dto.LigneCommandeId == lc.LigneCommandeId)).ToList();
+            var ligneCommandesToRemove = existingLigneCommandes.Where(lc =>
+                !panierUpdateDto.LigneCommandes.Any(dto => dto.LigneCommandeId == lc.LigneCommandeId)).ToList();
             foreach (var ligneCommande in ligneCommandesToRemove)
             {
                 panier.LigneCommandes.Remove(ligneCommande);
             }
-
+            
+            panier.ExpirationDate = DateTime.UtcNow.AddDays(7);
             await _commandeRepository.UpdateAsync(panier);
 
             var outputDto = _mapper.Map<PanierOutputDto>(panier);
@@ -188,7 +193,7 @@ public class PanierService : IPanierService
             };
         }
     }
-    
+
     public async Task<IResponseDataModel<string>> DeletePanier(int id)
     {
         try
@@ -240,6 +245,109 @@ public class PanierService : IPanierService
         }
     }
 
+    public async Task<IResponseDataModel<PanierOutputDto>> GetBasketByClientId(int id)
+    {
+        try
+        {
+            var commande = await _commandeRepository.GetActiveBasketByClientIdAsync(id);
+
+            if (commande == null)
+            {
+                _logger.LogWarning("Aucun panier actif trouvé pour le client avec l'ID: {ClientId}", id);
+                return new ResponseDataModel<PanierOutputDto>
+                {
+                    Success = false,
+                    Message = "Aucun panier actif trouvé pour ce client.",
+                    StatusCode = 404,
+                    Data = null
+                };
+            }
+
+            var outputDto = _mapper.Map<PanierOutputDto>(commande);
+
+            return new ResponseDataModel<PanierOutputDto>
+            {
+                Success = true,
+                Data = outputDto,
+                Message = "Panier bien récupéré",
+                StatusCode = 200,
+            };
+        }
+        catch (AutoMapperMappingException mappingException)
+        {
+            _logger.LogError(mappingException, "Erreur de mappage lors de la récupération du panier.");
+            return new ResponseDataModel<PanierOutputDto>
+            {
+                Success = false,
+                Message = "Une erreur de mappage s'est produite.",
+                StatusCode = 500,
+                Data = null
+            };
+        }
+        catch (Exception e)
+        {
+            _logger.LogError(e, "Erreur lors de la récupération du panier du client.");
+            return new ResponseDataModel<PanierOutputDto>
+            {
+                Success = false,
+                Message = "Une erreur s'est produite lors de la récupération du panier.",
+                StatusCode = 500,
+                Data = null
+            };
+        }
+    }
 
 
+    public async Task<IResponseDataModel<string>> ExtendDurationBasket(int id)
+    {
+        try
+        {
+            var panier = await _commandeRepository.GetActiveBasketByClientIdAsync(id);
+
+            if (panier == null)
+            {
+                _logger.LogWarning("Aucun panier actif trouvé pour le client avec l'ID: {ClientId}", id);
+                return new ResponseDataModel<string>
+                {
+                    Success = false,
+                    Message = "Aucun panier actif trouvé pour ce client.",
+                    StatusCode = 404,
+                    Data = null
+                };
+            }
+
+            panier.ExpirationDate = DateTime.UtcNow.AddHours(1);
+            await _commandeRepository.UpdateAsync(panier);
+
+            return new ResponseDataModel<string>
+            {
+                Success = true,
+                Data = panier.CommandeId.ToString(),
+                Message = "Panier prolongé avec succés",
+                StatusCode = 200,
+            };
+        }
+        catch (AutoMapperMappingException mappingException)
+        {
+            _logger.LogError(mappingException, "Erreur de mappage lors de la récupération du panier.");
+            return new ResponseDataModel<string>
+            {
+                Success = false,
+                Message = "Une erreur de mappage s'est produite.",
+                StatusCode = 500,
+                Data = null
+            };
+        }
+        catch (Exception e)
+        {
+            _logger.LogError(e, "Erreur lors de la récupération du panier du client.");
+            return new ResponseDataModel<string>
+            {
+                Success = false,
+                Message = "Une erreur s'est produite lors de la récupération du panier.",
+                StatusCode = 500,
+                Data = null
+            };
+        }
+    }
 }

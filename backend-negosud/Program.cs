@@ -110,7 +110,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.UseHttpsRedirection();
+app.UseHangfire(); 
 app.UseRouting();
 app.UseCors("AllowAll");
 app.UseHttpsRedirection();

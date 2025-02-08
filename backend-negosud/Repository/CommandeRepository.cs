@@ -32,4 +32,15 @@ public class CommandeRepository : RepositoryBase<Commande> , ICommandeRepository
         return await _context.Commandes.Include(c => c.LigneCommandes).ThenInclude(l => l.Article).FirstOrDefaultAsync(c => c.CommandeId == id);
     }
 
+    public async Task<Commande> GetActiveBasketByClientIdAsync(int clientId)
+    {
+        return await _context.Commandes
+            .Where(c => c.ClientId == clientId && !c.Valide)
+            .Include(c => c.LigneCommandes)
+            .ThenInclude(l => l.Article)
+            .OrderByDescending(c => c.DateCreation)
+            .FirstOrDefaultAsync();
+    }
+
+    
 }
