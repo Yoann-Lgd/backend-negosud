@@ -1,4 +1,5 @@
 using backend_negosud.Entities;
+using backend_negosud.Services;
 using Hangfire;
 using Microsoft.EntityFrameworkCore;
 
@@ -12,29 +13,42 @@ public static class HangFireExtension
         app.UseHangfireServer();
 
         // tâche récurrente pour nettoyer les paniers expirés
-        using (var serviceScope = app.Services.CreateScope())
-        {
-            var recurringJobManager = serviceScope.ServiceProvider.GetRequiredService<IRecurringJobManager>();
-            recurringJobManager.AddOrUpdate(
-                "cleanup-expired-baskets",
-                () => CleanupExpiredBaskets(serviceScope.ServiceProvider),
-                "*/30 * * * *"); // Exéc toutes les 30 minutes
-        }
+        var recurringJobManager = app.Services.GetRequiredService<IRecurringJobManager>();
+        recurringJobManager.AddOrUpdate(
+            "cleanup-expired-baskets",
+            () => CleanupExpiredBaskets(app.Configuration.GetConnectionString("DefaultConnection")),
+            "*/30 * * * *"); // Exéc toutes les 30 minutes
     }
 
-    public static async Task CleanupExpiredBaskets(IServiceProvider serviceProvider)
+    public static void CleanupExpiredBaskets(string connectionString)
     {
-        using (var scope = serviceProvider.CreateScope())
+        using (var scope = CreateScope(connectionString))
         {
             var context = scope.ServiceProvider.GetRequiredService<PostgresContext>();
             var currentDate = DateTime.UtcNow;
 
-            var expiredBaskets = await context.Commandes
+            var expiredBaskets = context.Commandes
                 .Where(c => !c.Valide && c.ExpirationDate < currentDate)
-                .ToListAsync();
+                .ToList();
 
             context.Commandes.RemoveRange(expiredBaskets);
-            await context.SaveChangesAsync();
+            context.SaveChanges();
         }
     }
+
+    private static IServiceScope CreateScope(string connectionString)
+    {
+        var serviceProvider = BuildServiceProvider(connectionString);
+        return serviceProvider.CreateScope();
+    }
+
+    private static IServiceProvider BuildServiceProvider(string connectionString)
+    {
+        var services = new ServiceCollection();
+        services.AddDbContext<PostgresContext>(options =>
+            options.UseNpgsql(connectionString));
+        services.AddScoped<PanierExpirationService>();
+        return services.BuildServiceProvider();
+    }
 }
+
