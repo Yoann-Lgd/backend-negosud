@@ -1,6 +1,7 @@
 using backend_negosud.DTOs;
 using backend_negosud.Entities;
 using backend_negosud.Repository;
+using backend_negosud.Repository.Interfaces;
 using backend_negosud.Seeds;
 using backend_negosud.Services;
 using FluentValidation;
@@ -30,6 +31,7 @@ public static class DependencyInjectionExtension
     public static void AddRepositories(this WebApplicationBuilder builder)
     {
         builder.Services.AddScoped<IUtilisateurRepository, UtilisateurRepository>();
+        builder.Services.AddScoped<IFamilleRepository, FamilleRepository>();
         builder.Services.AddScoped<IRoleRepository, RoleRepository>();
         builder.Services.AddScoped<IStockRepository, StockRepository>();
         builder.Services.AddScoped<IClientRepository, ClientRepository>();
@@ -54,6 +56,7 @@ public static class DependencyInjectionExtension
         builder.Services.AddScoped<IAuthService<Utilisateur, UtilisateurInputDto, UtilisateurOutputDto>, UtilisateurService>();
         builder.Services.AddScoped<IHashMotDePasseService, HashMotDePasseService>();
         builder.Services.AddScoped<IEnvoieEmailService, EnvoieEmailService>();
+        builder.Services.AddScoped<IFamilleService, FamilleService>();
         builder.Services.AddScoped<ILogger<Program>, Logger<Program>>();
         builder.Services.AddValidatorsFromAssemblyContaining<Program>();
         builder.Services.AddFluentValidationAutoValidation();
