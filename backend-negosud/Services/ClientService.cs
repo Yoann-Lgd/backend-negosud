@@ -43,9 +43,17 @@ public ClientService(IEnvoieEmailService emailService, IClientRepository ClientR
         await _context.SaveChangesAsync();
     }
 
-    public Task<Client> GetClientByEmail(string email)
+    public async Task<Client> GetClientByEmail(string email)
     {
-        var client = _repository.FirstOrDefaultAsync(c => c.Email == email);
+        _logger.LogInformation($"Recherche du client avec l'email : {email}");
+    
+        var client = await _repository.FirstOrDefaultAsync(c => c.Email == email);
+    
+        if (client == null)
+            _logger.LogWarning($"Aucun client trouvé pour l'email : {email}");
+        else
+            _logger.LogInformation($"Client trouvé : {client.Email}");
+    
         return client;
     }
 
@@ -72,8 +80,7 @@ public ClientService(IEnvoieEmailService emailService, IClientRepository ClientR
             var codeTemporaire = _hash.RandomMotDePasseTemporaire();
         
             // Stocker le code temporaire
-            var codeEmailTable = new CodeEmailDataTable("TableTemporaireCode");
-            codeEmailTable.AddCodeEmail(clientInputDto.Email, codeTemporaire);
+            CodeEmailDataTable.Instance.AddCodeEmail(clientInputDto.Email, codeTemporaire);
 
             // Préparer et envoyer l'email
             var emailSubject = "Validation de votre compte NegoSud";
@@ -108,8 +115,7 @@ public ClientService(IEnvoieEmailService emailService, IClientRepository ClientR
                 };
             }
 
-            var codeEmailTable = new CodeEmailDataTable("TableTemporaireCode");
-            var codeStocke = await codeEmailTable.GetCodeEmail(email);
+            var codeStocke = await CodeEmailDataTable.Instance.GetCodeEmail(email);
 
             if (codeStocke == null)
             {
@@ -134,7 +140,7 @@ public ClientService(IEnvoieEmailService emailService, IClientRepository ClientR
             await UpdateClient(client);
 
             // Supprimer le code temporaire
-            await codeEmailTable.DeleteCodeEmail(email);
+            await CodeEmailDataTable.Instance.DeleteCodeEmail(email);
 
             return new ResponseDataModel<string>
             {

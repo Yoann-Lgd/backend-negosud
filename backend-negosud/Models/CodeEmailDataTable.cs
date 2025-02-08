@@ -4,12 +4,24 @@ namespace backend_negosud.Models;
 
 public class CodeEmailDataTable : BaseDataTable
 {
+    private static CodeEmailDataTable _instance;
+    private static readonly object _lock = new object();
+
+    public static CodeEmailDataTable Instance
+    {
+        get
+        {
+            lock (_lock)
+            {
+                return _instance ??= new CodeEmailDataTable("TableTemporaireCode");
+            }
+        }
+    }
     public CodeEmailDataTable(string tableName) : base(tableName)
     {
-        // Ajout de toutes les colonnes nécessaires
-        /*Columns.Add("ID", typeof(int));*/
+        // On n'ajoute pas ID car il est déjà dans BaseDataTable
         Columns.Add("Email", typeof(string));
-        Columns.Add("CodeEmail", typeof(string)); 
+        Columns.Add("CodeEmail", typeof(string));  // Attention à la casse !
         Columns.Add("DateCreation", typeof(DateTime)); 
     
         SetPrimaryKeyColumn("ID");
