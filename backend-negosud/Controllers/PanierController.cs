@@ -15,6 +15,17 @@ public class PanierController : ControllerBase
         _panierService = panierService;
     }
     
+    /// <summary>
+    /// Il faut fournir un au minimum : un id d'un client
+    /// </summary>
+    /// <returns>Le panier du client</returns>
+    [HttpGet("{id}")]
+    public async Task<IActionResult> GetBasketClient(int id)
+    {
+        var result = await _panierService.GetBasketByClientId(id);
+        return result.Success ? Ok(result) : BadRequest(result);
+    }
+    
     // POST: api/panier
     /// <summary>
     /// Il faut fournir un au minimum : un id d'un client, un id d'un article, une quantité 
@@ -38,6 +49,19 @@ public class PanierController : ControllerBase
         var result = await _panierService.UpdatePanier(panierInputDto);
         return result.Success ? Ok(result) : BadRequest(result);
     }
+    
+    // PUT: api/panier
+    /// <summary>
+    /// Il faut fournir un au minimum : l'id du client.
+    /// </summary>
+    /// <returns>Le panier modifié</returns>
+    [HttpPut("extend/{id}")]
+    public async Task<IActionResult> ExtendBasketDuration(int id)
+    {
+        var result = await _panierService.ExtendDurationBasket(id);
+        return result.Success ? Ok(result) : BadRequest(result);
+    }
+
     
     // DELETE: api/panier/{id}
     /// <summary>

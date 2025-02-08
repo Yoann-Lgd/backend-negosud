@@ -6,8 +6,11 @@ using backend_negosud.Seeds;
 using backend_negosud.Services;
 using FluentValidation;
 using FluentValidation.AspNetCore;
+using Hangfire;
+using Hangfire.MemoryStorage;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
+using Newtonsoft.Json;
 using Stripe;
 
 namespace backend_negosud.Extentions;
@@ -17,6 +20,11 @@ public static class DependencyInjectionExtension
 
     public static void InjectDependencies(this WebApplicationBuilder builder)
     {
+        builder.Services.AddControllers().AddJsonOptions(options =>
+        {
+            options.JsonSerializerOptions.ReferenceHandler = System.Text.Json.Serialization.ReferenceHandler.IgnoreCycles;
+            options.JsonSerializerOptions.WriteIndented = true;
+        });
         builder.AddRepositories();
         builder.AddServices();
         builder.Services.AddControllers();
@@ -25,6 +33,7 @@ public static class DependencyInjectionExtension
         builder.CorseConfiguration();
         builder.AddSwagger();
         builder.AddStripeConfiguration();
+        builder.AddHangfireConfiguration();
         // builder.AddReferenceHandler();
     }
 
@@ -61,7 +70,19 @@ public static class DependencyInjectionExtension
         builder.Services.AddValidatorsFromAssemblyContaining<Program>();
         builder.Services.AddFluentValidationAutoValidation();
     }    
-    
+    public static void AddHangfireConfiguration(this WebApplicationBuilder builder)
+    {
+        builder.Services.AddHangfire(config =>
+        {
+            config.UseMemoryStorage();
+            config.UseSerializerSettings(new JsonSerializerSettings
+            {
+                ReferenceLoopHandling = ReferenceLoopHandling.Ignore
+            });
+        });
+        builder.Services.AddHangfireServer();
+    }
+
     public static void AddSeeder(this WebApplicationBuilder builder)
     {
         builder.Services.AddScoped<DatabaseSeeder>();

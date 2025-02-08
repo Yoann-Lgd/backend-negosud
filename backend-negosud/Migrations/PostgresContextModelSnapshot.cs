@@ -240,6 +240,10 @@ namespace backend_negosud.Migrations
                         .HasColumnType("timestamp with time zone")
                         .HasColumnName("date_creation");
 
+                    b.Property<DateTime>("ExpirationDate")
+                        .HasColumnType("timestamp with time zone")
+                        .HasColumnName("date_expiration");
+
                     b.Property<int?>("FactureId")
                         .HasColumnType("integer")
                         .HasColumnName("facture_id");
