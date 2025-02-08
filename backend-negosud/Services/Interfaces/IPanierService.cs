@@ -8,4 +8,6 @@ public interface IPanierService
 {
     Task<IResponseDataModel<PanierOutputDto>> CreatePanier(PanierInputDto panierInputDto);
     Task<IResponseDataModel<PanierOutputDto>> UpdatePanier(PanierUpdateInputDto panierInputDto);
+
+    Task<IResponseDataModel<string>> DeletePanier(int id);
 }
