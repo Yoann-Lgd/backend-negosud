@@ -45,7 +45,8 @@ public ClientService(IEnvoieEmailService emailService, IClientRepository ClientR
 
     public Task<Client> GetClientByEmail(string email)
     {
-        throw new NotImplementedException();
+        var client = _repository.FirstOrDefaultAsync(c => c.Email == email);
+        return client;
     }
 
     public async Task<IResponseDataModel<Client>> GetClientBydId(int id)
