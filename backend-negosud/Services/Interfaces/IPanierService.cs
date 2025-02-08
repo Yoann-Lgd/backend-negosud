@@ -6,5 +6,6 @@ namespace backend_negosud.Services;
 
 public interface IPanierService
 {
-    Task<IResponseDataModel<PanierCreateOutputDto>> CreatePanier(PanierCreateInputDto panierCreateInputDto);
+    Task<IResponseDataModel<PanierOutputDto>> CreatePanier(PanierInputDto panierInputDto);
+    Task<IResponseDataModel<PanierOutputDto>> UpdatePanier(PanierUpdateInputDto panierInputDto);
 }

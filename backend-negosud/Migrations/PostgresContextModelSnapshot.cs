@@ -1006,12 +1006,14 @@ namespace backend_negosud.Migrations
                     b.HasOne("backend_negosud.Entities.Article", "Article")
                         .WithMany("LigneCommandes")
                         .HasForeignKey("ArticleId")
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired()
                         .HasConstraintName("ligne_commande_article1_fk");
 
                     b.HasOne("backend_negosud.Entities.Commande", "Commande")
                         .WithMany("LigneCommandes")
                         .HasForeignKey("CommandeId")
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired()
                         .HasConstraintName("ligne_commande_commande0_fk");
 

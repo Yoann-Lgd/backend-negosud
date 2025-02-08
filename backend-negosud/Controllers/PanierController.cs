@@ -15,13 +15,19 @@ public class PanierController : ControllerBase
         _panierService = panierService;
     }
     
-    [HttpPost("create-basket")]
-    public async Task<IActionResult> Register([FromBody] PanierCreateInputDto panierCreateInputDto)
+    [HttpPost("create")]
+    public async Task<IActionResult> CreateBasket([FromBody] PanierInputDto panierInputDto)
     {
-        var result = await _panierService.CreatePanier(panierCreateInputDto);
+        var result = await _panierService.CreatePanier(panierInputDto);
         return result.Success ? Ok(result) : BadRequest(result);
     }
-    
+
+    [HttpPut("update")]
+    public async Task<IActionResult> UpdateBasket([FromBody] PanierUpdateInputDto panierInputDto)
+    {
+        var result = await _panierService.UpdatePanier(panierInputDto);
+        return result.Success ? Ok(result) : BadRequest(result);
+    }
     
     
 }

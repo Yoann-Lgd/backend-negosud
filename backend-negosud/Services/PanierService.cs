@@ -24,27 +24,27 @@ public class PanierService : IPanierService
         _logger = logger;
     }
     
-    public async Task<IResponseDataModel<PanierCreateOutputDto>> CreatePanier(PanierCreateInputDto panierCreateInputDto)
+    public async Task<IResponseDataModel<PanierOutputDto>> CreatePanier(PanierInputDto panierInputDto)
     {
         try
         {
-            if (panierCreateInputDto.ClientId <= 0)
+            if (panierInputDto.ClientId <= 0)
             {
                 _logger.LogError("ClientId est invalide.");
-                return new ResponseDataModel<PanierCreateOutputDto>
+                return new ResponseDataModel<PanierOutputDto>
                 {
                     Success = false,
                     Message = "ClientId invalide."
                 };
             }
             
-            _logger.LogInformation("Tentative de récupération du client avec ID: {ClientId}", panierCreateInputDto.ClientId);
-            var client = await _clientRepository.GetByIdAsync(panierCreateInputDto.ClientId);
+            _logger.LogInformation("Tentative de récupération du client avec ID: {ClientId}", panierInputDto.ClientId);
+            var client = await _clientRepository.GetByIdAsync(panierInputDto.ClientId);
             
             if (client == null)
             {
-                _logger.LogError("Client introuvable pour l'ID: {ClientId}", panierCreateInputDto.ClientId);
-                return new ResponseDataModel<PanierCreateOutputDto>
+                _logger.LogError("Client introuvable pour l'ID: {ClientId}", panierInputDto.ClientId);
+                return new ResponseDataModel<PanierOutputDto>
                 {
                     Success = false,
                     Message = "Client introuvable.",
@@ -52,7 +52,7 @@ public class PanierService : IPanierService
                 };
             }
             
-            var ligneCommandes = _mapper.Map<List<LigneCommande>>(panierCreateInputDto.LigneCommandes);
+            var ligneCommandes = _mapper.Map<List<LigneCommande>>(panierInputDto.LigneCommandes);
             foreach (var ligne in ligneCommandes)
             {
                 var articleExist = await _articleRepository.AnyAsync(a => a.ArticleId == ligne.ArticleId);
@@ -62,14 +62,14 @@ public class PanierService : IPanierService
                 }
             }
 
-            var commande = _mapper.Map<Commande>(panierCreateInputDto);
+            var commande = _mapper.Map<Commande>(panierInputDto);
             commande.LigneCommandes = ligneCommandes;
             
             await _commandeRepository.AddAsync(commande);
             
-            var outputDto = _mapper.Map<PanierCreateOutputDto>(commande);
+            var outputDto = _mapper.Map<PanierOutputDto>(commande);
 
-            return new ResponseDataModel<PanierCreateOutputDto>
+            return new ResponseDataModel<PanierOutputDto>
             {
                 Success = true,
                 Message = "Panier créé avec succès.",
@@ -81,7 +81,7 @@ public class PanierService : IPanierService
         {
             _logger.LogError(e, "Erreur lors de la récupération des commandes");
 
-            return new ResponseDataModel<PanierCreateOutputDto>
+            return new ResponseDataModel<PanierOutputDto>
             {
                 Success = false,
                 Message = "Une erreur s'est produite lors de la récupération des commandes.",
@@ -90,4 +90,102 @@ public class PanierService : IPanierService
             };
         }
     }
+    
+    public async Task<IResponseDataModel<PanierOutputDto>> UpdatePanier(PanierUpdateInputDto panierUpdateDto)
+    {
+        try
+        {
+            if (panierUpdateDto.ClientId <= 0)
+            {
+                _logger.LogError("ClientId est invalide.");
+                return new ResponseDataModel<PanierOutputDto>
+                {
+                    Success = false,
+                    Message = "ClientId invalide."
+                };
+            }
+
+            _logger.LogInformation("Tentative de récupération du client avec ID: {ClientId}", panierUpdateDto.ClientId);
+            var client = await _clientRepository.GetByIdAsync(panierUpdateDto.ClientId);
+
+            if (client == null)
+            {
+                _logger.LogError("Client introuvable pour l'ID: {ClientId}", panierUpdateDto.ClientId);
+                return new ResponseDataModel<PanierOutputDto>
+                {
+                    Success = false,
+                    Message = "Client introuvable.",
+                    StatusCode = 404
+                };
+            }
+
+            var panier = await _commandeRepository.GetByIdAndLigneCommandesAsync(panierUpdateDto.CommandId);
+            if (panier == null)
+            {
+                _logger.LogError("Panier introuvable pour l'ID: {PanierId}", panierUpdateDto.CommandId);
+                return new ResponseDataModel<PanierOutputDto>
+                {
+                    Success = false,
+                    Message = "Panier introuvable.",
+                    StatusCode = 404
+                };
+            }
+
+            var existingLigneCommandes = panier.LigneCommandes.ToList();
+            foreach (var newLigneDto in panierUpdateDto.LigneCommandes)
+            {
+                var existingLigne = existingLigneCommandes.FirstOrDefault(lc => lc.LigneCommandeId == newLigneDto.LigneCommandeId);
+                if (existingLigne != null)
+                {
+                    existingLigne.Quantite = newLigneDto.Quantite;
+                }
+                else
+                {
+                    var articleExist = await _articleRepository.AnyAsync(a => a.ArticleId == newLigneDto.ArticleId);
+                    if (articleExist)
+                    {
+                        var newLigneCommande = _mapper.Map<LigneCommande>(newLigneDto);
+                        panier.LigneCommandes.Add(newLigneCommande);
+                    }
+                    else
+                    {
+                        _logger.LogWarning("Article ID {ArticleId} n'existe pas.", newLigneDto.ArticleId);
+                    }
+                }
+            }
+
+            // supprime les lignes de commande qui ne sont plus présentes dans le DTO
+            var ligneCommandesToRemove = existingLigneCommandes.Where(lc => !panierUpdateDto.LigneCommandes.Any(dto => dto.LigneCommandeId == lc.LigneCommandeId)).ToList();
+            foreach (var ligneCommande in ligneCommandesToRemove)
+            {
+                panier.LigneCommandes.Remove(ligneCommande);
+            }
+
+            await _commandeRepository.UpdateAsync(panier);
+
+            var outputDto = _mapper.Map<PanierOutputDto>(panier);
+
+            return new ResponseDataModel<PanierOutputDto>
+            {
+                Success = true,
+                Message = "Panier mis à jour avec succès.",
+                StatusCode = 200,
+                Data = outputDto
+            };
+        }
+        catch (Exception e)
+        {
+            _logger.LogError(e, "Erreur lors de la mise à jour du panier.");
+
+            return new ResponseDataModel<PanierOutputDto>
+            {
+                Success = false,
+                Message = "Une erreur s'est produite lors de la mise à jour du panier.",
+                StatusCode = 500,
+                Data = null,
+            };
+        }
+    }
+
+
 }
