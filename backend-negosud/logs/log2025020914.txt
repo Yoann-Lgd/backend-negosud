@@ -1,0 +1,547 @@
+2025-02-09 14:00:09.096 +01:00 [WRN] Recurring job 'cleanup-expired-baskets' can't be scheduled due to an error and will be retried in 00:00:15.
+Hangfire.Common.JobLoadException: Could not load the job. See inner exception for the details.
+ ---> Newtonsoft.Json.JsonSerializationException: Could not create an instance of type System.IServiceProvider. Type is an interface or abstract class and cannot be instantiated. Path 'IsRootScope', line 1, position 15.
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateNewObject(JsonReader reader, JsonObjectContract objectContract, JsonProperty containerMember, JsonProperty containerProperty, String id, Boolean& createdFromNonDefaultCreator)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateObject(JsonReader reader, Type objectType, JsonContract contract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerMember, Object existingValue)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateValueInternal(JsonReader reader, Type objectType, JsonContract contract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerMember, Object existingValue)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.Deserialize(JsonReader reader, Type objectType, Boolean checkAdditionalContent)
+   at Newtonsoft.Json.JsonSerializer.DeserializeInternal(JsonReader reader, Type objectType)
+   at Newtonsoft.Json.JsonSerializer.Deserialize(JsonReader reader, Type objectType)
+   at Newtonsoft.Json.JsonConvert.DeserializeObject(String value, Type type, JsonSerializerSettings settings)
+   at Hangfire.Common.SerializationHelper.Deserialize(String value, Type type, SerializationOption option) in C:\projects\hangfire-525\src\Hangfire.Core\Common\SerializationHelper.cs:line 177
+   at Hangfire.Storage.InvocationData.DeserializeArgument(String argument, Type type) in C:\projects\hangfire-525\src\Hangfire.Core\Storage\InvocationData.cs:line 366
+--- End of stack trace from previous location ---
+   at Hangfire.Storage.InvocationData.DeserializeArgument(String argument, Type type) in C:\projects\hangfire-525\src\Hangfire.Core\Storage\InvocationData.cs:line 385
+--- End of stack trace from previous location ---
+   at Hangfire.Storage.InvocationData.DeserializeArgument(String argument, Type type) in C:\projects\hangfire-525\src\Hangfire.Core\Storage\InvocationData.cs:line 400
+   at Hangfire.Storage.InvocationData.DeserializeArguments(MethodInfo methodInfo, String[] arguments) in C:\projects\hangfire-525\src\Hangfire.Core\Storage\InvocationData.cs:line 300
+   at Hangfire.Storage.InvocationData.DeserializeJob() in C:\projects\hangfire-525\src\Hangfire.Core\Storage\InvocationData.cs:line 107
+   --- End of inner exception stack trace ---
+   at Hangfire.Storage.InvocationData.DeserializeJob() in C:\projects\hangfire-525\src\Hangfire.Core\Storage\InvocationData.cs:line 118
+   at Hangfire.RecurringJobExtensions.TriggerRecurringJob(IBackgroundJobFactory factory, JobStorage storage, IStorageConnection connection, IProfiler profiler, RecurringJobEntity recurringJob, DateTime now) in C:\projects\hangfire-525\src\Hangfire.Core\RecurringJobExtensions.cs:line 115
+   at Hangfire.Server.RecurringJobScheduler.ScheduleRecurringJob(BackgroundProcessContext context, IStorageConnection connection, String recurringJobId, RecurringJobEntity recurringJob, DateTime now) in C:\projects\hangfire-525\src\Hangfire.Core\Server\RecurringJobScheduler.cs:line 333
+2025-02-09 14:00:24.108 +01:00 [WRN] Recurring job 'cleanup-expired-baskets' can't be scheduled due to an error and will be retried in 00:00:15.
+Hangfire.Common.JobLoadException: Could not load the job. See inner exception for the details.
+ ---> Newtonsoft.Json.JsonSerializationException: Could not create an instance of type System.IServiceProvider. Type is an interface or abstract class and cannot be instantiated. Path 'IsRootScope', line 1, position 15.
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateNewObject(JsonReader reader, JsonObjectContract objectContract, JsonProperty containerMember, JsonProperty containerProperty, String id, Boolean& createdFromNonDefaultCreator)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateObject(JsonReader reader, Type objectType, JsonContract contract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerMember, Object existingValue)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateValueInternal(JsonReader reader, Type objectType, JsonContract contract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerMember, Object existingValue)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.Deserialize(JsonReader reader, Type objectType, Boolean checkAdditionalContent)
+   at Newtonsoft.Json.JsonSerializer.DeserializeInternal(JsonReader reader, Type objectType)
+   at Newtonsoft.Json.JsonSerializer.Deserialize(JsonReader reader, Type objectType)
+   at Newtonsoft.Json.JsonConvert.DeserializeObject(String value, Type type, JsonSerializerSettings settings)
+   at Hangfire.Common.SerializationHelper.Deserialize(String value, Type type, SerializationOption option) in C:\projects\hangfire-525\src\Hangfire.Core\Common\SerializationHelper.cs:line 177
+   at Hangfire.Storage.InvocationData.DeserializeArgument(String argument, Type type) in C:\projects\hangfire-525\src\Hangfire.Core\Storage\InvocationData.cs:line 366
+--- End of stack trace from previous location ---
+   at Hangfire.Storage.InvocationData.DeserializeArgument(String argument, Type type) in C:\projects\hangfire-525\src\Hangfire.Core\Storage\InvocationData.cs:line 385
+--- End of stack trace from previous location ---
+   at Hangfire.Storage.InvocationData.DeserializeArgument(String argument, Type type) in C:\projects\hangfire-525\src\Hangfire.Core\Storage\InvocationData.cs:line 400
+   at Hangfire.Storage.InvocationData.DeserializeArguments(MethodInfo methodInfo, String[] arguments) in C:\projects\hangfire-525\src\Hangfire.Core\Storage\InvocationData.cs:line 300
+   at Hangfire.Storage.InvocationData.DeserializeJob() in C:\projects\hangfire-525\src\Hangfire.Core\Storage\InvocationData.cs:line 107
+   --- End of inner exception stack trace ---
+   at Hangfire.Storage.InvocationData.DeserializeJob() in C:\projects\hangfire-525\src\Hangfire.Core\Storage\InvocationData.cs:line 118
+   at Hangfire.RecurringJobExtensions.TriggerRecurringJob(IBackgroundJobFactory factory, JobStorage storage, IStorageConnection connection, IProfiler profiler, RecurringJobEntity recurringJob, DateTime now) in C:\projects\hangfire-525\src\Hangfire.Core\RecurringJobExtensions.cs:line 115
+   at Hangfire.Server.RecurringJobScheduler.ScheduleRecurringJob(BackgroundProcessContext context, IStorageConnection connection, String recurringJobId, RecurringJobEntity recurringJob, DateTime now) in C:\projects\hangfire-525\src\Hangfire.Core\Server\RecurringJobScheduler.cs:line 333
+2025-02-09 14:00:39.115 +01:00 [WRN] Recurring job 'cleanup-expired-baskets' can't be scheduled due to an error and will be retried in 00:00:15.
+Hangfire.Common.JobLoadException: Could not load the job. See inner exception for the details.
+ ---> Newtonsoft.Json.JsonSerializationException: Could not create an instance of type System.IServiceProvider. Type is an interface or abstract class and cannot be instantiated. Path 'IsRootScope', line 1, position 15.
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateNewObject(JsonReader reader, JsonObjectContract objectContract, JsonProperty containerMember, JsonProperty containerProperty, String id, Boolean& createdFromNonDefaultCreator)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateObject(JsonReader reader, Type objectType, JsonContract contract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerMember, Object existingValue)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateValueInternal(JsonReader reader, Type objectType, JsonContract contract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerMember, Object existingValue)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.Deserialize(JsonReader reader, Type objectType, Boolean checkAdditionalContent)
+   at Newtonsoft.Json.JsonSerializer.DeserializeInternal(JsonReader reader, Type objectType)
+   at Newtonsoft.Json.JsonSerializer.Deserialize(JsonReader reader, Type objectType)
+   at Newtonsoft.Json.JsonConvert.DeserializeObject(String value, Type type, JsonSerializerSettings settings)
+   at Hangfire.Common.SerializationHelper.Deserialize(String value, Type type, SerializationOption option) in C:\projects\hangfire-525\src\Hangfire.Core\Common\SerializationHelper.cs:line 177
+   at Hangfire.Storage.InvocationData.DeserializeArgument(String argument, Type type) in C:\projects\hangfire-525\src\Hangfire.Core\Storage\InvocationData.cs:line 366
+--- End of stack trace from previous location ---
+   at Hangfire.Storage.InvocationData.DeserializeArgument(String argument, Type type) in C:\projects\hangfire-525\src\Hangfire.Core\Storage\InvocationData.cs:line 385
+--- End of stack trace from previous location ---
+   at Hangfire.Storage.InvocationData.DeserializeArgument(String argument, Type type) in C:\projects\hangfire-525\src\Hangfire.Core\Storage\InvocationData.cs:line 400
+   at Hangfire.Storage.InvocationData.DeserializeArguments(MethodInfo methodInfo, String[] arguments) in C:\projects\hangfire-525\src\Hangfire.Core\Storage\InvocationData.cs:line 300
+   at Hangfire.Storage.InvocationData.DeserializeJob() in C:\projects\hangfire-525\src\Hangfire.Core\Storage\InvocationData.cs:line 107
+   --- End of inner exception stack trace ---
+   at Hangfire.Storage.InvocationData.DeserializeJob() in C:\projects\hangfire-525\src\Hangfire.Core\Storage\InvocationData.cs:line 118
+   at Hangfire.RecurringJobExtensions.TriggerRecurringJob(IBackgroundJobFactory factory, JobStorage storage, IStorageConnection connection, IProfiler profiler, RecurringJobEntity recurringJob, DateTime now) in C:\projects\hangfire-525\src\Hangfire.Core\RecurringJobExtensions.cs:line 115
+   at Hangfire.Server.RecurringJobScheduler.ScheduleRecurringJob(BackgroundProcessContext context, IStorageConnection connection, String recurringJobId, RecurringJobEntity recurringJob, DateTime now) in C:\projects\hangfire-525\src\Hangfire.Core\Server\RecurringJobScheduler.cs:line 333
+2025-02-09 14:00:54.122 +01:00 [WRN] Recurring job 'cleanup-expired-baskets' can't be scheduled due to an error and will be retried in 00:00:15.
+Hangfire.Common.JobLoadException: Could not load the job. See inner exception for the details.
+ ---> Newtonsoft.Json.JsonSerializationException: Could not create an instance of type System.IServiceProvider. Type is an interface or abstract class and cannot be instantiated. Path 'IsRootScope', line 1, position 15.
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateNewObject(JsonReader reader, JsonObjectContract objectContract, JsonProperty containerMember, JsonProperty containerProperty, String id, Boolean& createdFromNonDefaultCreator)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateObject(JsonReader reader, Type objectType, JsonContract contract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerMember, Object existingValue)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateValueInternal(JsonReader reader, Type objectType, JsonContract contract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerMember, Object existingValue)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.Deserialize(JsonReader reader, Type objectType, Boolean checkAdditionalContent)
+   at Newtonsoft.Json.JsonSerializer.DeserializeInternal(JsonReader reader, Type objectType)
+   at Newtonsoft.Json.JsonSerializer.Deserialize(JsonReader reader, Type objectType)
+   at Newtonsoft.Json.JsonConvert.DeserializeObject(String value, Type type, JsonSerializerSettings settings)
+   at Hangfire.Common.SerializationHelper.Deserialize(String value, Type type, SerializationOption option) in C:\projects\hangfire-525\src\Hangfire.Core\Common\SerializationHelper.cs:line 177
+   at Hangfire.Storage.InvocationData.DeserializeArgument(String argument, Type type) in C:\projects\hangfire-525\src\Hangfire.Core\Storage\InvocationData.cs:line 366
+--- End of stack trace from previous location ---
+   at Hangfire.Storage.InvocationData.DeserializeArgument(String argument, Type type) in C:\projects\hangfire-525\src\Hangfire.Core\Storage\InvocationData.cs:line 385
+--- End of stack trace from previous location ---
+   at Hangfire.Storage.InvocationData.DeserializeArgument(String argument, Type type) in C:\projects\hangfire-525\src\Hangfire.Core\Storage\InvocationData.cs:line 400
+   at Hangfire.Storage.InvocationData.DeserializeArguments(MethodInfo methodInfo, String[] arguments) in C:\projects\hangfire-525\src\Hangfire.Core\Storage\InvocationData.cs:line 300
+   at Hangfire.Storage.InvocationData.DeserializeJob() in C:\projects\hangfire-525\src\Hangfire.Core\Storage\InvocationData.cs:line 107
+   --- End of inner exception stack trace ---
+   at Hangfire.Storage.InvocationData.DeserializeJob() in C:\projects\hangfire-525\src\Hangfire.Core\Storage\InvocationData.cs:line 118
+   at Hangfire.RecurringJobExtensions.TriggerRecurringJob(IBackgroundJobFactory factory, JobStorage storage, IStorageConnection connection, IProfiler profiler, RecurringJobEntity recurringJob, DateTime now) in C:\projects\hangfire-525\src\Hangfire.Core\RecurringJobExtensions.cs:line 115
+   at Hangfire.Server.RecurringJobScheduler.ScheduleRecurringJob(BackgroundProcessContext context, IStorageConnection connection, String recurringJobId, RecurringJobEntity recurringJob, DateTime now) in C:\projects\hangfire-525\src\Hangfire.Core\Server\RecurringJobScheduler.cs:line 333
+2025-02-09 14:01:09.128 +01:00 [WRN] Recurring job 'cleanup-expired-baskets' can't be scheduled due to an error and will be retried in 00:00:15.
+Hangfire.Common.JobLoadException: Could not load the job. See inner exception for the details.
+ ---> Newtonsoft.Json.JsonSerializationException: Could not create an instance of type System.IServiceProvider. Type is an interface or abstract class and cannot be instantiated. Path 'IsRootScope', line 1, position 15.
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateNewObject(JsonReader reader, JsonObjectContract objectContract, JsonProperty containerMember, JsonProperty containerProperty, String id, Boolean& createdFromNonDefaultCreator)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateObject(JsonReader reader, Type objectType, JsonContract contract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerMember, Object existingValue)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateValueInternal(JsonReader reader, Type objectType, JsonContract contract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerMember, Object existingValue)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.Deserialize(JsonReader reader, Type objectType, Boolean checkAdditionalContent)
+   at Newtonsoft.Json.JsonSerializer.DeserializeInternal(JsonReader reader, Type objectType)
+   at Newtonsoft.Json.JsonSerializer.Deserialize(JsonReader reader, Type objectType)
+   at Newtonsoft.Json.JsonConvert.DeserializeObject(String value, Type type, JsonSerializerSettings settings)
+   at Hangfire.Common.SerializationHelper.Deserialize(String value, Type type, SerializationOption option) in C:\projects\hangfire-525\src\Hangfire.Core\Common\SerializationHelper.cs:line 177
+   at Hangfire.Storage.InvocationData.DeserializeArgument(String argument, Type type) in C:\projects\hangfire-525\src\Hangfire.Core\Storage\InvocationData.cs:line 366
+--- End of stack trace from previous location ---
+   at Hangfire.Storage.InvocationData.DeserializeArgument(String argument, Type type) in C:\projects\hangfire-525\src\Hangfire.Core\Storage\InvocationData.cs:line 385
+--- End of stack trace from previous location ---
+   at Hangfire.Storage.InvocationData.DeserializeArgument(String argument, Type type) in C:\projects\hangfire-525\src\Hangfire.Core\Storage\InvocationData.cs:line 400
+   at Hangfire.Storage.InvocationData.DeserializeArguments(MethodInfo methodInfo, String[] arguments) in C:\projects\hangfire-525\src\Hangfire.Core\Storage\InvocationData.cs:line 300
+   at Hangfire.Storage.InvocationData.DeserializeJob() in C:\projects\hangfire-525\src\Hangfire.Core\Storage\InvocationData.cs:line 107
+   --- End of inner exception stack trace ---
+   at Hangfire.Storage.InvocationData.DeserializeJob() in C:\projects\hangfire-525\src\Hangfire.Core\Storage\InvocationData.cs:line 118
+   at Hangfire.RecurringJobExtensions.TriggerRecurringJob(IBackgroundJobFactory factory, JobStorage storage, IStorageConnection connection, IProfiler profiler, RecurringJobEntity recurringJob, DateTime now) in C:\projects\hangfire-525\src\Hangfire.Core\RecurringJobExtensions.cs:line 115
+   at Hangfire.Server.RecurringJobScheduler.ScheduleRecurringJob(BackgroundProcessContext context, IStorageConnection connection, String recurringJobId, RecurringJobEntity recurringJob, DateTime now) in C:\projects\hangfire-525\src\Hangfire.Core\Server\RecurringJobScheduler.cs:line 333
+2025-02-09 14:01:09.977 +01:00 [INF] Server macbookpro:66509:46767153 caught stopping signal...
+2025-02-09 14:01:09.978 +01:00 [INF] Application is shutting down...
+2025-02-09 14:01:09.978 +01:00 [INF] Server macbookpro:66509:ea31ffee caught stopping signal...
+2025-02-09 14:01:09.981 +01:00 [INF] Server macbookpro:66509:46767153 All dispatchers stopped
+2025-02-09 14:01:09.981 +01:00 [INF] Server macbookpro:66509:ea31ffee All dispatchers stopped
+2025-02-09 14:01:09.983 +01:00 [INF] Server macbookpro:66509:46767153 successfully reported itself as stopped in 0,4492 ms
+2025-02-09 14:01:09.983 +01:00 [INF] Server macbookpro:66509:ea31ffee successfully reported itself as stopped in 0,4413 ms
+2025-02-09 14:01:09.983 +01:00 [INF] Server macbookpro:66509:46767153 has been stopped in total 5,8015 ms
+2025-02-09 14:01:09.983 +01:00 [INF] Server macbookpro:66509:ea31ffee has been stopped in total 4,6917 ms
+2025-02-09 14:31:59.098 +01:00 [INF] Executed DbCommand (15ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM client AS c)
+2025-02-09 14:31:59.188 +01:00 [INF] Starting Hangfire Server using job storage: 'Hangfire.MemoryStorage.MemoryStorage'
+2025-02-09 14:31:59.188 +01:00 [INF] Using the following options for Hangfire Server:
+    Worker count: 20
+    Listening queues: 'default'
+    Shutdown timeout: 00:00:15
+    Schedule polling interval: 00:00:15
+2025-02-09 14:31:59.228 +01:00 [INF] Server macbookpro:68200:0b32eea3 successfully announced in 32,8254 ms
+2025-02-09 14:31:59.230 +01:00 [INF] Server macbookpro:68200:0b32eea3 is starting the registered dispatchers: ServerWatchdog, ServerJobCancellationWatcher, ExpirationManager, CountersAggregator, Worker, DelayedJobScheduler, RecurringJobScheduler...
+2025-02-09 14:31:59.233 +01:00 [INF] Server macbookpro:68200:0b32eea3 all the dispatchers started
+2025-02-09 14:31:59.280 +01:00 [INF] User profile is available. Using '/Users/yoann/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-02-09 14:31:59.311 +01:00 [INF] Now listening on: http://localhost:5141
+2025-02-09 14:31:59.311 +01:00 [INF] Starting Hangfire Server using job storage: 'Hangfire.MemoryStorage.MemoryStorage'
+2025-02-09 14:31:59.311 +01:00 [INF] Using the following options for Hangfire Server:
+    Worker count: 20
+    Listening queues: 'default'
+    Shutdown timeout: 00:00:15
+    Schedule polling interval: 00:00:15
+2025-02-09 14:31:59.312 +01:00 [INF] Server macbookpro:68200:4e4bd747 successfully announced in 0,0505 ms
+2025-02-09 14:31:59.312 +01:00 [INF] Server macbookpro:68200:4e4bd747 is starting the registered dispatchers: ServerWatchdog, ServerJobCancellationWatcher, ExpirationManager, CountersAggregator, Worker, DelayedJobScheduler, RecurringJobScheduler...
+2025-02-09 14:31:59.314 +01:00 [INF] Server macbookpro:68200:4e4bd747 all the dispatchers started
+2025-02-09 14:31:59.314 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-02-09 14:31:59.314 +01:00 [INF] Hosting environment: Development
+2025-02-09 14:31:59.314 +01:00 [INF] Content root path: /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud
+2025-02-09 14:31:59.917 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5141/swagger/index.html - null null
+2025-02-09 14:32:00.021 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5141/swagger/index.html - 200 null text/html;charset=utf-8 104.3457ms
+2025-02-09 14:32:00.284 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5141/swagger/v1/swagger.json - null null
+2025-02-09 14:32:00.366 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5141/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 82.9264ms
+2025-02-09 14:33:35.241 +01:00 [INF] Server macbookpro:68200:4e4bd747 caught stopping signal...
+2025-02-09 14:33:35.246 +01:00 [INF] Application is shutting down...
+2025-02-09 14:33:35.247 +01:00 [INF] Server macbookpro:68200:0b32eea3 caught stopping signal...
+2025-02-09 14:33:35.251 +01:00 [INF] Server macbookpro:68200:4e4bd747 All dispatchers stopped
+2025-02-09 14:33:35.251 +01:00 [INF] Server macbookpro:68200:0b32eea3 All dispatchers stopped
+2025-02-09 14:33:35.253 +01:00 [INF] Server macbookpro:68200:0b32eea3 successfully reported itself as stopped in 0,4667 ms
+2025-02-09 14:33:35.253 +01:00 [INF] Server macbookpro:68200:4e4bd747 successfully reported itself as stopped in 0,4749 ms
+2025-02-09 14:33:35.253 +01:00 [INF] Server macbookpro:68200:0b32eea3 has been stopped in total 5,8877 ms
+2025-02-09 14:33:35.254 +01:00 [INF] Server macbookpro:68200:4e4bd747 has been stopped in total 9,6375 ms
+2025-02-09 14:33:39.065 +01:00 [INF] Executed DbCommand (15ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM client AS c)
+2025-02-09 14:33:39.161 +01:00 [INF] Starting Hangfire Server using job storage: 'Hangfire.MemoryStorage.MemoryStorage'
+2025-02-09 14:33:39.161 +01:00 [INF] Using the following options for Hangfire Server:
+    Worker count: 20
+    Listening queues: 'default'
+    Shutdown timeout: 00:00:15
+    Schedule polling interval: 00:00:15
+2025-02-09 14:33:39.203 +01:00 [INF] Server macbookpro:68283:6a1c22c6 successfully announced in 33,2884 ms
+2025-02-09 14:33:39.204 +01:00 [INF] Server macbookpro:68283:6a1c22c6 is starting the registered dispatchers: ServerWatchdog, ServerJobCancellationWatcher, ExpirationManager, CountersAggregator, Worker, DelayedJobScheduler, RecurringJobScheduler...
+2025-02-09 14:33:39.208 +01:00 [INF] Server macbookpro:68283:6a1c22c6 all the dispatchers started
+2025-02-09 14:33:39.244 +01:00 [INF] User profile is available. Using '/Users/yoann/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-02-09 14:33:39.274 +01:00 [INF] Now listening on: http://localhost:5141
+2025-02-09 14:33:39.274 +01:00 [INF] Starting Hangfire Server using job storage: 'Hangfire.MemoryStorage.MemoryStorage'
+2025-02-09 14:33:39.274 +01:00 [INF] Using the following options for Hangfire Server:
+    Worker count: 20
+    Listening queues: 'default'
+    Shutdown timeout: 00:00:15
+    Schedule polling interval: 00:00:15
+2025-02-09 14:33:39.274 +01:00 [INF] Server macbookpro:68283:f4264d53 successfully announced in 0,0478 ms
+2025-02-09 14:33:39.275 +01:00 [INF] Server macbookpro:68283:f4264d53 is starting the registered dispatchers: ServerWatchdog, ServerJobCancellationWatcher, ExpirationManager, CountersAggregator, Worker, DelayedJobScheduler, RecurringJobScheduler...
+2025-02-09 14:33:39.277 +01:00 [INF] Server macbookpro:68283:f4264d53 all the dispatchers started
+2025-02-09 14:33:39.277 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-02-09 14:33:39.277 +01:00 [INF] Hosting environment: Development
+2025-02-09 14:33:39.277 +01:00 [INF] Content root path: /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud
+2025-02-09 14:33:39.982 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5141/swagger/index.html - null null
+2025-02-09 14:33:40.122 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5141/swagger/index.html - 200 null text/html;charset=utf-8 142.9308ms
+2025-02-09 14:33:40.406 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5141/swagger/v1/swagger.json - null null
+2025-02-09 14:33:40.510 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5141/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 103.6836ms
+2025-02-09 14:33:44.305 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5141/api/Article/4 - null null
+2025-02-09 14:33:44.336 +01:00 [WRN] Failed to determine the https port for redirect.
+2025-02-09 14:33:44.366 +01:00 [INF] Executing endpoint 'backend_negosud.Controllers.ArticleController.GetArticleById (backend-negosud)'
+2025-02-09 14:33:44.377 +01:00 [INF] Route matched with {action = "GetArticleById", controller = "Article"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult] GetArticleById(Int32) on controller backend_negosud.Controllers.ArticleController (backend-negosud).
+2025-02-09 14:33:44.477 +01:00 [INF] Executing action method backend_negosud.Controllers.ArticleController.GetArticleById (backend-negosud) - Validation state: "Valid"
+2025-02-09 14:33:44.590 +01:00 [INF] Executed DbCommand (24ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.article_id, a.famille_id, a.fournisseur_id, a.libelle, a.prix, a.reference, a.tva_id
+FROM article AS a
+WHERE a.article_id = @__p_0
+LIMIT 1
+2025-02-09 14:33:44.646 +01:00 [INF] Executed action method backend_negosud.Controllers.ArticleController.GetArticleById (backend-negosud), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 165.9641ms.
+2025-02-09 14:33:44.654 +01:00 [INF] Executing OkObjectResult, writing value of type 'backend_negosud.Models.ResponseDataModel`1[[backend_negosud.DTOs.Article.ArticleOutputDto.ArticleEssentialOutputDto, backend-negosud, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-02-09 14:33:44.725 +01:00 [INF] Executed action backend_negosud.Controllers.ArticleController.GetArticleById (backend-negosud) in 344.7138ms
+2025-02-09 14:33:44.726 +01:00 [INF] Executed endpoint 'backend_negosud.Controllers.ArticleController.GetArticleById (backend-negosud)'
+2025-02-09 14:33:44.733 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5141/api/Article/4 - 200 null application/json; charset=utf-8 428.339ms
+2025-02-09 14:34:04.558 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5141/api/Article/17 - null null
+2025-02-09 14:34:04.567 +01:00 [INF] Executing endpoint 'backend_negosud.Controllers.ArticleController.GetArticleById (backend-negosud)'
+2025-02-09 14:34:04.567 +01:00 [INF] Route matched with {action = "GetArticleById", controller = "Article"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult] GetArticleById(Int32) on controller backend_negosud.Controllers.ArticleController (backend-negosud).
+2025-02-09 14:34:04.569 +01:00 [INF] Executing action method backend_negosud.Controllers.ArticleController.GetArticleById (backend-negosud) - Validation state: "Valid"
+2025-02-09 14:34:04.616 +01:00 [INF] Executed DbCommand (1ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.article_id, a.famille_id, a.fournisseur_id, a.libelle, a.prix, a.reference, a.tva_id
+FROM article AS a
+WHERE a.article_id = @__p_0
+LIMIT 1
+2025-02-09 14:34:04.617 +01:00 [INF] Executed action method backend_negosud.Controllers.ArticleController.GetArticleById (backend-negosud), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 47.8317ms.
+2025-02-09 14:34:04.618 +01:00 [INF] Executing OkObjectResult, writing value of type 'backend_negosud.Models.ResponseDataModel`1[[backend_negosud.DTOs.Article.ArticleOutputDto.ArticleEssentialOutputDto, backend-negosud, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-02-09 14:34:04.618 +01:00 [INF] Executed action backend_negosud.Controllers.ArticleController.GetArticleById (backend-negosud) in 50.6367ms
+2025-02-09 14:34:04.618 +01:00 [INF] Executed endpoint 'backend_negosud.Controllers.ArticleController.GetArticleById (backend-negosud)'
+2025-02-09 14:34:04.618 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5141/api/Article/17 - 200 null application/json; charset=utf-8 60.6952ms
+2025-02-09 14:34:11.684 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5141/api/Article/112 - null null
+2025-02-09 14:34:11.686 +01:00 [INF] Executing endpoint 'backend_negosud.Controllers.ArticleController.GetArticleById (backend-negosud)'
+2025-02-09 14:34:11.686 +01:00 [INF] Route matched with {action = "GetArticleById", controller = "Article"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult] GetArticleById(Int32) on controller backend_negosud.Controllers.ArticleController (backend-negosud).
+2025-02-09 14:34:11.688 +01:00 [INF] Executing action method backend_negosud.Controllers.ArticleController.GetArticleById (backend-negosud) - Validation state: "Valid"
+2025-02-09 14:34:11.689 +01:00 [INF] Executed DbCommand (1ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.article_id, a.famille_id, a.fournisseur_id, a.libelle, a.prix, a.reference, a.tva_id
+FROM article AS a
+WHERE a.article_id = @__p_0
+LIMIT 1
+2025-02-09 14:34:11.696 +01:00 [WRN] Aucun article trouvé avec l'identifiant : 112
+2025-02-09 14:34:11.696 +01:00 [INF] Executed action method backend_negosud.Controllers.ArticleController.GetArticleById (backend-negosud), returned result Microsoft.AspNetCore.Mvc.BadRequestObjectResult in 7.9883ms.
+2025-02-09 14:34:11.696 +01:00 [INF] Executing BadRequestObjectResult, writing value of type 'backend_negosud.Models.ResponseDataModel`1[[backend_negosud.DTOs.Article.ArticleOutputDto.ArticleEssentialOutputDto, backend-negosud, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-02-09 14:34:11.697 +01:00 [INF] Executed action backend_negosud.Controllers.ArticleController.GetArticleById (backend-negosud) in 10.6007ms
+2025-02-09 14:34:11.697 +01:00 [INF] Executed endpoint 'backend_negosud.Controllers.ArticleController.GetArticleById (backend-negosud)'
+2025-02-09 14:34:11.697 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5141/api/Article/112 - 400 null application/json; charset=utf-8 12.8091ms
+2025-02-09 14:38:31.932 +01:00 [INF] Server macbookpro:68283:f4264d53 caught stopping signal...
+2025-02-09 14:38:31.936 +01:00 [INF] Application is shutting down...
+2025-02-09 14:38:31.936 +01:00 [INF] Server macbookpro:68283:6a1c22c6 caught stopping signal...
+2025-02-09 14:38:31.940 +01:00 [INF] Server macbookpro:68283:f4264d53 All dispatchers stopped
+2025-02-09 14:38:31.940 +01:00 [INF] Server macbookpro:68283:6a1c22c6 All dispatchers stopped
+2025-02-09 14:38:31.946 +01:00 [INF] Server macbookpro:68283:f4264d53 successfully reported itself as stopped in 0,6983 ms
+2025-02-09 14:38:31.946 +01:00 [INF] Server macbookpro:68283:6a1c22c6 successfully reported itself as stopped in 0,7082 ms
+2025-02-09 14:38:31.946 +01:00 [INF] Server macbookpro:68283:f4264d53 has been stopped in total 11,4436 ms
+2025-02-09 14:38:31.946 +01:00 [INF] Server macbookpro:68283:6a1c22c6 has been stopped in total 9,635 ms
+2025-02-09 14:38:36.230 +01:00 [INF] Executed DbCommand (16ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM client AS c)
+2025-02-09 14:38:36.319 +01:00 [INF] Starting Hangfire Server using job storage: 'Hangfire.MemoryStorage.MemoryStorage'
+2025-02-09 14:38:36.319 +01:00 [INF] Using the following options for Hangfire Server:
+    Worker count: 20
+    Listening queues: 'default'
+    Shutdown timeout: 00:00:15
+    Schedule polling interval: 00:00:15
+2025-02-09 14:38:36.361 +01:00 [INF] Server macbookpro:68511:c0ce8d92 successfully announced in 33,8715 ms
+2025-02-09 14:38:36.362 +01:00 [INF] Server macbookpro:68511:c0ce8d92 is starting the registered dispatchers: ServerWatchdog, ServerJobCancellationWatcher, ExpirationManager, CountersAggregator, Worker, DelayedJobScheduler, RecurringJobScheduler...
+2025-02-09 14:38:36.366 +01:00 [INF] Server macbookpro:68511:c0ce8d92 all the dispatchers started
+2025-02-09 14:38:36.405 +01:00 [INF] User profile is available. Using '/Users/yoann/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-02-09 14:38:36.434 +01:00 [INF] Now listening on: http://localhost:5141
+2025-02-09 14:38:36.434 +01:00 [INF] Starting Hangfire Server using job storage: 'Hangfire.MemoryStorage.MemoryStorage'
+2025-02-09 14:38:36.434 +01:00 [INF] Using the following options for Hangfire Server:
+    Worker count: 20
+    Listening queues: 'default'
+    Shutdown timeout: 00:00:15
+    Schedule polling interval: 00:00:15
+2025-02-09 14:38:36.434 +01:00 [INF] Server macbookpro:68511:1b1c7677 successfully announced in 0,059 ms
+2025-02-09 14:38:36.435 +01:00 [INF] Server macbookpro:68511:1b1c7677 is starting the registered dispatchers: ServerWatchdog, ServerJobCancellationWatcher, ExpirationManager, CountersAggregator, Worker, DelayedJobScheduler, RecurringJobScheduler...
+2025-02-09 14:38:36.437 +01:00 [INF] Server macbookpro:68511:1b1c7677 all the dispatchers started
+2025-02-09 14:38:36.437 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-02-09 14:38:36.437 +01:00 [INF] Hosting environment: Development
+2025-02-09 14:38:36.437 +01:00 [INF] Content root path: /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud
+2025-02-09 14:38:37.157 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5141/swagger/index.html - null null
+2025-02-09 14:38:37.267 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5141/swagger/index.html - 200 null text/html;charset=utf-8 110.58ms
+2025-02-09 14:38:37.530 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5141/swagger/v1/swagger.json - null null
+2025-02-09 14:38:37.621 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5141/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 91.0473ms
+2025-02-09 14:38:41.064 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5141/api/Article/2 - null null
+2025-02-09 14:38:41.104 +01:00 [WRN] Failed to determine the https port for redirect.
+2025-02-09 14:38:41.128 +01:00 [INF] Executing endpoint 'backend_negosud.Controllers.ArticleController.GetArticleById (backend-negosud)'
+2025-02-09 14:38:41.142 +01:00 [INF] Route matched with {action = "GetArticleById", controller = "Article"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult] GetArticleById(Int32) on controller backend_negosud.Controllers.ArticleController (backend-negosud).
+2025-02-09 14:38:41.245 +01:00 [INF] Executing action method backend_negosud.Controllers.ArticleController.GetArticleById (backend-negosud) - Validation state: "Valid"
+2025-02-09 14:38:41.354 +01:00 [INF] Executed DbCommand (18ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.article_id, a.famille_id, a.fournisseur_id, a.libelle, a.prix, a.reference, a.tva_id
+FROM article AS a
+WHERE a.article_id = @__p_0
+LIMIT 1
+2025-02-09 14:38:41.410 +01:00 [INF] Executed action method backend_negosud.Controllers.ArticleController.GetArticleById (backend-negosud), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 161.9943ms.
+2025-02-09 14:38:41.417 +01:00 [INF] Executing OkObjectResult, writing value of type 'backend_negosud.Models.ResponseDataModel`1[[backend_negosud.DTOs.Article.ArticleOutputDto.ArticleEssentialOutputDto, backend-negosud, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-02-09 14:38:41.484 +01:00 [INF] Executed action backend_negosud.Controllers.ArticleController.GetArticleById (backend-negosud) in 338.8473ms
+2025-02-09 14:38:41.484 +01:00 [INF] Executed endpoint 'backend_negosud.Controllers.ArticleController.GetArticleById (backend-negosud)'
+2025-02-09 14:38:41.491 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5141/api/Article/2 - 200 null application/json; charset=utf-8 427.5672ms
+2025-02-09 14:39:57.555 +01:00 [INF] Server macbookpro:68511:1b1c7677 caught stopping signal...
+2025-02-09 14:39:57.557 +01:00 [INF] Application is shutting down...
+2025-02-09 14:39:57.557 +01:00 [INF] Server macbookpro:68511:c0ce8d92 caught stopping signal...
+2025-02-09 14:39:57.560 +01:00 [INF] Server macbookpro:68511:c0ce8d92 All dispatchers stopped
+2025-02-09 14:39:57.560 +01:00 [INF] Server macbookpro:68511:1b1c7677 All dispatchers stopped
+2025-02-09 14:39:57.568 +01:00 [INF] Server macbookpro:68511:1b1c7677 successfully reported itself as stopped in 5,6799 ms
+2025-02-09 14:39:57.568 +01:00 [INF] Server macbookpro:68511:c0ce8d92 successfully reported itself as stopped in 5,7103 ms
+2025-02-09 14:39:57.568 +01:00 [INF] Server macbookpro:68511:c0ce8d92 has been stopped in total 10,8047 ms
+2025-02-09 14:39:57.568 +01:00 [INF] Server macbookpro:68511:1b1c7677 has been stopped in total 12,0811 ms
+2025-02-09 14:40:00.787 +01:00 [INF] Executed DbCommand (16ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM client AS c)
+2025-02-09 14:40:00.878 +01:00 [INF] Starting Hangfire Server using job storage: 'Hangfire.MemoryStorage.MemoryStorage'
+2025-02-09 14:40:00.879 +01:00 [INF] Using the following options for Hangfire Server:
+    Worker count: 20
+    Listening queues: 'default'
+    Shutdown timeout: 00:00:15
+    Schedule polling interval: 00:00:15
+2025-02-09 14:40:00.915 +01:00 [INF] Server macbookpro:68605:e7c919cd successfully announced in 29,6135 ms
+2025-02-09 14:40:00.917 +01:00 [INF] Server macbookpro:68605:e7c919cd is starting the registered dispatchers: ServerWatchdog, ServerJobCancellationWatcher, ExpirationManager, CountersAggregator, Worker, DelayedJobScheduler, RecurringJobScheduler...
+2025-02-09 14:40:00.920 +01:00 [INF] Server macbookpro:68605:e7c919cd all the dispatchers started
+2025-02-09 14:40:00.962 +01:00 [INF] User profile is available. Using '/Users/yoann/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-02-09 14:40:00.982 +01:00 [WRN] Failed to process the job 'a242c54d-20cf-48f8-a182-6b31aa0b8738': an exception occurred. Retry attempt 1 of 10 will be performed in 00:00:43.
+System.ArgumentNullException: Value cannot be null. (Parameter 'provider')
+   at System.ThrowHelper.Throw(String paramName)
+   at System.ThrowHelper.ThrowIfNull(Object argument, String paramName)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.CreateScope(IServiceProvider provider)
+   at backend_negosud.Services.PanierExpirationService.CleanupExpiredBasketsAsync() in /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud/Services/PanierExpirationService.cs:line 19
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+2025-02-09 14:40:00.990 +01:00 [INF] Now listening on: http://localhost:5141
+2025-02-09 14:40:00.991 +01:00 [INF] Starting Hangfire Server using job storage: 'Hangfire.MemoryStorage.MemoryStorage'
+2025-02-09 14:40:00.991 +01:00 [INF] Using the following options for Hangfire Server:
+    Worker count: 20
+    Listening queues: 'default'
+    Shutdown timeout: 00:00:15
+    Schedule polling interval: 00:00:15
+2025-02-09 14:40:00.992 +01:00 [INF] Server macbookpro:68605:8c4c9ad2 successfully announced in 0,0628 ms
+2025-02-09 14:40:00.992 +01:00 [INF] Server macbookpro:68605:8c4c9ad2 is starting the registered dispatchers: ServerWatchdog, ServerJobCancellationWatcher, ExpirationManager, CountersAggregator, Worker, DelayedJobScheduler, RecurringJobScheduler...
+2025-02-09 14:40:00.993 +01:00 [INF] Server macbookpro:68605:8c4c9ad2 all the dispatchers started
+2025-02-09 14:40:00.994 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-02-09 14:40:00.994 +01:00 [INF] Hosting environment: Development
+2025-02-09 14:40:00.994 +01:00 [INF] Content root path: /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud
+2025-02-09 14:40:01.603 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5141/swagger/index.html - null null
+2025-02-09 14:40:01.746 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5141/swagger/index.html - 200 null text/html;charset=utf-8 143.8729ms
+2025-02-09 14:40:02.033 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5141/swagger/v1/swagger.json - null null
+2025-02-09 14:40:02.138 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5141/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 105.159ms
+2025-02-09 14:40:18.208 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5141/api/Article/1 - null null
+2025-02-09 14:40:18.251 +01:00 [WRN] Failed to determine the https port for redirect.
+2025-02-09 14:40:18.278 +01:00 [INF] Executing endpoint 'backend_negosud.Controllers.ArticleController.GetArticleById (backend-negosud)'
+2025-02-09 14:40:18.293 +01:00 [INF] Route matched with {action = "GetArticleById", controller = "Article"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult] GetArticleById(Int32) on controller backend_negosud.Controllers.ArticleController (backend-negosud).
+2025-02-09 14:40:18.394 +01:00 [INF] Executing action method backend_negosud.Controllers.ArticleController.GetArticleById (backend-negosud) - Validation state: "Valid"
+2025-02-09 14:40:18.500 +01:00 [INF] Executed DbCommand (17ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.article_id, a.famille_id, a.fournisseur_id, a.libelle, a.prix, a.reference, a.tva_id
+FROM article AS a
+WHERE a.article_id = @__p_0
+LIMIT 1
+2025-02-09 14:40:18.551 +01:00 [INF] Executed action method backend_negosud.Controllers.ArticleController.GetArticleById (backend-negosud), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 153.6983ms.
+2025-02-09 14:40:18.558 +01:00 [INF] Executing OkObjectResult, writing value of type 'backend_negosud.Models.ResponseDataModel`1[[backend_negosud.DTOs.Article.ArticleOutputDto.ArticleEssentialOutputDto, backend-negosud, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-02-09 14:40:18.626 +01:00 [INF] Executed action backend_negosud.Controllers.ArticleController.GetArticleById (backend-negosud) in 330.029ms
+2025-02-09 14:40:18.627 +01:00 [INF] Executed endpoint 'backend_negosud.Controllers.ArticleController.GetArticleById (backend-negosud)'
+2025-02-09 14:40:18.634 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5141/api/Article/1 - 200 null application/json; charset=utf-8 426.192ms
+2025-02-09 14:40:45.998 +01:00 [INF] Executed DbCommand (9ms) [Parameters=[@__currentDate_0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT c.commande_id, c.client_id, c.date_creation, c.date_expiration, c.facture_id, c.livraison_id, c.valide
+FROM commande AS c
+WHERE NOT (c.valide) AND c.date_expiration < @__currentDate_0
+2025-02-09 14:40:46.101 +01:00 [INF] Executed DbCommand (6ms) [Parameters=[@p0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+DELETE FROM commande
+WHERE commande_id = @p0;
+2025-02-09 14:40:46.109 +01:00 [INF] 1 paniers expirés ont été supprimés.
+2025-02-09 14:41:00.991 +01:00 [INF] Executed DbCommand (2ms) [Parameters=[@__currentDate_0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT c.commande_id, c.client_id, c.date_creation, c.date_expiration, c.facture_id, c.livraison_id, c.valide
+FROM commande AS c
+WHERE NOT (c.valide) AND c.date_expiration < @__currentDate_0
+2025-02-09 14:41:00.992 +01:00 [INF] Aucun panier expiré à supprimer.
+2025-02-09 14:42:00.995 +01:00 [INF] Executed DbCommand (5ms) [Parameters=[@__currentDate_0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT c.commande_id, c.client_id, c.date_creation, c.date_expiration, c.facture_id, c.livraison_id, c.valide
+FROM commande AS c
+WHERE NOT (c.valide) AND c.date_expiration < @__currentDate_0
+2025-02-09 14:42:00.996 +01:00 [INF] Aucun panier expiré à supprimer.
+2025-02-09 14:43:01.003 +01:00 [INF] Executed DbCommand (2ms) [Parameters=[@__currentDate_0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT c.commande_id, c.client_id, c.date_creation, c.date_expiration, c.facture_id, c.livraison_id, c.valide
+FROM commande AS c
+WHERE NOT (c.valide) AND c.date_expiration < @__currentDate_0
+2025-02-09 14:43:01.004 +01:00 [INF] Aucun panier expiré à supprimer.
+2025-02-09 14:43:47.601 +01:00 [INF] Server macbookpro:68605:8c4c9ad2 caught stopping signal...
+2025-02-09 14:43:47.603 +01:00 [INF] Application is shutting down...
+2025-02-09 14:43:47.603 +01:00 [INF] Server macbookpro:68605:e7c919cd caught stopping signal...
+2025-02-09 14:43:47.607 +01:00 [INF] Server macbookpro:68605:8c4c9ad2 All dispatchers stopped
+2025-02-09 14:43:47.607 +01:00 [INF] Server macbookpro:68605:e7c919cd All dispatchers stopped
+2025-02-09 14:43:47.609 +01:00 [INF] Server macbookpro:68605:8c4c9ad2 successfully reported itself as stopped in 0,2845 ms
+2025-02-09 14:43:47.609 +01:00 [INF] Server macbookpro:68605:e7c919cd successfully reported itself as stopped in 0,3825 ms
+2025-02-09 14:43:47.609 +01:00 [INF] Server macbookpro:68605:8c4c9ad2 has been stopped in total 6,8567 ms
+2025-02-09 14:43:47.609 +01:00 [INF] Server macbookpro:68605:e7c919cd has been stopped in total 5,9964 ms
+2025-02-09 14:43:50.859 +01:00 [INF] Executed DbCommand (15ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM client AS c)
+2025-02-09 14:43:50.942 +01:00 [INF] Starting Hangfire Server using job storage: 'Hangfire.MemoryStorage.MemoryStorage'
+2025-02-09 14:43:50.942 +01:00 [INF] Using the following options for Hangfire Server:
+    Worker count: 20
+    Listening queues: 'default'
+    Shutdown timeout: 00:00:15
+    Schedule polling interval: 00:00:15
+2025-02-09 14:43:50.979 +01:00 [INF] Server macbookpro:68801:4b9a0d68 successfully announced in 30,1832 ms
+2025-02-09 14:43:50.981 +01:00 [INF] Server macbookpro:68801:4b9a0d68 is starting the registered dispatchers: ServerWatchdog, ServerJobCancellationWatcher, ExpirationManager, CountersAggregator, Worker, DelayedJobScheduler, RecurringJobScheduler...
+2025-02-09 14:43:50.984 +01:00 [INF] Server macbookpro:68801:4b9a0d68 all the dispatchers started
+2025-02-09 14:43:51.022 +01:00 [INF] User profile is available. Using '/Users/yoann/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-02-09 14:43:51.053 +01:00 [INF] Now listening on: http://localhost:5141
+2025-02-09 14:43:51.053 +01:00 [INF] Starting Hangfire Server using job storage: 'Hangfire.MemoryStorage.MemoryStorage'
+2025-02-09 14:43:51.053 +01:00 [INF] Using the following options for Hangfire Server:
+    Worker count: 20
+    Listening queues: 'default'
+    Shutdown timeout: 00:00:15
+    Schedule polling interval: 00:00:15
+2025-02-09 14:43:51.054 +01:00 [INF] Server macbookpro:68801:f9e37348 successfully announced in 0,0624 ms
+2025-02-09 14:43:51.054 +01:00 [INF] Server macbookpro:68801:f9e37348 is starting the registered dispatchers: ServerWatchdog, ServerJobCancellationWatcher, ExpirationManager, CountersAggregator, Worker, DelayedJobScheduler, RecurringJobScheduler...
+2025-02-09 14:43:51.056 +01:00 [INF] Server macbookpro:68801:f9e37348 all the dispatchers started
+2025-02-09 14:43:51.056 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-02-09 14:43:51.057 +01:00 [INF] Hosting environment: Development
+2025-02-09 14:43:51.057 +01:00 [INF] Content root path: /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud
+2025-02-09 14:43:51.825 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5141/swagger/index.html - null null
+2025-02-09 14:43:51.980 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5141/swagger/index.html - 200 null text/html;charset=utf-8 155.3831ms
+2025-02-09 14:43:52.247 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5141/swagger/v1/swagger.json - null null
+2025-02-09 14:43:52.324 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5141/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 76.9739ms
+2025-02-09 14:43:55.328 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5141/api/Article/2 - null null
+2025-02-09 14:43:55.357 +01:00 [WRN] Failed to determine the https port for redirect.
+2025-02-09 14:43:55.373 +01:00 [INF] Executing endpoint 'backend_negosud.Controllers.ArticleController.GetArticleById (backend-negosud)'
+2025-02-09 14:43:55.385 +01:00 [INF] Route matched with {action = "GetArticleById", controller = "Article"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult] GetArticleById(Int32) on controller backend_negosud.Controllers.ArticleController (backend-negosud).
+2025-02-09 14:43:55.487 +01:00 [INF] Executing action method backend_negosud.Controllers.ArticleController.GetArticleById (backend-negosud) - Validation state: "Valid"
+2025-02-09 14:43:55.593 +01:00 [INF] Executed DbCommand (16ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.article_id, a.famille_id, a.fournisseur_id, a.libelle, a.prix, a.reference, a.tva_id
+FROM article AS a
+WHERE a.article_id = @__p_0
+LIMIT 1
+2025-02-09 14:43:55.638 +01:00 [INF] Executed action method backend_negosud.Controllers.ArticleController.GetArticleById (backend-negosud), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 148.5284ms.
+2025-02-09 14:43:55.645 +01:00 [INF] Executing OkObjectResult, writing value of type 'backend_negosud.Models.ResponseDataModel`1[[backend_negosud.DTOs.Article.ArticleOutputDto.ArticleEssentialOutputDto, backend-negosud, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-02-09 14:43:55.709 +01:00 [INF] Executed action backend_negosud.Controllers.ArticleController.GetArticleById (backend-negosud) in 320.4336ms
+2025-02-09 14:43:55.709 +01:00 [INF] Executed endpoint 'backend_negosud.Controllers.ArticleController.GetArticleById (backend-negosud)'
+2025-02-09 14:43:55.716 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5141/api/Article/2 - 200 null application/json; charset=utf-8 387.5137ms
+2025-02-09 14:45:02.430 +01:00 [INF] Server macbookpro:68801:f9e37348 caught stopping signal...
+2025-02-09 14:45:02.435 +01:00 [INF] Application is shutting down...
+2025-02-09 14:45:02.435 +01:00 [INF] Server macbookpro:68801:4b9a0d68 caught stopping signal...
+2025-02-09 14:45:02.439 +01:00 [INF] Server macbookpro:68801:f9e37348 All dispatchers stopped
+2025-02-09 14:45:02.439 +01:00 [INF] Server macbookpro:68801:4b9a0d68 All dispatchers stopped
+2025-02-09 14:45:02.442 +01:00 [INF] Server macbookpro:68801:f9e37348 successfully reported itself as stopped in 0,5993 ms
+2025-02-09 14:45:02.442 +01:00 [INF] Server macbookpro:68801:4b9a0d68 successfully reported itself as stopped in 0,606 ms
+2025-02-09 14:45:02.442 +01:00 [INF] Server macbookpro:68801:4b9a0d68 has been stopped in total 6,4463 ms
+2025-02-09 14:45:02.442 +01:00 [INF] Server macbookpro:68801:f9e37348 has been stopped in total 8,9056 ms
+2025-02-09 14:45:05.634 +01:00 [INF] Executed DbCommand (13ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM client AS c)
+2025-02-09 14:45:05.723 +01:00 [INF] Starting Hangfire Server using job storage: 'Hangfire.MemoryStorage.MemoryStorage'
+2025-02-09 14:45:05.723 +01:00 [INF] Using the following options for Hangfire Server:
+    Worker count: 20
+    Listening queues: 'default'
+    Shutdown timeout: 00:00:15
+    Schedule polling interval: 00:00:15
+2025-02-09 14:45:05.761 +01:00 [INF] Server macbookpro:68894:052a2331 successfully announced in 30,4847 ms
+2025-02-09 14:45:05.762 +01:00 [INF] Server macbookpro:68894:052a2331 is starting the registered dispatchers: ServerWatchdog, ServerJobCancellationWatcher, ExpirationManager, CountersAggregator, Worker, DelayedJobScheduler, RecurringJobScheduler...
+2025-02-09 14:45:05.765 +01:00 [INF] Server macbookpro:68894:052a2331 all the dispatchers started
+2025-02-09 14:45:05.801 +01:00 [INF] User profile is available. Using '/Users/yoann/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-02-09 14:45:05.828 +01:00 [INF] Now listening on: http://localhost:5141
+2025-02-09 14:45:05.828 +01:00 [INF] Starting Hangfire Server using job storage: 'Hangfire.MemoryStorage.MemoryStorage'
+2025-02-09 14:45:05.828 +01:00 [INF] Using the following options for Hangfire Server:
+    Worker count: 20
+    Listening queues: 'default'
+    Shutdown timeout: 00:00:15
+    Schedule polling interval: 00:00:15
+2025-02-09 14:45:05.828 +01:00 [INF] Server macbookpro:68894:69295056 successfully announced in 0,0474 ms
+2025-02-09 14:45:05.828 +01:00 [INF] Server macbookpro:68894:69295056 is starting the registered dispatchers: ServerWatchdog, ServerJobCancellationWatcher, ExpirationManager, CountersAggregator, Worker, DelayedJobScheduler, RecurringJobScheduler...
+2025-02-09 14:45:05.830 +01:00 [INF] Server macbookpro:68894:69295056 all the dispatchers started
+2025-02-09 14:45:05.830 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-02-09 14:45:05.831 +01:00 [INF] Hosting environment: Development
+2025-02-09 14:45:05.831 +01:00 [INF] Content root path: /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud
+2025-02-09 14:45:06.711 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5141/swagger/index.html - null null
+2025-02-09 14:45:06.870 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5141/swagger/index.html - 200 null text/html;charset=utf-8 154.4952ms
+2025-02-09 14:45:07.141 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5141/swagger/v1/swagger.json - null null
+2025-02-09 14:45:07.227 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5141/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 87.1296ms
+2025-02-09 14:45:11.004 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5141/api/Article/1 - null null
+2025-02-09 14:45:11.033 +01:00 [WRN] Failed to determine the https port for redirect.
+2025-02-09 14:45:11.054 +01:00 [INF] Executing endpoint 'backend_negosud.Controllers.ArticleController.GetArticleById (backend-negosud)'
+2025-02-09 14:45:11.068 +01:00 [INF] Route matched with {action = "GetArticleById", controller = "Article"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult] GetArticleById(Int32) on controller backend_negosud.Controllers.ArticleController (backend-negosud).
+2025-02-09 14:45:11.164 +01:00 [INF] Executing action method backend_negosud.Controllers.ArticleController.GetArticleById (backend-negosud) - Validation state: "Valid"
+2025-02-09 14:45:11.308 +01:00 [INF] Executed DbCommand (21ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.article_id, a.famille_id, a.fournisseur_id, a.libelle, a.prix, a.reference, a.tva_id, f.famille_id, f.nom, f0.fournisseur_id, f0.email, f0.nom, f0.raison_sociale, f0.tel, t.tva_id, t.valeur
+FROM article AS a
+INNER JOIN famille AS f ON a.famille_id = f.famille_id
+INNER JOIN fournisseur AS f0 ON a.fournisseur_id = f0.fournisseur_id
+INNER JOIN tva AS t ON a.tva_id = t.tva_id
+WHERE a.article_id = @__id_0
+LIMIT 1
+2025-02-09 14:45:11.382 +01:00 [INF] Executed action method backend_negosud.Controllers.ArticleController.GetArticleById (backend-negosud), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 214.5074ms.
+2025-02-09 14:45:11.390 +01:00 [INF] Executing OkObjectResult, writing value of type 'backend_negosud.Models.ResponseDataModel`1[[backend_negosud.DTOs.Article.ArticleOutputDto.ArticleEssentialOutputDto, backend-negosud, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-02-09 14:45:11.465 +01:00 [INF] Executed action backend_negosud.Controllers.ArticleController.GetArticleById (backend-negosud) in 393.0419ms
+2025-02-09 14:45:11.466 +01:00 [INF] Executed endpoint 'backend_negosud.Controllers.ArticleController.GetArticleById (backend-negosud)'
+2025-02-09 14:45:11.473 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5141/api/Article/1 - 200 null application/json; charset=utf-8 469.0115ms
+2025-02-09 14:47:18.765 +01:00 [INF] Server macbookpro:68894:69295056 caught stopping signal...
+2025-02-09 14:47:18.769 +01:00 [INF] Application is shutting down...
+2025-02-09 14:47:18.769 +01:00 [INF] Server macbookpro:68894:052a2331 caught stopping signal...
+2025-02-09 14:47:18.771 +01:00 [INF] Server macbookpro:68894:69295056 All dispatchers stopped
+2025-02-09 14:47:18.771 +01:00 [INF] Server macbookpro:68894:052a2331 All dispatchers stopped
+2025-02-09 14:47:18.773 +01:00 [INF] Server macbookpro:68894:052a2331 successfully reported itself as stopped in 0,4436 ms
+2025-02-09 14:47:18.773 +01:00 [INF] Server macbookpro:68894:69295056 successfully reported itself as stopped in 0,4452 ms
+2025-02-09 14:47:18.773 +01:00 [INF] Server macbookpro:68894:052a2331 has been stopped in total 3,5349 ms
+2025-02-09 14:47:18.773 +01:00 [INF] Server macbookpro:68894:69295056 has been stopped in total 6,9611 ms
+2025-02-09 14:47:21.941 +01:00 [INF] Executed DbCommand (14ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM client AS c)
+2025-02-09 14:47:22.021 +01:00 [INF] Starting Hangfire Server using job storage: 'Hangfire.MemoryStorage.MemoryStorage'
+2025-02-09 14:47:22.021 +01:00 [INF] Using the following options for Hangfire Server:
+    Worker count: 20
+    Listening queues: 'default'
+    Shutdown timeout: 00:00:15
+    Schedule polling interval: 00:00:15
+2025-02-09 14:47:22.056 +01:00 [INF] Server macbookpro:68989:bba4b873 successfully announced in 29,1968 ms
+2025-02-09 14:47:22.058 +01:00 [INF] Server macbookpro:68989:bba4b873 is starting the registered dispatchers: ServerWatchdog, ServerJobCancellationWatcher, ExpirationManager, CountersAggregator, Worker, DelayedJobScheduler, RecurringJobScheduler...
+2025-02-09 14:47:22.061 +01:00 [INF] Server macbookpro:68989:bba4b873 all the dispatchers started
+2025-02-09 14:47:22.098 +01:00 [INF] User profile is available. Using '/Users/yoann/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-02-09 14:47:22.126 +01:00 [INF] Now listening on: http://localhost:5141
+2025-02-09 14:47:22.127 +01:00 [INF] Starting Hangfire Server using job storage: 'Hangfire.MemoryStorage.MemoryStorage'
+2025-02-09 14:47:22.127 +01:00 [INF] Using the following options for Hangfire Server:
+    Worker count: 20
+    Listening queues: 'default'
+    Shutdown timeout: 00:00:15
+    Schedule polling interval: 00:00:15
+2025-02-09 14:47:22.127 +01:00 [INF] Server macbookpro:68989:eca21049 successfully announced in 0,0533 ms
+2025-02-09 14:47:22.127 +01:00 [INF] Server macbookpro:68989:eca21049 is starting the registered dispatchers: ServerWatchdog, ServerJobCancellationWatcher, ExpirationManager, CountersAggregator, Worker, DelayedJobScheduler, RecurringJobScheduler...
+2025-02-09 14:47:22.129 +01:00 [INF] Server macbookpro:68989:eca21049 all the dispatchers started
+2025-02-09 14:47:22.129 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-02-09 14:47:22.129 +01:00 [INF] Hosting environment: Development
+2025-02-09 14:47:22.129 +01:00 [INF] Content root path: /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud
+2025-02-09 14:47:22.881 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5141/swagger/index.html - null null
+2025-02-09 14:47:22.991 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5141/swagger/index.html - 200 null text/html;charset=utf-8 110.543ms
+2025-02-09 14:47:23.252 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5141/swagger/v1/swagger.json - null null
+2025-02-09 14:47:23.336 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5141/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 84.7376ms
+2025-02-09 14:47:27.225 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5141/api/Article/2 - null null
+2025-02-09 14:47:27.253 +01:00 [WRN] Failed to determine the https port for redirect.
+2025-02-09 14:47:27.271 +01:00 [INF] Executing endpoint 'backend_negosud.Controllers.ArticleController.GetArticleById (backend-negosud)'
+2025-02-09 14:47:27.282 +01:00 [INF] Route matched with {action = "GetArticleById", controller = "Article"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult] GetArticleById(Int32) on controller backend_negosud.Controllers.ArticleController (backend-negosud).
+2025-02-09 14:47:27.381 +01:00 [INF] Executing action method backend_negosud.Controllers.ArticleController.GetArticleById (backend-negosud) - Validation state: "Valid"
+2025-02-09 14:47:27.520 +01:00 [INF] Executed DbCommand (16ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.article_id, a.famille_id, a.fournisseur_id, a.libelle, a.prix, a.reference, a.tva_id, f.famille_id, f.nom, f0.fournisseur_id, f0.email, f0.nom, f0.raison_sociale, f0.tel, t.tva_id, t.valeur
+FROM article AS a
+INNER JOIN famille AS f ON a.famille_id = f.famille_id
+INNER JOIN fournisseur AS f0 ON a.fournisseur_id = f0.fournisseur_id
+INNER JOIN tva AS t ON a.tva_id = t.tva_id
+WHERE a.article_id = @__id_0
+LIMIT 1
+2025-02-09 14:47:27.597 +01:00 [INF] Executed action method backend_negosud.Controllers.ArticleController.GetArticleById (backend-negosud), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 213.3305ms.
+2025-02-09 14:47:27.605 +01:00 [INF] Executing OkObjectResult, writing value of type 'backend_negosud.Models.ResponseDataModel`1[[backend_negosud.DTOs.Article.ArticleOutputDto.ArticleEssentialOutputDto, backend-negosud, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-02-09 14:47:27.675 +01:00 [INF] Executed action backend_negosud.Controllers.ArticleController.GetArticleById (backend-negosud) in 390.038ms
+2025-02-09 14:47:27.676 +01:00 [INF] Executed endpoint 'backend_negosud.Controllers.ArticleController.GetArticleById (backend-negosud)'
+2025-02-09 14:47:27.683 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5141/api/Article/2 - 200 null application/json; charset=utf-8 458.2479ms

@@ -1,0 +1,1265 @@
+2025-02-09 12:14:50.956 +01:00 [INF] Server macbookpro:61168:00361e96 caught stopping signal...
+2025-02-09 12:14:50.965 +01:00 [INF] Application is shutting down...
+2025-02-09 12:14:50.965 +01:00 [INF] Server macbookpro:61168:ae5a3a41 caught stopping signal...
+2025-02-09 12:14:50.968 +01:00 [INF] Server macbookpro:61168:00361e96 All dispatchers stopped
+2025-02-09 12:14:50.968 +01:00 [INF] Server macbookpro:61168:ae5a3a41 All dispatchers stopped
+2025-02-09 12:14:50.971 +01:00 [INF] Server macbookpro:61168:ae5a3a41 successfully reported itself as stopped in 0,4891 ms
+2025-02-09 12:14:50.971 +01:00 [INF] Server macbookpro:61168:00361e96 successfully reported itself as stopped in 0,4909 ms
+2025-02-09 12:14:50.971 +01:00 [INF] Server macbookpro:61168:ae5a3a41 has been stopped in total 5,094 ms
+2025-02-09 12:14:50.971 +01:00 [INF] Server macbookpro:61168:00361e96 has been stopped in total 9,3169 ms
+2025-02-09 12:14:56.114 +01:00 [INF] Executed DbCommand (13ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM client AS c)
+2025-02-09 12:14:56.199 +01:00 [INF] Starting Hangfire Server using job storage: 'Hangfire.MemoryStorage.MemoryStorage'
+2025-02-09 12:14:56.199 +01:00 [INF] Using the following options for Hangfire Server:
+    Worker count: 20
+    Listening queues: 'default'
+    Shutdown timeout: 00:00:15
+    Schedule polling interval: 00:00:15
+2025-02-09 12:14:56.239 +01:00 [INF] Server macbookpro:62429:5d3707c8 successfully announced in 32,4694 ms
+2025-02-09 12:14:56.241 +01:00 [INF] Server macbookpro:62429:5d3707c8 is starting the registered dispatchers: ServerWatchdog, ServerJobCancellationWatcher, ExpirationManager, CountersAggregator, Worker, DelayedJobScheduler, RecurringJobScheduler...
+2025-02-09 12:14:56.244 +01:00 [INF] Server macbookpro:62429:5d3707c8 all the dispatchers started
+2025-02-09 12:14:56.290 +01:00 [INF] User profile is available. Using '/Users/yoann/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-02-09 12:14:56.318 +01:00 [INF] Now listening on: http://localhost:5141
+2025-02-09 12:14:56.318 +01:00 [INF] Starting Hangfire Server using job storage: 'Hangfire.MemoryStorage.MemoryStorage'
+2025-02-09 12:14:56.318 +01:00 [INF] Using the following options for Hangfire Server:
+    Worker count: 20
+    Listening queues: 'default'
+    Shutdown timeout: 00:00:15
+    Schedule polling interval: 00:00:15
+2025-02-09 12:14:56.319 +01:00 [INF] Server macbookpro:62429:e57503ae successfully announced in 0,0708 ms
+2025-02-09 12:14:56.319 +01:00 [INF] Server macbookpro:62429:e57503ae is starting the registered dispatchers: ServerWatchdog, ServerJobCancellationWatcher, ExpirationManager, CountersAggregator, Worker, DelayedJobScheduler, RecurringJobScheduler...
+2025-02-09 12:14:56.321 +01:00 [INF] Server macbookpro:62429:e57503ae all the dispatchers started
+2025-02-09 12:14:56.321 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-02-09 12:14:56.321 +01:00 [INF] Hosting environment: Development
+2025-02-09 12:14:56.321 +01:00 [INF] Content root path: /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud
+2025-02-09 12:14:56.953 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5141/swagger/index.html - null null
+2025-02-09 12:14:57.073 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5141/swagger/index.html - 200 null text/html;charset=utf-8 119.672ms
+2025-02-09 12:14:57.381 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5141/swagger/v1/swagger.json - null null
+2025-02-09 12:14:57.574 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5141/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 193.9822ms
+2025-02-09 12:15:30.555 +01:00 [INF] Server macbookpro:62429:e57503ae caught stopping signal...
+2025-02-09 12:15:30.556 +01:00 [INF] Application is shutting down...
+2025-02-09 12:15:30.556 +01:00 [INF] Server macbookpro:62429:5d3707c8 caught stopping signal...
+2025-02-09 12:15:30.558 +01:00 [INF] Server macbookpro:62429:e57503ae All dispatchers stopped
+2025-02-09 12:15:30.558 +01:00 [INF] Server macbookpro:62429:5d3707c8 All dispatchers stopped
+2025-02-09 12:15:30.560 +01:00 [INF] Server macbookpro:62429:5d3707c8 successfully reported itself as stopped in 0,3391 ms
+2025-02-09 12:15:30.560 +01:00 [INF] Server macbookpro:62429:e57503ae successfully reported itself as stopped in 0,373 ms
+2025-02-09 12:15:30.561 +01:00 [INF] Server macbookpro:62429:5d3707c8 has been stopped in total 4,1316 ms
+2025-02-09 12:15:30.561 +01:00 [INF] Server macbookpro:62429:e57503ae has been stopped in total 4,8262 ms
+2025-02-09 12:15:34.036 +01:00 [INF] Executed DbCommand (13ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM client AS c)
+2025-02-09 12:15:34.112 +01:00 [INF] Starting Hangfire Server using job storage: 'Hangfire.MemoryStorage.MemoryStorage'
+2025-02-09 12:15:34.112 +01:00 [INF] Using the following options for Hangfire Server:
+    Worker count: 20
+    Listening queues: 'default'
+    Shutdown timeout: 00:00:15
+    Schedule polling interval: 00:00:15
+2025-02-09 12:15:34.149 +01:00 [INF] Server macbookpro:62486:4b15e0f6 successfully announced in 31,3962 ms
+2025-02-09 12:15:34.151 +01:00 [INF] Server macbookpro:62486:4b15e0f6 is starting the registered dispatchers: ServerWatchdog, ServerJobCancellationWatcher, ExpirationManager, CountersAggregator, Worker, DelayedJobScheduler, RecurringJobScheduler...
+2025-02-09 12:15:34.154 +01:00 [INF] Server macbookpro:62486:4b15e0f6 all the dispatchers started
+2025-02-09 12:15:34.190 +01:00 [INF] User profile is available. Using '/Users/yoann/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-02-09 12:15:34.215 +01:00 [INF] Now listening on: http://localhost:5141
+2025-02-09 12:15:34.217 +01:00 [INF] Starting Hangfire Server using job storage: 'Hangfire.MemoryStorage.MemoryStorage'
+2025-02-09 12:15:34.217 +01:00 [INF] Using the following options for Hangfire Server:
+    Worker count: 20
+    Listening queues: 'default'
+    Shutdown timeout: 00:00:15
+    Schedule polling interval: 00:00:15
+2025-02-09 12:15:34.218 +01:00 [INF] Server macbookpro:62486:ae9c59bb successfully announced in 0,0824 ms
+2025-02-09 12:15:34.218 +01:00 [INF] Server macbookpro:62486:ae9c59bb is starting the registered dispatchers: ServerWatchdog, ServerJobCancellationWatcher, ExpirationManager, CountersAggregator, Worker, DelayedJobScheduler, RecurringJobScheduler...
+2025-02-09 12:15:34.220 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-02-09 12:15:34.220 +01:00 [INF] Hosting environment: Development
+2025-02-09 12:15:34.220 +01:00 [INF] Content root path: /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud
+2025-02-09 12:15:34.221 +01:00 [INF] Server macbookpro:62486:ae9c59bb all the dispatchers started
+2025-02-09 12:15:35.035 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5141/swagger/index.html - null null
+2025-02-09 12:15:35.175 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5141/swagger/index.html - 200 null text/html;charset=utf-8 140.9835ms
+2025-02-09 12:15:35.441 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5141/swagger/v1/swagger.json - null null
+2025-02-09 12:15:35.524 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5141/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 83.8438ms
+2025-02-09 12:15:49.674 +01:00 [INF] Request starting HTTP/1.1 POST http://localhost:5141/api/Panier/create - application/json 101
+2025-02-09 12:15:49.711 +01:00 [INF] CORS policy execution successful.
+2025-02-09 12:15:49.715 +01:00 [WRN] Failed to determine the https port for redirect.
+2025-02-09 12:15:49.747 +01:00 [INF] Executing endpoint 'backend_negosud.Controllers.PanierController.CreateBasket (backend-negosud)'
+2025-02-09 12:15:49.762 +01:00 [INF] Route matched with {action = "CreateBasket", controller = "Panier"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] CreateBasket(backend_negosud.DTOs.Commande_client.PanierInputDto) on controller backend_negosud.Controllers.PanierController (backend-negosud).
+2025-02-09 12:15:49.915 +01:00 [INF] Executing action method backend_negosud.Controllers.PanierController.CreateBasket (backend-negosud) - Validation state: "Valid"
+2025-02-09 12:15:49.917 +01:00 [INF] Tentative de récupération du client avec ID: 1
+2025-02-09 12:15:50.033 +01:00 [INF] Executed DbCommand (18ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT c.client_id, c.acess_token, c.email, c.est_valide, c.mot_de_passe, c.nom, c.prenom, c.tel
+FROM client AS c
+WHERE c.client_id = @__p_0
+LIMIT 1
+2025-02-09 12:15:50.100 +01:00 [INF] Executed DbCommand (5ms) [Parameters=[@__ligne_ArticleId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM article AS a
+    WHERE a.article_id = @__ligne_ArticleId_0)
+2025-02-09 12:15:50.266 +01:00 [INF] Executed DbCommand (14ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = DateTime), @p2='?' (DbType = DateTime), @p3='?' (DbType = Int32), @p4='?' (DbType = Int32), @p5='?' (DbType = Boolean)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO commande (client_id, date_creation, date_expiration, facture_id, livraison_id, valide)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5)
+RETURNING commande_id;
+2025-02-09 12:15:50.282 +01:00 [INF] Executed DbCommand (2ms) [Parameters=[@p6='?' (DbType = Int32), @p7='?' (DbType = Int32), @p8='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO ligne_commande (article_id, commande_id, quantite)
+VALUES (@p6, @p7, @p8)
+RETURNING ligne_commande_id;
+2025-02-09 12:15:50.373 +01:00 [INF] Executed DbCommand (4ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT t.commande_id, t.client_id, t.date_creation, t.date_expiration, t.facture_id, t.livraison_id, t.valide, t0.ligne_commande_id, t0.article_id, t0.commande_id, t0.quantite, t0.article_id0, t0.famille_id, t0.fournisseur_id, t0.libelle, t0.prix, t0.reference, t0.tva_id
+FROM (
+    SELECT c.commande_id, c.client_id, c.date_creation, c.date_expiration, c.facture_id, c.livraison_id, c.valide
+    FROM commande AS c
+    WHERE c.commande_id = @__id_0
+    LIMIT 1
+) AS t
+LEFT JOIN (
+    SELECT l.ligne_commande_id, l.article_id, l.commande_id, l.quantite, a.article_id AS article_id0, a.famille_id, a.fournisseur_id, a.libelle, a.prix, a.reference, a.tva_id
+    FROM ligne_commande AS l
+    INNER JOIN article AS a ON l.article_id = a.article_id
+) AS t0 ON t.commande_id = t0.commande_id
+ORDER BY t.commande_id, t0.ligne_commande_id
+2025-02-09 12:15:50.399 +01:00 [INF] Executed action method backend_negosud.Controllers.PanierController.CreateBasket (backend-negosud), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 481.4771ms.
+2025-02-09 12:15:50.407 +01:00 [INF] Executing OkObjectResult, writing value of type 'backend_negosud.Models.ResponseDataModel`1[[backend_negosud.DTOs.Commande_client.Outputs.PanierOutputDto, backend-negosud, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-02-09 12:15:50.447 +01:00 [INF] Executed action backend_negosud.Controllers.PanierController.CreateBasket (backend-negosud) in 681.9754ms
+2025-02-09 12:15:50.448 +01:00 [INF] Executed endpoint 'backend_negosud.Controllers.PanierController.CreateBasket (backend-negosud)'
+2025-02-09 12:15:50.456 +01:00 [INF] Request finished HTTP/1.1 POST http://localhost:5141/api/Panier/create - 200 null application/json; charset=utf-8 782.1892ms
+2025-02-09 12:16:04.243 +01:00 [WRN] Failed to process the job 'd5288c62-86ca-468e-9064-2a2cc2d0361a': an exception occurred. Retry attempt 1 of 10 will be performed in 00:00:36.
+System.InvalidOperationException: No service for type 'backend_negosud.Entities.PostgresContext' has been registered.
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at backend_negosud.Services.PanierExpirationService.CleanupExpiredBasketsAsync() in /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud/Services/PanierExpirationService.cs:line 21
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+2025-02-09 12:16:49.195 +01:00 [WRN] Failed to process the job 'd5288c62-86ca-468e-9064-2a2cc2d0361a': an exception occurred. Retry attempt 2 of 10 will be performed in 00:00:24.
+System.InvalidOperationException: No service for type 'backend_negosud.Entities.PostgresContext' has been registered.
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at backend_negosud.Services.PanierExpirationService.CleanupExpiredBasketsAsync() in /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud/Services/PanierExpirationService.cs:line 21
+   at InvokeStub_TaskAwaiter.GetResult(Object, Object, IntPtr*)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+2025-02-09 12:17:04.241 +01:00 [WRN] Failed to process the job '9c4df75f-22fe-42e4-8d55-1fcdf1f5803b': an exception occurred. Retry attempt 1 of 10 will be performed in 00:00:26.
+System.InvalidOperationException: No service for type 'backend_negosud.Entities.PostgresContext' has been registered.
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at backend_negosud.Services.PanierExpirationService.CleanupExpiredBasketsAsync() in /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud/Services/PanierExpirationService.cs:line 21
+   at InvokeStub_TaskAwaiter.GetResult(Object, Object, IntPtr*)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+2025-02-09 12:17:19.181 +01:00 [WRN] Failed to process the job 'd5288c62-86ca-468e-9064-2a2cc2d0361a': an exception occurred. Retry attempt 3 of 10 will be performed in 00:01:40.
+System.InvalidOperationException: No service for type 'backend_negosud.Entities.PostgresContext' has been registered.
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at backend_negosud.Services.PanierExpirationService.CleanupExpiredBasketsAsync() in /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud/Services/PanierExpirationService.cs:line 21
+   at InvokeStub_TaskAwaiter.GetResult(Object, Object, IntPtr*)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+2025-02-09 12:17:34.186 +01:00 [WRN] Failed to process the job '9c4df75f-22fe-42e4-8d55-1fcdf1f5803b': an exception occurred. Retry attempt 2 of 10 will be performed in 00:00:42.
+System.InvalidOperationException: No service for type 'backend_negosud.Entities.PostgresContext' has been registered.
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at backend_negosud.Services.PanierExpirationService.CleanupExpiredBasketsAsync() in /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud/Services/PanierExpirationService.cs:line 21
+   at InvokeStub_TaskAwaiter.GetResult(Object, Object, IntPtr*)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+2025-02-09 12:18:04.241 +01:00 [WRN] Failed to process the job 'f8daee4d-9122-4b5a-a70d-ccfa072cd70c': an exception occurred. Retry attempt 1 of 10 will be performed in 00:00:37.
+System.InvalidOperationException: No service for type 'backend_negosud.Entities.PostgresContext' has been registered.
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at backend_negosud.Services.PanierExpirationService.CleanupExpiredBasketsAsync() in /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud/Services/PanierExpirationService.cs:line 21
+   at InvokeStub_TaskAwaiter.GetResult(Object, Object, IntPtr*)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+2025-02-09 12:18:19.190 +01:00 [WRN] Failed to process the job '9c4df75f-22fe-42e4-8d55-1fcdf1f5803b': an exception occurred. Retry attempt 3 of 10 will be performed in 00:01:52.
+System.InvalidOperationException: No service for type 'backend_negosud.Entities.PostgresContext' has been registered.
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at backend_negosud.Services.PanierExpirationService.CleanupExpiredBasketsAsync() in /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud/Services/PanierExpirationService.cs:line 21
+   at InvokeStub_TaskAwaiter.GetResult(Object, Object, IntPtr*)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+2025-02-09 12:18:49.199 +01:00 [WRN] Failed to process the job 'f8daee4d-9122-4b5a-a70d-ccfa072cd70c': an exception occurred. Retry attempt 2 of 10 will be performed in 00:01:12.
+System.InvalidOperationException: No service for type 'backend_negosud.Entities.PostgresContext' has been registered.
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at backend_negosud.Services.PanierExpirationService.CleanupExpiredBasketsAsync() in /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud/Services/PanierExpirationService.cs:line 21
+   at InvokeStub_TaskAwaiter.GetResult(Object, Object, IntPtr*)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+2025-02-09 12:19:04.198 +01:00 [WRN] Failed to process the job 'd5288c62-86ca-468e-9064-2a2cc2d0361a': an exception occurred. Retry attempt 4 of 10 will be performed in 00:01:52.
+System.InvalidOperationException: No service for type 'backend_negosud.Entities.PostgresContext' has been registered.
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at backend_negosud.Services.PanierExpirationService.CleanupExpiredBasketsAsync() in /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud/Services/PanierExpirationService.cs:line 21
+   at InvokeStub_TaskAwaiter.GetResult(Object, Object, IntPtr*)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+2025-02-09 12:19:04.246 +01:00 [WRN] Failed to process the job '9457745b-3f8c-4de2-9682-030f2e218b47': an exception occurred. Retry attempt 1 of 10 will be performed in 00:00:29.
+System.InvalidOperationException: No service for type 'backend_negosud.Entities.PostgresContext' has been registered.
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at backend_negosud.Services.PanierExpirationService.CleanupExpiredBasketsAsync() in /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud/Services/PanierExpirationService.cs:line 21
+   at InvokeStub_TaskAwaiter.GetResult(Object, Object, IntPtr*)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+2025-02-09 12:19:34.200 +01:00 [WRN] Failed to process the job '9457745b-3f8c-4de2-9682-030f2e218b47': an exception occurred. Retry attempt 2 of 10 will be performed in 00:01:08.
+System.InvalidOperationException: No service for type 'backend_negosud.Entities.PostgresContext' has been registered.
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at backend_negosud.Services.PanierExpirationService.CleanupExpiredBasketsAsync() in /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud/Services/PanierExpirationService.cs:line 21
+   at InvokeStub_TaskAwaiter.GetResult(Object, Object, IntPtr*)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+2025-02-09 12:20:04.200 +01:00 [WRN] Failed to process the job 'f8daee4d-9122-4b5a-a70d-ccfa072cd70c': an exception occurred. Retry attempt 3 of 10 will be performed in 00:01:16.
+System.InvalidOperationException: No service for type 'backend_negosud.Entities.PostgresContext' has been registered.
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at backend_negosud.Services.PanierExpirationService.CleanupExpiredBasketsAsync() in /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud/Services/PanierExpirationService.cs:line 21
+   at InvokeStub_TaskAwaiter.GetResult(Object, Object, IntPtr*)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+2025-02-09 12:20:04.250 +01:00 [WRN] Failed to process the job '663da8d5-30dd-4cd7-bfde-7f486598865e': an exception occurred. Retry attempt 1 of 10 will be performed in 00:00:30.
+System.InvalidOperationException: No service for type 'backend_negosud.Entities.PostgresContext' has been registered.
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at backend_negosud.Services.PanierExpirationService.CleanupExpiredBasketsAsync() in /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud/Services/PanierExpirationService.cs:line 21
+   at InvokeStub_TaskAwaiter.GetResult(Object, Object, IntPtr*)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+2025-02-09 12:20:19.203 +01:00 [WRN] Failed to process the job '9c4df75f-22fe-42e4-8d55-1fcdf1f5803b': an exception occurred. Retry attempt 4 of 10 will be performed in 00:02:08.
+System.InvalidOperationException: No service for type 'backend_negosud.Entities.PostgresContext' has been registered.
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at backend_negosud.Services.PanierExpirationService.CleanupExpiredBasketsAsync() in /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud/Services/PanierExpirationService.cs:line 21
+   at InvokeStub_TaskAwaiter.GetResult(Object, Object, IntPtr*)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+2025-02-09 12:20:34.205 +01:00 [WRN] Failed to process the job '663da8d5-30dd-4cd7-bfde-7f486598865e': an exception occurred. Retry attempt 2 of 10 will be performed in 00:00:42.
+System.InvalidOperationException: No service for type 'backend_negosud.Entities.PostgresContext' has been registered.
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at backend_negosud.Services.PanierExpirationService.CleanupExpiredBasketsAsync() in /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud/Services/PanierExpirationService.cs:line 21
+   at InvokeStub_TaskAwaiter.GetResult(Object, Object, IntPtr*)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+2025-02-09 12:20:49.214 +01:00 [WRN] Failed to process the job '9457745b-3f8c-4de2-9682-030f2e218b47': an exception occurred. Retry attempt 3 of 10 will be performed in 00:01:22.
+System.InvalidOperationException: No service for type 'backend_negosud.Entities.PostgresContext' has been registered.
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at backend_negosud.Services.PanierExpirationService.CleanupExpiredBasketsAsync() in /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud/Services/PanierExpirationService.cs:line 21
+   at InvokeStub_TaskAwaiter.GetResult(Object, Object, IntPtr*)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+2025-02-09 12:21:04.213 +01:00 [WRN] Failed to process the job 'd5288c62-86ca-468e-9064-2a2cc2d0361a': an exception occurred. Retry attempt 5 of 10 will be performed in 00:05:41.
+System.InvalidOperationException: No service for type 'backend_negosud.Entities.PostgresContext' has been registered.
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at backend_negosud.Services.PanierExpirationService.CleanupExpiredBasketsAsync() in /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud/Services/PanierExpirationService.cs:line 21
+   at InvokeStub_TaskAwaiter.GetResult(Object, Object, IntPtr*)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+2025-02-09 12:21:04.255 +01:00 [WRN] Failed to process the job '806bcdfb-703f-4d22-967e-273c12f3d855': an exception occurred. Retry attempt 1 of 10 will be performed in 00:00:29.
+System.InvalidOperationException: No service for type 'backend_negosud.Entities.PostgresContext' has been registered.
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at backend_negosud.Services.PanierExpirationService.CleanupExpiredBasketsAsync() in /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud/Services/PanierExpirationService.cs:line 21
+   at InvokeStub_TaskAwaiter.GetResult(Object, Object, IntPtr*)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+2025-02-09 12:21:19.220 +01:00 [WRN] Failed to process the job '663da8d5-30dd-4cd7-bfde-7f486598865e': an exception occurred. Retry attempt 3 of 10 will be performed in 00:00:49.
+System.InvalidOperationException: No service for type 'backend_negosud.Entities.PostgresContext' has been registered.
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at backend_negosud.Services.PanierExpirationService.CleanupExpiredBasketsAsync() in /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud/Services/PanierExpirationService.cs:line 21
+   at InvokeStub_TaskAwaiter.GetResult(Object, Object, IntPtr*)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+2025-02-09 12:21:20.240 +01:00 [INF] Server macbookpro:62486:ae9c59bb caught stopping signal...
+2025-02-09 12:21:20.243 +01:00 [INF] Application is shutting down...
+2025-02-09 12:21:20.244 +01:00 [INF] Server macbookpro:62486:4b15e0f6 caught stopping signal...
+2025-02-09 12:21:20.245 +01:00 [INF] Server macbookpro:62486:ae9c59bb All dispatchers stopped
+2025-02-09 12:21:20.245 +01:00 [INF] Server macbookpro:62486:4b15e0f6 All dispatchers stopped
+2025-02-09 12:21:20.248 +01:00 [INF] Server macbookpro:62486:4b15e0f6 successfully reported itself as stopped in 0,531 ms
+2025-02-09 12:21:20.248 +01:00 [INF] Server macbookpro:62486:ae9c59bb successfully reported itself as stopped in 0,4841 ms
+2025-02-09 12:21:20.248 +01:00 [INF] Server macbookpro:62486:4b15e0f6 has been stopped in total 4,5805 ms
+2025-02-09 12:21:20.249 +01:00 [INF] Server macbookpro:62486:ae9c59bb has been stopped in total 6,9924 ms
+2025-02-09 12:22:08.526 +01:00 [INF] Executed DbCommand (13ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM client AS c)
+2025-02-09 12:22:08.611 +01:00 [INF] Starting Hangfire Server using job storage: 'Hangfire.MemoryStorage.MemoryStorage'
+2025-02-09 12:22:08.611 +01:00 [INF] Using the following options for Hangfire Server:
+    Worker count: 20
+    Listening queues: 'default'
+    Shutdown timeout: 00:00:15
+    Schedule polling interval: 00:00:15
+2025-02-09 12:22:08.650 +01:00 [INF] Server macbookpro:62761:2c0f888f successfully announced in 31,9634 ms
+2025-02-09 12:22:08.652 +01:00 [INF] Server macbookpro:62761:2c0f888f is starting the registered dispatchers: ServerWatchdog, ServerJobCancellationWatcher, ExpirationManager, CountersAggregator, Worker, DelayedJobScheduler, RecurringJobScheduler...
+2025-02-09 12:22:08.655 +01:00 [INF] Server macbookpro:62761:2c0f888f all the dispatchers started
+2025-02-09 12:22:08.694 +01:00 [INF] User profile is available. Using '/Users/yoann/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-02-09 12:22:08.728 +01:00 [INF] Now listening on: http://localhost:5141
+2025-02-09 12:22:08.728 +01:00 [INF] Starting Hangfire Server using job storage: 'Hangfire.MemoryStorage.MemoryStorage'
+2025-02-09 12:22:08.728 +01:00 [INF] Using the following options for Hangfire Server:
+    Worker count: 20
+    Listening queues: 'default'
+    Shutdown timeout: 00:00:15
+    Schedule polling interval: 00:00:15
+2025-02-09 12:22:08.729 +01:00 [INF] Server macbookpro:62761:ef3f311a successfully announced in 0,0839 ms
+2025-02-09 12:22:08.729 +01:00 [INF] Server macbookpro:62761:ef3f311a is starting the registered dispatchers: ServerWatchdog, ServerJobCancellationWatcher, ExpirationManager, CountersAggregator, Worker, DelayedJobScheduler, RecurringJobScheduler...
+2025-02-09 12:22:08.731 +01:00 [INF] Server macbookpro:62761:ef3f311a all the dispatchers started
+2025-02-09 12:22:08.731 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-02-09 12:22:08.731 +01:00 [INF] Hosting environment: Development
+2025-02-09 12:22:08.731 +01:00 [INF] Content root path: /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud
+2025-02-09 12:22:09.423 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5141/swagger/index.html - null null
+2025-02-09 12:22:09.608 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5141/swagger/index.html - 200 null text/html;charset=utf-8 186.1007ms
+2025-02-09 12:22:09.884 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5141/swagger/v1/swagger.json - null null
+2025-02-09 12:22:09.958 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5141/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 74.1128ms
+2025-02-09 12:23:08.756 +01:00 [WRN] Failed to process the job '5b538b9f-1501-4e6f-adf7-b0591820d7b8': an exception occurred. Retry attempt 1 of 10 will be performed in 00:00:27.
+System.InvalidOperationException: No service for type 'backend_negosud.Entities.PostgresContext' has been registered.
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at backend_negosud.Services.PanierExpirationService.CleanupExpiredBasketsAsync() in /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud/Services/PanierExpirationService.cs:line 21
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+2025-02-09 12:23:38.692 +01:00 [WRN] Failed to process the job '5b538b9f-1501-4e6f-adf7-b0591820d7b8': an exception occurred. Retry attempt 2 of 10 will be performed in 00:01:04.
+System.InvalidOperationException: No service for type 'backend_negosud.Entities.PostgresContext' has been registered.
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at backend_negosud.Services.PanierExpirationService.CleanupExpiredBasketsAsync() in /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud/Services/PanierExpirationService.cs:line 21
+   at InvokeStub_TaskAwaiter.GetResult(Object, Object, IntPtr*)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+2025-02-09 12:24:08.744 +01:00 [WRN] Failed to process the job '4941ce9c-6946-43c7-83d7-a547b06781fa': an exception occurred. Retry attempt 1 of 10 will be performed in 00:00:29.
+System.InvalidOperationException: No service for type 'backend_negosud.Entities.PostgresContext' has been registered.
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at backend_negosud.Services.PanierExpirationService.CleanupExpiredBasketsAsync() in /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud/Services/PanierExpirationService.cs:line 21
+   at InvokeStub_TaskAwaiter.GetResult(Object, Object, IntPtr*)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+2025-02-09 12:24:38.697 +01:00 [WRN] Failed to process the job '4941ce9c-6946-43c7-83d7-a547b06781fa': an exception occurred. Retry attempt 2 of 10 will be performed in 00:00:50.
+System.InvalidOperationException: No service for type 'backend_negosud.Entities.PostgresContext' has been registered.
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at backend_negosud.Services.PanierExpirationService.CleanupExpiredBasketsAsync() in /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud/Services/PanierExpirationService.cs:line 21
+   at InvokeStub_TaskAwaiter.GetResult(Object, Object, IntPtr*)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+2025-02-09 12:24:53.699 +01:00 [WRN] Failed to process the job '5b538b9f-1501-4e6f-adf7-b0591820d7b8': an exception occurred. Retry attempt 3 of 10 will be performed in 00:01:25.
+System.InvalidOperationException: No service for type 'backend_negosud.Entities.PostgresContext' has been registered.
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at backend_negosud.Services.PanierExpirationService.CleanupExpiredBasketsAsync() in /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud/Services/PanierExpirationService.cs:line 21
+   at InvokeStub_TaskAwaiter.GetResult(Object, Object, IntPtr*)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+2025-02-09 12:25:08.749 +01:00 [WRN] Failed to process the job '26df63c7-5834-495a-b4ec-78136e6d1fdc': an exception occurred. Retry attempt 1 of 10 will be performed in 00:00:44.
+System.InvalidOperationException: No service for type 'backend_negosud.Entities.PostgresContext' has been registered.
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at backend_negosud.Services.PanierExpirationService.CleanupExpiredBasketsAsync() in /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud/Services/PanierExpirationService.cs:line 21
+   at InvokeStub_TaskAwaiter.GetResult(Object, Object, IntPtr*)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+2025-02-09 12:25:38.707 +01:00 [WRN] Failed to process the job '4941ce9c-6946-43c7-83d7-a547b06781fa': an exception occurred. Retry attempt 3 of 10 will be performed in 00:01:13.
+System.InvalidOperationException: No service for type 'backend_negosud.Entities.PostgresContext' has been registered.
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at backend_negosud.Services.PanierExpirationService.CleanupExpiredBasketsAsync() in /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud/Services/PanierExpirationService.cs:line 21
+   at InvokeStub_TaskAwaiter.GetResult(Object, Object, IntPtr*)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+2025-02-09 12:25:53.742 +01:00 [WRN] Failed to process the job '26df63c7-5834-495a-b4ec-78136e6d1fdc': an exception occurred. Retry attempt 2 of 10 will be performed in 00:00:18.
+System.InvalidOperationException: No service for type 'backend_negosud.Entities.PostgresContext' has been registered.
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at backend_negosud.Services.PanierExpirationService.CleanupExpiredBasketsAsync() in /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud/Services/PanierExpirationService.cs:line 21
+   at InvokeStub_TaskAwaiter.GetResult(Object, Object, IntPtr*)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+2025-02-09 12:26:08.763 +01:00 [WRN] Failed to process the job '3c220b12-9b4e-4b3c-824a-1741adde8448': an exception occurred. Retry attempt 1 of 10 will be performed in 00:00:17.
+System.InvalidOperationException: No service for type 'backend_negosud.Entities.PostgresContext' has been registered.
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at backend_negosud.Services.PanierExpirationService.CleanupExpiredBasketsAsync() in /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud/Services/PanierExpirationService.cs:line 21
+   at InvokeStub_TaskAwaiter.GetResult(Object, Object, IntPtr*)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+2025-02-09 12:26:23.717 +01:00 [WRN] Failed to process the job '5b538b9f-1501-4e6f-adf7-b0591820d7b8': an exception occurred. Retry attempt 4 of 10 will be performed in 00:03:28.
+System.InvalidOperationException: No service for type 'backend_negosud.Entities.PostgresContext' has been registered.
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at backend_negosud.Services.PanierExpirationService.CleanupExpiredBasketsAsync() in /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud/Services/PanierExpirationService.cs:line 21
+   at InvokeStub_TaskAwaiter.GetResult(Object, Object, IntPtr*)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+2025-02-09 12:26:23.718 +01:00 [WRN] Failed to process the job '26df63c7-5834-495a-b4ec-78136e6d1fdc': an exception occurred. Retry attempt 3 of 10 will be performed in 00:01:46.
+System.InvalidOperationException: No service for type 'backend_negosud.Entities.PostgresContext' has been registered.
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at backend_negosud.Services.PanierExpirationService.CleanupExpiredBasketsAsync() in /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud/Services/PanierExpirationService.cs:line 21
+   at InvokeStub_TaskAwaiter.GetResult(Object, Object, IntPtr*)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+2025-02-09 12:26:38.726 +01:00 [WRN] Failed to process the job '3c220b12-9b4e-4b3c-824a-1741adde8448': an exception occurred. Retry attempt 2 of 10 will be performed in 00:01:14.
+System.InvalidOperationException: No service for type 'backend_negosud.Entities.PostgresContext' has been registered.
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at backend_negosud.Services.PanierExpirationService.CleanupExpiredBasketsAsync() in /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud/Services/PanierExpirationService.cs:line 21
+   at InvokeStub_TaskAwaiter.GetResult(Object, Object, IntPtr*)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+2025-02-09 12:26:53.720 +01:00 [WRN] Failed to process the job '4941ce9c-6946-43c7-83d7-a547b06781fa': an exception occurred. Retry attempt 4 of 10 will be performed in 00:03:24.
+System.InvalidOperationException: No service for type 'backend_negosud.Entities.PostgresContext' has been registered.
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at backend_negosud.Services.PanierExpirationService.CleanupExpiredBasketsAsync() in /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud/Services/PanierExpirationService.cs:line 21
+   at InvokeStub_TaskAwaiter.GetResult(Object, Object, IntPtr*)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+2025-02-09 12:27:08.767 +01:00 [WRN] Failed to process the job 'b2cd5b42-a567-4705-a170-9e7042abf332': an exception occurred. Retry attempt 1 of 10 will be performed in 00:00:30.
+System.InvalidOperationException: No service for type 'backend_negosud.Entities.PostgresContext' has been registered.
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at backend_negosud.Services.PanierExpirationService.CleanupExpiredBasketsAsync() in /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud/Services/PanierExpirationService.cs:line 21
+   at InvokeStub_TaskAwaiter.GetResult(Object, Object, IntPtr*)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+2025-02-09 12:27:38.724 +01:00 [WRN] Failed to process the job 'b2cd5b42-a567-4705-a170-9e7042abf332': an exception occurred. Retry attempt 2 of 10 will be performed in 00:00:44.
+System.InvalidOperationException: No service for type 'backend_negosud.Entities.PostgresContext' has been registered.
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at backend_negosud.Services.PanierExpirationService.CleanupExpiredBasketsAsync() in /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud/Services/PanierExpirationService.cs:line 21
+   at InvokeStub_TaskAwaiter.GetResult(Object, Object, IntPtr*)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+2025-02-09 12:27:53.730 +01:00 [WRN] Failed to process the job '3c220b12-9b4e-4b3c-824a-1741adde8448': an exception occurred. Retry attempt 3 of 10 will be performed in 00:01:58.
+System.InvalidOperationException: No service for type 'backend_negosud.Entities.PostgresContext' has been registered.
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at backend_negosud.Services.PanierExpirationService.CleanupExpiredBasketsAsync() in /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud/Services/PanierExpirationService.cs:line 21
+   at InvokeStub_TaskAwaiter.GetResult(Object, Object, IntPtr*)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+2025-02-09 12:28:08.776 +01:00 [WRN] Failed to process the job 'dc683a86-045e-4e0d-811c-0597f03c8202': an exception occurred. Retry attempt 1 of 10 will be performed in 00:00:21.
+System.InvalidOperationException: No service for type 'backend_negosud.Entities.PostgresContext' has been registered.
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at backend_negosud.Services.PanierExpirationService.CleanupExpiredBasketsAsync() in /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud/Services/PanierExpirationService.cs:line 21
+   at InvokeStub_TaskAwaiter.GetResult(Object, Object, IntPtr*)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+2025-02-09 12:28:23.734 +01:00 [WRN] Failed to process the job 'b2cd5b42-a567-4705-a170-9e7042abf332': an exception occurred. Retry attempt 3 of 10 will be performed in 00:00:55.
+System.InvalidOperationException: No service for type 'backend_negosud.Entities.PostgresContext' has been registered.
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at backend_negosud.Services.PanierExpirationService.CleanupExpiredBasketsAsync() in /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud/Services/PanierExpirationService.cs:line 21
+   at InvokeStub_TaskAwaiter.GetResult(Object, Object, IntPtr*)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+2025-02-09 12:28:23.755 +01:00 [WRN] Failed to process the job '26df63c7-5834-495a-b4ec-78136e6d1fdc': an exception occurred. Retry attempt 4 of 10 will be performed in 00:01:52.
+System.InvalidOperationException: No service for type 'backend_negosud.Entities.PostgresContext' has been registered.
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at backend_negosud.Services.PanierExpirationService.CleanupExpiredBasketsAsync() in /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud/Services/PanierExpirationService.cs:line 21
+   at InvokeStub_TaskAwaiter.GetResult(Object, Object, IntPtr*)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+2025-02-09 12:28:38.734 +01:00 [WRN] Failed to process the job 'dc683a86-045e-4e0d-811c-0597f03c8202': an exception occurred. Retry attempt 2 of 10 will be performed in 00:01:12.
+System.InvalidOperationException: No service for type 'backend_negosud.Entities.PostgresContext' has been registered.
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at backend_negosud.Services.PanierExpirationService.CleanupExpiredBasketsAsync() in /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud/Services/PanierExpirationService.cs:line 21
+   at InvokeStub_TaskAwaiter.GetResult(Object, Object, IntPtr*)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+2025-02-09 12:29:08.777 +01:00 [WRN] Failed to process the job '57f0c236-c9b3-4762-adf8-7aa41f12a3a9': an exception occurred. Retry attempt 1 of 10 will be performed in 00:00:26.
+System.InvalidOperationException: No service for type 'backend_negosud.Entities.PostgresContext' has been registered.
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at backend_negosud.Services.PanierExpirationService.CleanupExpiredBasketsAsync() in /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud/Services/PanierExpirationService.cs:line 21
+   at InvokeStub_TaskAwaiter.GetResult(Object, Object, IntPtr*)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+2025-02-09 12:29:23.742 +01:00 [WRN] Failed to process the job 'b2cd5b42-a567-4705-a170-9e7042abf332': an exception occurred. Retry attempt 4 of 10 will be performed in 00:03:16.
+System.InvalidOperationException: No service for type 'backend_negosud.Entities.PostgresContext' has been registered.
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at backend_negosud.Services.PanierExpirationService.CleanupExpiredBasketsAsync() in /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud/Services/PanierExpirationService.cs:line 21
+   at InvokeStub_TaskAwaiter.GetResult(Object, Object, IntPtr*)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+2025-02-09 12:29:38.746 +01:00 [WRN] Failed to process the job '57f0c236-c9b3-4762-adf8-7aa41f12a3a9': an exception occurred. Retry attempt 2 of 10 will be performed in 00:00:38.
+System.InvalidOperationException: No service for type 'backend_negosud.Entities.PostgresContext' has been registered.
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at backend_negosud.Services.PanierExpirationService.CleanupExpiredBasketsAsync() in /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud/Services/PanierExpirationService.cs:line 21
+   at InvokeStub_TaskAwaiter.GetResult(Object, Object, IntPtr*)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+2025-02-09 12:29:53.749 +01:00 [WRN] Failed to process the job '5b538b9f-1501-4e6f-adf7-b0591820d7b8': an exception occurred. Retry attempt 5 of 10 will be performed in 00:06:16.
+System.InvalidOperationException: No service for type 'backend_negosud.Entities.PostgresContext' has been registered.
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at backend_negosud.Services.PanierExpirationService.CleanupExpiredBasketsAsync() in /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud/Services/PanierExpirationService.cs:line 21
+   at InvokeStub_TaskAwaiter.GetResult(Object, Object, IntPtr*)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+2025-02-09 12:29:53.764 +01:00 [WRN] Failed to process the job '3c220b12-9b4e-4b3c-824a-1741adde8448': an exception occurred. Retry attempt 4 of 10 will be performed in 00:02:00.
+System.InvalidOperationException: No service for type 'backend_negosud.Entities.PostgresContext' has been registered.
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at backend_negosud.Services.PanierExpirationService.CleanupExpiredBasketsAsync() in /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud/Services/PanierExpirationService.cs:line 21
+   at InvokeStub_TaskAwaiter.GetResult(Object, Object, IntPtr*)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+2025-02-09 12:29:53.777 +01:00 [WRN] Failed to process the job 'dc683a86-045e-4e0d-811c-0597f03c8202': an exception occurred. Retry attempt 3 of 10 will be performed in 00:00:49.
+System.InvalidOperationException: No service for type 'backend_negosud.Entities.PostgresContext' has been registered.
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at backend_negosud.Services.PanierExpirationService.CleanupExpiredBasketsAsync() in /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud/Services/PanierExpirationService.cs:line 21
+   at InvokeStub_TaskAwaiter.GetResult(Object, Object, IntPtr*)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+2025-02-09 12:30:08.784 +01:00 [WRN] Failed to process the job '2ead9481-6091-4719-b5f2-53ea24fae28a': an exception occurred. Retry attempt 1 of 10 will be performed in 00:00:32.
+System.InvalidOperationException: No service for type 'backend_negosud.Entities.PostgresContext' has been registered.
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at backend_negosud.Services.PanierExpirationService.CleanupExpiredBasketsAsync() in /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud/Services/PanierExpirationService.cs:line 21
+   at InvokeStub_TaskAwaiter.GetResult(Object, Object, IntPtr*)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+2025-02-09 12:30:23.745 +01:00 [WRN] Failed to process the job '4941ce9c-6946-43c7-83d7-a547b06781fa': an exception occurred. Retry attempt 5 of 10 will be performed in 00:04:31.
+System.InvalidOperationException: No service for type 'backend_negosud.Entities.PostgresContext' has been registered.
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at backend_negosud.Services.PanierExpirationService.CleanupExpiredBasketsAsync() in /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud/Services/PanierExpirationService.cs:line 21
+   at InvokeStub_TaskAwaiter.GetResult(Object, Object, IntPtr*)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+2025-02-09 12:30:23.745 +01:00 [WRN] Failed to process the job '57f0c236-c9b3-4762-adf8-7aa41f12a3a9': an exception occurred. Retry attempt 3 of 10 will be performed in 00:01:34.
+System.InvalidOperationException: No service for type 'backend_negosud.Entities.PostgresContext' has been registered.
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at backend_negosud.Services.PanierExpirationService.CleanupExpiredBasketsAsync() in /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud/Services/PanierExpirationService.cs:line 21
+   at InvokeStub_TaskAwaiter.GetResult(Object, Object, IntPtr*)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+2025-02-09 12:30:23.745 +01:00 [WRN] Failed to process the job '26df63c7-5834-495a-b4ec-78136e6d1fdc': an exception occurred. Retry attempt 5 of 10 will be performed in 00:05:51.
+System.InvalidOperationException: No service for type 'backend_negosud.Entities.PostgresContext' has been registered.
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at backend_negosud.Services.PanierExpirationService.CleanupExpiredBasketsAsync() in /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud/Services/PanierExpirationService.cs:line 21
+   at InvokeStub_TaskAwaiter.GetResult(Object, Object, IntPtr*)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+2025-02-09 12:30:53.747 +01:00 [WRN] Failed to process the job '2ead9481-6091-4719-b5f2-53ea24fae28a': an exception occurred. Retry attempt 2 of 10 will be performed in 00:00:54.
+System.InvalidOperationException: No service for type 'backend_negosud.Entities.PostgresContext' has been registered.
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at backend_negosud.Services.PanierExpirationService.CleanupExpiredBasketsAsync() in /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud/Services/PanierExpirationService.cs:line 21
+   at InvokeStub_TaskAwaiter.GetResult(Object, Object, IntPtr*)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+2025-02-09 12:30:53.748 +01:00 [WRN] Failed to process the job 'dc683a86-045e-4e0d-811c-0597f03c8202': an exception occurred. Retry attempt 4 of 10 will be performed in 00:01:40.
+System.InvalidOperationException: No service for type 'backend_negosud.Entities.PostgresContext' has been registered.
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at backend_negosud.Services.PanierExpirationService.CleanupExpiredBasketsAsync() in /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud/Services/PanierExpirationService.cs:line 21
+   at InvokeStub_TaskAwaiter.GetResult(Object, Object, IntPtr*)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+2025-02-09 12:31:08.801 +01:00 [WRN] Failed to process the job '737198da-6902-4bfd-aa8a-ad7d0ec5252a': an exception occurred. Retry attempt 1 of 10 will be performed in 00:00:22.
+System.InvalidOperationException: No service for type 'backend_negosud.Entities.PostgresContext' has been registered.
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at backend_negosud.Services.PanierExpirationService.CleanupExpiredBasketsAsync() in /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud/Services/PanierExpirationService.cs:line 21
+   at InvokeStub_TaskAwaiter.GetResult(Object, Object, IntPtr*)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+2025-02-09 12:31:38.749 +01:00 [WRN] Failed to process the job '737198da-6902-4bfd-aa8a-ad7d0ec5252a': an exception occurred. Retry attempt 2 of 10 will be performed in 00:01:06.
+System.InvalidOperationException: No service for type 'backend_negosud.Entities.PostgresContext' has been registered.
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at backend_negosud.Services.PanierExpirationService.CleanupExpiredBasketsAsync() in /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud/Services/PanierExpirationService.cs:line 21
+   at InvokeStub_TaskAwaiter.GetResult(Object, Object, IntPtr*)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+2025-02-09 12:31:53.756 +01:00 [WRN] Failed to process the job '2ead9481-6091-4719-b5f2-53ea24fae28a': an exception occurred. Retry attempt 3 of 10 will be performed in 00:00:49.
+System.InvalidOperationException: No service for type 'backend_negosud.Entities.PostgresContext' has been registered.
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at backend_negosud.Services.PanierExpirationService.CleanupExpiredBasketsAsync() in /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud/Services/PanierExpirationService.cs:line 21
+   at InvokeStub_TaskAwaiter.GetResult(Object, Object, IntPtr*)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+2025-02-09 12:31:53.765 +01:00 [WRN] Failed to process the job '3c220b12-9b4e-4b3c-824a-1741adde8448': an exception occurred. Retry attempt 5 of 10 will be performed in 00:06:11.
+System.InvalidOperationException: No service for type 'backend_negosud.Entities.PostgresContext' has been registered.
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at backend_negosud.Services.PanierExpirationService.CleanupExpiredBasketsAsync() in /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud/Services/PanierExpirationService.cs:line 21
+   at InvokeStub_TaskAwaiter.GetResult(Object, Object, IntPtr*)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+2025-02-09 12:32:08.757 +01:00 [WRN] Failed to process the job '57f0c236-c9b3-4762-adf8-7aa41f12a3a9': an exception occurred. Retry attempt 4 of 10 will be performed in 00:02:28.
+System.InvalidOperationException: No service for type 'backend_negosud.Entities.PostgresContext' has been registered.
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at backend_negosud.Services.PanierExpirationService.CleanupExpiredBasketsAsync() in /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud/Services/PanierExpirationService.cs:line 21
+   at InvokeStub_TaskAwaiter.GetResult(Object, Object, IntPtr*)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+2025-02-09 12:32:08.808 +01:00 [WRN] Failed to process the job '60239355-c7f7-41f6-a7e2-1f9b0132ad22': an exception occurred. Retry attempt 1 of 10 will be performed in 00:00:33.
+System.InvalidOperationException: No service for type 'backend_negosud.Entities.PostgresContext' has been registered.
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at backend_negosud.Services.PanierExpirationService.CleanupExpiredBasketsAsync() in /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud/Services/PanierExpirationService.cs:line 21
+   at InvokeStub_TaskAwaiter.GetResult(Object, Object, IntPtr*)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+2025-02-09 12:32:38.763 +01:00 [WRN] Failed to process the job 'dc683a86-045e-4e0d-811c-0597f03c8202': an exception occurred. Retry attempt 5 of 10 will be performed in 00:04:41.
+System.InvalidOperationException: No service for type 'backend_negosud.Entities.PostgresContext' has been registered.
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at backend_negosud.Services.PanierExpirationService.CleanupExpiredBasketsAsync() in /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud/Services/PanierExpirationService.cs:line 21
+   at InvokeStub_TaskAwaiter.GetResult(Object, Object, IntPtr*)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+2025-02-09 12:32:53.760 +01:00 [WRN] Failed to process the job '737198da-6902-4bfd-aa8a-ad7d0ec5252a': an exception occurred. Retry attempt 3 of 10 will be performed in 00:01:04.
+System.InvalidOperationException: No service for type 'backend_negosud.Entities.PostgresContext' has been registered.
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at backend_negosud.Services.PanierExpirationService.CleanupExpiredBasketsAsync() in /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud/Services/PanierExpirationService.cs:line 21
+   at InvokeStub_TaskAwaiter.GetResult(Object, Object, IntPtr*)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+2025-02-09 12:32:53.768 +01:00 [WRN] Failed to process the job 'b2cd5b42-a567-4705-a170-9e7042abf332': an exception occurred. Retry attempt 5 of 10 will be performed in 00:05:01.
+System.InvalidOperationException: No service for type 'backend_negosud.Entities.PostgresContext' has been registered.
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at backend_negosud.Services.PanierExpirationService.CleanupExpiredBasketsAsync() in /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud/Services/PanierExpirationService.cs:line 21
+   at InvokeStub_TaskAwaiter.GetResult(Object, Object, IntPtr*)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+2025-02-09 12:32:53.769 +01:00 [WRN] Failed to process the job '60239355-c7f7-41f6-a7e2-1f9b0132ad22': an exception occurred. Retry attempt 2 of 10 will be performed in 00:00:26.
+System.InvalidOperationException: No service for type 'backend_negosud.Entities.PostgresContext' has been registered.
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at backend_negosud.Services.PanierExpirationService.CleanupExpiredBasketsAsync() in /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud/Services/PanierExpirationService.cs:line 21
+   at InvokeStub_TaskAwaiter.GetResult(Object, Object, IntPtr*)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+2025-02-09 12:32:53.778 +01:00 [WRN] Failed to process the job '2ead9481-6091-4719-b5f2-53ea24fae28a': an exception occurred. Retry attempt 4 of 10 will be performed in 00:02:28.
+System.InvalidOperationException: No service for type 'backend_negosud.Entities.PostgresContext' has been registered.
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at backend_negosud.Services.PanierExpirationService.CleanupExpiredBasketsAsync() in /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud/Services/PanierExpirationService.cs:line 21
+   at InvokeStub_TaskAwaiter.GetResult(Object, Object, IntPtr*)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+2025-02-09 12:33:08.812 +01:00 [WRN] Failed to process the job 'db609b6a-7408-4c56-8fb8-c63694714ff4': an exception occurred. Retry attempt 1 of 10 will be performed in 00:00:32.
+System.InvalidOperationException: No service for type 'backend_negosud.Entities.PostgresContext' has been registered.
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at backend_negosud.Services.PanierExpirationService.CleanupExpiredBasketsAsync() in /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud/Services/PanierExpirationService.cs:line 21
+   at InvokeStub_TaskAwaiter.GetResult(Object, Object, IntPtr*)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+2025-02-09 12:33:23.768 +01:00 [WRN] Failed to process the job '60239355-c7f7-41f6-a7e2-1f9b0132ad22': an exception occurred. Retry attempt 3 of 10 will be performed in 00:00:43.
+System.InvalidOperationException: No service for type 'backend_negosud.Entities.PostgresContext' has been registered.
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at backend_negosud.Services.PanierExpirationService.CleanupExpiredBasketsAsync() in /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud/Services/PanierExpirationService.cs:line 21
+   at InvokeStub_TaskAwaiter.GetResult(Object, Object, IntPtr*)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+2025-02-09 12:33:53.768 +01:00 [WRN] Failed to process the job 'db609b6a-7408-4c56-8fb8-c63694714ff4': an exception occurred. Retry attempt 2 of 10 will be performed in 00:00:34.
+System.InvalidOperationException: No service for type 'backend_negosud.Entities.PostgresContext' has been registered.
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at backend_negosud.Services.PanierExpirationService.CleanupExpiredBasketsAsync() in /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud/Services/PanierExpirationService.cs:line 21
+   at InvokeStub_TaskAwaiter.GetResult(Object, Object, IntPtr*)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+2025-02-09 12:34:08.779 +01:00 [WRN] Failed to process the job '737198da-6902-4bfd-aa8a-ad7d0ec5252a': an exception occurred. Retry attempt 4 of 10 will be performed in 00:03:12.
+System.InvalidOperationException: No service for type 'backend_negosud.Entities.PostgresContext' has been registered.
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at backend_negosud.Services.PanierExpirationService.CleanupExpiredBasketsAsync() in /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud/Services/PanierExpirationService.cs:line 21
+   at InvokeStub_TaskAwaiter.GetResult(Object, Object, IntPtr*)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+2025-02-09 12:34:08.789 +01:00 [WRN] Failed to process the job '60239355-c7f7-41f6-a7e2-1f9b0132ad22': an exception occurred. Retry attempt 4 of 10 will be performed in 00:02:12.
+System.InvalidOperationException: No service for type 'backend_negosud.Entities.PostgresContext' has been registered.
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at backend_negosud.Services.PanierExpirationService.CleanupExpiredBasketsAsync() in /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud/Services/PanierExpirationService.cs:line 21
+   at InvokeStub_TaskAwaiter.GetResult(Object, Object, IntPtr*)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+2025-02-09 12:34:08.835 +01:00 [WRN] Failed to process the job '38737dd6-dced-4160-8334-824ac0148038': an exception occurred. Retry attempt 1 of 10 will be performed in 00:00:29.
+System.InvalidOperationException: No service for type 'backend_negosud.Entities.PostgresContext' has been registered.
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at backend_negosud.Services.PanierExpirationService.CleanupExpiredBasketsAsync() in /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud/Services/PanierExpirationService.cs:line 21
+   at InvokeStub_TaskAwaiter.GetResult(Object, Object, IntPtr*)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+2025-02-09 12:34:38.772 +01:00 [WRN] Failed to process the job '57f0c236-c9b3-4762-adf8-7aa41f12a3a9': an exception occurred. Retry attempt 5 of 10 will be performed in 00:04:46.
+System.InvalidOperationException: No service for type 'backend_negosud.Entities.PostgresContext' has been registered.
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at backend_negosud.Services.PanierExpirationService.CleanupExpiredBasketsAsync() in /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud/Services/PanierExpirationService.cs:line 21
+   at InvokeStub_TaskAwaiter.GetResult(Object, Object, IntPtr*)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+2025-02-09 12:34:38.772 +01:00 [WRN] Failed to process the job '38737dd6-dced-4160-8334-824ac0148038': an exception occurred. Retry attempt 2 of 10 will be performed in 00:00:40.
+System.InvalidOperationException: No service for type 'backend_negosud.Entities.PostgresContext' has been registered.
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at backend_negosud.Services.PanierExpirationService.CleanupExpiredBasketsAsync() in /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud/Services/PanierExpirationService.cs:line 21
+   at InvokeStub_TaskAwaiter.GetResult(Object, Object, IntPtr*)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+2025-02-09 12:34:38.772 +01:00 [WRN] Failed to process the job 'db609b6a-7408-4c56-8fb8-c63694714ff4': an exception occurred. Retry attempt 3 of 10 will be performed in 00:01:13.
+System.InvalidOperationException: No service for type 'backend_negosud.Entities.PostgresContext' has been registered.
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at backend_negosud.Services.PanierExpirationService.CleanupExpiredBasketsAsync() in /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud/Services/PanierExpirationService.cs:line 21
+   at InvokeStub_TaskAwaiter.GetResult(Object, Object, IntPtr*)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+2025-02-09 12:35:08.779 +01:00 [WRN] Failed to process the job '4941ce9c-6946-43c7-83d7-a547b06781fa': an exception occurred. Retry attempt 6 of 10 will be performed in 00:11:40.
+System.InvalidOperationException: No service for type 'backend_negosud.Entities.PostgresContext' has been registered.
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at backend_negosud.Services.PanierExpirationService.CleanupExpiredBasketsAsync() in /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud/Services/PanierExpirationService.cs:line 21
+   at InvokeStub_TaskAwaiter.GetResult(Object, Object, IntPtr*)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+2025-02-09 12:35:08.831 +01:00 [WRN] Failed to process the job '3054e3ea-9b35-4ffa-9f86-eabe19435147': an exception occurred. Retry attempt 1 of 10 will be performed in 00:00:38.
+System.InvalidOperationException: No service for type 'backend_negosud.Entities.PostgresContext' has been registered.
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at backend_negosud.Services.PanierExpirationService.CleanupExpiredBasketsAsync() in /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud/Services/PanierExpirationService.cs:line 21
+   at InvokeStub_TaskAwaiter.GetResult(Object, Object, IntPtr*)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+2025-02-09 12:35:23.783 +01:00 [WRN] Failed to process the job '2ead9481-6091-4719-b5f2-53ea24fae28a': an exception occurred. Retry attempt 5 of 10 will be performed in 00:06:56.
+System.InvalidOperationException: No service for type 'backend_negosud.Entities.PostgresContext' has been registered.
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at backend_negosud.Services.PanierExpirationService.CleanupExpiredBasketsAsync() in /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud/Services/PanierExpirationService.cs:line 21
+   at InvokeStub_TaskAwaiter.GetResult(Object, Object, IntPtr*)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+2025-02-09 12:35:23.783 +01:00 [WRN] Failed to process the job '38737dd6-dced-4160-8334-824ac0148038': an exception occurred. Retry attempt 3 of 10 will be performed in 00:00:43.
+System.InvalidOperationException: No service for type 'backend_negosud.Entities.PostgresContext' has been registered.
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at backend_negosud.Services.PanierExpirationService.CleanupExpiredBasketsAsync() in /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud/Services/PanierExpirationService.cs:line 21
+   at InvokeStub_TaskAwaiter.GetResult(Object, Object, IntPtr*)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+2025-02-09 12:35:53.794 +01:00 [WRN] Failed to process the job '3054e3ea-9b35-4ffa-9f86-eabe19435147': an exception occurred. Retry attempt 2 of 10 will be performed in 00:00:40.
+System.InvalidOperationException: No service for type 'backend_negosud.Entities.PostgresContext' has been registered.
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at backend_negosud.Services.PanierExpirationService.CleanupExpiredBasketsAsync() in /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud/Services/PanierExpirationService.cs:line 21
+   at InvokeStub_TaskAwaiter.GetResult(Object, Object, IntPtr*)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+2025-02-09 12:35:53.795 +01:00 [WRN] Failed to process the job 'db609b6a-7408-4c56-8fb8-c63694714ff4': an exception occurred. Retry attempt 4 of 10 will be performed in 00:02:16.
+System.InvalidOperationException: No service for type 'backend_negosud.Entities.PostgresContext' has been registered.
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at backend_negosud.Services.PanierExpirationService.CleanupExpiredBasketsAsync() in /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud/Services/PanierExpirationService.cs:line 21
+   at InvokeStub_TaskAwaiter.GetResult(Object, Object, IntPtr*)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+2025-02-09 12:36:08.795 +01:00 [WRN] Failed to process the job '38737dd6-dced-4160-8334-824ac0148038': an exception occurred. Retry attempt 4 of 10 will be performed in 00:02:56.
+System.InvalidOperationException: No service for type 'backend_negosud.Entities.PostgresContext' has been registered.
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at backend_negosud.Services.PanierExpirationService.CleanupExpiredBasketsAsync() in /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud/Services/PanierExpirationService.cs:line 21
+   at InvokeStub_TaskAwaiter.GetResult(Object, Object, IntPtr*)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+2025-02-09 12:36:08.844 +01:00 [WRN] Failed to process the job '3a700151-eb13-49b6-8b0d-49312b76b90b': an exception occurred. Retry attempt 1 of 10 will be performed in 00:00:34.
+System.InvalidOperationException: No service for type 'backend_negosud.Entities.PostgresContext' has been registered.
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at backend_negosud.Services.PanierExpirationService.CleanupExpiredBasketsAsync() in /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud/Services/PanierExpirationService.cs:line 21
+   at InvokeStub_TaskAwaiter.GetResult(Object, Object, IntPtr*)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+2025-02-09 12:36:23.789 +01:00 [WRN] Failed to process the job '60239355-c7f7-41f6-a7e2-1f9b0132ad22': an exception occurred. Retry attempt 5 of 10 will be performed in 00:04:51.
+System.InvalidOperationException: No service for type 'backend_negosud.Entities.PostgresContext' has been registered.
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at backend_negosud.Services.PanierExpirationService.CleanupExpiredBasketsAsync() in /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud/Services/PanierExpirationService.cs:line 21
+   at InvokeStub_TaskAwaiter.GetResult(Object, Object, IntPtr*)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+2025-02-09 12:36:23.795 +01:00 [WRN] Failed to process the job '26df63c7-5834-495a-b4ec-78136e6d1fdc': an exception occurred. Retry attempt 6 of 10 will be performed in 00:12:40.
+System.InvalidOperationException: No service for type 'backend_negosud.Entities.PostgresContext' has been registered.
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at backend_negosud.Services.PanierExpirationService.CleanupExpiredBasketsAsync() in /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud/Services/PanierExpirationService.cs:line 21
+   at InvokeStub_TaskAwaiter.GetResult(Object, Object, IntPtr*)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+2025-02-09 12:36:23.795 +01:00 [WRN] Failed to process the job '5b538b9f-1501-4e6f-adf7-b0591820d7b8': an exception occurred. Retry attempt 6 of 10 will be performed in 00:12:52.
+System.InvalidOperationException: No service for type 'backend_negosud.Entities.PostgresContext' has been registered.
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at backend_negosud.Services.PanierExpirationService.CleanupExpiredBasketsAsync() in /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud/Services/PanierExpirationService.cs:line 21
+   at InvokeStub_TaskAwaiter.GetResult(Object, Object, IntPtr*)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+2025-02-09 12:37:07.305 +01:00 [WRN] Failed to process the job '3a700151-eb13-49b6-8b0d-49312b76b90b': an exception occurred. Retry attempt 2 of 10 will be performed in 00:00:42.
+System.InvalidOperationException: No service for type 'backend_negosud.Entities.PostgresContext' has been registered.
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at backend_negosud.Services.PanierExpirationService.CleanupExpiredBasketsAsync() in /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud/Services/PanierExpirationService.cs:line 21
+   at InvokeStub_TaskAwaiter.GetResult(Object, Object, IntPtr*)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+2025-02-09 12:37:07.305 +01:00 [WRN] Failed to process the job '3054e3ea-9b35-4ffa-9f86-eabe19435147': an exception occurred. Retry attempt 3 of 10 will be performed in 00:01:31.
+System.InvalidOperationException: No service for type 'backend_negosud.Entities.PostgresContext' has been registered.
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at backend_negosud.Services.PanierExpirationService.CleanupExpiredBasketsAsync() in /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud/Services/PanierExpirationService.cs:line 21
+   at InvokeStub_TaskAwaiter.GetResult(Object, Object, IntPtr*)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+2025-02-09 12:37:07.343 +01:00 [WRN] Failed to process the job '0fca07fd-fb58-42e9-a53d-04489bebfdae': an exception occurred. Retry attempt 1 of 10 will be performed in 00:00:15.
+System.InvalidOperationException: No service for type 'backend_negosud.Entities.PostgresContext' has been registered.
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at backend_negosud.Services.PanierExpirationService.CleanupExpiredBasketsAsync() in /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud/Services/PanierExpirationService.cs:line 21
+   at InvokeStub_TaskAwaiter.GetResult(Object, Object, IntPtr*)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+2025-02-09 12:37:22.294 +01:00 [WRN] Failed to process the job '737198da-6902-4bfd-aa8a-ad7d0ec5252a': an exception occurred. Retry attempt 5 of 10 will be performed in 00:06:41.
+System.InvalidOperationException: No service for type 'backend_negosud.Entities.PostgresContext' has been registered.
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at backend_negosud.Services.PanierExpirationService.CleanupExpiredBasketsAsync() in /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud/Services/PanierExpirationService.cs:line 21
+   at InvokeStub_TaskAwaiter.GetResult(Object, Object, IntPtr*)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+2025-02-09 12:37:22.296 +01:00 [WRN] Failed to process the job '0fca07fd-fb58-42e9-a53d-04489bebfdae': an exception occurred. Retry attempt 2 of 10 will be performed in 00:01:10.
+System.InvalidOperationException: No service for type 'backend_negosud.Entities.PostgresContext' has been registered.
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at backend_negosud.Services.PanierExpirationService.CleanupExpiredBasketsAsync() in /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud/Services/PanierExpirationService.cs:line 21
+   at InvokeStub_TaskAwaiter.GetResult(Object, Object, IntPtr*)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+2025-02-09 12:37:22.298 +01:00 [WRN] Failed to process the job 'dc683a86-045e-4e0d-811c-0597f03c8202': an exception occurred. Retry attempt 6 of 10 will be performed in 00:13:10.
+System.InvalidOperationException: No service for type 'backend_negosud.Entities.PostgresContext' has been registered.
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at backend_negosud.Services.PanierExpirationService.CleanupExpiredBasketsAsync() in /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud/Services/PanierExpirationService.cs:line 21
+   at InvokeStub_TaskAwaiter.GetResult(Object, Object, IntPtr*)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+2025-02-09 12:42:00.727 +01:00 [WRN] Failed to process the job '60239355-c7f7-41f6-a7e2-1f9b0132ad22': an exception occurred. Retry attempt 6 of 10 will be performed in 00:12:28.
+System.InvalidOperationException: No service for type 'backend_negosud.Entities.PostgresContext' has been registered.
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at backend_negosud.Services.PanierExpirationService.CleanupExpiredBasketsAsync() in /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud/Services/PanierExpirationService.cs:line 21
+   at InvokeStub_TaskAwaiter.GetResult(Object, Object, IntPtr*)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+2025-02-09 12:42:00.727 +01:00 [WRN] Failed to process the job 'b2cd5b42-a567-4705-a170-9e7042abf332': an exception occurred. Retry attempt 6 of 10 will be performed in 00:11:04.
+System.InvalidOperationException: No service for type 'backend_negosud.Entities.PostgresContext' has been registered.
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at backend_negosud.Services.PanierExpirationService.CleanupExpiredBasketsAsync() in /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud/Services/PanierExpirationService.cs:line 21
+   at InvokeStub_TaskAwaiter.GetResult(Object, Object, IntPtr*)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+2025-02-09 12:42:00.727 +01:00 [WRN] Failed to process the job '3054e3ea-9b35-4ffa-9f86-eabe19435147': an exception occurred. Retry attempt 4 of 10 will be performed in 00:02:48.
+System.InvalidOperationException: No service for type 'backend_negosud.Entities.PostgresContext' has been registered.
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at backend_negosud.Services.PanierExpirationService.CleanupExpiredBasketsAsync() in /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud/Services/PanierExpirationService.cs:line 21
+   at InvokeStub_TaskAwaiter.GetResult(Object, Object, IntPtr*)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+2025-02-09 12:42:00.727 +01:00 [WRN] Failed to process the job '57f0c236-c9b3-4762-adf8-7aa41f12a3a9': an exception occurred. Retry attempt 6 of 10 will be performed in 00:11:22.
+System.InvalidOperationException: No service for type 'backend_negosud.Entities.PostgresContext' has been registered.
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at backend_negosud.Services.PanierExpirationService.CleanupExpiredBasketsAsync() in /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud/Services/PanierExpirationService.cs:line 21
+   at InvokeStub_TaskAwaiter.GetResult(Object, Object, IntPtr*)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+2025-02-09 12:42:00.727 +01:00 [WRN] Failed to process the job '38737dd6-dced-4160-8334-824ac0148038': an exception occurred. Retry attempt 5 of 10 will be performed in 00:05:56.
+System.InvalidOperationException: No service for type 'backend_negosud.Entities.PostgresContext' has been registered.
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at backend_negosud.Services.PanierExpirationService.CleanupExpiredBasketsAsync() in /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud/Services/PanierExpirationService.cs:line 21
+   at InvokeStub_TaskAwaiter.GetResult(Object, Object, IntPtr*)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+2025-02-09 12:42:00.727 +01:00 [WRN] Failed to process the job '0fca07fd-fb58-42e9-a53d-04489bebfdae': an exception occurred. Retry attempt 3 of 10 will be performed in 00:00:46.
+System.InvalidOperationException: No service for type 'backend_negosud.Entities.PostgresContext' has been registered.
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at backend_negosud.Services.PanierExpirationService.CleanupExpiredBasketsAsync() in /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud/Services/PanierExpirationService.cs:line 21
+   at InvokeStub_TaskAwaiter.GetResult(Object, Object, IntPtr*)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+2025-02-09 12:42:00.727 +01:00 [WRN] Failed to process the job '3a700151-eb13-49b6-8b0d-49312b76b90b': an exception occurred. Retry attempt 3 of 10 will be performed in 00:01:10.
+System.InvalidOperationException: No service for type 'backend_negosud.Entities.PostgresContext' has been registered.
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at backend_negosud.Services.PanierExpirationService.CleanupExpiredBasketsAsync() in /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud/Services/PanierExpirationService.cs:line 21
+   at InvokeStub_TaskAwaiter.GetResult(Object, Object, IntPtr*)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+2025-02-09 12:42:00.727 +01:00 [WRN] Failed to process the job '3c220b12-9b4e-4b3c-824a-1741adde8448': an exception occurred. Retry attempt 6 of 10 will be performed in 00:12:04.
+System.InvalidOperationException: No service for type 'backend_negosud.Entities.PostgresContext' has been registered.
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at backend_negosud.Services.PanierExpirationService.CleanupExpiredBasketsAsync() in /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud/Services/PanierExpirationService.cs:line 21
+   at InvokeStub_TaskAwaiter.GetResult(Object, Object, IntPtr*)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+2025-02-09 12:42:00.727 +01:00 [WRN] Failed to process the job 'db609b6a-7408-4c56-8fb8-c63694714ff4': an exception occurred. Retry attempt 5 of 10 will be performed in 00:05:31.
+System.InvalidOperationException: No service for type 'backend_negosud.Entities.PostgresContext' has been registered.
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at backend_negosud.Services.PanierExpirationService.CleanupExpiredBasketsAsync() in /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud/Services/PanierExpirationService.cs:line 21
+   at InvokeStub_TaskAwaiter.GetResult(Object, Object, IntPtr*)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+2025-02-09 12:42:00.765 +01:00 [WRN] Failed to process the job 'c2520e94-b8df-46ce-ae6b-d3fc57c23026': an exception occurred. Retry attempt 1 of 10 will be performed in 00:00:33.
+System.InvalidOperationException: No service for type 'backend_negosud.Entities.PostgresContext' has been registered.
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at backend_negosud.Services.PanierExpirationService.CleanupExpiredBasketsAsync() in /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud/Services/PanierExpirationService.cs:line 21
+   at InvokeStub_TaskAwaiter.GetResult(Object, Object, IntPtr*)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+2025-02-09 12:42:30.732 +01:00 [WRN] Failed to process the job '2ead9481-6091-4719-b5f2-53ea24fae28a': an exception occurred. Retry attempt 6 of 10 will be performed in 00:11:58.
+System.InvalidOperationException: No service for type 'backend_negosud.Entities.PostgresContext' has been registered.
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at backend_negosud.Services.PanierExpirationService.CleanupExpiredBasketsAsync() in /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud/Services/PanierExpirationService.cs:line 21
+   at InvokeStub_TaskAwaiter.GetResult(Object, Object, IntPtr*)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+2025-02-09 12:42:45.733 +01:00 [WRN] Failed to process the job 'c2520e94-b8df-46ce-ae6b-d3fc57c23026': an exception occurred. Retry attempt 2 of 10 will be performed in 00:01:10.
+System.InvalidOperationException: No service for type 'backend_negosud.Entities.PostgresContext' has been registered.
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at backend_negosud.Services.PanierExpirationService.CleanupExpiredBasketsAsync() in /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud/Services/PanierExpirationService.cs:line 21
+   at InvokeStub_TaskAwaiter.GetResult(Object, Object, IntPtr*)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+2025-02-09 12:43:00.750 +01:00 [WRN] Failed to process the job '0fca07fd-fb58-42e9-a53d-04489bebfdae': an exception occurred. Retry attempt 4 of 10 will be performed in 00:02:32.
+System.InvalidOperationException: No service for type 'backend_negosud.Entities.PostgresContext' has been registered.
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at backend_negosud.Services.PanierExpirationService.CleanupExpiredBasketsAsync() in /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud/Services/PanierExpirationService.cs:line 21
+   at InvokeStub_TaskAwaiter.GetResult(Object, Object, IntPtr*)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+2025-02-09 12:43:00.760 +01:00 [WRN] Failed to process the job '7797a73f-9ce4-4781-8658-25057ad1f7ce': an exception occurred. Retry attempt 1 of 10 will be performed in 00:00:24.
+System.InvalidOperationException: No service for type 'backend_negosud.Entities.PostgresContext' has been registered.
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at backend_negosud.Services.PanierExpirationService.CleanupExpiredBasketsAsync() in /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud/Services/PanierExpirationService.cs:line 21
+   at InvokeStub_TaskAwaiter.GetResult(Object, Object, IntPtr*)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+2025-02-09 12:43:15.753 +01:00 [WRN] Failed to process the job '3a700151-eb13-49b6-8b0d-49312b76b90b': an exception occurred. Retry attempt 4 of 10 will be performed in 00:02:04.
+System.InvalidOperationException: No service for type 'backend_negosud.Entities.PostgresContext' has been registered.
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at backend_negosud.Services.PanierExpirationService.CleanupExpiredBasketsAsync() in /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud/Services/PanierExpirationService.cs:line 21
+   at InvokeStub_TaskAwaiter.GetResult(Object, Object, IntPtr*)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+2025-02-09 12:43:30.752 +01:00 [WRN] Failed to process the job '7797a73f-9ce4-4781-8658-25057ad1f7ce': an exception occurred. Retry attempt 2 of 10 will be performed in 00:00:52.
+System.InvalidOperationException: No service for type 'backend_negosud.Entities.PostgresContext' has been registered.
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at backend_negosud.Services.PanierExpirationService.CleanupExpiredBasketsAsync() in /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud/Services/PanierExpirationService.cs:line 21
+   at InvokeStub_TaskAwaiter.GetResult(Object, Object, IntPtr*)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+2025-02-09 12:44:00.755 +01:00 [WRN] Failed to process the job 'c2520e94-b8df-46ce-ae6b-d3fc57c23026': an exception occurred. Retry attempt 3 of 10 will be performed in 00:01:28.
+System.InvalidOperationException: No service for type 'backend_negosud.Entities.PostgresContext' has been registered.
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at backend_negosud.Services.PanierExpirationService.CleanupExpiredBasketsAsync() in /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud/Services/PanierExpirationService.cs:line 21
+   at InvokeStub_TaskAwaiter.GetResult(Object, Object, IntPtr*)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+2025-02-09 12:44:00.763 +01:00 [WRN] Failed to process the job '4a0bb7d9-0708-4704-b07a-84098407c72d': an exception occurred. Retry attempt 1 of 10 will be performed in 00:00:36.
+System.InvalidOperationException: No service for type 'backend_negosud.Entities.PostgresContext' has been registered.
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at backend_negosud.Services.PanierExpirationService.CleanupExpiredBasketsAsync() in /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud/Services/PanierExpirationService.cs:line 21
+   at InvokeStub_TaskAwaiter.GetResult(Object, Object, IntPtr*)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+2025-02-09 12:44:15.755 +01:00 [WRN] Failed to process the job '737198da-6902-4bfd-aa8a-ad7d0ec5252a': an exception occurred. Retry attempt 6 of 10 will be performed in 00:13:10.
+System.InvalidOperationException: No service for type 'backend_negosud.Entities.PostgresContext' has been registered.
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at backend_negosud.Services.PanierExpirationService.CleanupExpiredBasketsAsync() in /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud/Services/PanierExpirationService.cs:line 21
+   at InvokeStub_TaskAwaiter.GetResult(Object, Object, IntPtr*)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+2025-02-09 12:44:30.755 +01:00 [WRN] Failed to process the job '7797a73f-9ce4-4781-8658-25057ad1f7ce': an exception occurred. Retry attempt 3 of 10 will be performed in 00:01:16.
+System.InvalidOperationException: No service for type 'backend_negosud.Entities.PostgresContext' has been registered.
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at backend_negosud.Services.PanierExpirationService.CleanupExpiredBasketsAsync() in /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud/Services/PanierExpirationService.cs:line 21
+   at InvokeStub_TaskAwaiter.GetResult(Object, Object, IntPtr*)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+2025-02-09 12:44:45.756 +01:00 [WRN] Failed to process the job '4a0bb7d9-0708-4704-b07a-84098407c72d': an exception occurred. Retry attempt 2 of 10 will be performed in 00:00:58.
+System.InvalidOperationException: No service for type 'backend_negosud.Entities.PostgresContext' has been registered.
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at backend_negosud.Services.PanierExpirationService.CleanupExpiredBasketsAsync() in /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud/Services/PanierExpirationService.cs:line 21
+   at InvokeStub_TaskAwaiter.GetResult(Object, Object, IntPtr*)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+2025-02-09 12:45:00.757 +01:00 [WRN] Failed to process the job '3054e3ea-9b35-4ffa-9f86-eabe19435147': an exception occurred. Retry attempt 5 of 10 will be performed in 00:06:11.
+System.InvalidOperationException: No service for type 'backend_negosud.Entities.PostgresContext' has been registered.
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at backend_negosud.Services.PanierExpirationService.CleanupExpiredBasketsAsync() in /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud/Services/PanierExpirationService.cs:line 21
+   at InvokeStub_TaskAwaiter.GetResult(Object, Object, IntPtr*)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+2025-02-09 12:45:00.767 +01:00 [WRN] Failed to process the job '55180aba-3ea0-4151-9877-ed78b66f5a3f': an exception occurred. Retry attempt 1 of 10 will be performed in 00:00:26.
+System.InvalidOperationException: No service for type 'backend_negosud.Entities.PostgresContext' has been registered.
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at backend_negosud.Services.PanierExpirationService.CleanupExpiredBasketsAsync() in /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud/Services/PanierExpirationService.cs:line 21
+   at InvokeStub_TaskAwaiter.GetResult(Object, Object, IntPtr*)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+2025-02-09 12:45:30.763 +01:00 [WRN] Failed to process the job '3a700151-eb13-49b6-8b0d-49312b76b90b': an exception occurred. Retry attempt 5 of 10 will be performed in 00:06:26.
+System.InvalidOperationException: No service for type 'backend_negosud.Entities.PostgresContext' has been registered.
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at backend_negosud.Services.PanierExpirationService.CleanupExpiredBasketsAsync() in /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud/Services/PanierExpirationService.cs:line 21
+   at InvokeStub_TaskAwaiter.GetResult(Object, Object, IntPtr*)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+2025-02-09 12:45:30.763 +01:00 [WRN] Failed to process the job '55180aba-3ea0-4151-9877-ed78b66f5a3f': an exception occurred. Retry attempt 2 of 10 will be performed in 00:00:26.
+System.InvalidOperationException: No service for type 'backend_negosud.Entities.PostgresContext' has been registered.
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at backend_negosud.Services.PanierExpirationService.CleanupExpiredBasketsAsync() in /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud/Services/PanierExpirationService.cs:line 21
+   at InvokeStub_TaskAwaiter.GetResult(Object, Object, IntPtr*)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+2025-02-09 12:45:30.763 +01:00 [WRN] Failed to process the job 'c2520e94-b8df-46ce-ae6b-d3fc57c23026': an exception occurred. Retry attempt 4 of 10 will be performed in 00:02:12.
+System.InvalidOperationException: No service for type 'backend_negosud.Entities.PostgresContext' has been registered.
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at backend_negosud.Services.PanierExpirationService.CleanupExpiredBasketsAsync() in /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud/Services/PanierExpirationService.cs:line 21
+   at InvokeStub_TaskAwaiter.GetResult(Object, Object, IntPtr*)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+2025-02-09 12:45:45.761 +01:00 [WRN] Failed to process the job '0fca07fd-fb58-42e9-a53d-04489bebfdae': an exception occurred. Retry attempt 5 of 10 will be performed in 00:04:51.
+System.InvalidOperationException: No service for type 'backend_negosud.Entities.PostgresContext' has been registered.
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at backend_negosud.Services.PanierExpirationService.CleanupExpiredBasketsAsync() in /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud/Services/PanierExpirationService.cs:line 21
+   at InvokeStub_TaskAwaiter.GetResult(Object, Object, IntPtr*)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+2025-02-09 12:45:45.761 +01:00 [WRN] Failed to process the job '4a0bb7d9-0708-4704-b07a-84098407c72d': an exception occurred. Retry attempt 3 of 10 will be performed in 00:01:34.
+System.InvalidOperationException: No service for type 'backend_negosud.Entities.PostgresContext' has been registered.
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at backend_negosud.Services.PanierExpirationService.CleanupExpiredBasketsAsync() in /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud/Services/PanierExpirationService.cs:line 21
+   at InvokeStub_TaskAwaiter.GetResult(Object, Object, IntPtr*)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+2025-02-09 12:46:00.762 +01:00 [WRN] Failed to process the job '7797a73f-9ce4-4781-8658-25057ad1f7ce': an exception occurred. Retry attempt 4 of 10 will be performed in 00:03:16.
+System.InvalidOperationException: No service for type 'backend_negosud.Entities.PostgresContext' has been registered.
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at backend_negosud.Services.PanierExpirationService.CleanupExpiredBasketsAsync() in /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud/Services/PanierExpirationService.cs:line 21
+   at InvokeStub_TaskAwaiter.GetResult(Object, Object, IntPtr*)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+2025-02-09 12:46:00.762 +01:00 [WRN] Failed to process the job '55180aba-3ea0-4151-9877-ed78b66f5a3f': an exception occurred. Retry attempt 3 of 10 will be performed in 00:00:37.
+System.InvalidOperationException: No service for type 'backend_negosud.Entities.PostgresContext' has been registered.
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at backend_negosud.Services.PanierExpirationService.CleanupExpiredBasketsAsync() in /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud/Services/PanierExpirationService.cs:line 21
+   at InvokeStub_TaskAwaiter.GetResult(Object, Object, IntPtr*)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+2025-02-09 12:46:00.772 +01:00 [WRN] Failed to process the job 'a8842f8c-4954-433b-ba57-f635a1fd7e13': an exception occurred. Retry attempt 1 of 10 will be performed in 00:00:15.
+System.InvalidOperationException: No service for type 'backend_negosud.Entities.PostgresContext' has been registered.
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at backend_negosud.Services.PanierExpirationService.CleanupExpiredBasketsAsync() in /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud/Services/PanierExpirationService.cs:line 21
+   at InvokeStub_TaskAwaiter.GetResult(Object, Object, IntPtr*)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+2025-02-09 12:46:15.763 +01:00 [WRN] Failed to process the job 'a8842f8c-4954-433b-ba57-f635a1fd7e13': an exception occurred. Retry attempt 2 of 10 will be performed in 00:00:30.
+System.InvalidOperationException: No service for type 'backend_negosud.Entities.PostgresContext' has been registered.
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at backend_negosud.Services.PanierExpirationService.CleanupExpiredBasketsAsync() in /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud/Services/PanierExpirationService.cs:line 21
+   at InvokeStub_TaskAwaiter.GetResult(Object, Object, IntPtr*)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+2025-02-09 12:46:45.766 +01:00 [WRN] Failed to process the job '55180aba-3ea0-4151-9877-ed78b66f5a3f': an exception occurred. Retry attempt 4 of 10 will be performed in 00:03:32.
+System.InvalidOperationException: No service for type 'backend_negosud.Entities.PostgresContext' has been registered.
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at backend_negosud.Services.PanierExpirationService.CleanupExpiredBasketsAsync() in /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud/Services/PanierExpirationService.cs:line 21
+   at InvokeStub_TaskAwaiter.GetResult(Object, Object, IntPtr*)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+2025-02-09 12:46:45.766 +01:00 [WRN] Failed to process the job 'a8842f8c-4954-433b-ba57-f635a1fd7e13': an exception occurred. Retry attempt 3 of 10 will be performed in 00:01:31.
+System.InvalidOperationException: No service for type 'backend_negosud.Entities.PostgresContext' has been registered.
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at backend_negosud.Services.PanierExpirationService.CleanupExpiredBasketsAsync() in /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud/Services/PanierExpirationService.cs:line 21
+   at InvokeStub_TaskAwaiter.GetResult(Object, Object, IntPtr*)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+2025-02-09 12:47:00.767 +01:00 [WRN] Failed to process the job '4941ce9c-6946-43c7-83d7-a547b06781fa': an exception occurred. Retry attempt 7 of 10 will be performed in 00:25:14.
+System.InvalidOperationException: No service for type 'backend_negosud.Entities.PostgresContext' has been registered.
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at backend_negosud.Services.PanierExpirationService.CleanupExpiredBasketsAsync() in /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud/Services/PanierExpirationService.cs:line 21
+   at InvokeStub_TaskAwaiter.GetResult(Object, Object, IntPtr*)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+2025-02-09 12:47:00.777 +01:00 [WRN] Failed to process the job '7cd3064a-b97a-49c6-81a1-9b36ab788d76': an exception occurred. Retry attempt 1 of 10 will be performed in 00:00:41.
+System.InvalidOperationException: No service for type 'backend_negosud.Entities.PostgresContext' has been registered.
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at backend_negosud.Services.PanierExpirationService.CleanupExpiredBasketsAsync() in /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud/Services/PanierExpirationService.cs:line 21
+   at InvokeStub_TaskAwaiter.GetResult(Object, Object, IntPtr*)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+2025-02-09 12:47:30.782 +01:00 [WRN] Failed to process the job '4a0bb7d9-0708-4704-b07a-84098407c72d': an exception occurred. Retry attempt 4 of 10 will be performed in 00:02:08.
+System.InvalidOperationException: No service for type 'backend_negosud.Entities.PostgresContext' has been registered.
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at backend_negosud.Services.PanierExpirationService.CleanupExpiredBasketsAsync() in /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud/Services/PanierExpirationService.cs:line 21
+   at InvokeStub_TaskAwaiter.GetResult(Object, Object, IntPtr*)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+2025-02-09 12:47:31.777 +01:00 [INF] Execution DelayedJobScheduler recovered from the Faulted state after 00:00:16.0036104 and is in the Running state now
+2025-02-09 12:47:31.778 +01:00 [WRN] Failed to process the job 'db609b6a-7408-4c56-8fb8-c63694714ff4': an exception occurred. Retry attempt 6 of 10 will be performed in 00:12:10.
+System.InvalidOperationException: No service for type 'backend_negosud.Entities.PostgresContext' has been registered.
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at backend_negosud.Services.PanierExpirationService.CleanupExpiredBasketsAsync() in /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud/Services/PanierExpirationService.cs:line 21
+   at InvokeStub_TaskAwaiter.GetResult(Object, Object, IntPtr*)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+2025-02-09 12:47:45.777 +01:00 [WRN] Failed to process the job 'c2520e94-b8df-46ce-ae6b-d3fc57c23026': an exception occurred. Retry attempt 5 of 10 will be performed in 00:04:46.
+System.InvalidOperationException: No service for type 'backend_negosud.Entities.PostgresContext' has been registered.
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at backend_negosud.Services.PanierExpirationService.CleanupExpiredBasketsAsync() in /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud/Services/PanierExpirationService.cs:line 21
+   at InvokeStub_TaskAwaiter.GetResult(Object, Object, IntPtr*)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+2025-02-09 12:47:45.777 +01:00 [WRN] Failed to process the job '7cd3064a-b97a-49c6-81a1-9b36ab788d76': an exception occurred. Retry attempt 2 of 10 will be performed in 00:00:42.
+System.InvalidOperationException: No service for type 'backend_negosud.Entities.PostgresContext' has been registered.
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at backend_negosud.Services.PanierExpirationService.CleanupExpiredBasketsAsync() in /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud/Services/PanierExpirationService.cs:line 21
+   at InvokeStub_TaskAwaiter.GetResult(Object, Object, IntPtr*)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+2025-02-09 12:48:00.778 +01:00 [WRN] Failed to process the job '38737dd6-dced-4160-8334-824ac0148038': an exception occurred. Retry attempt 6 of 10 will be performed in 00:10:52.
+System.InvalidOperationException: No service for type 'backend_negosud.Entities.PostgresContext' has been registered.
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at backend_negosud.Services.PanierExpirationService.CleanupExpiredBasketsAsync() in /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud/Services/PanierExpirationService.cs:line 21
+   at InvokeStub_TaskAwaiter.GetResult(Object, Object, IntPtr*)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+2025-02-09 12:48:00.781 +01:00 [WRN] Failed to process the job 'c25ddb78-398e-44cd-9c1b-2cd89ffcb79c': an exception occurred. Retry attempt 1 of 10 will be performed in 00:00:38.
+System.InvalidOperationException: No service for type 'backend_negosud.Entities.PostgresContext' has been registered.
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at backend_negosud.Services.PanierExpirationService.CleanupExpiredBasketsAsync() in /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud/Services/PanierExpirationService.cs:line 21
+   at InvokeStub_TaskAwaiter.GetResult(Object, Object, IntPtr*)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+2025-02-09 12:48:16.781 +01:00 [WRN] Failed to process the job 'a8842f8c-4954-433b-ba57-f635a1fd7e13': an exception occurred. Retry attempt 4 of 10 will be performed in 00:02:04.
+System.InvalidOperationException: No service for type 'backend_negosud.Entities.PostgresContext' has been registered.
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at backend_negosud.Services.PanierExpirationService.CleanupExpiredBasketsAsync() in /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud/Services/PanierExpirationService.cs:line 21
+   at InvokeStub_TaskAwaiter.GetResult(Object, Object, IntPtr*)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+2025-02-09 12:52:00.066 +01:00 [INF] Executed DbCommand (15ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM client AS c)
+2025-02-09 12:52:00.163 +01:00 [INF] Starting Hangfire Server using job storage: 'Hangfire.MemoryStorage.MemoryStorage'
+2025-02-09 12:52:00.164 +01:00 [INF] Using the following options for Hangfire Server:
+    Worker count: 20
+    Listening queues: 'default'
+    Shutdown timeout: 00:00:15
+    Schedule polling interval: 00:00:15
+2025-02-09 12:52:00.220 +01:00 [INF] Server macbookpro:64197:31c04960 successfully announced in 49,0627 ms
+2025-02-09 12:52:00.222 +01:00 [INF] Server macbookpro:64197:31c04960 is starting the registered dispatchers: ServerWatchdog, ServerJobCancellationWatcher, ExpirationManager, CountersAggregator, Worker, DelayedJobScheduler, RecurringJobScheduler...
+2025-02-09 12:52:00.232 +01:00 [INF] Server macbookpro:64197:31c04960 all the dispatchers started
+2025-02-09 12:52:00.286 +01:00 [INF] User profile is available. Using '/Users/yoann/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-02-09 12:52:00.311 +01:00 [WRN] Failed to process the job 'd668e8cd-66dd-4f1c-ba24-dcd1aea1a32f': an exception occurred. Retry attempt 1 of 10 will be performed in 00:00:20.
+System.ArgumentNullException: Value cannot be null. (Parameter 'provider')
+   at System.ThrowHelper.Throw(String paramName)
+   at System.ThrowHelper.ThrowIfNull(Object argument, String paramName)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.CreateScope(IServiceProvider provider)
+   at backend_negosud.Services.PanierExpirationService.CleanupExpiredBasketsAsync() in /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud/Services/PanierExpirationService.cs:line 19
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+2025-02-09 12:52:00.323 +01:00 [INF] Now listening on: http://localhost:5141
+2025-02-09 12:52:00.324 +01:00 [INF] Starting Hangfire Server using job storage: 'Hangfire.MemoryStorage.MemoryStorage'
+2025-02-09 12:52:00.324 +01:00 [INF] Using the following options for Hangfire Server:
+    Worker count: 20
+    Listening queues: 'default'
+    Shutdown timeout: 00:00:15
+    Schedule polling interval: 00:00:15
+2025-02-09 12:52:00.324 +01:00 [INF] Server macbookpro:64197:7adb02ab successfully announced in 0,0412 ms
+2025-02-09 12:52:00.324 +01:00 [INF] Server macbookpro:64197:7adb02ab is starting the registered dispatchers: ServerWatchdog, ServerJobCancellationWatcher, ExpirationManager, CountersAggregator, Worker, DelayedJobScheduler, RecurringJobScheduler...
+2025-02-09 12:52:00.326 +01:00 [INF] Server macbookpro:64197:7adb02ab all the dispatchers started
+2025-02-09 12:52:00.327 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-02-09 12:52:00.327 +01:00 [INF] Hosting environment: Development
+2025-02-09 12:52:00.327 +01:00 [INF] Content root path: /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud
+2025-02-09 12:52:00.921 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5141/swagger/index.html - null null
+2025-02-09 12:52:01.051 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5141/swagger/index.html - 200 null text/html;charset=utf-8 130.2225ms
+2025-02-09 12:52:01.354 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5141/swagger/v1/swagger.json - null null
+2025-02-09 12:52:01.435 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5141/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 82.243ms
+2025-02-09 12:52:30.256 +01:00 [WRN] Failed to process the job 'd668e8cd-66dd-4f1c-ba24-dcd1aea1a32f': an exception occurred. Retry attempt 2 of 10 will be performed in 00:01:10.
+System.ArgumentNullException: Value cannot be null. (Parameter 'provider')
+   at System.ThrowHelper.Throw(String paramName)
+   at System.ThrowHelper.ThrowIfNull(Object argument, String paramName)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.CreateScope(IServiceProvider provider)
+   at backend_negosud.Services.PanierExpirationService.CleanupExpiredBasketsAsync() in /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud/Services/PanierExpirationService.cs:line 19
+   at InvokeStub_TaskAwaiter.GetResult(Object, Object, IntPtr*)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+2025-02-09 12:53:00.297 +01:00 [WRN] Failed to process the job '8968a9f9-9d89-4b20-b1a3-c91063e6bfd2': an exception occurred. Retry attempt 1 of 10 will be performed in 00:00:41.
+System.ArgumentNullException: Value cannot be null. (Parameter 'provider')
+   at System.ThrowHelper.Throw(String paramName)
+   at System.ThrowHelper.ThrowIfNull(Object argument, String paramName)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.CreateScope(IServiceProvider provider)
+   at backend_negosud.Services.PanierExpirationService.CleanupExpiredBasketsAsync() in /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud/Services/PanierExpirationService.cs:line 19
+   at InvokeStub_TaskAwaiter.GetResult(Object, Object, IntPtr*)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+2025-02-09 12:53:45.261 +01:00 [WRN] Failed to process the job '8968a9f9-9d89-4b20-b1a3-c91063e6bfd2': an exception occurred. Retry attempt 2 of 10 will be performed in 00:01:04.
+System.ArgumentNullException: Value cannot be null. (Parameter 'provider')
+   at System.ThrowHelper.Throw(String paramName)
+   at System.ThrowHelper.ThrowIfNull(Object argument, String paramName)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.CreateScope(IServiceProvider provider)
+   at backend_negosud.Services.PanierExpirationService.CleanupExpiredBasketsAsync() in /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud/Services/PanierExpirationService.cs:line 19
+   at InvokeStub_TaskAwaiter.GetResult(Object, Object, IntPtr*)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+2025-02-09 12:53:45.261 +01:00 [WRN] Failed to process the job 'd668e8cd-66dd-4f1c-ba24-dcd1aea1a32f': an exception occurred. Retry attempt 3 of 10 will be performed in 00:00:43.
+System.ArgumentNullException: Value cannot be null. (Parameter 'provider')
+   at System.ThrowHelper.Throw(String paramName)
+   at System.ThrowHelper.ThrowIfNull(Object argument, String paramName)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.CreateScope(IServiceProvider provider)
+   at backend_negosud.Services.PanierExpirationService.CleanupExpiredBasketsAsync() in /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud/Services/PanierExpirationService.cs:line 19
+   at InvokeStub_TaskAwaiter.GetResult(Object, Object, IntPtr*)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+2025-02-09 12:54:00.304 +01:00 [WRN] Failed to process the job '59dc83d8-04d7-4d71-976e-a79a755925e5': an exception occurred. Retry attempt 1 of 10 will be performed in 00:00:36.
+System.ArgumentNullException: Value cannot be null. (Parameter 'provider')
+   at System.ThrowHelper.Throw(String paramName)
+   at System.ThrowHelper.ThrowIfNull(Object argument, String paramName)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.CreateScope(IServiceProvider provider)
+   at backend_negosud.Services.PanierExpirationService.CleanupExpiredBasketsAsync() in /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud/Services/PanierExpirationService.cs:line 19
+   at InvokeStub_TaskAwaiter.GetResult(Object, Object, IntPtr*)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+2025-02-09 12:54:30.275 +01:00 [WRN] Failed to process the job 'd668e8cd-66dd-4f1c-ba24-dcd1aea1a32f': an exception occurred. Retry attempt 4 of 10 will be performed in 00:02:12.
+System.ArgumentNullException: Value cannot be null. (Parameter 'provider')
+   at System.ThrowHelper.Throw(String paramName)
+   at System.ThrowHelper.ThrowIfNull(Object argument, String paramName)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.CreateScope(IServiceProvider provider)
+   at backend_negosud.Services.PanierExpirationService.CleanupExpiredBasketsAsync() in /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud/Services/PanierExpirationService.cs:line 19
+   at InvokeStub_TaskAwaiter.GetResult(Object, Object, IntPtr*)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+2025-02-09 12:54:45.281 +01:00 [WRN] Failed to process the job '59dc83d8-04d7-4d71-976e-a79a755925e5': an exception occurred. Retry attempt 2 of 10 will be performed in 00:01:12.
+System.ArgumentNullException: Value cannot be null. (Parameter 'provider')
+   at System.ThrowHelper.Throw(String paramName)
+   at System.ThrowHelper.ThrowIfNull(Object argument, String paramName)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.CreateScope(IServiceProvider provider)
+   at backend_negosud.Services.PanierExpirationService.CleanupExpiredBasketsAsync() in /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud/Services/PanierExpirationService.cs:line 19
+   at InvokeStub_TaskAwaiter.GetResult(Object, Object, IntPtr*)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+2025-02-09 12:55:00.281 +01:00 [WRN] Failed to process the job '8968a9f9-9d89-4b20-b1a3-c91063e6bfd2': an exception occurred. Retry attempt 3 of 10 will be performed in 00:01:10.
+System.ArgumentNullException: Value cannot be null. (Parameter 'provider')
+   at System.ThrowHelper.Throw(String paramName)
+   at System.ThrowHelper.ThrowIfNull(Object argument, String paramName)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.CreateScope(IServiceProvider provider)
+   at backend_negosud.Services.PanierExpirationService.CleanupExpiredBasketsAsync() in /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud/Services/PanierExpirationService.cs:line 19
+   at InvokeStub_TaskAwaiter.GetResult(Object, Object, IntPtr*)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+2025-02-09 12:55:00.308 +01:00 [WRN] Failed to process the job 'd23386e3-b646-4fe7-b477-230d8df87261': an exception occurred. Retry attempt 1 of 10 will be performed in 00:00:27.
+System.ArgumentNullException: Value cannot be null. (Parameter 'provider')
+   at System.ThrowHelper.Throw(String paramName)
+   at System.ThrowHelper.ThrowIfNull(Object argument, String paramName)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.CreateScope(IServiceProvider provider)
+   at backend_negosud.Services.PanierExpirationService.CleanupExpiredBasketsAsync() in /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud/Services/PanierExpirationService.cs:line 19
+   at InvokeStub_TaskAwaiter.GetResult(Object, Object, IntPtr*)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+2025-02-09 12:55:23.141 +01:00 [INF] Server macbookpro:64197:7adb02ab caught stopping signal...
+2025-02-09 12:55:23.144 +01:00 [INF] Application is shutting down...
+2025-02-09 12:55:23.144 +01:00 [INF] Server macbookpro:64197:31c04960 caught stopping signal...
+2025-02-09 12:55:23.147 +01:00 [INF] Server macbookpro:64197:7adb02ab All dispatchers stopped
+2025-02-09 12:55:23.147 +01:00 [INF] Server macbookpro:64197:31c04960 All dispatchers stopped
+2025-02-09 12:55:23.149 +01:00 [INF] Server macbookpro:64197:31c04960 successfully reported itself as stopped in 0,2112 ms
+2025-02-09 12:55:23.149 +01:00 [INF] Server macbookpro:64197:7adb02ab successfully reported itself as stopped in 0,2855 ms
+2025-02-09 12:55:23.149 +01:00 [INF] Server macbookpro:64197:31c04960 has been stopped in total 4,2118 ms
+2025-02-09 12:55:23.149 +01:00 [INF] Server macbookpro:64197:7adb02ab has been stopped in total 6,6652 ms
+2025-02-09 12:55:26.816 +01:00 [INF] Executed DbCommand (15ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM client AS c)
+2025-02-09 12:55:26.902 +01:00 [INF] Starting Hangfire Server using job storage: 'Hangfire.MemoryStorage.MemoryStorage'
+2025-02-09 12:55:26.903 +01:00 [INF] Using the following options for Hangfire Server:
+    Worker count: 20
+    Listening queues: 'default'
+    Shutdown timeout: 00:00:15
+    Schedule polling interval: 00:00:15
+2025-02-09 12:55:26.942 +01:00 [INF] Server macbookpro:64422:4140c80a successfully announced in 31,6924 ms
+2025-02-09 12:55:26.943 +01:00 [INF] Server macbookpro:64422:4140c80a is starting the registered dispatchers: ServerWatchdog, ServerJobCancellationWatcher, ExpirationManager, CountersAggregator, Worker, DelayedJobScheduler, RecurringJobScheduler...
+2025-02-09 12:55:26.946 +01:00 [INF] Server macbookpro:64422:4140c80a all the dispatchers started
+2025-02-09 12:55:26.987 +01:00 [INF] User profile is available. Using '/Users/yoann/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-02-09 12:55:27.017 +01:00 [INF] Now listening on: http://localhost:5141
+2025-02-09 12:55:27.017 +01:00 [INF] Starting Hangfire Server using job storage: 'Hangfire.MemoryStorage.MemoryStorage'
+2025-02-09 12:55:27.017 +01:00 [INF] Using the following options for Hangfire Server:
+    Worker count: 20
+    Listening queues: 'default'
+    Shutdown timeout: 00:00:15
+    Schedule polling interval: 00:00:15
+2025-02-09 12:55:27.018 +01:00 [INF] Server macbookpro:64422:1f3f3565 successfully announced in 0,0602 ms
+2025-02-09 12:55:27.018 +01:00 [INF] Server macbookpro:64422:1f3f3565 is starting the registered dispatchers: ServerWatchdog, ServerJobCancellationWatcher, ExpirationManager, CountersAggregator, Worker, DelayedJobScheduler, RecurringJobScheduler...
+2025-02-09 12:55:27.020 +01:00 [INF] Server macbookpro:64422:1f3f3565 all the dispatchers started
+2025-02-09 12:55:27.020 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-02-09 12:55:27.021 +01:00 [INF] Hosting environment: Development
+2025-02-09 12:55:27.021 +01:00 [INF] Content root path: /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud
+2025-02-09 12:55:28.074 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5141/swagger/index.html - null null
+2025-02-09 12:55:28.214 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5141/swagger/index.html - 200 null text/html;charset=utf-8 140.7287ms
+2025-02-09 12:55:28.495 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5141/swagger/v1/swagger.json - null null
+2025-02-09 12:55:28.603 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5141/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 108.5382ms
+2025-02-09 12:56:12.124 +01:00 [INF] Executed DbCommand (16ms) [Parameters=[@__currentDate_0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT c.commande_id, c.client_id, c.date_creation, c.date_expiration, c.facture_id, c.livraison_id, c.valide
+FROM commande AS c
+WHERE NOT (c.valide) AND c.date_expiration < @__currentDate_0
+2025-02-09 12:56:12.130 +01:00 [INF] Aucun panier expiré à supprimer.
+2025-02-09 12:57:12.090 +01:00 [INF] Executed DbCommand (2ms) [Parameters=[@__currentDate_0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT c.commande_id, c.client_id, c.date_creation, c.date_expiration, c.facture_id, c.livraison_id, c.valide
+FROM commande AS c
+WHERE NOT (c.valide) AND c.date_expiration < @__currentDate_0
+2025-02-09 12:57:12.225 +01:00 [INF] Executed DbCommand (7ms) [Parameters=[@p0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+DELETE FROM commande
+WHERE commande_id = @p0;
+2025-02-09 12:57:12.233 +01:00 [INF] 1 paniers expirés ont été supprimés.
+2025-02-09 12:57:23.350 +01:00 [INF] Server macbookpro:64422:1f3f3565 caught stopping signal...
+2025-02-09 12:57:23.363 +01:00 [INF] Application is shutting down...
+2025-02-09 12:57:23.364 +01:00 [INF] Server macbookpro:64422:4140c80a caught stopping signal...
+2025-02-09 12:57:23.365 +01:00 [INF] Server macbookpro:64422:1f3f3565 All dispatchers stopped
+2025-02-09 12:57:23.365 +01:00 [INF] Server macbookpro:64422:4140c80a All dispatchers stopped
+2025-02-09 12:57:23.367 +01:00 [INF] Server macbookpro:64422:4140c80a successfully reported itself as stopped in 0,3343 ms
+2025-02-09 12:57:23.367 +01:00 [INF] Server macbookpro:64422:1f3f3565 successfully reported itself as stopped in 0,3387 ms
+2025-02-09 12:57:23.368 +01:00 [INF] Server macbookpro:64422:4140c80a has been stopped in total 3,5841 ms
+2025-02-09 12:57:23.368 +01:00 [INF] Server macbookpro:64422:1f3f3565 has been stopped in total 13,9538 ms

@@ -1,0 +1,195 @@
+2025-02-09 17:00:05.298 +01:00 [INF] Executed DbCommand (3ms) [Parameters=[@__currentDate_0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT c.commande_id, c.client_id, c.date_creation, c.date_expiration, c.facture_id, c.livraison_id, c.valide
+FROM commande AS c
+WHERE NOT (c.valide) AND c.date_expiration < @__currentDate_0
+2025-02-09 17:00:05.305 +01:00 [INF] Aucun panier expiré à supprimer.
+2025-02-09 17:27:08.892 +01:00 [INF] Server macbookpro:69865:d99ba7d6 caught stopping signal...
+2025-02-09 17:27:08.898 +01:00 [INF] Application is shutting down...
+2025-02-09 17:27:08.898 +01:00 [INF] Server macbookpro:69865:b71f6a63 caught stopping signal...
+2025-02-09 17:27:08.931 +01:00 [INF] Server macbookpro:69865:d99ba7d6 All dispatchers stopped
+2025-02-09 17:27:08.931 +01:00 [INF] Server macbookpro:69865:b71f6a63 All dispatchers stopped
+2025-02-09 17:27:08.933 +01:00 [INF] Server macbookpro:69865:d99ba7d6 successfully reported itself as stopped in 0,5038 ms
+2025-02-09 17:27:08.933 +01:00 [INF] Server macbookpro:69865:b71f6a63 successfully reported itself as stopped in 0,5169 ms
+2025-02-09 17:27:08.933 +01:00 [INF] Server macbookpro:69865:d99ba7d6 has been stopped in total 36,9162 ms
+2025-02-09 17:27:08.933 +01:00 [INF] Server macbookpro:69865:b71f6a63 has been stopped in total 34,2106 ms
+2025-02-09 17:45:50.648 +01:00 [INF] Executed DbCommand (13ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM client AS c)
+2025-02-09 17:45:50.738 +01:00 [INF] Starting Hangfire Server using job storage: 'Hangfire.MemoryStorage.MemoryStorage'
+2025-02-09 17:45:50.738 +01:00 [INF] Using the following options for Hangfire Server:
+    Worker count: 20
+    Listening queues: 'default'
+    Shutdown timeout: 00:00:15
+    Schedule polling interval: 00:00:15
+2025-02-09 17:45:50.779 +01:00 [INF] Server macbookpro:74961:334b5a89 successfully announced in 33,9227 ms
+2025-02-09 17:45:50.781 +01:00 [INF] Server macbookpro:74961:334b5a89 is starting the registered dispatchers: ServerWatchdog, ServerJobCancellationWatcher, ExpirationManager, CountersAggregator, Worker, DelayedJobScheduler, RecurringJobScheduler...
+2025-02-09 17:45:50.784 +01:00 [INF] Server macbookpro:74961:334b5a89 all the dispatchers started
+2025-02-09 17:45:50.827 +01:00 [INF] User profile is available. Using '/Users/yoann/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-02-09 17:45:50.860 +01:00 [INF] Now listening on: http://localhost:5141
+2025-02-09 17:45:50.860 +01:00 [INF] Starting Hangfire Server using job storage: 'Hangfire.MemoryStorage.MemoryStorage'
+2025-02-09 17:45:50.861 +01:00 [INF] Using the following options for Hangfire Server:
+    Worker count: 20
+    Listening queues: 'default'
+    Shutdown timeout: 00:00:15
+    Schedule polling interval: 00:00:15
+2025-02-09 17:45:50.861 +01:00 [INF] Server macbookpro:74961:81662aaa successfully announced in 0,0663 ms
+2025-02-09 17:45:50.861 +01:00 [INF] Server macbookpro:74961:81662aaa is starting the registered dispatchers: ServerWatchdog, ServerJobCancellationWatcher, ExpirationManager, CountersAggregator, Worker, DelayedJobScheduler, RecurringJobScheduler...
+2025-02-09 17:45:50.863 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-02-09 17:45:50.863 +01:00 [INF] Server macbookpro:74961:81662aaa all the dispatchers started
+2025-02-09 17:45:50.863 +01:00 [INF] Hosting environment: Development
+2025-02-09 17:45:50.863 +01:00 [INF] Content root path: /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud
+2025-02-09 17:45:51.422 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5141/swagger - null null
+2025-02-09 17:45:51.457 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5141/swagger - 301 0 null 34.1129ms
+2025-02-09 17:45:51.460 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5141/swagger/index.html - null null
+2025-02-09 17:45:51.542 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5141/swagger/index.html - 200 null text/html;charset=utf-8 81.5136ms
+2025-02-09 17:45:51.596 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5141/swagger/swagger-ui-bundle.js - null null
+2025-02-09 17:45:51.598 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5141/swagger/swagger-ui.css - null null
+2025-02-09 17:45:51.604 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5141/swagger/swagger-ui-standalone-preset.js - null null
+2025-02-09 17:45:51.637 +01:00 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+2025-02-09 17:45:51.638 +01:00 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+2025-02-09 17:45:51.637 +01:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2025-02-09 17:45:51.644 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5141/swagger/swagger-ui-bundle.js - 200 1456926 text/javascript 47.3642ms
+2025-02-09 17:45:51.644 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5141/swagger/swagger-ui.css - 200 152034 text/css 46.0208ms
+2025-02-09 17:45:51.645 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5141/swagger/swagger-ui-standalone-preset.js - 200 230280 text/javascript 41.184ms
+2025-02-09 17:45:51.883 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5141/swagger/v1/swagger.json - null null
+2025-02-09 17:45:51.967 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5141/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 84.1407ms
+2025-02-09 17:47:14.553 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5141/api/Stocks - null null
+2025-02-09 17:47:14.591 +01:00 [WRN] Failed to determine the https port for redirect.
+2025-02-09 17:47:14.633 +01:00 [INF] Executing endpoint 'backend_negosud.Controllers.StocksController.GetAllStocks (backend-negosud)'
+2025-02-09 17:47:14.646 +01:00 [INF] Route matched with {action = "GetAllStocks", controller = "Stocks"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[backend_negosud.DTOs.StockSummaryDto]]] GetAllStocks() on controller backend_negosud.Controllers.StocksController (backend-negosud).
+2025-02-09 17:47:14.744 +01:00 [INF] Executing action method backend_negosud.Controllers.StocksController.GetAllStocks (backend-negosud) - Validation state: "Valid"
+2025-02-09 17:47:14.806 +01:00 [INF] Executed DbCommand (9ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT s.stock_id, s.article_id, s.quantite, s.reapprovisionnement_auto, s.ref_lot, s.seuil_minimum
+FROM stock AS s
+2025-02-09 17:47:14.851 +01:00 [INF] Executed action method backend_negosud.Controllers.StocksController.GetAllStocks (backend-negosud), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 104.5666ms.
+2025-02-09 17:47:14.855 +01:00 [INF] Executing OkObjectResult, writing value of type 'backend_negosud.Models.ResponseDataModel`1[[System.Collections.Generic.List`1[[backend_negosud.DTOs.StockSummaryDto, backend-negosud, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-02-09 17:47:14.907 +01:00 [INF] Executed action backend_negosud.Controllers.StocksController.GetAllStocks (backend-negosud) in 258.2153ms
+2025-02-09 17:47:14.907 +01:00 [INF] Executed endpoint 'backend_negosud.Controllers.StocksController.GetAllStocks (backend-negosud)'
+2025-02-09 17:47:14.913 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5141/api/Stocks - 200 null application/json; charset=utf-8 360.7942ms
+2025-02-09 17:50:05.885 +01:00 [INF] Server macbookpro:74961:81662aaa caught stopping signal...
+2025-02-09 17:50:05.890 +01:00 [INF] Application is shutting down...
+2025-02-09 17:50:05.890 +01:00 [INF] Server macbookpro:74961:334b5a89 caught stopping signal...
+2025-02-09 17:50:05.897 +01:00 [INF] Server macbookpro:74961:81662aaa All dispatchers stopped
+2025-02-09 17:50:05.897 +01:00 [INF] Server macbookpro:74961:334b5a89 All dispatchers stopped
+2025-02-09 17:50:05.900 +01:00 [INF] Server macbookpro:74961:334b5a89 successfully reported itself as stopped in 0,9226 ms
+2025-02-09 17:50:05.900 +01:00 [INF] Server macbookpro:74961:334b5a89 has been stopped in total 9,4976 ms
+2025-02-09 17:50:05.900 +01:00 [INF] Server macbookpro:74961:81662aaa successfully reported itself as stopped in 0,9202 ms
+2025-02-09 17:50:05.900 +01:00 [INF] Server macbookpro:74961:81662aaa has been stopped in total 11,7988 ms
+2025-02-09 17:50:09.652 +01:00 [INF] Executed DbCommand (13ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM client AS c)
+2025-02-09 17:50:09.738 +01:00 [INF] Starting Hangfire Server using job storage: 'Hangfire.MemoryStorage.MemoryStorage'
+2025-02-09 17:50:09.739 +01:00 [INF] Using the following options for Hangfire Server:
+    Worker count: 20
+    Listening queues: 'default'
+    Shutdown timeout: 00:00:15
+    Schedule polling interval: 00:00:15
+2025-02-09 17:50:09.779 +01:00 [INF] Server macbookpro:75127:9b58820f successfully announced in 33,2293 ms
+2025-02-09 17:50:09.781 +01:00 [INF] Server macbookpro:75127:9b58820f is starting the registered dispatchers: ServerWatchdog, ServerJobCancellationWatcher, ExpirationManager, CountersAggregator, Worker, DelayedJobScheduler, RecurringJobScheduler...
+2025-02-09 17:50:09.784 +01:00 [INF] Server macbookpro:75127:9b58820f all the dispatchers started
+2025-02-09 17:50:09.826 +01:00 [INF] User profile is available. Using '/Users/yoann/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-02-09 17:50:09.856 +01:00 [INF] Now listening on: http://localhost:5141
+2025-02-09 17:50:09.856 +01:00 [INF] Starting Hangfire Server using job storage: 'Hangfire.MemoryStorage.MemoryStorage'
+2025-02-09 17:50:09.856 +01:00 [INF] Using the following options for Hangfire Server:
+    Worker count: 20
+    Listening queues: 'default'
+    Shutdown timeout: 00:00:15
+    Schedule polling interval: 00:00:15
+2025-02-09 17:50:09.857 +01:00 [INF] Server macbookpro:75127:44a9a7ef successfully announced in 0,0559 ms
+2025-02-09 17:50:09.857 +01:00 [INF] Server macbookpro:75127:44a9a7ef is starting the registered dispatchers: ServerWatchdog, ServerJobCancellationWatcher, ExpirationManager, CountersAggregator, Worker, DelayedJobScheduler, RecurringJobScheduler...
+2025-02-09 17:50:09.859 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-02-09 17:50:09.859 +01:00 [INF] Server macbookpro:75127:44a9a7ef all the dispatchers started
+2025-02-09 17:50:09.860 +01:00 [INF] Hosting environment: Development
+2025-02-09 17:50:09.860 +01:00 [INF] Content root path: /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud
+2025-02-09 17:50:10.443 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5141/swagger/index.html - null null
+2025-02-09 17:50:10.572 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5141/swagger/index.html - 200 null text/html;charset=utf-8 128.8974ms
+2025-02-09 17:50:10.891 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5141/swagger/v1/swagger.json - null null
+2025-02-09 17:50:11.003 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5141/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 112.3725ms
+2025-02-09 17:50:40.871 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5141/api/Famille - null null
+2025-02-09 17:50:40.889 +01:00 [WRN] Failed to determine the https port for redirect.
+2025-02-09 17:50:40.919 +01:00 [INF] Executing endpoint 'backend_negosud.Controllers.FamilleController.GetAllStocks (backend-negosud)'
+2025-02-09 17:50:40.929 +01:00 [INF] Route matched with {action = "GetAllStocks", controller = "Famille"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[System.Collections.Generic.List`1[backend_negosud.DTOs.Famille.Outputs.FamilleOutputDto]]]] GetAllStocks() on controller backend_negosud.Controllers.FamilleController (backend-negosud).
+2025-02-09 17:50:41.028 +01:00 [INF] Executing action method backend_negosud.Controllers.FamilleController.GetAllStocks (backend-negosud) - Validation state: "Valid"
+2025-02-09 17:50:41.171 +01:00 [INF] Executed DbCommand (10ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT f.famille_id, f.nom, a.article_id, a.famille_id, a.fournisseur_id, a.libelle, a.prix, a.reference, a.tva_id
+FROM famille AS f
+LEFT JOIN article AS a ON f.famille_id = a.famille_id
+ORDER BY f.famille_id
+2025-02-09 17:50:41.252 +01:00 [INF] Executed action method backend_negosud.Controllers.FamilleController.GetAllStocks (backend-negosud), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 221.3976ms.
+2025-02-09 17:50:41.260 +01:00 [INF] Executing OkObjectResult, writing value of type 'backend_negosud.Models.ResponseDataModel`1[[System.Collections.Generic.List`1[[backend_negosud.DTOs.Famille.Outputs.FamilleOutputDto, backend-negosud, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-02-09 17:50:41.335 +01:00 [INF] Executed action backend_negosud.Controllers.FamilleController.GetAllStocks (backend-negosud) in 402.5836ms
+2025-02-09 17:50:41.335 +01:00 [INF] Executed endpoint 'backend_negosud.Controllers.FamilleController.GetAllStocks (backend-negosud)'
+2025-02-09 17:50:41.344 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5141/api/Famille - 200 null application/json; charset=utf-8 472.8758ms
+2025-02-09 17:51:52.593 +01:00 [INF] Server macbookpro:75127:44a9a7ef caught stopping signal...
+2025-02-09 17:51:52.595 +01:00 [INF] Application is shutting down...
+2025-02-09 17:51:52.595 +01:00 [INF] Server macbookpro:75127:9b58820f caught stopping signal...
+2025-02-09 17:51:52.598 +01:00 [INF] Server macbookpro:75127:9b58820f All dispatchers stopped
+2025-02-09 17:51:52.598 +01:00 [INF] Server macbookpro:75127:44a9a7ef All dispatchers stopped
+2025-02-09 17:51:52.600 +01:00 [INF] Server macbookpro:75127:9b58820f successfully reported itself as stopped in 0,3877 ms
+2025-02-09 17:51:52.600 +01:00 [INF] Server macbookpro:75127:44a9a7ef successfully reported itself as stopped in 0,3845 ms
+2025-02-09 17:51:52.600 +01:00 [INF] Server macbookpro:75127:9b58820f has been stopped in total 4,2848 ms
+2025-02-09 17:51:52.600 +01:00 [INF] Server macbookpro:75127:44a9a7ef has been stopped in total 5,3576 ms
+2025-02-09 17:51:57.319 +01:00 [INF] Executed DbCommand (14ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM client AS c)
+2025-02-09 17:51:57.403 +01:00 [INF] Starting Hangfire Server using job storage: 'Hangfire.MemoryStorage.MemoryStorage'
+2025-02-09 17:51:57.404 +01:00 [INF] Using the following options for Hangfire Server:
+    Worker count: 20
+    Listening queues: 'default'
+    Shutdown timeout: 00:00:15
+    Schedule polling interval: 00:00:15
+2025-02-09 17:51:57.445 +01:00 [INF] Server macbookpro:75228:1b584961 successfully announced in 33,9982 ms
+2025-02-09 17:51:57.447 +01:00 [INF] Server macbookpro:75228:1b584961 is starting the registered dispatchers: ServerWatchdog, ServerJobCancellationWatcher, ExpirationManager, CountersAggregator, Worker, DelayedJobScheduler, RecurringJobScheduler...
+2025-02-09 17:51:57.450 +01:00 [INF] Server macbookpro:75228:1b584961 all the dispatchers started
+2025-02-09 17:51:57.490 +01:00 [INF] User profile is available. Using '/Users/yoann/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-02-09 17:51:57.520 +01:00 [INF] Now listening on: http://localhost:5141
+2025-02-09 17:51:57.520 +01:00 [INF] Starting Hangfire Server using job storage: 'Hangfire.MemoryStorage.MemoryStorage'
+2025-02-09 17:51:57.521 +01:00 [INF] Using the following options for Hangfire Server:
+    Worker count: 20
+    Listening queues: 'default'
+    Shutdown timeout: 00:00:15
+    Schedule polling interval: 00:00:15
+2025-02-09 17:51:57.521 +01:00 [INF] Server macbookpro:75228:f26978eb successfully announced in 0,049 ms
+2025-02-09 17:51:57.521 +01:00 [INF] Server macbookpro:75228:f26978eb is starting the registered dispatchers: ServerWatchdog, ServerJobCancellationWatcher, ExpirationManager, CountersAggregator, Worker, DelayedJobScheduler, RecurringJobScheduler...
+2025-02-09 17:51:57.523 +01:00 [INF] Server macbookpro:75228:f26978eb all the dispatchers started
+2025-02-09 17:51:57.524 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-02-09 17:51:57.524 +01:00 [INF] Hosting environment: Development
+2025-02-09 17:51:57.524 +01:00 [INF] Content root path: /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud
+2025-02-09 17:51:58.141 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5141/swagger/index.html - null null
+2025-02-09 17:51:58.260 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5141/swagger/index.html - 200 null text/html;charset=utf-8 118.2661ms
+2025-02-09 17:51:58.513 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5141/swagger/v1/swagger.json - null null
+2025-02-09 17:51:58.624 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5141/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 111.8328ms
+2025-02-09 17:52:05.018 +01:00 [INF] Request starting HTTP/1.1 POST http://localhost:5141/api/Utilisateur/exist - application/json 23
+2025-02-09 17:52:05.054 +01:00 [INF] CORS policy execution successful.
+2025-02-09 17:52:05.056 +01:00 [WRN] Failed to determine the https port for redirect.
+2025-02-09 17:52:05.081 +01:00 [INF] Executing endpoint 'backend_negosud.Controllers.UtilisateurController.FindByEmail (backend-negosud)'
+2025-02-09 17:52:05.092 +01:00 [INF] Route matched with {action = "FindByEmail", controller = "Utilisateur"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] FindByEmail(backend_negosud.DTOs.Utilisateur.Input.UtilisateurEmailInputDto) on controller backend_negosud.Controllers.UtilisateurController (backend-negosud).
+2025-02-09 17:52:05.252 +01:00 [INF] Executing action method backend_negosud.Controllers.UtilisateurController.FindByEmail (backend-negosud) - Validation state: "Valid"
+2025-02-09 17:52:05.329 +01:00 [INF] Executed DbCommand (17ms) [Parameters=[@__utilisateurEmailInputDto_Email_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM utilisateur AS u
+    WHERE u.email = @__utilisateurEmailInputDto_Email_0)
+2025-02-09 17:52:05.339 +01:00 [INF] Executed action method backend_negosud.Controllers.UtilisateurController.FindByEmail (backend-negosud), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 84.6681ms.
+2025-02-09 17:52:05.347 +01:00 [INF] Executing OkObjectResult, writing value of type 'backend_negosud.Models.BooleanResponseDataModel'.
+2025-02-09 17:52:05.368 +01:00 [INF] Executed action backend_negosud.Controllers.UtilisateurController.FindByEmail (backend-negosud) in 272.9132ms
+2025-02-09 17:52:05.369 +01:00 [INF] Executed endpoint 'backend_negosud.Controllers.UtilisateurController.FindByEmail (backend-negosud)'
+2025-02-09 17:52:05.377 +01:00 [INF] Request finished HTTP/1.1 POST http://localhost:5141/api/Utilisateur/exist - 200 null application/json; charset=utf-8 359.0667ms
+2025-02-09 17:52:14.533 +01:00 [INF] Request starting HTTP/1.1 POST http://localhost:5141/api/Utilisateur/exist - application/json 43
+2025-02-09 17:52:14.544 +01:00 [INF] CORS policy execution successful.
+2025-02-09 17:52:14.550 +01:00 [INF] Executing endpoint 'backend_negosud.Controllers.UtilisateurController.FindByEmail (backend-negosud)'
+2025-02-09 17:52:14.554 +01:00 [INF] Route matched with {action = "FindByEmail", controller = "Utilisateur"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] FindByEmail(backend_negosud.DTOs.Utilisateur.Input.UtilisateurEmailInputDto) on controller backend_negosud.Controllers.UtilisateurController (backend-negosud).
+2025-02-09 17:52:14.558 +01:00 [INF] Executing action method backend_negosud.Controllers.UtilisateurController.FindByEmail (backend-negosud) - Validation state: "Valid"
+2025-02-09 17:52:14.608 +01:00 [INF] Executed DbCommand (3ms) [Parameters=[@__utilisateurEmailInputDto_Email_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM utilisateur AS u
+    WHERE u.email = @__utilisateurEmailInputDto_Email_0)
+2025-02-09 17:52:14.609 +01:00 [INF] Executed action method backend_negosud.Controllers.UtilisateurController.FindByEmail (backend-negosud), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 50.5984ms.
+2025-02-09 17:52:14.610 +01:00 [INF] Executing OkObjectResult, writing value of type 'backend_negosud.Models.BooleanResponseDataModel'.
+2025-02-09 17:52:14.611 +01:00 [INF] Executed action backend_negosud.Controllers.UtilisateurController.FindByEmail (backend-negosud) in 56.3961ms
+2025-02-09 17:52:14.611 +01:00 [INF] Executed endpoint 'backend_negosud.Controllers.UtilisateurController.FindByEmail (backend-negosud)'
+2025-02-09 17:52:14.611 +01:00 [INF] Request finished HTTP/1.1 POST http://localhost:5141/api/Utilisateur/exist - 200 null application/json; charset=utf-8 77.7872ms

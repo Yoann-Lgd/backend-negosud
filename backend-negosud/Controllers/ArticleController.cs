@@ -72,6 +72,19 @@ public class ArticleController : ControllerBase
         var result = await _articleService.PatchArticle(id, articleInput);
         return result.Success ? Ok(result) : StatusCode(result.StatusCode, result);
     }
+    
+    // DELETE: api/article/{id}
+    /// <summary>
+    /// Suprpession de l'article en lui fournissant l'id dans en param. Il renvoie l'id de l'article supprimmer
+    /// </summary>
+    /// <param name="id"></param>
+    /// <returns>l'id du panier supprimer</returns>
+    [HttpDelete("delete/{id}")]
+    public async Task<IActionResult> DeleteBasket(int id)
+    {
+        var result = await _articleService.DeleteArticleById(id);
+        return result.Success ? Ok(result) : StatusCode(result.StatusCode, result);
+    }
 
     
 }

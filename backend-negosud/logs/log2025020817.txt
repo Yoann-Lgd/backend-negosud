@@ -1,0 +1,14 @@
+2025-02-08 17:22:37.261 +01:00 [INF] Application is shutting down...
+2025-02-08 17:22:42.511 +01:00 [INF] Executed DbCommand (16ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM client AS c)
+2025-02-08 17:22:42.624 +01:00 [INF] User profile is available. Using '/Users/yoann/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-02-08 17:22:42.654 +01:00 [INF] Now listening on: http://localhost:5141
+2025-02-08 17:22:42.657 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-02-08 17:22:42.657 +01:00 [INF] Hosting environment: Development
+2025-02-08 17:22:42.657 +01:00 [INF] Content root path: /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud
+2025-02-08 17:22:43.261 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5141/swagger/index.html - null null
+2025-02-08 17:22:43.368 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5141/swagger/index.html - 200 null text/html;charset=utf-8 108.1727ms
+2025-02-08 17:22:43.648 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5141/swagger/v1/swagger.json - null null
+2025-02-08 17:22:43.739 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5141/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 91.8749ms

@@ -1,0 +1,608 @@
+2025-02-08 14:05:53.514 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5141/api/Commande - null null
+2025-02-08 14:05:53.525 +01:00 [WRN] Failed to determine the https port for redirect.
+2025-02-08 14:05:53.549 +01:00 [WRN] Failed to determine the https port for redirect.
+2025-02-08 14:05:53.582 +01:00 [INF] Executing endpoint 'backend_negosud.Controllers.CommandeController.Get (backend-negosud)'
+2025-02-08 14:05:53.593 +01:00 [INF] Route matched with {action = "Get", controller = "Commande"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Get() on controller backend_negosud.Controllers.CommandeController (backend-negosud).
+2025-02-08 14:05:53.695 +01:00 [INF] Executing action method backend_negosud.Controllers.CommandeController.Get (backend-negosud) - Validation state: "Valid"
+2025-02-08 14:05:53.910 +01:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT c.commande_id, c.client_id, c.date_creation, c.facture_id, c.livraison_id, c.valide, t.ligne_commande_id, t.article_id, t.commande_id, t.quantite, t.article_id0, t.famille_id, t.fournisseur_id, t.libelle, t.prix, t.reference, t.tva_id
+FROM commande AS c
+LEFT JOIN (
+    SELECT l.ligne_commande_id, l.article_id, l.commande_id, l.quantite, a.article_id AS article_id0, a.famille_id, a.fournisseur_id, a.libelle, a.prix, a.reference, a.tva_id
+    FROM ligne_commande AS l
+    INNER JOIN article AS a ON l.article_id = a.article_id
+) AS t ON c.commande_id = t.commande_id
+ORDER BY c.commande_id, t.ligne_commande_id
+2025-02-08 14:05:54.008 +01:00 [INF] Executed action method backend_negosud.Controllers.CommandeController.Get (backend-negosud), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 309.6452ms.
+2025-02-08 14:05:54.016 +01:00 [INF] Executing OkObjectResult, writing value of type 'backend_negosud.Models.ResponseDataModel`1[[System.Collections.Generic.List`1[[backend_negosud.DTOs.Commande_client.Outputs.CommandeOutputDto, backend-negosud, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-02-08 14:05:54.097 +01:00 [INF] Executed action backend_negosud.Controllers.CommandeController.Get (backend-negosud) in 501.0602ms
+2025-02-08 14:05:54.097 +01:00 [INF] Executed endpoint 'backend_negosud.Controllers.CommandeController.Get (backend-negosud)'
+2025-02-08 14:05:54.105 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5141/api/Commande - 200 null application/json; charset=utf-8 590.8189ms
+2025-02-08 14:07:07.449 +01:00 [INF] Application is shutting down...
+2025-02-08 14:07:10.987 +01:00 [INF] Executed DbCommand (14ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM client AS c)
+2025-02-08 14:07:11.093 +01:00 [INF] User profile is available. Using '/Users/yoann/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-02-08 14:07:11.119 +01:00 [INF] Now listening on: http://localhost:5141
+2025-02-08 14:07:11.122 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-02-08 14:07:11.122 +01:00 [INF] Hosting environment: Development
+2025-02-08 14:07:11.122 +01:00 [INF] Content root path: /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud
+2025-02-08 14:07:11.729 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5141/swagger/index.html - null null
+2025-02-08 14:07:11.887 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5141/swagger/index.html - 200 null text/html;charset=utf-8 158.8231ms
+2025-02-08 14:07:12.153 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5141/swagger/v1/swagger.json - null null
+2025-02-08 14:07:12.226 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5141/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 73.9634ms
+2025-02-08 14:07:36.445 +01:00 [INF] Request starting HTTP/1.1 PUT http://localhost:5141/api/Panier/update - application/json 147
+2025-02-08 14:07:36.467 +01:00 [WRN] Failed to determine the https port for redirect.
+2025-02-08 14:07:36.481 +01:00 [INF] CORS policy execution successful.
+2025-02-08 14:07:36.482 +01:00 [WRN] Failed to determine the https port for redirect.
+2025-02-08 14:07:36.514 +01:00 [INF] Executing endpoint 'backend_negosud.Controllers.PanierController.UpdateBasket (backend-negosud)'
+2025-02-08 14:07:36.529 +01:00 [INF] Route matched with {action = "UpdateBasket", controller = "Panier"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UpdateBasket(backend_negosud.DTOs.Commande_client.PanierUpdateInputDto) on controller backend_negosud.Controllers.PanierController (backend-negosud).
+2025-02-08 14:07:36.682 +01:00 [INF] Executing action method backend_negosud.Controllers.PanierController.UpdateBasket (backend-negosud) - Validation state: "Valid"
+2025-02-08 14:07:36.684 +01:00 [INF] Tentative de récupération du client avec ID: 18
+2025-02-08 14:07:36.787 +01:00 [INF] Executed DbCommand (19ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT c.client_id, c.acess_token, c.email, c.est_valide, c.mot_de_passe, c.nom, c.prenom, c.tel
+FROM client AS c
+WHERE c.client_id = @__p_0
+LIMIT 1
+2025-02-08 14:07:36.839 +01:00 [INF] Executed DbCommand (2ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT c.commande_id, c.client_id, c.date_creation, c.facture_id, c.livraison_id, c.valide
+FROM commande AS c
+WHERE c.commande_id = @__p_0
+LIMIT 1
+2025-02-08 14:07:36.883 +01:00 [INF] Executed DbCommand (9ms) [Parameters=[@__newLigneDto_ArticleId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM article AS a
+    WHERE a.article_id = @__newLigneDto_ArticleId_0)
+2025-02-08 14:07:36.902 +01:00 [ERR] Erreur lors de la mise à jour du panier.
+AutoMapper.AutoMapperMappingException: Missing type map configuration or unsupported mapping.
+
+Mapping types:
+LigneCommandeUpdateInputDto -> LigneCommande
+backend_negosud.DTOs.Commande_client.LigneCommandeUpdateInputDto -> backend_negosud.Entities.LigneCommande
+   at lambda_method158(Closure, Object, LigneCommande, ResolutionContext)
+   at backend_negosud.Services.PanierService.UpdatePanier(PanierUpdateInputDto panierUpdateDto) in /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud/Services/PanierService.cs:line 148
+2025-02-08 14:07:36.907 +01:00 [INF] Executed action method backend_negosud.Controllers.PanierController.UpdateBasket (backend-negosud), returned result Microsoft.AspNetCore.Mvc.BadRequestObjectResult in 221.3591ms.
+2025-02-08 14:07:36.916 +01:00 [INF] Executing BadRequestObjectResult, writing value of type 'backend_negosud.Models.ResponseDataModel`1[[backend_negosud.DTOs.Commande_client.Outputs.PanierOutputDto, backend-negosud, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-02-08 14:07:36.941 +01:00 [INF] Executed action backend_negosud.Controllers.PanierController.UpdateBasket (backend-negosud) in 408.1827ms
+2025-02-08 14:07:36.941 +01:00 [INF] Executed endpoint 'backend_negosud.Controllers.PanierController.UpdateBasket (backend-negosud)'
+2025-02-08 14:07:36.949 +01:00 [INF] Request finished HTTP/1.1 PUT http://localhost:5141/api/Panier/update - 400 null application/json; charset=utf-8 504.4783ms
+2025-02-08 14:22:52.587 +01:00 [INF] Application is shutting down...
+2025-02-08 14:22:57.494 +01:00 [INF] Executed DbCommand (13ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM client AS c)
+2025-02-08 14:22:57.594 +01:00 [INF] User profile is available. Using '/Users/yoann/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-02-08 14:22:57.619 +01:00 [INF] Now listening on: http://localhost:5141
+2025-02-08 14:22:57.621 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-02-08 14:22:57.621 +01:00 [INF] Hosting environment: Development
+2025-02-08 14:22:57.622 +01:00 [INF] Content root path: /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud
+2025-02-08 14:22:58.249 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5141/swagger/index.html - null null
+2025-02-08 14:22:58.365 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5141/swagger/index.html - 200 null text/html;charset=utf-8 128.5472ms
+2025-02-08 14:22:58.643 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5141/swagger/v1/swagger.json - null null
+2025-02-08 14:22:58.718 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5141/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 75.9845ms
+2025-02-08 14:23:12.083 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5141/api/Commande - null null
+2025-02-08 14:23:12.096 +01:00 [WRN] Failed to determine the https port for redirect.
+2025-02-08 14:23:12.110 +01:00 [WRN] Failed to determine the https port for redirect.
+2025-02-08 14:23:12.143 +01:00 [INF] Executing endpoint 'backend_negosud.Controllers.CommandeController.Get (backend-negosud)'
+2025-02-08 14:23:12.153 +01:00 [INF] Route matched with {action = "Get", controller = "Commande"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Get() on controller backend_negosud.Controllers.CommandeController (backend-negosud).
+2025-02-08 14:23:12.238 +01:00 [INF] Executing action method backend_negosud.Controllers.CommandeController.Get (backend-negosud) - Validation state: "Valid"
+2025-02-08 14:23:12.378 +01:00 [INF] Executed DbCommand (8ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT c.commande_id, c.client_id, c.date_creation, c.facture_id, c.livraison_id, c.valide, t.ligne_commande_id, t.article_id, t.commande_id, t.quantite, t.article_id0, t.famille_id, t.fournisseur_id, t.libelle, t.prix, t.reference, t.tva_id
+FROM commande AS c
+LEFT JOIN (
+    SELECT l.ligne_commande_id, l.article_id, l.commande_id, l.quantite, a.article_id AS article_id0, a.famille_id, a.fournisseur_id, a.libelle, a.prix, a.reference, a.tva_id
+    FROM ligne_commande AS l
+    INNER JOIN article AS a ON l.article_id = a.article_id
+) AS t ON c.commande_id = t.commande_id
+ORDER BY c.commande_id, t.ligne_commande_id
+2025-02-08 14:23:12.456 +01:00 [INF] Executed action method backend_negosud.Controllers.CommandeController.Get (backend-negosud), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 214.8275ms.
+2025-02-08 14:23:12.462 +01:00 [INF] Executing OkObjectResult, writing value of type 'backend_negosud.Models.ResponseDataModel`1[[System.Collections.Generic.List`1[[backend_negosud.DTOs.Commande_client.Outputs.CommandeOutputDto, backend-negosud, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-02-08 14:23:12.522 +01:00 [INF] Executed action backend_negosud.Controllers.CommandeController.Get (backend-negosud) in 366.8097ms
+2025-02-08 14:23:12.523 +01:00 [INF] Executed endpoint 'backend_negosud.Controllers.CommandeController.Get (backend-negosud)'
+2025-02-08 14:23:12.529 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5141/api/Commande - 200 null application/json; charset=utf-8 446.0587ms
+2025-02-08 14:24:09.962 +01:00 [INF] Request starting HTTP/1.1 PUT http://localhost:5141/api/Panier/update - application/json 148
+2025-02-08 14:24:09.972 +01:00 [INF] CORS policy execution successful.
+2025-02-08 14:24:09.975 +01:00 [INF] Executing endpoint 'backend_negosud.Controllers.PanierController.UpdateBasket (backend-negosud)'
+2025-02-08 14:24:09.990 +01:00 [INF] Route matched with {action = "UpdateBasket", controller = "Panier"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UpdateBasket(backend_negosud.DTOs.Commande_client.PanierUpdateInputDto) on controller backend_negosud.Controllers.PanierController (backend-negosud).
+2025-02-08 14:24:10.040 +01:00 [INF] Executing action method backend_negosud.Controllers.PanierController.UpdateBasket (backend-negosud) - Validation state: "Valid"
+2025-02-08 14:24:10.042 +01:00 [INF] Tentative de récupération du client avec ID: 18
+2025-02-08 14:24:10.110 +01:00 [INF] Executed DbCommand (12ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT c.client_id, c.acess_token, c.email, c.est_valide, c.mot_de_passe, c.nom, c.prenom, c.tel
+FROM client AS c
+WHERE c.client_id = @__p_0
+LIMIT 1
+2025-02-08 14:24:10.126 +01:00 [INF] Executed DbCommand (2ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT c.commande_id, c.client_id, c.date_creation, c.facture_id, c.livraison_id, c.valide
+FROM commande AS c
+WHERE c.commande_id = @__p_0
+LIMIT 1
+2025-02-08 14:24:10.136 +01:00 [INF] Executed DbCommand (1ms) [Parameters=[@__newLigneDto_ArticleId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM article AS a
+    WHERE a.article_id = @__newLigneDto_ArticleId_0)
+2025-02-08 14:24:10.144 +01:00 [INF] Executed DbCommand (1ms) [Parameters=[@__ligne_ArticleId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM article AS a
+    WHERE a.article_id = @__ligne_ArticleId_0)
+2025-02-08 14:24:10.272 +01:00 [INF] Executed DbCommand (11ms) [Parameters=[@p5='?' (DbType = Int32), @p0='?' (DbType = Int32), @p1='?' (DbType = DateTime), @p2='?' (DbType = Int32), @p3='?' (DbType = Int32), @p4='?' (DbType = Boolean), @p6='?' (DbType = Int32), @p7='?' (DbType = Int32), @p8='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+UPDATE commande SET client_id = @p0, date_creation = @p1, facture_id = @p2, livraison_id = @p3, valide = @p4
+WHERE commande_id = @p5;
+INSERT INTO ligne_commande (article_id, commande_id, quantite)
+VALUES (@p6, @p7, @p8)
+RETURNING ligne_commande_id;
+2025-02-08 14:24:10.296 +01:00 [INF] Executed action method backend_negosud.Controllers.PanierController.UpdateBasket (backend-negosud), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 256.3335ms.
+2025-02-08 14:24:10.296 +01:00 [INF] Executing OkObjectResult, writing value of type 'backend_negosud.Models.ResponseDataModel`1[[backend_negosud.DTOs.Commande_client.Outputs.PanierOutputDto, backend-negosud, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-02-08 14:24:10.300 +01:00 [INF] Executed action backend_negosud.Controllers.PanierController.UpdateBasket (backend-negosud) in 310.2108ms
+2025-02-08 14:24:10.300 +01:00 [INF] Executed endpoint 'backend_negosud.Controllers.PanierController.UpdateBasket (backend-negosud)'
+2025-02-08 14:24:10.301 +01:00 [INF] Request finished HTTP/1.1 PUT http://localhost:5141/api/Panier/update - 200 null application/json; charset=utf-8 338.7339ms
+2025-02-08 14:25:50.469 +01:00 [INF] Application is shutting down...
+2025-02-08 14:25:53.938 +01:00 [INF] Executed DbCommand (14ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM client AS c)
+2025-02-08 14:25:54.044 +01:00 [INF] User profile is available. Using '/Users/yoann/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-02-08 14:25:54.074 +01:00 [INF] Now listening on: http://localhost:5141
+2025-02-08 14:25:54.076 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-02-08 14:25:54.076 +01:00 [INF] Hosting environment: Development
+2025-02-08 14:25:54.076 +01:00 [INF] Content root path: /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud
+2025-02-08 14:25:55.014 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5141/swagger/index.html - null null
+2025-02-08 14:25:55.176 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5141/swagger/index.html - 200 null text/html;charset=utf-8 163.2316ms
+2025-02-08 14:25:55.439 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5141/swagger/v1/swagger.json - null null
+2025-02-08 14:25:55.519 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5141/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 79.7119ms
+2025-02-08 14:26:15.591 +01:00 [INF] Request starting HTTP/1.1 PUT http://localhost:5141/api/Panier/update - application/json 147
+2025-02-08 14:26:15.609 +01:00 [WRN] Failed to determine the https port for redirect.
+2025-02-08 14:26:15.625 +01:00 [INF] CORS policy execution successful.
+2025-02-08 14:26:15.626 +01:00 [WRN] Failed to determine the https port for redirect.
+2025-02-08 14:26:15.656 +01:00 [INF] Executing endpoint 'backend_negosud.Controllers.PanierController.UpdateBasket (backend-negosud)'
+2025-02-08 14:26:15.671 +01:00 [INF] Route matched with {action = "UpdateBasket", controller = "Panier"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UpdateBasket(backend_negosud.DTOs.Commande_client.PanierUpdateInputDto) on controller backend_negosud.Controllers.PanierController (backend-negosud).
+2025-02-08 14:26:15.824 +01:00 [INF] Executing action method backend_negosud.Controllers.PanierController.UpdateBasket (backend-negosud) - Validation state: "Valid"
+2025-02-08 14:26:15.827 +01:00 [INF] Tentative de récupération du client avec ID: 18
+2025-02-08 14:26:15.930 +01:00 [INF] Executed DbCommand (17ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT c.client_id, c.acess_token, c.email, c.est_valide, c.mot_de_passe, c.nom, c.prenom, c.tel
+FROM client AS c
+WHERE c.client_id = @__p_0
+LIMIT 1
+2025-02-08 14:26:15.977 +01:00 [INF] Executed DbCommand (3ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT c.commande_id, c.client_id, c.date_creation, c.facture_id, c.livraison_id, c.valide
+FROM commande AS c
+WHERE c.commande_id = @__p_0
+LIMIT 1
+2025-02-08 14:26:16.018 +01:00 [INF] Executed DbCommand (5ms) [Parameters=[@__newLigneDto_ArticleId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM article AS a
+    WHERE a.article_id = @__newLigneDto_ArticleId_0)
+2025-02-08 14:26:16.034 +01:00 [INF] Executed DbCommand (4ms) [Parameters=[@__ligne_ArticleId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM article AS a
+    WHERE a.article_id = @__ligne_ArticleId_0)
+2025-02-08 14:26:16.168 +01:00 [INF] Executed DbCommand (8ms) [Parameters=[@p5='?' (DbType = Int32), @p0='?' (DbType = Int32), @p1='?' (DbType = DateTime), @p2='?' (DbType = Int32), @p3='?' (DbType = Int32), @p4='?' (DbType = Boolean), @p6='?' (DbType = Int32), @p7='?' (DbType = Int32), @p8='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+UPDATE commande SET client_id = @p0, date_creation = @p1, facture_id = @p2, livraison_id = @p3, valide = @p4
+WHERE commande_id = @p5;
+INSERT INTO ligne_commande (article_id, commande_id, quantite)
+VALUES (@p6, @p7, @p8)
+RETURNING ligne_commande_id;
+2025-02-08 14:26:16.204 +01:00 [INF] Executed action method backend_negosud.Controllers.PanierController.UpdateBasket (backend-negosud), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 376.5435ms.
+2025-02-08 14:26:16.213 +01:00 [INF] Executing OkObjectResult, writing value of type 'backend_negosud.Models.ResponseDataModel`1[[backend_negosud.DTOs.Commande_client.Outputs.PanierOutputDto, backend-negosud, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-02-08 14:26:16.245 +01:00 [INF] Executed action backend_negosud.Controllers.PanierController.UpdateBasket (backend-negosud) in 570.8061ms
+2025-02-08 14:26:16.246 +01:00 [INF] Executed endpoint 'backend_negosud.Controllers.PanierController.UpdateBasket (backend-negosud)'
+2025-02-08 14:26:16.254 +01:00 [INF] Request finished HTTP/1.1 PUT http://localhost:5141/api/Panier/update - 200 null application/json; charset=utf-8 663.1768ms
+2025-02-08 14:32:07.073 +01:00 [INF] Application is shutting down...
+2025-02-08 14:32:10.801 +01:00 [INF] Executed DbCommand (12ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM client AS c)
+2025-02-08 14:32:10.899 +01:00 [INF] User profile is available. Using '/Users/yoann/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-02-08 14:32:10.923 +01:00 [INF] Now listening on: http://localhost:5141
+2025-02-08 14:32:10.925 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-02-08 14:32:10.925 +01:00 [INF] Hosting environment: Development
+2025-02-08 14:32:10.926 +01:00 [INF] Content root path: /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud
+2025-02-08 14:32:11.888 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5141/swagger/index.html - null null
+2025-02-08 14:32:12.002 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5141/swagger/index.html - 200 null text/html;charset=utf-8 115.0595ms
+2025-02-08 14:32:12.260 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5141/swagger/v1/swagger.json - null null
+2025-02-08 14:32:12.335 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5141/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 75.6718ms
+2025-02-08 14:32:40.585 +01:00 [INF] Request starting HTTP/1.1 PUT http://localhost:5141/api/Panier/update - application/json 147
+2025-02-08 14:32:40.600 +01:00 [WRN] Failed to determine the https port for redirect.
+2025-02-08 14:32:40.629 +01:00 [INF] CORS policy execution successful.
+2025-02-08 14:32:40.630 +01:00 [WRN] Failed to determine the https port for redirect.
+2025-02-08 14:32:40.662 +01:00 [INF] Executing endpoint 'backend_negosud.Controllers.PanierController.UpdateBasket (backend-negosud)'
+2025-02-08 14:32:40.675 +01:00 [INF] Route matched with {action = "UpdateBasket", controller = "Panier"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UpdateBasket(backend_negosud.DTOs.Commande_client.PanierUpdateInputDto) on controller backend_negosud.Controllers.PanierController (backend-negosud).
+2025-02-08 14:32:40.828 +01:00 [INF] Executing action method backend_negosud.Controllers.PanierController.UpdateBasket (backend-negosud) - Validation state: "Valid"
+2025-02-08 14:32:40.831 +01:00 [INF] Tentative de récupération du client avec ID: 18
+2025-02-08 14:32:40.932 +01:00 [INF] Executed DbCommand (16ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT c.client_id, c.acess_token, c.email, c.est_valide, c.mot_de_passe, c.nom, c.prenom, c.tel
+FROM client AS c
+WHERE c.client_id = @__p_0
+LIMIT 1
+2025-02-08 14:32:41.043 +01:00 [INF] Executed DbCommand (8ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT t.commande_id, t.client_id, t.date_creation, t.facture_id, t.livraison_id, t.valide, t0.ligne_commande_id, t0.article_id, t0.commande_id, t0.quantite, t0.article_id0, t0.famille_id, t0.fournisseur_id, t0.libelle, t0.prix, t0.reference, t0.tva_id
+FROM (
+    SELECT c.commande_id, c.client_id, c.date_creation, c.facture_id, c.livraison_id, c.valide
+    FROM commande AS c
+    WHERE c.commande_id = @__id_0
+    LIMIT 1
+) AS t
+LEFT JOIN (
+    SELECT l.ligne_commande_id, l.article_id, l.commande_id, l.quantite, a.article_id AS article_id0, a.famille_id, a.fournisseur_id, a.libelle, a.prix, a.reference, a.tva_id
+    FROM ligne_commande AS l
+    INNER JOIN article AS a ON l.article_id = a.article_id
+) AS t0 ON t.commande_id = t0.commande_id
+ORDER BY t.commande_id, t0.ligne_commande_id
+2025-02-08 14:32:41.094 +01:00 [INF] Executed DbCommand (1ms) [Parameters=[@__newLigneDto_ArticleId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM article AS a
+    WHERE a.article_id = @__newLigneDto_ArticleId_0)
+2025-02-08 14:32:41.105 +01:00 [INF] Executed DbCommand (1ms) [Parameters=[@__ligne_ArticleId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM article AS a
+    WHERE a.article_id = @__ligne_ArticleId_0)
+2025-02-08 14:32:41.143 +01:00 [ERR] Erreur lors de la mise à jour du panier.
+System.Exception: Error updating entity.
+ ---> System.Exception: Error saving changes to the database.
+ ---> System.InvalidOperationException: The association between entity types 'Commande' and 'LigneCommande' has been severed, but the relationship is either marked as required or is implicitly required because the foreign key is not nullable. If the dependent/child entity should be deleted when a required relationship is severed, configure the relationship to use cascade deletes. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see the key values.
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntry.HandleConceptualNulls(Boolean sensitiveLoggingEnabled, Boolean force, Boolean isCascadeDelete)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntry.HandleNullForeignKey(IProperty property, Boolean setModified, Boolean isCascadeDelete)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntry.SetProperty(IPropertyBase propertyBase, Object value, Boolean isMaterialization, Boolean setModified, Boolean isCascadeDelete, CurrentValueType valueType)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntry.SetProperty(IPropertyBase propertyBase, Object value, Boolean isMaterialization, Boolean setModified, Boolean isCascadeDelete)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntry.set_Item(IPropertyBase propertyBase, Object value)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.NavigationFixer.ConditionallyNullForeignKeyProperties(InternalEntityEntry dependentEntry, InternalEntityEntry principalEntry, IForeignKey foreignKey)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.NavigationFixer.NavigationCollectionChanged(InternalEntityEntry entry, INavigationBase navigationBase, IEnumerable`1 added, IEnumerable`1 removed)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntryNotifier.NavigationCollectionChanged(InternalEntityEntry entry, INavigationBase navigationBase, IEnumerable`1 added, IEnumerable`1 removed)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.ChangeDetector.DetectNavigationChange(InternalEntityEntry entry, INavigationBase navigationBase)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.ChangeDetector.LocalDetectChanges(InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.ChangeDetector.DetectChanges(IStateManager stateManager)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.ChangeTracker.DetectChanges()
+   at Microsoft.EntityFrameworkCore.DbContext.TryDetectChanges()
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at backend_negosud.Repository.RepositoryBase`1.SaveChangesAsync(CancellationToken cancellationToken) in /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud/Repository/RepositoryBase.cs:line 99
+   --- End of inner exception stack trace ---
+   at backend_negosud.Repository.RepositoryBase`1.SaveChangesAsync(CancellationToken cancellationToken) in /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud/Repository/RepositoryBase.cs:line 103
+   at backend_negosud.Repository.RepositoryBase`1.UpdateAsync(TEntity entity, CancellationToken cancellationToken) in /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud/Repository/RepositoryBase.cs:line 62
+   --- End of inner exception stack trace ---
+   at backend_negosud.Repository.RepositoryBase`1.UpdateAsync(TEntity entity, CancellationToken cancellationToken) in /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud/Repository/RepositoryBase.cs:line 66
+   at backend_negosud.Services.PanierService.UpdatePanier(PanierUpdateInputDto panierUpdateDto) in /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud/Services/PanierService.cs:line 182
+2025-02-08 14:32:41.149 +01:00 [INF] Executed action method backend_negosud.Controllers.PanierController.UpdateBasket (backend-negosud), returned result Microsoft.AspNetCore.Mvc.BadRequestObjectResult in 317.9893ms.
+2025-02-08 14:32:41.157 +01:00 [INF] Executing BadRequestObjectResult, writing value of type 'backend_negosud.Models.ResponseDataModel`1[[backend_negosud.DTOs.Commande_client.Outputs.PanierOutputDto, backend-negosud, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-02-08 14:32:41.181 +01:00 [INF] Executed action backend_negosud.Controllers.PanierController.UpdateBasket (backend-negosud) in 503.2855ms
+2025-02-08 14:32:41.182 +01:00 [INF] Executed endpoint 'backend_negosud.Controllers.PanierController.UpdateBasket (backend-negosud)'
+2025-02-08 14:32:41.190 +01:00 [INF] Request finished HTTP/1.1 PUT http://localhost:5141/api/Panier/update - 400 null application/json; charset=utf-8 604.9154ms
+2025-02-08 14:34:20.460 +01:00 [INF] Request starting HTTP/1.1 POST http://localhost:5141/api/Panier/create - application/json 190
+2025-02-08 14:34:20.479 +01:00 [INF] CORS policy execution successful.
+2025-02-08 14:34:20.481 +01:00 [INF] Executing endpoint 'backend_negosud.Controllers.PanierController.CreateBasket (backend-negosud)'
+2025-02-08 14:34:20.486 +01:00 [INF] Route matched with {action = "CreateBasket", controller = "Panier"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] CreateBasket(backend_negosud.DTOs.Commande_client.PanierInputDto) on controller backend_negosud.Controllers.PanierController (backend-negosud).
+2025-02-08 14:34:20.513 +01:00 [INF] Executing action method backend_negosud.Controllers.PanierController.CreateBasket (backend-negosud) - Validation state: "Valid"
+2025-02-08 14:34:20.516 +01:00 [INF] Tentative de récupération du client avec ID: 1
+2025-02-08 14:34:20.564 +01:00 [INF] Executed DbCommand (2ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT c.client_id, c.acess_token, c.email, c.est_valide, c.mot_de_passe, c.nom, c.prenom, c.tel
+FROM client AS c
+WHERE c.client_id = @__p_0
+LIMIT 1
+2025-02-08 14:34:20.568 +01:00 [INF] Executed DbCommand (1ms) [Parameters=[@__ligne_ArticleId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM article AS a
+    WHERE a.article_id = @__ligne_ArticleId_0)
+2025-02-08 14:34:20.675 +01:00 [INF] Executed DbCommand (6ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = DateTime), @p2='?' (DbType = Int32), @p3='?' (DbType = Int32), @p4='?' (DbType = Boolean)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO commande (client_id, date_creation, facture_id, livraison_id, valide)
+VALUES (@p0, @p1, @p2, @p3, @p4)
+RETURNING commande_id;
+2025-02-08 14:34:20.689 +01:00 [INF] Executed DbCommand (2ms) [Parameters=[@p5='?' (DbType = Int32), @p6='?' (DbType = Int32), @p7='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO ligne_commande (article_id, commande_id, quantite)
+VALUES (@p5, @p6, @p7)
+RETURNING ligne_commande_id;
+2025-02-08 14:34:20.706 +01:00 [INF] Executed action method backend_negosud.Controllers.PanierController.CreateBasket (backend-negosud), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 192.1987ms.
+2025-02-08 14:34:20.706 +01:00 [INF] Executing OkObjectResult, writing value of type 'backend_negosud.Models.ResponseDataModel`1[[backend_negosud.DTOs.Commande_client.Outputs.PanierOutputDto, backend-negosud, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-02-08 14:34:20.711 +01:00 [INF] Executed action backend_negosud.Controllers.PanierController.CreateBasket (backend-negosud) in 224.1209ms
+2025-02-08 14:34:20.711 +01:00 [INF] Executed endpoint 'backend_negosud.Controllers.PanierController.CreateBasket (backend-negosud)'
+2025-02-08 14:34:20.711 +01:00 [INF] Request finished HTTP/1.1 POST http://localhost:5141/api/Panier/create - 200 null application/json; charset=utf-8 254.1518ms
+2025-02-08 14:37:10.059 +01:00 [INF] Application is shutting down...
+2025-02-08 14:39:51.021 +01:00 [INF] Executed DbCommand (13ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM client AS c)
+2025-02-08 14:39:51.217 +01:00 [INF] User profile is available. Using '/Users/yoann/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-02-08 14:39:51.246 +01:00 [INF] Now listening on: http://localhost:5141
+2025-02-08 14:39:51.249 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-02-08 14:39:51.249 +01:00 [INF] Hosting environment: Development
+2025-02-08 14:39:51.249 +01:00 [INF] Content root path: /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud
+2025-02-08 14:39:51.888 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5141/swagger/index.html - null null
+2025-02-08 14:39:51.990 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5141/swagger/index.html - 200 null text/html;charset=utf-8 102.997ms
+2025-02-08 14:39:52.272 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5141/swagger/v1/swagger.json - null null
+2025-02-08 14:39:52.345 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5141/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 73.3217ms
+2025-02-08 14:40:12.599 +01:00 [INF] Request starting HTTP/1.1 PUT http://localhost:5141/api/Panier/update - application/json 148
+2025-02-08 14:40:12.620 +01:00 [WRN] Failed to determine the https port for redirect.
+2025-02-08 14:40:12.634 +01:00 [INF] CORS policy execution successful.
+2025-02-08 14:40:12.634 +01:00 [WRN] Failed to determine the https port for redirect.
+2025-02-08 14:40:12.663 +01:00 [INF] Executing endpoint 'backend_negosud.Controllers.PanierController.UpdateBasket (backend-negosud)'
+2025-02-08 14:40:12.678 +01:00 [INF] Route matched with {action = "UpdateBasket", controller = "Panier"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UpdateBasket(backend_negosud.DTOs.Commande_client.PanierUpdateInputDto) on controller backend_negosud.Controllers.PanierController (backend-negosud).
+2025-02-08 14:40:12.825 +01:00 [INF] Executing action method backend_negosud.Controllers.PanierController.UpdateBasket (backend-negosud) - Validation state: "Valid"
+2025-02-08 14:40:12.828 +01:00 [INF] Tentative de récupération du client avec ID: 18
+2025-02-08 14:40:12.929 +01:00 [INF] Executed DbCommand (16ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT c.client_id, c.acess_token, c.email, c.est_valide, c.mot_de_passe, c.nom, c.prenom, c.tel
+FROM client AS c
+WHERE c.client_id = @__p_0
+LIMIT 1
+2025-02-08 14:40:13.043 +01:00 [INF] Executed DbCommand (10ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT t.commande_id, t.client_id, t.date_creation, t.facture_id, t.livraison_id, t.valide, t0.ligne_commande_id, t0.article_id, t0.commande_id, t0.quantite, t0.article_id0, t0.famille_id, t0.fournisseur_id, t0.libelle, t0.prix, t0.reference, t0.tva_id
+FROM (
+    SELECT c.commande_id, c.client_id, c.date_creation, c.facture_id, c.livraison_id, c.valide
+    FROM commande AS c
+    WHERE c.commande_id = @__id_0
+    LIMIT 1
+) AS t
+LEFT JOIN (
+    SELECT l.ligne_commande_id, l.article_id, l.commande_id, l.quantite, a.article_id AS article_id0, a.famille_id, a.fournisseur_id, a.libelle, a.prix, a.reference, a.tva_id
+    FROM ligne_commande AS l
+    INNER JOIN article AS a ON l.article_id = a.article_id
+) AS t0 ON t.commande_id = t0.commande_id
+ORDER BY t.commande_id, t0.ligne_commande_id
+2025-02-08 14:40:13.098 +01:00 [INF] Executed DbCommand (1ms) [Parameters=[@__newLigneDto_ArticleId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM article AS a
+    WHERE a.article_id = @__newLigneDto_ArticleId_0)
+2025-02-08 14:40:13.129 +01:00 [ERR] Erreur lors de la mise à jour du panier.
+System.Exception: Error updating entity.
+ ---> System.Exception: Error saving changes to the database.
+ ---> System.InvalidOperationException: The association between entity types 'Commande' and 'LigneCommande' has been severed, but the relationship is either marked as required or is implicitly required because the foreign key is not nullable. If the dependent/child entity should be deleted when a required relationship is severed, configure the relationship to use cascade deletes. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see the key values.
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntry.HandleConceptualNulls(Boolean sensitiveLoggingEnabled, Boolean force, Boolean isCascadeDelete)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntry.HandleNullForeignKey(IProperty property, Boolean setModified, Boolean isCascadeDelete)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntry.SetProperty(IPropertyBase propertyBase, Object value, Boolean isMaterialization, Boolean setModified, Boolean isCascadeDelete, CurrentValueType valueType)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntry.SetProperty(IPropertyBase propertyBase, Object value, Boolean isMaterialization, Boolean setModified, Boolean isCascadeDelete)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntry.set_Item(IPropertyBase propertyBase, Object value)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.NavigationFixer.ConditionallyNullForeignKeyProperties(InternalEntityEntry dependentEntry, InternalEntityEntry principalEntry, IForeignKey foreignKey)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.NavigationFixer.NavigationCollectionChanged(InternalEntityEntry entry, INavigationBase navigationBase, IEnumerable`1 added, IEnumerable`1 removed)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntryNotifier.NavigationCollectionChanged(InternalEntityEntry entry, INavigationBase navigationBase, IEnumerable`1 added, IEnumerable`1 removed)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.ChangeDetector.DetectNavigationChange(InternalEntityEntry entry, INavigationBase navigationBase)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.ChangeDetector.LocalDetectChanges(InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.ChangeDetector.DetectChanges(IStateManager stateManager)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.ChangeTracker.DetectChanges()
+   at Microsoft.EntityFrameworkCore.DbContext.TryDetectChanges()
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at backend_negosud.Repository.RepositoryBase`1.SaveChangesAsync(CancellationToken cancellationToken) in /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud/Repository/RepositoryBase.cs:line 99
+   --- End of inner exception stack trace ---
+   at backend_negosud.Repository.RepositoryBase`1.SaveChangesAsync(CancellationToken cancellationToken) in /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud/Repository/RepositoryBase.cs:line 103
+   at backend_negosud.Repository.RepositoryBase`1.UpdateAsync(TEntity entity, CancellationToken cancellationToken) in /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud/Repository/RepositoryBase.cs:line 62
+   --- End of inner exception stack trace ---
+   at backend_negosud.Repository.RepositoryBase`1.UpdateAsync(TEntity entity, CancellationToken cancellationToken) in /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud/Repository/RepositoryBase.cs:line 66
+   at backend_negosud.Services.PanierService.UpdatePanier(PanierUpdateInputDto panierUpdateDto) in /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud/Services/PanierService.cs:line 164
+2025-02-08 14:40:13.136 +01:00 [INF] Executed action method backend_negosud.Controllers.PanierController.UpdateBasket (backend-negosud), returned result Microsoft.AspNetCore.Mvc.BadRequestObjectResult in 307.8211ms.
+2025-02-08 14:40:13.141 +01:00 [INF] Executing BadRequestObjectResult, writing value of type 'backend_negosud.Models.ResponseDataModel`1[[backend_negosud.DTOs.Commande_client.Outputs.PanierOutputDto, backend-negosud, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-02-08 14:40:13.160 +01:00 [INF] Executed action backend_negosud.Controllers.PanierController.UpdateBasket (backend-negosud) in 479.3133ms
+2025-02-08 14:40:13.161 +01:00 [INF] Executed endpoint 'backend_negosud.Controllers.PanierController.UpdateBasket (backend-negosud)'
+2025-02-08 14:40:13.167 +01:00 [INF] Request finished HTTP/1.1 PUT http://localhost:5141/api/Panier/update - 400 null application/json; charset=utf-8 567.9227ms
+2025-02-08 14:40:27.586 +01:00 [INF] Request starting HTTP/1.1 PUT http://localhost:5141/api/Panier/update - application/json 148
+2025-02-08 14:40:27.606 +01:00 [INF] CORS policy execution successful.
+2025-02-08 14:40:27.607 +01:00 [INF] Executing endpoint 'backend_negosud.Controllers.PanierController.UpdateBasket (backend-negosud)'
+2025-02-08 14:40:27.607 +01:00 [INF] Route matched with {action = "UpdateBasket", controller = "Panier"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UpdateBasket(backend_negosud.DTOs.Commande_client.PanierUpdateInputDto) on controller backend_negosud.Controllers.PanierController (backend-negosud).
+2025-02-08 14:40:27.611 +01:00 [INF] Executing action method backend_negosud.Controllers.PanierController.UpdateBasket (backend-negosud) - Validation state: "Valid"
+2025-02-08 14:40:27.611 +01:00 [INF] Tentative de récupération du client avec ID: 18
+2025-02-08 14:40:27.648 +01:00 [INF] Executed DbCommand (1ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT c.client_id, c.acess_token, c.email, c.est_valide, c.mot_de_passe, c.nom, c.prenom, c.tel
+FROM client AS c
+WHERE c.client_id = @__p_0
+LIMIT 1
+2025-02-08 14:40:27.651 +01:00 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT t.commande_id, t.client_id, t.date_creation, t.facture_id, t.livraison_id, t.valide, t0.ligne_commande_id, t0.article_id, t0.commande_id, t0.quantite, t0.article_id0, t0.famille_id, t0.fournisseur_id, t0.libelle, t0.prix, t0.reference, t0.tva_id
+FROM (
+    SELECT c.commande_id, c.client_id, c.date_creation, c.facture_id, c.livraison_id, c.valide
+    FROM commande AS c
+    WHERE c.commande_id = @__id_0
+    LIMIT 1
+) AS t
+LEFT JOIN (
+    SELECT l.ligne_commande_id, l.article_id, l.commande_id, l.quantite, a.article_id AS article_id0, a.famille_id, a.fournisseur_id, a.libelle, a.prix, a.reference, a.tva_id
+    FROM ligne_commande AS l
+    INNER JOIN article AS a ON l.article_id = a.article_id
+) AS t0 ON t.commande_id = t0.commande_id
+ORDER BY t.commande_id, t0.ligne_commande_id
+2025-02-08 14:40:27.653 +01:00 [ERR] Erreur lors de la mise à jour du panier.
+System.Exception: Error updating entity.
+ ---> System.Exception: Error saving changes to the database.
+ ---> System.InvalidOperationException: The association between entity types 'Commande' and 'LigneCommande' has been severed, but the relationship is either marked as required or is implicitly required because the foreign key is not nullable. If the dependent/child entity should be deleted when a required relationship is severed, configure the relationship to use cascade deletes. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see the key values.
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntry.HandleConceptualNulls(Boolean sensitiveLoggingEnabled, Boolean force, Boolean isCascadeDelete)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntry.HandleNullForeignKey(IProperty property, Boolean setModified, Boolean isCascadeDelete)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntry.SetProperty(IPropertyBase propertyBase, Object value, Boolean isMaterialization, Boolean setModified, Boolean isCascadeDelete, CurrentValueType valueType)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntry.SetProperty(IPropertyBase propertyBase, Object value, Boolean isMaterialization, Boolean setModified, Boolean isCascadeDelete)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntry.set_Item(IPropertyBase propertyBase, Object value)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.NavigationFixer.ConditionallyNullForeignKeyProperties(InternalEntityEntry dependentEntry, InternalEntityEntry principalEntry, IForeignKey foreignKey)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.NavigationFixer.NavigationCollectionChanged(InternalEntityEntry entry, INavigationBase navigationBase, IEnumerable`1 added, IEnumerable`1 removed)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntryNotifier.NavigationCollectionChanged(InternalEntityEntry entry, INavigationBase navigationBase, IEnumerable`1 added, IEnumerable`1 removed)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.ChangeDetector.DetectNavigationChange(InternalEntityEntry entry, INavigationBase navigationBase)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.ChangeDetector.LocalDetectChanges(InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.ChangeDetector.DetectChanges(IStateManager stateManager)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.ChangeTracker.DetectChanges()
+   at Microsoft.EntityFrameworkCore.DbContext.TryDetectChanges()
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at backend_negosud.Repository.RepositoryBase`1.SaveChangesAsync(CancellationToken cancellationToken) in /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud/Repository/RepositoryBase.cs:line 99
+   --- End of inner exception stack trace ---
+   at backend_negosud.Repository.RepositoryBase`1.SaveChangesAsync(CancellationToken cancellationToken) in /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud/Repository/RepositoryBase.cs:line 103
+   at backend_negosud.Repository.RepositoryBase`1.UpdateAsync(TEntity entity, CancellationToken cancellationToken) in /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud/Repository/RepositoryBase.cs:line 62
+   --- End of inner exception stack trace ---
+   at backend_negosud.Repository.RepositoryBase`1.UpdateAsync(TEntity entity, CancellationToken cancellationToken) in /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud/Repository/RepositoryBase.cs:line 66
+   at backend_negosud.Services.PanierService.UpdatePanier(PanierUpdateInputDto panierUpdateDto) in /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud/Services/PanierService.cs:line 164
+2025-02-08 14:40:27.654 +01:00 [INF] Executed action method backend_negosud.Controllers.PanierController.UpdateBasket (backend-negosud), returned result Microsoft.AspNetCore.Mvc.BadRequestObjectResult in 43.6289ms.
+2025-02-08 14:40:27.655 +01:00 [INF] Executing BadRequestObjectResult, writing value of type 'backend_negosud.Models.ResponseDataModel`1[[backend_negosud.DTOs.Commande_client.Outputs.PanierOutputDto, backend-negosud, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-02-08 14:40:27.655 +01:00 [INF] Executed action backend_negosud.Controllers.PanierController.UpdateBasket (backend-negosud) in 47.535ms
+2025-02-08 14:40:27.655 +01:00 [INF] Executed endpoint 'backend_negosud.Controllers.PanierController.UpdateBasket (backend-negosud)'
+2025-02-08 14:40:27.655 +01:00 [INF] Request finished HTTP/1.1 PUT http://localhost:5141/api/Panier/update - 400 null application/json; charset=utf-8 69.1454ms
+2025-02-08 14:49:41.099 +01:00 [INF] Application is shutting down...
+eters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1 FROM pg_catalog.pg_class c
+    JOIN pg_catalog.pg_namespace n ON n.oid=c.relnamespace
+    WHERE n.nspname='public' AND
+          c.relname='__EFMigrationsHistory'
+)
+2025-02-08 14:49:33.290 +01:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2025-02-08 14:49:33.322 +01:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1 FROM pg_catalog.pg_class c
+    JOIN pg_catalog.pg_namespace n ON n.oid=c.relnamespace
+    WHERE n.nspname='public' AND
+          c.relname='__EFMigrationsHistory'
+)
+2025-02-08 14:49:33.335 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1 FROM pg_catalog.pg_class c
+    JOIN pg_catalog.pg_namespace n ON n.oid=c.relnamespace
+    WHERE n.nspname='public' AND
+          c.relname='__EFMigrationsHistory'
+)
+2025-02-08 14:49:33.336 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2025-02-08 14:49:33.343 +01:00 [INF] Applying migration '20250208134925_UpdateContraintesCommande'.
+2025-02-08 14:49:33.379 +01:00 [INF] Executed DbCommand (7ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE ligne_commande DROP CONSTRAINT ligne_commande_article1_fk;
+2025-02-08 14:49:33.380 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE ligne_commande DROP CONSTRAINT ligne_commande_commande0_fk;
+2025-02-08 14:49:33.384 +01:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE ligne_commande ADD CONSTRAINT ligne_commande_article1_fk FOREIGN KEY (article_id) REFERENCES article (article_id) ON DELETE RESTRICT;
+2025-02-08 14:49:33.386 +01:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE ligne_commande ADD CONSTRAINT ligne_commande_commande0_fk FOREIGN KEY (commande_id) REFERENCES commande (commande_id) ON DELETE CASCADE;
+2025-02-08 14:49:33.386 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "__EFMigrationsHistory" ("MigrationId", "ProductVersion")
+VALUES ('20250208134925_UpdateContraintesCommande', '8.0.11');
+2025-02-08 14:49:43.896 +01:00 [INF] Executed DbCommand (14ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM client AS c)
+2025-02-08 14:49:44.001 +01:00 [INF] User profile is available. Using '/Users/yoann/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-02-08 14:49:44.028 +01:00 [INF] Now listening on: http://localhost:5141
+2025-02-08 14:49:44.030 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-02-08 14:49:44.030 +01:00 [INF] Hosting environment: Development
+2025-02-08 14:49:44.030 +01:00 [INF] Content root path: /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud
+2025-02-08 14:49:44.855 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5141/swagger/index.html - null null
+2025-02-08 14:49:44.961 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5141/swagger/index.html - 200 null text/html;charset=utf-8 107.2049ms
+2025-02-08 14:49:45.237 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5141/swagger/v1/swagger.json - null null
+2025-02-08 14:49:45.339 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5141/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 101.8982ms
+2025-02-08 14:50:00.260 +01:00 [INF] Request starting HTTP/1.1 PUT http://localhost:5141/api/Panier/update - application/json 148
+2025-02-08 14:50:00.282 +01:00 [WRN] Failed to determine the https port for redirect.
+2025-02-08 14:50:00.297 +01:00 [INF] CORS policy execution successful.
+2025-02-08 14:50:00.298 +01:00 [WRN] Failed to determine the https port for redirect.
+2025-02-08 14:50:00.327 +01:00 [INF] Executing endpoint 'backend_negosud.Controllers.PanierController.UpdateBasket (backend-negosud)'
+2025-02-08 14:50:00.344 +01:00 [INF] Route matched with {action = "UpdateBasket", controller = "Panier"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UpdateBasket(backend_negosud.DTOs.Commande_client.PanierUpdateInputDto) on controller backend_negosud.Controllers.PanierController (backend-negosud).
+2025-02-08 14:50:00.489 +01:00 [INF] Executing action method backend_negosud.Controllers.PanierController.UpdateBasket (backend-negosud) - Validation state: "Valid"
+2025-02-08 14:50:00.492 +01:00 [INF] Tentative de récupération du client avec ID: 18
+2025-02-08 14:50:00.598 +01:00 [INF] Executed DbCommand (17ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT c.client_id, c.acess_token, c.email, c.est_valide, c.mot_de_passe, c.nom, c.prenom, c.tel
+FROM client AS c
+WHERE c.client_id = @__p_0
+LIMIT 1
+2025-02-08 14:50:00.708 +01:00 [INF] Executed DbCommand (4ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT t.commande_id, t.client_id, t.date_creation, t.facture_id, t.livraison_id, t.valide, t0.ligne_commande_id, t0.article_id, t0.commande_id, t0.quantite, t0.article_id0, t0.famille_id, t0.fournisseur_id, t0.libelle, t0.prix, t0.reference, t0.tva_id
+FROM (
+    SELECT c.commande_id, c.client_id, c.date_creation, c.facture_id, c.livraison_id, c.valide
+    FROM commande AS c
+    WHERE c.commande_id = @__id_0
+    LIMIT 1
+) AS t
+LEFT JOIN (
+    SELECT l.ligne_commande_id, l.article_id, l.commande_id, l.quantite, a.article_id AS article_id0, a.famille_id, a.fournisseur_id, a.libelle, a.prix, a.reference, a.tva_id
+    FROM ligne_commande AS l
+    INNER JOIN article AS a ON l.article_id = a.article_id
+) AS t0 ON t.commande_id = t0.commande_id
+ORDER BY t.commande_id, t0.ligne_commande_id
+2025-02-08 14:50:00.762 +01:00 [INF] Executed DbCommand (1ms) [Parameters=[@__newLigneDto_ArticleId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM article AS a
+    WHERE a.article_id = @__newLigneDto_ArticleId_0)
+2025-02-08 14:50:00.865 +01:00 [INF] Executed DbCommand (4ms) [Parameters=[@p5='?' (DbType = Int32), @p0='?' (DbType = Int32), @p1='?' (DbType = DateTime), @p2='?' (DbType = Int32), @p3='?' (DbType = Int32), @p4='?' (DbType = Boolean), @p6='?' (DbType = Int32), @p7='?' (DbType = Int32), @p8='?' (DbType = Int32), @p9='?' (DbType = Int32), @p10='?' (DbType = Int32), @p11='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+UPDATE commande SET client_id = @p0, date_creation = @p1, facture_id = @p2, livraison_id = @p3, valide = @p4
+WHERE commande_id = @p5;
+DELETE FROM ligne_commande
+WHERE ligne_commande_id = @p6;
+DELETE FROM ligne_commande
+WHERE ligne_commande_id = @p7;
+DELETE FROM ligne_commande
+WHERE ligne_commande_id = @p8;
+INSERT INTO ligne_commande (article_id, commande_id, quantite)
+VALUES (@p9, @p10, @p11)
+RETURNING ligne_commande_id;
+2025-02-08 14:50:00.906 +01:00 [INF] Executed action method backend_negosud.Controllers.PanierController.UpdateBasket (backend-negosud), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 412.999ms.
+2025-02-08 14:50:00.914 +01:00 [INF] Executing OkObjectResult, writing value of type 'backend_negosud.Models.ResponseDataModel`1[[backend_negosud.DTOs.Commande_client.Outputs.PanierOutputDto, backend-negosud, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-02-08 14:50:00.947 +01:00 [INF] Executed action backend_negosud.Controllers.PanierController.UpdateBasket (backend-negosud) in 599.77ms
+2025-02-08 14:50:00.948 +01:00 [INF] Executed endpoint 'backend_negosud.Controllers.PanierController.UpdateBasket (backend-negosud)'
+2025-02-08 14:50:00.956 +01:00 [INF] Request finished HTTP/1.1 PUT http://localhost:5141/api/Panier/update - 200 null application/json; charset=utf-8 695.5009ms
+2025-02-08 14:50:22.881 +01:00 [INF] Request starting HTTP/1.1 PUT http://localhost:5141/api/Panier/update - application/json 147
+2025-02-08 14:50:22.883 +01:00 [INF] CORS policy execution successful.
+2025-02-08 14:50:22.885 +01:00 [INF] Executing endpoint 'backend_negosud.Controllers.PanierController.UpdateBasket (backend-negosud)'
+2025-02-08 14:50:22.885 +01:00 [INF] Route matched with {action = "UpdateBasket", controller = "Panier"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UpdateBasket(backend_negosud.DTOs.Commande_client.PanierUpdateInputDto) on controller backend_negosud.Controllers.PanierController (backend-negosud).
+2025-02-08 14:50:22.887 +01:00 [INF] Executing action method backend_negosud.Controllers.PanierController.UpdateBasket (backend-negosud) - Validation state: "Valid"
+2025-02-08 14:50:22.887 +01:00 [INF] Tentative de récupération du client avec ID: 18
+2025-02-08 14:50:22.921 +01:00 [INF] Executed DbCommand (1ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT c.client_id, c.acess_token, c.email, c.est_valide, c.mot_de_passe, c.nom, c.prenom, c.tel
+FROM client AS c
+WHERE c.client_id = @__p_0
+LIMIT 1
+2025-02-08 14:50:22.924 +01:00 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT t.commande_id, t.client_id, t.date_creation, t.facture_id, t.livraison_id, t.valide, t0.ligne_commande_id, t0.article_id, t0.commande_id, t0.quantite, t0.article_id0, t0.famille_id, t0.fournisseur_id, t0.libelle, t0.prix, t0.reference, t0.tva_id
+FROM (
+    SELECT c.commande_id, c.client_id, c.date_creation, c.facture_id, c.livraison_id, c.valide
+    FROM commande AS c
+    WHERE c.commande_id = @__id_0
+    LIMIT 1
+) AS t
+LEFT JOIN (
+    SELECT l.ligne_commande_id, l.article_id, l.commande_id, l.quantite, a.article_id AS article_id0, a.famille_id, a.fournisseur_id, a.libelle, a.prix, a.reference, a.tva_id
+    FROM ligne_commande AS l
+    INNER JOIN article AS a ON l.article_id = a.article_id
+) AS t0 ON t.commande_id = t0.commande_id
+ORDER BY t.commande_id, t0.ligne_commande_id
+2025-02-08 14:50:22.928 +01:00 [INF] Executed DbCommand (1ms) [Parameters=[@p5='?' (DbType = Int32), @p0='?' (DbType = Int32), @p1='?' (DbType = DateTime), @p2='?' (DbType = Int32), @p3='?' (DbType = Int32), @p4='?' (DbType = Boolean), @p7='?' (DbType = Int32), @p6='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+UPDATE commande SET client_id = @p0, date_creation = @p1, facture_id = @p2, livraison_id = @p3, valide = @p4
+WHERE commande_id = @p5;
+UPDATE ligne_commande SET quantite = @p6
+WHERE ligne_commande_id = @p7;
+2025-02-08 14:50:22.929 +01:00 [INF] Executed action method backend_negosud.Controllers.PanierController.UpdateBasket (backend-negosud), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 42.7655ms.
+2025-02-08 14:50:22.930 +01:00 [INF] Executing OkObjectResult, writing value of type 'backend_negosud.Models.ResponseDataModel`1[[backend_negosud.DTOs.Commande_client.Outputs.PanierOutputDto, backend-negosud, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-02-08 14:50:22.930 +01:00 [INF] Executed action backend_negosud.Controllers.PanierController.UpdateBasket (backend-negosud) in 45.512ms
+2025-02-08 14:50:22.930 +01:00 [INF] Executed endpoint 'backend_negosud.Controllers.PanierController.UpdateBasket (backend-negosud)'
+2025-02-08 14:50:22.931 +01:00 [INF] Request finished HTTP/1.1 PUT http://localhost:5141/api/Panier/update - 200 null application/json; charset=utf-8 49.2176ms
+2025-02-08 14:50:31.829 +01:00 [INF] Request starting HTTP/1.1 PUT http://localhost:5141/api/Panier/update - application/json 147
+2025-02-08 14:50:31.831 +01:00 [INF] CORS policy execution successful.
+2025-02-08 14:50:31.837 +01:00 [INF] Executing endpoint 'backend_negosud.Controllers.PanierController.UpdateBasket (backend-negosud)'
+2025-02-08 14:50:31.837 +01:00 [INF] Route matched with {action = "UpdateBasket", controller = "Panier"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UpdateBasket(backend_negosud.DTOs.Commande_client.PanierUpdateInputDto) on controller backend_negosud.Controllers.PanierController (backend-negosud).
+2025-02-08 14:50:31.849 +01:00 [INF] Executing action method backend_negosud.Controllers.PanierController.UpdateBasket (backend-negosud) - Validation state: "Valid"
+2025-02-08 14:50:31.850 +01:00 [INF] Tentative de récupération du client avec ID: 18
+2025-02-08 14:50:31.859 +01:00 [INF] Executed DbCommand (6ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT c.client_id, c.acess_token, c.email, c.est_valide, c.mot_de_passe, c.nom, c.prenom, c.tel
+FROM client AS c
+WHERE c.client_id = @__p_0
+LIMIT 1
+2025-02-08 14:50:31.862 +01:00 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT t.commande_id, t.client_id, t.date_creation, t.facture_id, t.livraison_id, t.valide, t0.ligne_commande_id, t0.article_id, t0.commande_id, t0.quantite, t0.article_id0, t0.famille_id, t0.fournisseur_id, t0.libelle, t0.prix, t0.reference, t0.tva_id
+FROM (
+    SELECT c.commande_id, c.client_id, c.date_creation, c.facture_id, c.livraison_id, c.valide
+    FROM commande AS c
+    WHERE c.commande_id = @__id_0
+    LIMIT 1
+) AS t
+LEFT JOIN (
+    SELECT l.ligne_commande_id, l.article_id, l.commande_id, l.quantite, a.article_id AS article_id0, a.famille_id, a.fournisseur_id, a.libelle, a.prix, a.reference, a.tva_id
+    FROM ligne_commande AS l
+    INNER JOIN article AS a ON l.article_id = a.article_id
+) AS t0 ON t.commande_id = t0.commande_id
+ORDER BY t.commande_id, t0.ligne_commande_id
+2025-02-08 14:50:31.864 +01:00 [INF] Executed DbCommand (1ms) [Parameters=[@p5='?' (DbType = Int32), @p0='?' (DbType = Int32), @p1='?' (DbType = DateTime), @p2='?' (DbType = Int32), @p3='?' (DbType = Int32), @p4='?' (DbType = Boolean)], CommandType='"Text"', CommandTimeout='30']
+UPDATE commande SET client_id = @p0, date_creation = @p1, facture_id = @p2, livraison_id = @p3, valide = @p4
+WHERE commande_id = @p5;
+2025-02-08 14:50:31.865 +01:00 [INF] Executed action method backend_negosud.Controllers.PanierController.UpdateBasket (backend-negosud), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 15.4265ms.
+2025-02-08 14:50:31.865 +01:00 [INF] Executing OkObjectResult, writing value of type 'backend_negosud.Models.ResponseDataModel`1[[backend_negosud.DTOs.Commande_client.Outputs.PanierOutputDto, backend-negosud, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-02-08 14:50:31.866 +01:00 [INF] Executed action backend_negosud.Controllers.PanierController.UpdateBasket (backend-negosud) in 28.1739ms
+2025-02-08 14:50:31.866 +01:00 [INF] Executed endpoint 'backend_negosud.Controllers.PanierController.UpdateBasket (backend-negosud)'
+2025-02-08 14:50:31.866 +01:00 [INF] Request finished HTTP/1.1 PUT http://localhost:5141/api/Panier/update - 200 null application/json; charset=utf-8 36.494ms
+2025-02-08 14:51:11.437 +01:00 [INF] Application is shutting down...
