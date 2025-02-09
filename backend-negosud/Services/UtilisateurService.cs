@@ -138,11 +138,8 @@ public class UtilisateurService : IUtilisateurService
         try
         {
             var validator = new UtilisateurEmailInputDtoValidator();
-
-            // Valider l'objet
+            
             ValidationResult validationResult = validator.Validate(utilisateurEmailInputDto);
-
-            // Gérer les résultats de la validation
             if (!validationResult.IsValid)
             {
                 var errors = validationResult.Errors.Select(e => e.ErrorMessage).ToList();
