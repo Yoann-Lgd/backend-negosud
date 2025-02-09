@@ -8,6 +8,7 @@ using backend_negosud.DTOs.Commande_client.Outputs;
 using backend_negosud.DTOs.Famille;
 using backend_negosud.DTOs.Famille.Outputs;
 using backend_negosud.DTOs.Fournisseur.FournisseurOutputDto;
+using backend_negosud.DTOs.Livraison.Inputs;
 using backend_negosud.DTOs.Livraison.Outputs;
 using backend_negosud.DTOs.Pays.PaysOutputDto;
 using backend_negosud.DTOs.Tva.TvaOutputDto;
@@ -79,6 +80,11 @@ namespace backend_negosud.Mapper;
             CreateMap<LigneCommandeCreateInputDto, LigneCommande>()
                 .ForMember(dest => dest.LigneCommandeId, opt => opt.Ignore());
 
+            CreateMap<CommandeInputDto, Commande>()
+                .ForMember(dest => dest.DateCreation, opt => opt.MapFrom(_ => DateTime.UtcNow))
+                .ForMember(dest => dest.Valide, opt => opt.MapFrom(_ => true))
+                .ForMember(dest => dest.LigneCommandes, opt => opt.MapFrom(src => src.LigneCommandes));
+            
             CreateMap<Commande, CommandeOutputDto>()
                 .ForMember(dest => dest.CommandeId, opt => opt.MapFrom(src => src.CommandeId))
                 .ForMember(dest => dest.DateCreation, opt => opt.MapFrom(src => src.DateCreation))
@@ -141,5 +147,6 @@ namespace backend_negosud.Mapper;
             CreateMap<Stock, StockInputDto>();
             CreateMap<Pays, PaysEssentialOutputDto>();
             CreateMap<Tva, TvaOutputDto>();
+            CreateMap<LivraisonInputCommandeDto, Livraison>();
         }
     }

@@ -1,23 +1,111 @@
 using AutoMapper;
+using backend_negosud.DTOs.Commande_client;
 using backend_negosud.DTOs.Commande_client.Outputs;
 using backend_negosud.Entities;
 using backend_negosud.Models;
 using backend_negosud.Repository;
+using backend_negosud.Validation.Commande;
+using FluentValidation.Results;
 
 namespace backend_negosud.Services;
 
 public class CommandeService : ICommandeService
 {
     private ICommandeRepository _commandeRepository;
+    private IArticleRepository _articleRepository;
+    private IClientRepository _clientRepository;
     private readonly IMapper _mapper;
     private readonly ILogger<CommandeService> _logger;
 
-    public CommandeService(IMapper mapper, ICommandeRepository commandeRepository, ILogger<CommandeService> logger)
+    public CommandeService(IMapper mapper, ICommandeRepository commandeRepository, IArticleRepository articleRepository, IClientRepository clientRepository, ILogger<CommandeService> logger)
     {
         _commandeRepository = commandeRepository;
+        _clientRepository = clientRepository;
+        _articleRepository = articleRepository;
         _mapper = mapper;
         _logger = logger;
     }
+    
+    public async Task<IResponseDataModel<CommandeOutputDto>> CreateCommande(CommandeInputDto commandeInput)
+    {
+        try
+        {
+            var validator = new CommandeCreateValidation();
+            ValidationResult validationResult = validator.Validate(commandeInput);
+
+            if (!validationResult.IsValid)
+            {
+                var errors = validationResult.Errors.Select(e => e.ErrorMessage).ToList();
+                _logger.LogWarning("Validation des données d'entrée échouée : {Errors}", string.Join(", ", errors));
+                return new ResponseDataModel<CommandeOutputDto>
+                {
+                    Success = false,
+                    StatusCode = 400,
+                    Message = string.Join(", ", errors),
+                };
+            }
+
+            _logger.LogInformation("Tentative de récupération du client avec ID: {ClientId}", commandeInput.ClientId);
+            var client = await _clientRepository.GetByIdAsync(commandeInput.ClientId);
+
+            if (client == null)
+            {
+                _logger.LogError("Client introuvable pour l'ID: {ClientId}", commandeInput.ClientId);
+                return new ResponseDataModel<CommandeOutputDto>
+                {
+                    Success = false,
+                    Message = "Client introuvable.",
+                    StatusCode = 404
+                };
+            }
+
+            var ligneCommandes = _mapper.Map<List<LigneCommande>>(commandeInput.LigneCommandes);
+            foreach (var ligne in ligneCommandes)
+            {
+                var articleExist = await _articleRepository.AnyAsync(a => a.ArticleId == ligne.ArticleId);
+                if (!articleExist)
+                {
+                    _logger.LogWarning("Article ID {ArticleId} n'existe pas.", ligne.ArticleId);
+                }
+            }
+
+            var commande = _mapper.Map<Commande>(commandeInput);
+            commande.DateCreation = DateTime.UtcNow;
+            commande.LigneCommandes = ligneCommandes;
+
+            var livraisonInputDto = commandeInput.Livraison;
+            var livraison = _mapper.Map<Livraison>(livraisonInputDto);
+            livraison.DateEstimee = DateTime.UtcNow.AddDays(5);
+            livraison.Livree = false;
+
+            await _commandeRepository.AddAsync(commande);
+
+            var createdCommande = await _commandeRepository.GetByIdAndLigneCommandesAsync(commande.CommandeId);
+
+            var outputDto = _mapper.Map<CommandeOutputDto>(createdCommande);
+
+            return new ResponseDataModel<CommandeOutputDto>
+            {
+                Success = true,
+                Message = "Commande créée avec succès.",
+                StatusCode = 201,
+                Data = outputDto
+            };
+        }
+        catch (Exception e)
+        {
+            _logger.LogError(e, "Erreur lors de la création de la commande");
+
+            return new ResponseDataModel<CommandeOutputDto>
+            {
+                Success = false,
+                Message = "Une erreur s'est produite lors de la création de la commande.",
+                StatusCode = 500,
+                Data = null,
+            };
+        }
+    }
+
 
     public async Task<CommandeOutputDto> GetCommandeById(int id)
     {
