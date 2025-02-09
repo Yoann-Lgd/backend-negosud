@@ -1,20 +1,12 @@
 using System.Reflection;
 using System.Security.Cryptography;
-using backend_negosud.DTOs;
 using backend_negosud.Entities;
 using backend_negosud.Extentions;
-using backend_negosud.Repository;
-using backend_negosud.Services;
+using backend_negosud.Seeds;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
-using backend_negosud.Seeds;
-using FluentValidation;
-using FluentValidation.AspNetCore;
-using Npgsql;
 using Serilog;
-using ILogger = Microsoft.Extensions.Logging.ILogger;
 
 DotNetEnv.Env.Load();
 var builder = WebApplication.CreateBuilder(args);
@@ -32,7 +24,7 @@ else
 }
 
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-    .AddJwtBearer((options =>
+    .AddJwtBearer(options =>
     {
         options.TokenValidationParameters = new TokenValidationParameters
         {
@@ -44,10 +36,9 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
             ValidAudience = builder.Configuration["Jwt:Audience"],
             ClockSkew = TimeSpan.Zero
         };
-    }));
+    });
 
 // Add services to the container.
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Configuration.AddEnvironmentVariables();
 builder.Services.AddAutoMapper(typeof(Program));
 builder.Services.AddSwaggerGen(opt =>
@@ -58,7 +49,7 @@ builder.Services.AddSwaggerGen(opt =>
         In = ParameterLocation.Header,
         Type = SecuritySchemeType.ApiKey,
         Scheme = "Bearer",
-        Description = "Token JWT. Saisir \"Bearer {Token}\""
+        Description = "JWT Token. Use \"Bearer {token}\""
     });
     opt.AddSecurityRequirement(new OpenApiSecurityRequirement
     {
@@ -78,9 +69,7 @@ builder.Services.AddSwaggerGen(opt =>
     opt.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, xmlFilename));
 });
 
-
 builder.InjectDependencies();
-
 
 // Configuration de Serilog
 var loggerConfiguration = new LoggerConfiguration()
@@ -90,13 +79,11 @@ var logger = loggerConfiguration.CreateLogger();
 builder.Logging.AddSerilog(logger);
 builder.Services.AddLogging();
 
-
 var app = builder.Build();
 
-// On peuple la base de données à l'aide de notre classe dédiée et alimnentée par le package Bogus
+// On peuple la base de données à l'aide de notre classe dédiée et alimentée par le package Bogus
 using (var scope = app.Services.CreateScope())
 {
-    // var seeder = scope.ServiceProvider.GetRequiredService<DatabaseSeeder>();
     var services = scope.ServiceProvider;
     var context = services.GetRequiredService<PostgresContext>();
     var seedData = new DatabaseSeeder(context);
@@ -110,7 +97,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.UseHangfire(); 
+app.UseHangfire();
 app.UseRouting();
 app.UseCors("AllowAll");
 app.UseHttpsRedirection();

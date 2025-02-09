@@ -67,6 +67,7 @@ public static class DependencyInjectionExtension
         builder.Services.AddScoped<IEnvoieEmailService, EnvoieEmailService>();
         builder.Services.AddScoped<IFamilleService, FamilleService>();
         builder.Services.AddScoped<ILogger<Program>, Logger<Program>>();
+        builder.Services.AddHostedService<StartupService>();
         builder.Services.AddValidatorsFromAssemblyContaining<Program>();
         builder.Services.AddFluentValidationAutoValidation();
     }    
