@@ -148,8 +148,10 @@ public class UtilisateurService : IUtilisateurService
                 };
             }
 
+            var emailLower = utilisateurEmailInputDto.Email.ToLower();
+
             var exists = await _context.Utilisateurs
-                .AnyAsync(u => u.Email == utilisateurEmailInputDto.Email);
+                .AnyAsync(u => u.Email.ToLower() == emailLower);
 
             if (exists)
             {
