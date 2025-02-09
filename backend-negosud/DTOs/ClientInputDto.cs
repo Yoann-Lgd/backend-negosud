@@ -17,3 +17,10 @@ public class ClientInputDto
     public string AcessToken { get; set; } = null!;
     
 }
+
+public class ClientInputDtoSimplified
+{
+    public string Email { get; set; } = null!;
+
+    public string MotDePasse { get; set; } = null!;
+}
