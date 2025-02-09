@@ -57,6 +57,8 @@ namespace backend_negosud.Mapper;
             CreateMap<Client, ClientInputDto>();
             CreateMap<Client, ClientOutputDto>();
             CreateMap<ClientOutputDto, Client>();
+            CreateMap<ClientInputDtoSimplified, Client>();
+            CreateMap<Client, ClientInputDtoSimplified>();
 
             CreateMap<PanierInputDto, Commande>()
                 .ForMember(dest => dest.DateCreation, opt => opt.MapFrom(_ => DateTime.UtcNow))

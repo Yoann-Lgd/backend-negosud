@@ -32,7 +32,7 @@ public class ClientController : ControllerBase
     }
 
     [HttpPost("login")]
-    public async Task<IActionResult> Login([FromBody] ClientInputDto clientInputDto)
+    public async Task<IActionResult> Login([FromBody] ClientInputDtoSimplified clientInputDto)
     {
         var result = await _clientService.Login(clientInputDto.Email, clientInputDto.MotDePasse);
         return result.Success ? Ok(result) : BadRequest(result);
