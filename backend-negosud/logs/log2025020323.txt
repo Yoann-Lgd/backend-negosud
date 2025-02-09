@@ -1,0 +1,1121 @@
+2025-02-03 23:00:49.460 +01:00 [INF] Application is shutting down...
+2025-02-03 23:00:52.934 +01:00 [INF] Executed DbCommand (13ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM client AS c)
+2025-02-03 23:00:53.037 +01:00 [INF] User profile is available. Using '/Users/yoann/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-02-03 23:00:53.061 +01:00 [INF] Now listening on: http://localhost:5141
+2025-02-03 23:00:53.063 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-02-03 23:00:53.064 +01:00 [INF] Hosting environment: Development
+2025-02-03 23:00:53.064 +01:00 [INF] Content root path: /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud
+2025-02-03 23:00:53.984 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5141/swagger/index.html - null null
+2025-02-03 23:00:54.100 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5141/swagger/index.html - 200 null text/html;charset=utf-8 116.6196ms
+2025-02-03 23:00:54.361 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5141/swagger/v1/swagger.json - null null
+2025-02-03 23:00:54.431 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5141/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 70.4423ms
+2025-02-03 23:01:13.480 +01:00 [INF] Request starting HTTP/1.1 POST http://localhost:5141/api/Stocks - application/json 118
+2025-02-03 23:01:13.496 +01:00 [WRN] Failed to determine the https port for redirect.
+2025-02-03 23:01:13.509 +01:00 [INF] CORS policy execution successful.
+2025-02-03 23:01:13.509 +01:00 [WRN] Failed to determine the https port for redirect.
+2025-02-03 23:01:13.534 +01:00 [INF] Executing endpoint 'backend_negosud.Controllers.StocksController.CreateStock (backend-negosud)'
+2025-02-03 23:01:13.550 +01:00 [INF] Route matched with {action = "CreateStock", controller = "Stocks"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[backend_negosud.DTOs.StockSummaryDto]] CreateStock(backend_negosud.DTOs.StockInputDto) on controller backend_negosud.Controllers.StocksController (backend-negosud).
+2025-02-03 23:01:13.706 +01:00 [INF] Executing action method backend_negosud.Controllers.StocksController.CreateStock (backend-negosud) - Validation state: "Valid"
+2025-02-03 23:01:13.808 +01:00 [INF] Executed DbCommand (16ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.article_id, a.famille_id, a.fournisseur_id, a.libelle, a.prix, a.reference, a.tva_id
+FROM article AS a
+WHERE a.article_id = @__p_0
+LIMIT 1
+2025-02-03 23:01:13.967 +01:00 [INF] Executed DbCommand (5ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = Int32), @p2='?' (DbType = Boolean), @p3='?', @p4='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO stock (article_id, quantite, reapprovisionnement_auto, ref_lot, seuil_minimum)
+VALUES (@p0, @p1, @p2, @p3, @p4)
+RETURNING stock_id;
+2025-02-03 23:01:13.977 +01:00 [INF] Executed action backend_negosud.Controllers.StocksController.CreateStock (backend-negosud) in 423.4072ms
+2025-02-03 23:01:13.977 +01:00 [INF] Executed endpoint 'backend_negosud.Controllers.StocksController.CreateStock (backend-negosud)'
+2025-02-03 23:01:13.994 +01:00 [ERR] An unhandled exception has occurred while executing the request.
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at backend_negosud.Controllers.StocksController.CreateStock(StockInputDto createStockDto) in /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud/Controllers/StocksController.cs:line 75
+   at lambda_method30(Closure, Object)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-02-03 23:01:14.005 +01:00 [INF] Request finished HTTP/1.1 POST http://localhost:5141/api/Stocks - 500 null text/plain; charset=utf-8 524.8894ms
+2025-02-03 23:04:13.612 +01:00 [INF] Application is shutting down...
+2025-02-03 23:04:16.785 +01:00 [INF] Executed DbCommand (15ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM client AS c)
+2025-02-03 23:04:16.890 +01:00 [INF] User profile is available. Using '/Users/yoann/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-02-03 23:04:16.917 +01:00 [INF] Now listening on: http://localhost:5141
+2025-02-03 23:04:16.919 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-02-03 23:04:16.919 +01:00 [INF] Hosting environment: Development
+2025-02-03 23:04:16.919 +01:00 [INF] Content root path: /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud
+2025-02-03 23:04:17.828 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5141/swagger/index.html - null null
+2025-02-03 23:04:18.053 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5141/swagger/index.html - 200 null text/html;charset=utf-8 254.3632ms
+2025-02-03 23:04:18.325 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5141/swagger/v1/swagger.json - null null
+2025-02-03 23:04:18.399 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5141/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 73.8703ms
+2025-02-03 23:04:32.563 +01:00 [INF] Request starting HTTP/1.1 POST http://localhost:5141/api/Stocks - application/json 118
+2025-02-03 23:04:32.569 +01:00 [WRN] Failed to determine the https port for redirect.
+2025-02-03 23:04:32.581 +01:00 [INF] CORS policy execution successful.
+2025-02-03 23:04:32.582 +01:00 [WRN] Failed to determine the https port for redirect.
+2025-02-03 23:04:32.611 +01:00 [INF] Executing endpoint 'backend_negosud.Controllers.StocksController.CreateStock (backend-negosud)'
+2025-02-03 23:04:32.624 +01:00 [INF] Route matched with {action = "CreateStock", controller = "Stocks"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[backend_negosud.DTOs.StockSummaryDto]] CreateStock(backend_negosud.DTOs.StockInputDto) on controller backend_negosud.Controllers.StocksController (backend-negosud).
+2025-02-03 23:04:32.769 +01:00 [INF] Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+2025-02-03 23:04:32.794 +01:00 [INF] Executed action backend_negosud.Controllers.StocksController.CreateStock (backend-negosud) in 168.2768ms
+2025-02-03 23:04:32.795 +01:00 [INF] Executed endpoint 'backend_negosud.Controllers.StocksController.CreateStock (backend-negosud)'
+2025-02-03 23:04:32.795 +01:00 [INF] Request finished HTTP/1.1 POST http://localhost:5141/api/Stocks - 400 null application/problem+json; charset=utf-8 232.9882ms
+2025-02-03 23:04:54.722 +01:00 [INF] Request starting HTTP/1.1 POST http://localhost:5141/api/Stocks - application/json 117
+2025-02-03 23:04:54.723 +01:00 [INF] CORS policy execution successful.
+2025-02-03 23:04:54.724 +01:00 [INF] Executing endpoint 'backend_negosud.Controllers.StocksController.CreateStock (backend-negosud)'
+2025-02-03 23:04:54.724 +01:00 [INF] Route matched with {action = "CreateStock", controller = "Stocks"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[backend_negosud.DTOs.StockSummaryDto]] CreateStock(backend_negosud.DTOs.StockInputDto) on controller backend_negosud.Controllers.StocksController (backend-negosud).
+2025-02-03 23:04:54.774 +01:00 [INF] Executing action method backend_negosud.Controllers.StocksController.CreateStock (backend-negosud) - Validation state: "Valid"
+2025-02-03 23:04:54.886 +01:00 [INF] Executed DbCommand (17ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.article_id, a.famille_id, a.fournisseur_id, a.libelle, a.prix, a.reference, a.tva_id
+FROM article AS a
+WHERE a.article_id = @__p_0
+LIMIT 1
+2025-02-03 23:04:55.028 +01:00 [INF] Executed DbCommand (7ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = Int32), @p2='?' (DbType = Boolean), @p3='?', @p4='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO stock (article_id, quantite, reapprovisionnement_auto, ref_lot, seuil_minimum)
+VALUES (@p0, @p1, @p2, @p3, @p4)
+RETURNING stock_id;
+2025-02-03 23:04:55.047 +01:00 [INF] Executed action backend_negosud.Controllers.StocksController.CreateStock (backend-negosud) in 322.5485ms
+2025-02-03 23:04:55.048 +01:00 [INF] Executed endpoint 'backend_negosud.Controllers.StocksController.CreateStock (backend-negosud)'
+2025-02-03 23:04:55.065 +01:00 [ERR] An unhandled exception has occurred while executing the request.
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at backend_negosud.Controllers.StocksController.CreateStock(StockInputDto createStockDto) in /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud/Controllers/StocksController.cs:line 75
+   at lambda_method30(Closure, Object)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-02-03 23:04:55.073 +01:00 [INF] Request finished HTTP/1.1 POST http://localhost:5141/api/Stocks - 500 null text/plain; charset=utf-8 351.3942ms
+2025-02-03 23:06:40.795 +01:00 [INF] Application is shutting down...
+2025-02-03 23:06:44.603 +01:00 [INF] Executed DbCommand (15ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM client AS c)
+2025-02-03 23:06:44.722 +01:00 [INF] User profile is available. Using '/Users/yoann/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-02-03 23:06:44.754 +01:00 [INF] Now listening on: http://localhost:5141
+2025-02-03 23:06:44.757 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-02-03 23:06:44.757 +01:00 [INF] Hosting environment: Development
+2025-02-03 23:06:44.757 +01:00 [INF] Content root path: /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud
+2025-02-03 23:06:45.132 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5141/swagger/index.html - null null
+2025-02-03 23:06:45.242 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5141/swagger/index.html - 200 null text/html;charset=utf-8 111.5273ms
+2025-02-03 23:06:45.516 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5141/swagger/v1/swagger.json - null null
+2025-02-03 23:06:45.590 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5141/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 73.922ms
+2025-02-03 23:06:57.352 +01:00 [INF] Request starting HTTP/1.1 POST http://localhost:5141/api/Stocks - application/json 118
+2025-02-03 23:06:57.377 +01:00 [WRN] Failed to determine the https port for redirect.
+2025-02-03 23:06:57.389 +01:00 [INF] CORS policy execution successful.
+2025-02-03 23:06:57.390 +01:00 [WRN] Failed to determine the https port for redirect.
+2025-02-03 23:06:57.422 +01:00 [INF] Executing endpoint 'backend_negosud.Controllers.StocksController.CreateStock (backend-negosud)'
+2025-02-03 23:06:57.436 +01:00 [INF] Route matched with {action = "CreateStock", controller = "Stocks"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[backend_negosud.DTOs.StockSummaryDto]] CreateStock(backend_negosud.DTOs.StockInputDto) on controller backend_negosud.Controllers.StocksController (backend-negosud).
+2025-02-03 23:06:57.604 +01:00 [INF] Executing action method backend_negosud.Controllers.StocksController.CreateStock (backend-negosud) - Validation state: "Valid"
+2025-02-03 23:06:57.712 +01:00 [INF] Executed DbCommand (18ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.article_id, a.famille_id, a.fournisseur_id, a.libelle, a.prix, a.reference, a.tva_id
+FROM article AS a
+WHERE a.article_id = @__p_0
+LIMIT 1
+2025-02-03 23:06:57.859 +01:00 [INF] Executed DbCommand (6ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = Int32), @p2='?' (DbType = Boolean), @p3='?', @p4='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO stock (article_id, quantite, reapprovisionnement_auto, ref_lot, seuil_minimum)
+VALUES (@p0, @p1, @p2, @p3, @p4)
+RETURNING stock_id;
+2025-02-03 23:06:57.886 +01:00 [INF] Executed action method backend_negosud.Controllers.StocksController.CreateStock (backend-negosud), returned result Microsoft.AspNetCore.Mvc.CreatedAtActionResult in 278.0403ms.
+2025-02-03 23:06:57.894 +01:00 [INF] Executing CreatedAtActionResult, writing value of type 'backend_negosud.DTOs.StockSummaryDto'.
+2025-02-03 23:06:57.924 +01:00 [INF] Executed action backend_negosud.Controllers.StocksController.CreateStock (backend-negosud) in 484.7352ms
+2025-02-03 23:06:57.925 +01:00 [INF] Executed endpoint 'backend_negosud.Controllers.StocksController.CreateStock (backend-negosud)'
+2025-02-03 23:06:57.934 +01:00 [INF] Request finished HTTP/1.1 POST http://localhost:5141/api/Stocks - 201 null application/json; charset=utf-8 581.6199ms
+2025-02-03 23:07:12.235 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5141/api/Stocks/1/history - null null
+2025-02-03 23:07:12.239 +01:00 [INF] Executing endpoint 'backend_negosud.Controllers.StocksController.GetStockHistory (backend-negosud)'
+2025-02-03 23:07:12.242 +01:00 [INF] Route matched with {action = "GetStockHistory", controller = "Stocks"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[backend_negosud.DTOs.StockHistoryDto]]] GetStockHistory(Int32) on controller backend_negosud.Controllers.StocksController (backend-negosud).
+2025-02-03 23:07:12.244 +01:00 [INF] Executing action method backend_negosud.Controllers.StocksController.GetStockHistory (backend-negosud) - Validation state: "Valid"
+2025-02-03 23:07:12.246 +01:00 [INF] Executed action backend_negosud.Controllers.StocksController.GetStockHistory (backend-negosud) in 4.1686ms
+2025-02-03 23:07:12.247 +01:00 [INF] Executed endpoint 'backend_negosud.Controllers.StocksController.GetStockHistory (backend-negosud)'
+2025-02-03 23:07:12.261 +01:00 [ERR] An unhandled exception has occurred while executing the request.
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at backend_negosud.Services.StockService.GetStockHistory(Int32 stockId) in /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud/Services/StockService.cs:line 195
+   at backend_negosud.Controllers.StocksController.GetStockHistory(Int32 id) in /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud/Controllers/StocksController.cs:line 136
+   at lambda_method246(Closure, Object)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-02-03 23:07:12.267 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5141/api/Stocks/1/history - 500 null text/plain; charset=utf-8 32.5189ms
+2025-02-03 23:10:03.559 +01:00 [INF] Application is shutting down...
+2025-02-03 23:10:06.904 +01:00 [INF] Executed DbCommand (19ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM client AS c)
+2025-02-03 23:10:07.030 +01:00 [INF] User profile is available. Using '/Users/yoann/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-02-03 23:10:07.057 +01:00 [INF] Now listening on: http://localhost:5141
+2025-02-03 23:10:07.059 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-02-03 23:10:07.059 +01:00 [INF] Hosting environment: Development
+2025-02-03 23:10:07.059 +01:00 [INF] Content root path: /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud
+2025-02-03 23:10:07.899 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5141/swagger/index.html - null null
+2025-02-03 23:10:08.032 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5141/swagger/index.html - 200 null text/html;charset=utf-8 133.5096ms
+2025-02-03 23:10:08.306 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5141/swagger/v1/swagger.json - null null
+2025-02-03 23:10:08.413 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5141/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 107.6068ms
+2025-02-03 23:10:16.815 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5141/api/Stocks/1/history - null null
+2025-02-03 23:10:16.832 +01:00 [WRN] Failed to determine the https port for redirect.
+2025-02-03 23:10:16.851 +01:00 [WRN] Failed to determine the https port for redirect.
+2025-02-03 23:10:16.880 +01:00 [INF] Executing endpoint 'backend_negosud.Controllers.StocksController.GetStockHistory (backend-negosud)'
+2025-02-03 23:10:16.895 +01:00 [INF] Route matched with {action = "GetStockHistory", controller = "Stocks"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[backend_negosud.DTOs.StockHistoryDto]]] GetStockHistory(Int32) on controller backend_negosud.Controllers.StocksController (backend-negosud).
+2025-02-03 23:10:16.993 +01:00 [INF] Executing action method backend_negosud.Controllers.StocksController.GetStockHistory (backend-negosud) - Validation state: "Valid"
+2025-02-03 23:10:16.995 +01:00 [ERR] L'inventorierRepository est null dans GetStockHistory
+2025-02-03 23:10:16.997 +01:00 [INF] Executed action method backend_negosud.Controllers.StocksController.GetStockHistory (backend-negosud), returned result Microsoft.AspNetCore.Mvc.BadRequestObjectResult in 1.9965ms.
+2025-02-03 23:10:17.002 +01:00 [INF] Executing BadRequestObjectResult, writing value of type 'System.String'.
+2025-02-03 23:10:17.004 +01:00 [INF] Executed action backend_negosud.Controllers.StocksController.GetStockHistory (backend-negosud) in 107.0612ms
+2025-02-03 23:10:17.004 +01:00 [INF] Executed endpoint 'backend_negosud.Controllers.StocksController.GetStockHistory (backend-negosud)'
+2025-02-03 23:10:17.005 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5141/api/Stocks/1/history - 400 null text/plain; charset=utf-8 189.8447ms
+2025-02-03 23:10:22.919 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5141/api/Stocks/3/history - null null
+2025-02-03 23:10:22.929 +01:00 [INF] Executing endpoint 'backend_negosud.Controllers.StocksController.GetStockHistory (backend-negosud)'
+2025-02-03 23:10:22.930 +01:00 [INF] Route matched with {action = "GetStockHistory", controller = "Stocks"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[backend_negosud.DTOs.StockHistoryDto]]] GetStockHistory(Int32) on controller backend_negosud.Controllers.StocksController (backend-negosud).
+2025-02-03 23:10:22.932 +01:00 [INF] Executing action method backend_negosud.Controllers.StocksController.GetStockHistory (backend-negosud) - Validation state: "Valid"
+2025-02-03 23:10:22.932 +01:00 [ERR] L'inventorierRepository est null dans GetStockHistory
+2025-02-03 23:10:22.932 +01:00 [INF] Executed action method backend_negosud.Controllers.StocksController.GetStockHistory (backend-negosud), returned result Microsoft.AspNetCore.Mvc.BadRequestObjectResult in 0.152ms.
+2025-02-03 23:10:22.932 +01:00 [INF] Executing BadRequestObjectResult, writing value of type 'System.String'.
+2025-02-03 23:10:22.933 +01:00 [INF] Executed action backend_negosud.Controllers.StocksController.GetStockHistory (backend-negosud) in 2.6492ms
+2025-02-03 23:10:22.933 +01:00 [INF] Executed endpoint 'backend_negosud.Controllers.StocksController.GetStockHistory (backend-negosud)'
+2025-02-03 23:10:22.933 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5141/api/Stocks/3/history - 400 null text/plain; charset=utf-8 14.0709ms
+2025-02-03 23:11:23.371 +01:00 [INF] Application is shutting down...
+2025-02-03 23:11:26.533 +01:00 [INF] Executed DbCommand (15ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM client AS c)
+2025-02-03 23:11:26.646 +01:00 [INF] User profile is available. Using '/Users/yoann/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-02-03 23:11:26.678 +01:00 [INF] Now listening on: http://localhost:5141
+2025-02-03 23:11:26.681 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-02-03 23:11:26.683 +01:00 [INF] Hosting environment: Development
+2025-02-03 23:11:26.689 +01:00 [INF] Content root path: /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud
+2025-02-03 23:11:27.245 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5141/swagger/index.html - null null
+2025-02-03 23:11:27.376 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5141/swagger/index.html - 200 null text/html;charset=utf-8 133.9806ms
+2025-02-03 23:11:27.640 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5141/swagger/v1/swagger.json - null null
+2025-02-03 23:11:27.719 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5141/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 79.3807ms
+2025-02-03 23:11:38.082 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5141/api/Stocks/1/history - null null
+2025-02-03 23:11:38.097 +01:00 [WRN] Failed to determine the https port for redirect.
+2025-02-03 23:11:38.117 +01:00 [WRN] Failed to determine the https port for redirect.
+2025-02-03 23:11:38.152 +01:00 [INF] Executing endpoint 'backend_negosud.Controllers.StocksController.GetStockHistory (backend-negosud)'
+2025-02-03 23:11:38.166 +01:00 [INF] Route matched with {action = "GetStockHistory", controller = "Stocks"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[backend_negosud.DTOs.StockHistoryDto]]] GetStockHistory(Int32) on controller backend_negosud.Controllers.StocksController (backend-negosud).
+2025-02-03 23:11:38.262 +01:00 [INF] Executing action method backend_negosud.Controllers.StocksController.GetStockHistory (backend-negosud) - Validation state: "Valid"
+2025-02-03 23:11:38.367 +01:00 [INF] Executed DbCommand (19ms) [Parameters=[@__stockId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT i.utilisateur_id, i.stock_id, i.date_modification, i.quantite_post_modification, i.quantite_precedente, i.type_modification
+FROM inventorier AS i
+WHERE i.stock_id = @__stockId_0
+ORDER BY i.date_modification DESC
+2025-02-03 23:11:38.437 +01:00 [INF] Executed action backend_negosud.Controllers.StocksController.GetStockHistory (backend-negosud) in 266.5906ms
+2025-02-03 23:11:38.438 +01:00 [INF] Executed endpoint 'backend_negosud.Controllers.StocksController.GetStockHistory (backend-negosud)'
+2025-02-03 23:11:38.457 +01:00 [ERR] An unhandled exception has occurred while executing the request.
+AutoMapper.AutoMapperMappingException: Error mapping types.
+
+Mapping types:
+List`1 -> List`1
+System.Collections.Generic.List`1[[backend_negosud.Entities.Inventorier, backend-negosud, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]] -> System.Collections.Generic.List`1[[backend_negosud.DTOs.StockHistoryDto, backend-negosud, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]
+ ---> AutoMapper.AutoMapperMappingException: Missing type map configuration or unsupported mapping.
+
+Mapping types:
+Inventorier -> StockHistoryDto
+backend_negosud.Entities.Inventorier -> backend_negosud.DTOs.StockHistoryDto
+   at lambda_method79(Closure, Inventorier, StockHistoryDto, ResolutionContext)
+   at lambda_method78(Closure, Object, List`1, ResolutionContext)
+   --- End of inner exception stack trace ---
+   at lambda_method78(Closure, Object, List`1, ResolutionContext)
+   at backend_negosud.Controllers.StocksController.GetStockHistory(Int32 id) in /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud/Controllers/StocksController.cs:line 142
+   at lambda_method30(Closure, Object)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-02-03 23:11:38.468 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5141/api/Stocks/1/history - 500 null text/plain; charset=utf-8 385.3172ms
+2025-02-03 23:13:38.227 +01:00 [INF] Application is shutting down...
+2025-02-03 23:13:41.437 +01:00 [INF] Executed DbCommand (20ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM client AS c)
+2025-02-03 23:13:41.542 +01:00 [INF] User profile is available. Using '/Users/yoann/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-02-03 23:13:41.568 +01:00 [INF] Now listening on: http://localhost:5141
+2025-02-03 23:13:41.571 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-02-03 23:13:41.571 +01:00 [INF] Hosting environment: Development
+2025-02-03 23:13:41.571 +01:00 [INF] Content root path: /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud
+2025-02-03 23:13:42.419 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5141/swagger/index.html - null null
+2025-02-03 23:13:42.563 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5141/swagger/index.html - 200 null text/html;charset=utf-8 145.3718ms
+2025-02-03 23:13:42.853 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5141/swagger/v1/swagger.json - null null
+2025-02-03 23:13:42.939 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5141/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 86.3539ms
+2025-02-03 23:13:56.441 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5141/api/Stocks/1/history - null null
+2025-02-03 23:13:56.452 +01:00 [WRN] Failed to determine the https port for redirect.
+2025-02-03 23:13:56.464 +01:00 [WRN] Failed to determine the https port for redirect.
+2025-02-03 23:13:56.494 +01:00 [INF] Executing endpoint 'backend_negosud.Controllers.StocksController.GetStockHistory (backend-negosud)'
+2025-02-03 23:13:56.509 +01:00 [INF] Route matched with {action = "GetStockHistory", controller = "Stocks"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[backend_negosud.DTOs.StockHistoryDto]]] GetStockHistory(Int32) on controller backend_negosud.Controllers.StocksController (backend-negosud).
+2025-02-03 23:13:56.606 +01:00 [INF] Executing action method backend_negosud.Controllers.StocksController.GetStockHistory (backend-negosud) - Validation state: "Valid"
+2025-02-03 23:13:56.710 +01:00 [INF] Executed DbCommand (18ms) [Parameters=[@__stockId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT i.utilisateur_id, i.stock_id, i.date_modification, i.quantite_post_modification, i.quantite_precedente, i.type_modification
+FROM inventorier AS i
+WHERE i.stock_id = @__stockId_0
+ORDER BY i.date_modification DESC
+2025-02-03 23:13:56.762 +01:00 [INF] Executed action method backend_negosud.Controllers.StocksController.GetStockHistory (backend-negosud), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 153.4786ms.
+2025-02-03 23:13:56.770 +01:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[backend_negosud.DTOs.StockHistoryDto, backend-negosud, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-02-03 23:13:56.825 +01:00 [INF] Executed action backend_negosud.Controllers.StocksController.GetStockHistory (backend-negosud) in 312.9774ms
+2025-02-03 23:13:56.826 +01:00 [INF] Executed endpoint 'backend_negosud.Controllers.StocksController.GetStockHistory (backend-negosud)'
+2025-02-03 23:13:56.833 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5141/api/Stocks/1/history - 200 null application/json; charset=utf-8 392.1739ms
+2025-02-03 23:14:12.973 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5141/api/Stocks/check-level?articleId=1&quantiteDemandee=2 - null null
+2025-02-03 23:14:12.987 +01:00 [INF] Executing endpoint 'backend_negosud.Controllers.StocksController.CheckStockLevel (backend-negosud)'
+2025-02-03 23:14:12.994 +01:00 [INF] Route matched with {action = "CheckStockLevel", controller = "Stocks"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult] CheckStockLevel(Int32, Int32) on controller backend_negosud.Controllers.StocksController (backend-negosud).
+2025-02-03 23:14:13.000 +01:00 [INF] Executing action method backend_negosud.Controllers.StocksController.CheckStockLevel (backend-negosud) - Validation state: "Valid"
+2025-02-03 23:14:13.044 +01:00 [INF] Executed DbCommand (2ms) [Parameters=[@__articleId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT s.stock_id, s.article_id, s.quantite, s.reapprovisionnement_auto, s.ref_lot, s.seuil_minimum
+FROM stock AS s
+WHERE s.article_id = @__articleId_0
+LIMIT 1
+2025-02-03 23:14:13.059 +01:00 [INF] Executed action method backend_negosud.Controllers.StocksController.CheckStockLevel (backend-negosud), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 59.0453ms.
+2025-02-03 23:14:13.060 +01:00 [INF] Executing OkObjectResult, writing value of type 'System.String'.
+2025-02-03 23:14:13.060 +01:00 [INF] Executed action backend_negosud.Controllers.StocksController.CheckStockLevel (backend-negosud) in 66.6702ms
+2025-02-03 23:14:13.061 +01:00 [INF] Executed endpoint 'backend_negosud.Controllers.StocksController.CheckStockLevel (backend-negosud)'
+2025-02-03 23:14:13.061 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5141/api/Stocks/check-level?articleId=1&quantiteDemandee=2 - 200 null text/plain; charset=utf-8 87.5872ms
+2025-02-03 23:14:20.980 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5141/api/Stocks/check-level?articleId=1&quantiteDemandee=100 - null null
+2025-02-03 23:14:20.985 +01:00 [INF] Executing endpoint 'backend_negosud.Controllers.StocksController.CheckStockLevel (backend-negosud)'
+2025-02-03 23:14:20.986 +01:00 [INF] Route matched with {action = "CheckStockLevel", controller = "Stocks"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult] CheckStockLevel(Int32, Int32) on controller backend_negosud.Controllers.StocksController (backend-negosud).
+2025-02-03 23:14:20.993 +01:00 [INF] Executing action method backend_negosud.Controllers.StocksController.CheckStockLevel (backend-negosud) - Validation state: "Valid"
+2025-02-03 23:14:21.010 +01:00 [INF] Executed DbCommand (8ms) [Parameters=[@__articleId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT s.stock_id, s.article_id, s.quantite, s.reapprovisionnement_auto, s.ref_lot, s.seuil_minimum
+FROM stock AS s
+WHERE s.article_id = @__articleId_0
+LIMIT 1
+2025-02-03 23:14:21.011 +01:00 [INF] Executed action method backend_negosud.Controllers.StocksController.CheckStockLevel (backend-negosud), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 17.7919ms.
+2025-02-03 23:14:21.011 +01:00 [INF] Executing OkObjectResult, writing value of type 'System.String'.
+2025-02-03 23:14:21.011 +01:00 [INF] Executed action backend_negosud.Controllers.StocksController.CheckStockLevel (backend-negosud) in 25.416ms
+2025-02-03 23:14:21.011 +01:00 [INF] Executed endpoint 'backend_negosud.Controllers.StocksController.CheckStockLevel (backend-negosud)'
+2025-02-03 23:14:21.011 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5141/api/Stocks/check-level?articleId=1&quantiteDemandee=100 - 200 null text/plain; charset=utf-8 31.5421ms
+2025-02-03 23:14:24.387 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5141/api/Stocks/check-level?articleId=1&quantiteDemandee=1001111 - null null
+2025-02-03 23:14:24.388 +01:00 [INF] Executing endpoint 'backend_negosud.Controllers.StocksController.CheckStockLevel (backend-negosud)'
+2025-02-03 23:14:24.388 +01:00 [INF] Route matched with {action = "CheckStockLevel", controller = "Stocks"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult] CheckStockLevel(Int32, Int32) on controller backend_negosud.Controllers.StocksController (backend-negosud).
+2025-02-03 23:14:24.388 +01:00 [INF] Executing action method backend_negosud.Controllers.StocksController.CheckStockLevel (backend-negosud) - Validation state: "Valid"
+2025-02-03 23:14:24.390 +01:00 [INF] Executed DbCommand (1ms) [Parameters=[@__articleId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT s.stock_id, s.article_id, s.quantite, s.reapprovisionnement_auto, s.ref_lot, s.seuil_minimum
+FROM stock AS s
+WHERE s.article_id = @__articleId_0
+LIMIT 1
+2025-02-03 23:14:24.390 +01:00 [INF] Executed action method backend_negosud.Controllers.StocksController.CheckStockLevel (backend-negosud), returned result Microsoft.AspNetCore.Mvc.BadRequestObjectResult in 1.9535ms.
+2025-02-03 23:14:24.391 +01:00 [INF] Executing BadRequestObjectResult, writing value of type 'System.String'.
+2025-02-03 23:14:24.391 +01:00 [INF] Executed action backend_negosud.Controllers.StocksController.CheckStockLevel (backend-negosud) in 3.0192ms
+2025-02-03 23:14:24.391 +01:00 [INF] Executed endpoint 'backend_negosud.Controllers.StocksController.CheckStockLevel (backend-negosud)'
+2025-02-03 23:14:24.391 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5141/api/Stocks/check-level?articleId=1&quantiteDemandee=1001111 - 400 null text/plain; charset=utf-8 3.7652ms
+2025-02-03 23:14:31.236 +01:00 [INF] Request starting HTTP/1.1 POST http://localhost:5141/api/Stocks/reapprovisionner - null 0
+2025-02-03 23:14:31.239 +01:00 [INF] CORS policy execution successful.
+2025-02-03 23:14:31.240 +01:00 [INF] Executing endpoint 'backend_negosud.Controllers.StocksController.Reapprovisionner (backend-negosud)'
+2025-02-03 23:14:31.251 +01:00 [INF] Route matched with {action = "Reapprovisionner", controller = "Stocks"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult] Reapprovisionner() on controller backend_negosud.Controllers.StocksController (backend-negosud).
+2025-02-03 23:14:31.251 +01:00 [INF] Executing action method backend_negosud.Controllers.StocksController.Reapprovisionner (backend-negosud) - Validation state: "Valid"
+2025-02-03 23:14:31.266 +01:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT s.stock_id, s.article_id, s.quantite, s.reapprovisionnement_auto, s.ref_lot, s.seuil_minimum
+FROM stock AS s
+WHERE s.quantite <= s.seuil_minimum AND s.reapprovisionnement_auto
+2025-02-03 23:14:31.393 +01:00 [INF] Executed DbCommand (13ms) [Parameters=[@p0='?' (DbType = Double), @p1='?', @p2='?', @p3='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO bon_commande (prix, reference, status, utilisateur_id)
+VALUES (@p0, @p1, @p2, @p3)
+RETURNING bon_commande_id;
+2025-02-03 23:14:31.414 +01:00 [ERR] An exception occurred while iterating over the results of a query for context type 'backend_negosud.Entities.PostgresContext'.
+System.InvalidOperationException: A second operation was started on this context instance before a previous operation completed. This is usually caused by different threads concurrently using the same instance of DbContext. For more information on how to avoid threading issues with DbContext, see https://go.microsoft.com/fwlink/?linkid=2097913.
+   at Microsoft.EntityFrameworkCore.Infrastructure.Internal.ConcurrencyDetector.EnterCriticalSection()
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+System.InvalidOperationException: A second operation was started on this context instance before a previous operation completed. This is usually caused by different threads concurrently using the same instance of DbContext. For more information on how to avoid threading issues with DbContext, see https://go.microsoft.com/fwlink/?linkid=2097913.
+   at Microsoft.EntityFrameworkCore.Infrastructure.Internal.ConcurrencyDetector.EnterCriticalSection()
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+2025-02-03 23:14:31.416 +01:00 [INF] Executed action backend_negosud.Controllers.StocksController.Reapprovisionner (backend-negosud) in 165.1618ms
+2025-02-03 23:14:31.416 +01:00 [INF] Executed endpoint 'backend_negosud.Controllers.StocksController.Reapprovisionner (backend-negosud)'
+2025-02-03 23:14:31.421 +01:00 [ERR] An unhandled exception has occurred while executing the request.
+System.Exception: Error retrieving entity with ID 12.
+ ---> System.InvalidOperationException: A second operation was started on this context instance before a previous operation completed. This is usually caused by different threads concurrently using the same instance of DbContext. For more information on how to avoid threading issues with DbContext, see https://go.microsoft.com/fwlink/?linkid=2097913.
+   at Microsoft.EntityFrameworkCore.Infrastructure.Internal.ConcurrencyDetector.EnterCriticalSection()
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleOrDefaultAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleOrDefaultAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at backend_negosud.Repository.RepositoryBase`1.GetByIdAsync[TId](TId id, CancellationToken cancellationToken) in /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud/Repository/RepositoryBase.cs:line 74
+   --- End of inner exception stack trace ---
+   at backend_negosud.Repository.RepositoryBase`1.GetByIdAsync[TId](TId id, CancellationToken cancellationToken) in /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud/Repository/RepositoryBase.cs:line 78
+   at backend_negosud.Services.StockService.CheckAndReapprovisionner() in /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud/Services/StockService.cs:line 174
+   at backend_negosud.Controllers.StocksController.Reapprovisionner() in /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud/Controllers/StocksController.cs:line 163
+   at lambda_method126(Closure, Object)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-02-03 23:14:31.426 +01:00 [INF] Request finished HTTP/1.1 POST http://localhost:5141/api/Stocks/reapprovisionner - 500 null text/plain; charset=utf-8 190.1062ms
+2025-02-03 23:18:14.597 +01:00 [INF] Application is shutting down...
+2025-02-03 23:18:18.527 +01:00 [INF] Executed DbCommand (15ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM client AS c)
+2025-02-03 23:18:18.653 +01:00 [INF] User profile is available. Using '/Users/yoann/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-02-03 23:18:18.688 +01:00 [INF] Now listening on: http://localhost:5141
+2025-02-03 23:18:18.691 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-02-03 23:18:18.691 +01:00 [INF] Hosting environment: Development
+2025-02-03 23:18:18.691 +01:00 [INF] Content root path: /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud
+2025-02-03 23:18:19.494 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5141/swagger/index.html - null null
+2025-02-03 23:18:19.626 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5141/swagger/index.html - 200 null text/html;charset=utf-8 134.2353ms
+2025-02-03 23:18:19.919 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5141/swagger/v1/swagger.json - null null
+2025-02-03 23:18:20.052 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5141/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 133.7175ms
+2025-02-03 23:18:24.403 +01:00 [INF] Request starting HTTP/1.1 POST http://localhost:5141/api/Stocks/reapprovisionner - null 0
+2025-02-03 23:18:24.412 +01:00 [WRN] Failed to determine the https port for redirect.
+2025-02-03 23:18:24.426 +01:00 [INF] CORS policy execution successful.
+2025-02-03 23:18:24.426 +01:00 [WRN] Failed to determine the https port for redirect.
+2025-02-03 23:18:24.450 +01:00 [INF] Executing endpoint 'backend_negosud.Controllers.StocksController.Reapprovisionner (backend-negosud)'
+2025-02-03 23:18:24.461 +01:00 [INF] Route matched with {action = "Reapprovisionner", controller = "Stocks"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult] Reapprovisionner() on controller backend_negosud.Controllers.StocksController (backend-negosud).
+2025-02-03 23:18:24.554 +01:00 [INF] Executing action method backend_negosud.Controllers.StocksController.Reapprovisionner (backend-negosud) - Validation state: "Valid"
+2025-02-03 23:18:24.651 +01:00 [INF] Executed DbCommand (10ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT s.stock_id, s.article_id, s.quantite, s.reapprovisionnement_auto, s.ref_lot, s.seuil_minimum
+FROM stock AS s
+WHERE s.quantite <= s.seuil_minimum AND s.reapprovisionnement_auto
+2025-02-03 23:18:24.826 +01:00 [INF] Executed DbCommand (15ms) [Parameters=[@p0='?' (DbType = Double), @p1='?', @p2='?', @p3='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO bon_commande (prix, reference, status, utilisateur_id)
+VALUES (@p0, @p1, @p2, @p3)
+RETURNING bon_commande_id;
+2025-02-03 23:18:24.853 +01:00 [INF] Executed DbCommand (1ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.article_id, a.famille_id, a.fournisseur_id, a.libelle, a.prix, a.reference, a.tva_id
+FROM article AS a
+WHERE a.article_id = @__p_0
+LIMIT 1
+2025-02-03 23:18:24.888 +01:00 [INF] Executed action backend_negosud.Controllers.StocksController.Reapprovisionner (backend-negosud) in 422.9507ms
+2025-02-03 23:18:24.888 +01:00 [INF] Executed endpoint 'backend_negosud.Controllers.StocksController.Reapprovisionner (backend-negosud)'
+2025-02-03 23:18:24.908 +01:00 [ERR] An unhandled exception has occurred while executing the request.
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at backend_negosud.Services.StockService.CheckAndReapprovisionner() in /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud/Services/StockService.cs:line 184
+   at backend_negosud.Controllers.StocksController.Reapprovisionner() in /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud/Controllers/StocksController.cs:line 163
+   at lambda_method30(Closure, Object)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-02-03 23:18:24.922 +01:00 [INF] Request finished HTTP/1.1 POST http://localhost:5141/api/Stocks/reapprovisionner - 500 null text/plain; charset=utf-8 520.9985ms
+2025-02-03 23:20:23.676 +01:00 [INF] Application is shutting down...
+2025-02-03 23:20:26.968 +01:00 [INF] Executed DbCommand (15ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM client AS c)
+2025-02-03 23:20:27.073 +01:00 [INF] User profile is available. Using '/Users/yoann/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-02-03 23:20:27.100 +01:00 [INF] Now listening on: http://localhost:5141
+2025-02-03 23:20:27.102 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-02-03 23:20:27.102 +01:00 [INF] Hosting environment: Development
+2025-02-03 23:20:27.102 +01:00 [INF] Content root path: /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud
+2025-02-03 23:20:27.982 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5141/swagger/index.html - null null
+2025-02-03 23:20:28.135 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5141/swagger/index.html - 200 null text/html;charset=utf-8 154.1939ms
+2025-02-03 23:20:28.403 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5141/swagger/v1/swagger.json - null null
+2025-02-03 23:20:28.483 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5141/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 80.0881ms
+2025-02-03 23:20:34.366 +01:00 [INF] Request starting HTTP/1.1 POST http://localhost:5141/api/Stocks/reapprovisionner - null 0
+2025-02-03 23:20:34.372 +01:00 [WRN] Failed to determine the https port for redirect.
+2025-02-03 23:20:34.386 +01:00 [INF] CORS policy execution successful.
+2025-02-03 23:20:34.386 +01:00 [WRN] Failed to determine the https port for redirect.
+2025-02-03 23:20:34.419 +01:00 [INF] Executing endpoint 'backend_negosud.Controllers.StocksController.Reapprovisionner (backend-negosud)'
+2025-02-03 23:20:34.430 +01:00 [INF] Route matched with {action = "Reapprovisionner", controller = "Stocks"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult] Reapprovisionner() on controller backend_negosud.Controllers.StocksController (backend-negosud).
+2025-02-03 23:20:34.515 +01:00 [INF] Executing action method backend_negosud.Controllers.StocksController.Reapprovisionner (backend-negosud) - Validation state: "Valid"
+2025-02-03 23:20:34.591 +01:00 [INF] Executed DbCommand (8ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT s.stock_id, s.article_id, s.quantite, s.reapprovisionnement_auto, s.ref_lot, s.seuil_minimum
+FROM stock AS s
+WHERE s.quantite <= s.seuil_minimum AND s.reapprovisionnement_auto
+2025-02-03 23:20:34.719 +01:00 [INF] Executed DbCommand (12ms) [Parameters=[@p0='?' (DbType = Double), @p1='?', @p2='?', @p3='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO bon_commande (prix, reference, status, utilisateur_id)
+VALUES (@p0, @p1, @p2, @p3)
+RETURNING bon_commande_id;
+2025-02-03 23:20:34.764 +01:00 [INF] Executed DbCommand (1ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.article_id, a.famille_id, a.fournisseur_id, a.libelle, a.prix, a.reference, a.tva_id
+FROM article AS a
+WHERE a.article_id = @__p_0
+LIMIT 1
+2025-02-03 23:20:34.792 +01:00 [INF] Executed action backend_negosud.Controllers.StocksController.Reapprovisionner (backend-negosud) in 358.8733ms
+2025-02-03 23:20:34.793 +01:00 [INF] Executed endpoint 'backend_negosud.Controllers.StocksController.Reapprovisionner (backend-negosud)'
+2025-02-03 23:20:34.810 +01:00 [ERR] An unhandled exception has occurred while executing the request.
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at backend_negosud.Services.StockService.CheckAndReapprovisionner() in /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud/Services/StockService.cs:line 184
+   at backend_negosud.Controllers.StocksController.Reapprovisionner() in /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud/Controllers/StocksController.cs:line 163
+   at lambda_method30(Closure, Object)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-02-03 23:20:34.821 +01:00 [INF] Request finished HTTP/1.1 POST http://localhost:5141/api/Stocks/reapprovisionner - 500 null text/plain; charset=utf-8 455.4298ms
+2025-02-03 23:21:15.862 +01:00 [INF] Application is shutting down...
+2025-02-03 23:21:19.013 +01:00 [INF] Executed DbCommand (14ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM client AS c)
+2025-02-03 23:21:19.119 +01:00 [INF] User profile is available. Using '/Users/yoann/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-02-03 23:21:19.146 +01:00 [INF] Now listening on: http://localhost:5141
+2025-02-03 23:21:19.148 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-02-03 23:21:19.149 +01:00 [INF] Hosting environment: Development
+2025-02-03 23:21:19.149 +01:00 [INF] Content root path: /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud
+2025-02-03 23:21:19.814 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5141/swagger/index.html - null null
+2025-02-03 23:21:19.933 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5141/swagger/index.html - 200 null text/html;charset=utf-8 121.2385ms
+2025-02-03 23:21:20.226 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5141/swagger/v1/swagger.json - null null
+2025-02-03 23:21:20.334 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5141/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 107.9147ms
+2025-02-03 23:21:24.415 +01:00 [INF] Request starting HTTP/1.1 POST http://localhost:5141/api/Stocks/reapprovisionner - null 0
+2025-02-03 23:21:24.432 +01:00 [WRN] Failed to determine the https port for redirect.
+2025-02-03 23:21:24.446 +01:00 [INF] CORS policy execution successful.
+2025-02-03 23:21:24.447 +01:00 [WRN] Failed to determine the https port for redirect.
+2025-02-03 23:21:24.471 +01:00 [INF] Executing endpoint 'backend_negosud.Controllers.StocksController.Reapprovisionner (backend-negosud)'
+2025-02-03 23:21:24.483 +01:00 [INF] Route matched with {action = "Reapprovisionner", controller = "Stocks"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult] Reapprovisionner() on controller backend_negosud.Controllers.StocksController (backend-negosud).
+2025-02-03 23:21:24.569 +01:00 [INF] Executing action method backend_negosud.Controllers.StocksController.Reapprovisionner (backend-negosud) - Validation state: "Valid"
+2025-02-03 23:21:24.648 +01:00 [INF] Executed DbCommand (8ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT s.stock_id, s.article_id, s.quantite, s.reapprovisionnement_auto, s.ref_lot, s.seuil_minimum
+FROM stock AS s
+WHERE s.quantite <= s.seuil_minimum AND s.reapprovisionnement_auto
+2025-02-03 23:21:24.778 +01:00 [INF] Executed DbCommand (13ms) [Parameters=[@p0='?' (DbType = Double), @p1='?', @p2='?', @p3='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO bon_commande (prix, reference, status, utilisateur_id)
+VALUES (@p0, @p1, @p2, @p3)
+RETURNING bon_commande_id;
+2025-02-03 23:21:24.821 +01:00 [INF] Executed DbCommand (1ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.article_id, a.famille_id, a.fournisseur_id, a.libelle, a.prix, a.reference, a.tva_id
+FROM article AS a
+WHERE a.article_id = @__p_0
+LIMIT 1
+2025-02-03 23:21:24.849 +01:00 [INF] Executed action backend_negosud.Controllers.StocksController.Reapprovisionner (backend-negosud) in 362.4725ms
+2025-02-03 23:21:24.850 +01:00 [INF] Executed endpoint 'backend_negosud.Controllers.StocksController.Reapprovisionner (backend-negosud)'
+2025-02-03 23:21:24.864 +01:00 [ERR] An unhandled exception has occurred while executing the request.
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at backend_negosud.Services.StockService.CheckAndReapprovisionner() in /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud/Services/StockService.cs:line 204
+   at backend_negosud.Controllers.StocksController.Reapprovisionner() in /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud/Controllers/StocksController.cs:line 163
+   at lambda_method30(Closure, Object)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-02-03 23:21:24.876 +01:00 [INF] Request finished HTTP/1.1 POST http://localhost:5141/api/Stocks/reapprovisionner - 500 null text/plain; charset=utf-8 460.7326ms
+2025-02-03 23:22:22.707 +01:00 [INF] Application is shutting down...
+2025-02-03 23:22:25.948 +01:00 [INF] Executed DbCommand (13ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM client AS c)
+2025-02-03 23:22:26.062 +01:00 [INF] User profile is available. Using '/Users/yoann/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-02-03 23:22:26.088 +01:00 [INF] Now listening on: http://localhost:5141
+2025-02-03 23:22:26.092 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-02-03 23:22:26.092 +01:00 [INF] Hosting environment: Development
+2025-02-03 23:22:26.092 +01:00 [INF] Content root path: /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud
+2025-02-03 23:22:26.982 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5141/swagger/index.html - null null
+2025-02-03 23:22:27.093 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5141/swagger/index.html - 200 null text/html;charset=utf-8 112.3789ms
+2025-02-03 23:22:27.359 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5141/swagger/v1/swagger.json - null null
+2025-02-03 23:22:27.442 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5141/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 83.5906ms
+2025-02-03 23:22:34.225 +01:00 [INF] Request starting HTTP/1.1 POST http://localhost:5141/api/Stocks/reapprovisionner - null 0
+2025-02-03 23:22:34.237 +01:00 [WRN] Failed to determine the https port for redirect.
+2025-02-03 23:22:34.253 +01:00 [INF] CORS policy execution successful.
+2025-02-03 23:22:34.254 +01:00 [WRN] Failed to determine the https port for redirect.
+2025-02-03 23:22:34.292 +01:00 [INF] Executing endpoint 'backend_negosud.Controllers.StocksController.Reapprovisionner (backend-negosud)'
+2025-02-03 23:22:34.305 +01:00 [INF] Route matched with {action = "Reapprovisionner", controller = "Stocks"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult] Reapprovisionner() on controller backend_negosud.Controllers.StocksController (backend-negosud).
+2025-02-03 23:22:34.391 +01:00 [INF] Executing action method backend_negosud.Controllers.StocksController.Reapprovisionner (backend-negosud) - Validation state: "Valid"
+2025-02-03 23:22:34.469 +01:00 [INF] Executed DbCommand (8ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT s.stock_id, s.article_id, s.quantite, s.reapprovisionnement_auto, s.ref_lot, s.seuil_minimum
+FROM stock AS s
+WHERE s.quantite <= s.seuil_minimum AND s.reapprovisionnement_auto
+2025-02-03 23:22:34.603 +01:00 [INF] Executed DbCommand (13ms) [Parameters=[@p0='?' (DbType = Double), @p1='?', @p2='?', @p3='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO bon_commande (prix, reference, status, utilisateur_id)
+VALUES (@p0, @p1, @p2, @p3)
+RETURNING bon_commande_id;
+2025-02-03 23:22:34.650 +01:00 [INF] Executed DbCommand (2ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.article_id, a.famille_id, a.fournisseur_id, a.libelle, a.prix, a.reference, a.tva_id
+FROM article AS a
+WHERE a.article_id = @__p_0
+LIMIT 1
+2025-02-03 23:22:34.678 +01:00 [INF] Executed action backend_negosud.Controllers.StocksController.Reapprovisionner (backend-negosud) in 369.3972ms
+2025-02-03 23:22:34.679 +01:00 [INF] Executed endpoint 'backend_negosud.Controllers.StocksController.Reapprovisionner (backend-negosud)'
+2025-02-03 23:22:34.697 +01:00 [ERR] An unhandled exception has occurred while executing the request.
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at backend_negosud.Services.StockService.CheckAndReapprovisionner() in /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud/Services/StockService.cs:line 216
+   at backend_negosud.Controllers.StocksController.Reapprovisionner() in /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud/Controllers/StocksController.cs:line 163
+   at lambda_method30(Closure, Object)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-02-03 23:22:34.709 +01:00 [INF] Request finished HTTP/1.1 POST http://localhost:5141/api/Stocks/reapprovisionner - 500 null text/plain; charset=utf-8 484.0982ms
+2025-02-03 23:23:35.363 +01:00 [INF] Application is shutting down...
+2025-02-03 23:23:38.531 +01:00 [INF] Executed DbCommand (15ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM client AS c)
+2025-02-03 23:23:38.640 +01:00 [INF] User profile is available. Using '/Users/yoann/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-02-03 23:23:38.667 +01:00 [INF] Now listening on: http://localhost:5141
+2025-02-03 23:23:38.669 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-02-03 23:23:38.670 +01:00 [INF] Hosting environment: Development
+2025-02-03 23:23:38.670 +01:00 [INF] Content root path: /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud
+2025-02-03 23:23:39.513 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5141/swagger/index.html - null null
+2025-02-03 23:23:39.649 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5141/swagger/index.html - 200 null text/html;charset=utf-8 137.5681ms
+2025-02-03 23:23:39.948 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5141/swagger/v1/swagger.json - null null
+2025-02-03 23:23:40.052 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5141/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 104.255ms
+2025-02-03 23:23:44.130 +01:00 [INF] Request starting HTTP/1.1 POST http://localhost:5141/api/Stocks/reapprovisionner - null 0
+2025-02-03 23:23:44.145 +01:00 [WRN] Failed to determine the https port for redirect.
+2025-02-03 23:23:44.160 +01:00 [INF] CORS policy execution successful.
+2025-02-03 23:23:44.161 +01:00 [WRN] Failed to determine the https port for redirect.
+2025-02-03 23:23:44.184 +01:00 [INF] Executing endpoint 'backend_negosud.Controllers.StocksController.Reapprovisionner (backend-negosud)'
+2025-02-03 23:23:44.197 +01:00 [INF] Route matched with {action = "Reapprovisionner", controller = "Stocks"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult] Reapprovisionner() on controller backend_negosud.Controllers.StocksController (backend-negosud).
+2025-02-03 23:23:44.289 +01:00 [INF] Executing action method backend_negosud.Controllers.StocksController.Reapprovisionner (backend-negosud) - Validation state: "Valid"
+2025-02-03 23:23:44.366 +01:00 [INF] Executed DbCommand (8ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT s.stock_id, s.article_id, s.quantite, s.reapprovisionnement_auto, s.ref_lot, s.seuil_minimum
+FROM stock AS s
+WHERE s.quantite <= s.seuil_minimum AND s.reapprovisionnement_auto
+2025-02-03 23:23:44.491 +01:00 [INF] Executed DbCommand (12ms) [Parameters=[@p0='?' (DbType = Double), @p1='?', @p2='?', @p3='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO bon_commande (prix, reference, status, utilisateur_id)
+VALUES (@p0, @p1, @p2, @p3)
+RETURNING bon_commande_id;
+2025-02-03 23:23:44.536 +01:00 [INF] Executed DbCommand (1ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.article_id, a.famille_id, a.fournisseur_id, a.libelle, a.prix, a.reference, a.tva_id
+FROM article AS a
+WHERE a.article_id = @__p_0
+LIMIT 1
+2025-02-03 23:23:44.561 +01:00 [INF] Executed action method backend_negosud.Controllers.StocksController.Reapprovisionner (backend-negosud), returned result Microsoft.AspNetCore.Mvc.BadRequestObjectResult in 269.4453ms.
+2025-02-03 23:23:44.569 +01:00 [INF] Executing BadRequestObjectResult, writing value of type 'System.String'.
+2025-02-03 23:23:44.573 +01:00 [INF] Executed action backend_negosud.Controllers.StocksController.Reapprovisionner (backend-negosud) in 373.6376ms
+2025-02-03 23:23:44.574 +01:00 [INF] Executed endpoint 'backend_negosud.Controllers.StocksController.Reapprovisionner (backend-negosud)'
+2025-02-03 23:23:44.582 +01:00 [INF] Request finished HTTP/1.1 POST http://localhost:5141/api/Stocks/reapprovisionner - 400 null text/plain; charset=utf-8 451.5894ms
+2025-02-03 23:25:20.266 +01:00 [INF] Application is shutting down...
+2025-02-03 23:25:23.505 +01:00 [INF] Executed DbCommand (14ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM client AS c)
+2025-02-03 23:25:23.609 +01:00 [INF] User profile is available. Using '/Users/yoann/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-02-03 23:25:23.635 +01:00 [INF] Now listening on: http://localhost:5141
+2025-02-03 23:25:23.637 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-02-03 23:25:23.638 +01:00 [INF] Hosting environment: Development
+2025-02-03 23:25:23.638 +01:00 [INF] Content root path: /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud
+2025-02-03 23:25:24.628 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5141/swagger/index.html - null null
+2025-02-03 23:25:24.750 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5141/swagger/index.html - 200 null text/html;charset=utf-8 122.6175ms
+2025-02-03 23:25:25.015 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5141/swagger/v1/swagger.json - null null
+2025-02-03 23:25:25.100 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5141/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 85.4348ms
+2025-02-03 23:25:34.225 +01:00 [INF] Request starting HTTP/1.1 POST http://localhost:5141/api/Stocks/reapprovisionner - null 0
+2025-02-03 23:25:34.237 +01:00 [WRN] Failed to determine the https port for redirect.
+2025-02-03 23:25:34.251 +01:00 [INF] CORS policy execution successful.
+2025-02-03 23:25:34.251 +01:00 [WRN] Failed to determine the https port for redirect.
+2025-02-03 23:25:34.283 +01:00 [INF] Executing endpoint 'backend_negosud.Controllers.StocksController.Reapprovisionner (backend-negosud)'
+2025-02-03 23:25:34.295 +01:00 [INF] Route matched with {action = "Reapprovisionner", controller = "Stocks"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult] Reapprovisionner() on controller backend_negosud.Controllers.StocksController (backend-negosud).
+2025-02-03 23:25:34.382 +01:00 [INF] Executing action method backend_negosud.Controllers.StocksController.Reapprovisionner (backend-negosud) - Validation state: "Valid"
+2025-02-03 23:25:34.461 +01:00 [INF] Executed DbCommand (8ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT s.stock_id, s.article_id, s.quantite, s.reapprovisionnement_auto, s.ref_lot, s.seuil_minimum
+FROM stock AS s
+WHERE s.quantite <= s.seuil_minimum AND s.reapprovisionnement_auto
+2025-02-03 23:25:34.587 +01:00 [INF] Executed DbCommand (13ms) [Parameters=[@p0='?' (DbType = Double), @p1='?', @p2='?', @p3='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO bon_commande (prix, reference, status, utilisateur_id)
+VALUES (@p0, @p1, @p2, @p3)
+RETURNING bon_commande_id;
+2025-02-03 23:25:34.636 +01:00 [INF] Executed DbCommand (7ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.article_id, a.famille_id, a.fournisseur_id, a.libelle, a.prix, a.reference, a.tva_id
+FROM article AS a
+WHERE a.article_id = @__p_0
+LIMIT 1
+2025-02-03 23:25:34.660 +01:00 [INF] Executed action method backend_negosud.Controllers.StocksController.Reapprovisionner (backend-negosud), returned result Microsoft.AspNetCore.Mvc.BadRequestObjectResult in 274.3665ms.
+2025-02-03 23:25:34.667 +01:00 [INF] Executing BadRequestObjectResult, writing value of type 'System.String'.
+2025-02-03 23:25:34.672 +01:00 [INF] Executed action backend_negosud.Controllers.StocksController.Reapprovisionner (backend-negosud) in 373.9099ms
+2025-02-03 23:25:34.673 +01:00 [INF] Executed endpoint 'backend_negosud.Controllers.StocksController.Reapprovisionner (backend-negosud)'
+2025-02-03 23:25:34.681 +01:00 [INF] Request finished HTTP/1.1 POST http://localhost:5141/api/Stocks/reapprovisionner - 400 null text/plain; charset=utf-8 455.1395ms
+2025-02-03 23:27:11.180 +01:00 [INF] Application is shutting down...
+2025-02-03 23:27:14.277 +01:00 [INF] Executed DbCommand (12ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM client AS c)
+2025-02-03 23:27:14.379 +01:00 [INF] User profile is available. Using '/Users/yoann/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-02-03 23:27:14.405 +01:00 [INF] Now listening on: http://localhost:5141
+2025-02-03 23:27:14.408 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-02-03 23:27:14.408 +01:00 [INF] Hosting environment: Development
+2025-02-03 23:27:14.408 +01:00 [INF] Content root path: /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud
+2025-02-03 23:27:15.349 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5141/swagger/index.html - null null
+2025-02-03 23:27:15.512 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5141/swagger/index.html - 200 null text/html;charset=utf-8 163.8062ms
+2025-02-03 23:27:15.788 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5141/swagger/v1/swagger.json - null null
+2025-02-03 23:27:15.864 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5141/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 76.8873ms
+2025-02-03 23:27:21.021 +01:00 [INF] Request starting HTTP/1.1 POST http://localhost:5141/api/Stocks/reapprovisionner - null 0
+2025-02-03 23:27:21.038 +01:00 [WRN] Failed to determine the https port for redirect.
+2025-02-03 23:27:21.054 +01:00 [INF] CORS policy execution successful.
+2025-02-03 23:27:21.054 +01:00 [WRN] Failed to determine the https port for redirect.
+2025-02-03 23:27:21.081 +01:00 [INF] Executing endpoint 'backend_negosud.Controllers.StocksController.Reapprovisionner (backend-negosud)'
+2025-02-03 23:27:21.093 +01:00 [INF] Route matched with {action = "Reapprovisionner", controller = "Stocks"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult] Reapprovisionner() on controller backend_negosud.Controllers.StocksController (backend-negosud).
+2025-02-03 23:27:21.180 +01:00 [INF] Executing action method backend_negosud.Controllers.StocksController.Reapprovisionner (backend-negosud) - Validation state: "Valid"
+2025-02-03 23:27:21.257 +01:00 [INF] Executed DbCommand (8ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT s.stock_id, s.article_id, s.quantite, s.reapprovisionnement_auto, s.ref_lot, s.seuil_minimum
+FROM stock AS s
+WHERE s.quantite <= s.seuil_minimum AND s.reapprovisionnement_auto
+2025-02-03 23:27:21.376 +01:00 [INF] Executed DbCommand (11ms) [Parameters=[@p0='?' (DbType = Double), @p1='?', @p2='?', @p3='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO bon_commande (prix, reference, status, utilisateur_id)
+VALUES (@p0, @p1, @p2, @p3)
+RETURNING bon_commande_id;
+2025-02-03 23:27:21.413 +01:00 [INF] Executed DbCommand (2ms) [Parameters=[@__stock_ArticleId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.prix
+FROM article AS a
+WHERE a.article_id = @__stock_ArticleId_0
+LIMIT 1
+2025-02-03 23:27:21.437 +01:00 [INF] Executed DbCommand (4ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = Int32), @p2='?' (DbType = Double), @p3='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO ligne_bon_commande (article_id, bon_commande_id, prix_unitaire, quantite)
+VALUES (@p0, @p1, @p2, @p3)
+RETURNING ligne_bon_commande_id;
+2025-02-03 23:27:21.442 +01:00 [INF] Executed DbCommand (1ms) [Parameters=[@p0='?' (DbType = Double), @p1='?', @p2='?', @p3='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO bon_commande (prix, reference, status, utilisateur_id)
+VALUES (@p0, @p1, @p2, @p3)
+RETURNING bon_commande_id;
+2025-02-03 23:27:21.450 +01:00 [INF] Executed DbCommand (5ms) [Parameters=[@__stock_ArticleId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.prix
+FROM article AS a
+WHERE a.article_id = @__stock_ArticleId_0
+LIMIT 1
+2025-02-03 23:27:21.451 +01:00 [INF] Executed DbCommand (1ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = Int32), @p2='?' (DbType = Double), @p3='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO ligne_bon_commande (article_id, bon_commande_id, prix_unitaire, quantite)
+VALUES (@p0, @p1, @p2, @p3)
+RETURNING ligne_bon_commande_id;
+2025-02-03 23:27:21.453 +01:00 [INF] Executed DbCommand (1ms) [Parameters=[@p0='?' (DbType = Double), @p1='?', @p2='?', @p3='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO bon_commande (prix, reference, status, utilisateur_id)
+VALUES (@p0, @p1, @p2, @p3)
+RETURNING bon_commande_id;
+2025-02-03 23:27:21.454 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[@__stock_ArticleId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.prix
+FROM article AS a
+WHERE a.article_id = @__stock_ArticleId_0
+LIMIT 1
+2025-02-03 23:27:21.455 +01:00 [INF] Executed DbCommand (1ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = Int32), @p2='?' (DbType = Double), @p3='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO ligne_bon_commande (article_id, bon_commande_id, prix_unitaire, quantite)
+VALUES (@p0, @p1, @p2, @p3)
+RETURNING ligne_bon_commande_id;
+2025-02-03 23:27:21.461 +01:00 [INF] Executed action method backend_negosud.Controllers.StocksController.Reapprovisionner (backend-negosud), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 277.5892ms.
+2025-02-03 23:27:21.469 +01:00 [INF] Executing OkObjectResult, writing value of type 'System.String'.
+2025-02-03 23:27:21.473 +01:00 [INF] Executed action backend_negosud.Controllers.StocksController.Reapprovisionner (backend-negosud) in 376.5717ms
+2025-02-03 23:27:21.474 +01:00 [INF] Executed endpoint 'backend_negosud.Controllers.StocksController.Reapprovisionner (backend-negosud)'
+2025-02-03 23:27:21.482 +01:00 [INF] Request finished HTTP/1.1 POST http://localhost:5141/api/Stocks/reapprovisionner - 200 null text/plain; charset=utf-8 460.289ms
+2025-02-03 23:39:29.200 +01:00 [INF] Application is shutting down...
+2025-02-03 23:39:34.251 +01:00 [INF] Executed DbCommand (13ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM client AS c)
+2025-02-03 23:39:34.363 +01:00 [INF] User profile is available. Using '/Users/yoann/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-02-03 23:39:34.393 +01:00 [INF] Now listening on: http://localhost:5141
+2025-02-03 23:39:34.396 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-02-03 23:39:34.396 +01:00 [INF] Hosting environment: Development
+2025-02-03 23:39:34.396 +01:00 [INF] Content root path: /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud
+2025-02-03 23:39:35.227 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5141/swagger/index.html - null null
+2025-02-03 23:39:35.429 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5141/swagger/index.html - 200 null text/html;charset=utf-8 206.3745ms
+2025-02-03 23:39:35.720 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5141/swagger/v1/swagger.json - null null
+2025-02-03 23:39:35.854 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5141/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 134.3958ms
+2025-02-03 23:39:52.456 +01:00 [INF] Application is shutting down...
+2025-02-03 23:39:56.818 +01:00 [INF] Executed DbCommand (14ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM client AS c)
+2025-02-03 23:39:56.932 +01:00 [INF] User profile is available. Using '/Users/yoann/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-02-03 23:39:56.961 +01:00 [INF] Now listening on: http://localhost:5141
+2025-02-03 23:39:56.963 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-02-03 23:39:56.963 +01:00 [INF] Hosting environment: Development
+2025-02-03 23:39:56.964 +01:00 [INF] Content root path: /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud
+2025-02-03 23:39:57.316 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5141/swagger/index.html - null null
+2025-02-03 23:39:57.426 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5141/swagger/index.html - 200 null text/html;charset=utf-8 110.5645ms
+2025-02-03 23:39:57.716 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5141/swagger/v1/swagger.json - null null
+2025-02-03 23:39:57.795 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5141/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 78.6194ms
+2025-02-03 23:40:20.617 +01:00 [INF] Request starting HTTP/1.1 DELETE http://localhost:5141/api/Stocks/110 - null null
+2025-02-03 23:40:20.636 +01:00 [WRN] Failed to determine the https port for redirect.
+2025-02-03 23:40:20.651 +01:00 [INF] CORS policy execution successful.
+2025-02-03 23:40:20.652 +01:00 [WRN] Failed to determine the https port for redirect.
+2025-02-03 23:40:20.682 +01:00 [INF] Executing endpoint 'backend_negosud.Controllers.StocksController.DeleteStock (backend-negosud)'
+2025-02-03 23:40:20.698 +01:00 [INF] Route matched with {action = "DeleteStock", controller = "Stocks"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] DeleteStock(Int32) on controller backend_negosud.Controllers.StocksController (backend-negosud).
+2025-02-03 23:40:20.839 +01:00 [INF] Executing action method backend_negosud.Controllers.StocksController.DeleteStock (backend-negosud) - Validation state: "Valid"
+2025-02-03 23:40:20.960 +01:00 [INF] Executed DbCommand (18ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT s.stock_id, s.article_id, s.quantite, s.reapprovisionnement_auto, s.ref_lot, s.seuil_minimum
+FROM stock AS s
+WHERE s.stock_id = @__p_0
+LIMIT 1
+2025-02-03 23:40:21.071 +01:00 [INF] Executed DbCommand (5ms) [Parameters=[@p0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+DELETE FROM stock
+WHERE stock_id = @p0;
+2025-02-03 23:40:21.087 +01:00 [INF] Executed action method backend_negosud.Controllers.StocksController.DeleteStock (backend-negosud), returned result Microsoft.AspNetCore.Mvc.NoContentResult in 239.8475ms.
+2025-02-03 23:40:21.094 +01:00 [INF] Executing StatusCodeResult, setting HTTP status code 204
+2025-02-03 23:40:21.099 +01:00 [INF] Executed action backend_negosud.Controllers.StocksController.DeleteStock (backend-negosud) in 396.5353ms
+2025-02-03 23:40:21.100 +01:00 [INF] Executed endpoint 'backend_negosud.Controllers.StocksController.DeleteStock (backend-negosud)'
+2025-02-03 23:40:21.111 +01:00 [INF] Request finished HTTP/1.1 DELETE http://localhost:5141/api/Stocks/110 - 204 null null 494.759ms
+2025-02-03 23:41:10.526 +01:00 [INF] Application is shutting down...
+2025-02-03 23:41:14.107 +01:00 [INF] Executed DbCommand (13ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM client AS c)
+2025-02-03 23:41:14.215 +01:00 [INF] User profile is available. Using '/Users/yoann/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-02-03 23:41:14.243 +01:00 [INF] Now listening on: http://localhost:5141
+2025-02-03 23:41:14.245 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-02-03 23:41:14.245 +01:00 [INF] Hosting environment: Development
+2025-02-03 23:41:14.245 +01:00 [INF] Content root path: /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud
+2025-02-03 23:41:15.264 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5141/swagger/index.html - null null
+2025-02-03 23:41:15.401 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5141/swagger/index.html - 200 null text/html;charset=utf-8 138.4791ms
+2025-02-03 23:41:15.662 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5141/swagger/v1/swagger.json - null null
+2025-02-03 23:41:15.735 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5141/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 73.7713ms
+2025-02-03 23:41:23.143 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5141/api/Stocks/11 - null null
+2025-02-03 23:41:23.162 +01:00 [WRN] Failed to determine the https port for redirect.
+2025-02-03 23:41:23.174 +01:00 [WRN] Failed to determine the https port for redirect.
+2025-02-03 23:41:23.200 +01:00 [INF] Executing endpoint 'backend_negosud.Controllers.StocksController.GetStockById (backend-negosud)'
+2025-02-03 23:41:23.217 +01:00 [INF] Route matched with {action = "GetStockById", controller = "Stocks"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[backend_negosud.DTOs.StockDetailDto]] GetStockById(Int32) on controller backend_negosud.Controllers.StocksController (backend-negosud).
+2025-02-03 23:41:23.319 +01:00 [INF] Executing action method backend_negosud.Controllers.StocksController.GetStockById (backend-negosud) - Validation state: "Valid"
+2025-02-03 23:41:23.433 +01:00 [INF] Executed DbCommand (19ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT s.stock_id, s.article_id, s.quantite, s.reapprovisionnement_auto, s.ref_lot, s.seuil_minimum
+FROM stock AS s
+WHERE s.stock_id = @__p_0
+LIMIT 1
+2025-02-03 23:41:23.484 +01:00 [INF] Executed action backend_negosud.Controllers.StocksController.GetStockById (backend-negosud) in 263.2695ms
+2025-02-03 23:41:23.485 +01:00 [INF] Executed endpoint 'backend_negosud.Controllers.StocksController.GetStockById (backend-negosud)'
+2025-02-03 23:41:23.508 +01:00 [ERR] An unhandled exception has occurred while executing the request.
+AutoMapper.AutoMapperMappingException: Missing type map configuration or unsupported mapping.
+
+Mapping types:
+ResponseDataModel`1 -> StockDetailDto
+backend_negosud.Models.ResponseDataModel`1[[backend_negosud.Entities.Stock, backend-negosud, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]] -> backend_negosud.DTOs.StockDetailDto
+   at lambda_method76(Closure, Object, StockDetailDto, ResolutionContext)
+   at backend_negosud.Controllers.StocksController.GetStockById(Int32 id) in /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud/Controllers/StocksController.cs:line 47
+   at lambda_method30(Closure, Object)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-02-03 23:41:23.519 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5141/api/Stocks/11 - 500 null text/plain; charset=utf-8 375.8345ms
+2025-02-03 23:41:31.095 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5141/api/Stocks/1 - null null
+2025-02-03 23:41:31.097 +01:00 [INF] Executing endpoint 'backend_negosud.Controllers.StocksController.GetStockById (backend-negosud)'
+2025-02-03 23:41:31.097 +01:00 [INF] Route matched with {action = "GetStockById", controller = "Stocks"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[backend_negosud.DTOs.StockDetailDto]] GetStockById(Int32) on controller backend_negosud.Controllers.StocksController (backend-negosud).
+2025-02-03 23:41:31.100 +01:00 [INF] Executing action method backend_negosud.Controllers.StocksController.GetStockById (backend-negosud) - Validation state: "Valid"
+2025-02-03 23:41:31.131 +01:00 [INF] Executed DbCommand (1ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT s.stock_id, s.article_id, s.quantite, s.reapprovisionnement_auto, s.ref_lot, s.seuil_minimum
+FROM stock AS s
+WHERE s.stock_id = @__p_0
+LIMIT 1
+2025-02-03 23:41:31.133 +01:00 [INF] Executed action backend_negosud.Controllers.StocksController.GetStockById (backend-negosud) in 35.9997ms
+2025-02-03 23:41:31.133 +01:00 [INF] Executed endpoint 'backend_negosud.Controllers.StocksController.GetStockById (backend-negosud)'
+2025-02-03 23:41:31.134 +01:00 [ERR] An unhandled exception has occurred while executing the request.
+AutoMapper.AutoMapperMappingException: Missing type map configuration or unsupported mapping.
+
+Mapping types:
+ResponseDataModel`1 -> StockDetailDto
+backend_negosud.Models.ResponseDataModel`1[[backend_negosud.Entities.Stock, backend-negosud, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]] -> backend_negosud.DTOs.StockDetailDto
+   at lambda_method76(Closure, Object, StockDetailDto, ResolutionContext)
+   at backend_negosud.Controllers.StocksController.GetStockById(Int32 id) in /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud/Controllers/StocksController.cs:line 47
+   at lambda_method30(Closure, Object)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-02-03 23:41:31.136 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5141/api/Stocks/1 - 500 null text/plain; charset=utf-8 41.0728ms
+2025-02-03 23:43:38.506 +01:00 [INF] Application is shutting down...
+2025-02-03 23:43:41.997 +01:00 [INF] Executed DbCommand (16ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM client AS c)
+2025-02-03 23:43:42.151 +01:00 [INF] User profile is available. Using '/Users/yoann/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-02-03 23:43:42.180 +01:00 [INF] Now listening on: http://localhost:5141
+2025-02-03 23:43:42.182 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-02-03 23:43:42.183 +01:00 [INF] Hosting environment: Development
+2025-02-03 23:43:42.183 +01:00 [INF] Content root path: /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud
+2025-02-03 23:43:42.865 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5141/swagger/index.html - null null
+2025-02-03 23:43:42.988 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5141/swagger/index.html - 200 null text/html;charset=utf-8 124.5167ms
+2025-02-03 23:43:43.281 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5141/swagger/v1/swagger.json - null null
+2025-02-03 23:43:43.349 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5141/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 68.9315ms
+2025-02-03 23:43:50.446 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5141/api/Stocks/1 - null null
+2025-02-03 23:43:50.450 +01:00 [WRN] Failed to determine the https port for redirect.
+2025-02-03 23:43:50.462 +01:00 [WRN] Failed to determine the https port for redirect.
+2025-02-03 23:43:50.486 +01:00 [INF] Executing endpoint 'backend_negosud.Controllers.StocksController.GetStockById (backend-negosud)'
+2025-02-03 23:43:50.498 +01:00 [INF] Route matched with {action = "GetStockById", controller = "Stocks"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[backend_negosud.DTOs.StockDetailDto]] GetStockById(Int32) on controller backend_negosud.Controllers.StocksController (backend-negosud).
+2025-02-03 23:43:50.602 +01:00 [INF] Executing action method backend_negosud.Controllers.StocksController.GetStockById (backend-negosud) - Validation state: "Valid"
+2025-02-03 23:43:50.705 +01:00 [INF] Executed DbCommand (18ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT s.stock_id, s.article_id, s.quantite, s.reapprovisionnement_auto, s.ref_lot, s.seuil_minimum
+FROM stock AS s
+WHERE s.stock_id = @__p_0
+LIMIT 1
+2025-02-03 23:43:50.748 +01:00 [INF] Executed action method backend_negosud.Controllers.StocksController.GetStockById (backend-negosud), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 143.5497ms.
+2025-02-03 23:43:50.756 +01:00 [INF] Executing OkObjectResult, writing value of type 'backend_negosud.DTOs.StockDetailDto'.
+2025-02-03 23:43:50.805 +01:00 [INF] Executed action backend_negosud.Controllers.StocksController.GetStockById (backend-negosud) in 304.223ms
+2025-02-03 23:43:50.806 +01:00 [INF] Executed endpoint 'backend_negosud.Controllers.StocksController.GetStockById (backend-negosud)'
+2025-02-03 23:43:50.813 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5141/api/Stocks/1 - 200 null application/json; charset=utf-8 366.8555ms
+2025-02-03 23:44:54.258 +01:00 [INF] Application is shutting down...
+2025-02-03 23:44:57.807 +01:00 [INF] Executed DbCommand (13ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM client AS c)
+2025-02-03 23:44:57.910 +01:00 [INF] User profile is available. Using '/Users/yoann/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-02-03 23:44:57.939 +01:00 [INF] Now listening on: http://localhost:5141
+2025-02-03 23:44:57.941 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-02-03 23:44:57.941 +01:00 [INF] Hosting environment: Development
+2025-02-03 23:44:57.941 +01:00 [INF] Content root path: /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud
+2025-02-03 23:44:58.711 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5141/swagger/index.html - null null
+2025-02-03 23:44:58.819 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5141/swagger/index.html - 200 null text/html;charset=utf-8 109.6377ms
+2025-02-03 23:44:59.099 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5141/swagger/v1/swagger.json - null null
+2025-02-03 23:44:59.177 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5141/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 78.8472ms
+2025-02-03 23:45:13.757 +01:00 [INF] Request starting HTTP/1.1 POST http://localhost:5141/api/Stocks - application/json 118
+2025-02-03 23:45:13.764 +01:00 [WRN] Failed to determine the https port for redirect.
+2025-02-03 23:45:13.777 +01:00 [INF] CORS policy execution successful.
+2025-02-03 23:45:13.777 +01:00 [WRN] Failed to determine the https port for redirect.
+2025-02-03 23:45:13.801 +01:00 [INF] Executing endpoint 'backend_negosud.Controllers.StocksController.CreateStock (backend-negosud)'
+2025-02-03 23:45:13.815 +01:00 [INF] Route matched with {action = "CreateStock", controller = "Stocks"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[backend_negosud.DTOs.StockSummaryDto]] CreateStock(backend_negosud.DTOs.StockInputDto) on controller backend_negosud.Controllers.StocksController (backend-negosud).
+2025-02-03 23:45:13.986 +01:00 [INF] Executing action method backend_negosud.Controllers.StocksController.CreateStock (backend-negosud) - Validation state: "Valid"
+2025-02-03 23:45:14.094 +01:00 [INF] Executed DbCommand (16ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.article_id, a.famille_id, a.fournisseur_id, a.libelle, a.prix, a.reference, a.tva_id
+FROM article AS a
+WHERE a.article_id = @__p_0
+LIMIT 1
+2025-02-03 23:45:14.234 +01:00 [INF] Executed DbCommand (6ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = Int32), @p2='?' (DbType = Boolean), @p3='?', @p4='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO stock (article_id, quantite, reapprovisionnement_auto, ref_lot, seuil_minimum)
+VALUES (@p0, @p1, @p2, @p3, @p4)
+RETURNING stock_id;
+2025-02-03 23:45:14.261 +01:00 [INF] Executed action method backend_negosud.Controllers.StocksController.CreateStock (backend-negosud), returned result Microsoft.AspNetCore.Mvc.CreatedAtActionResult in 272.0979ms.
+2025-02-03 23:45:14.270 +01:00 [INF] Executing CreatedAtActionResult, writing value of type 'backend_negosud.DTOs.StockSummaryDto'.
+2025-02-03 23:45:14.300 +01:00 [INF] Executed action backend_negosud.Controllers.StocksController.CreateStock (backend-negosud) in 480.7403ms
+2025-02-03 23:45:14.301 +01:00 [INF] Executed endpoint 'backend_negosud.Controllers.StocksController.CreateStock (backend-negosud)'
+2025-02-03 23:45:14.309 +01:00 [INF] Request finished HTTP/1.1 POST http://localhost:5141/api/Stocks - 201 null application/json; charset=utf-8 552.3686ms
+2025-02-03 23:46:20.802 +01:00 [INF] Application is shutting down...
+2025-02-03 23:46:24.184 +01:00 [INF] Executed DbCommand (13ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM client AS c)
+2025-02-03 23:46:24.290 +01:00 [INF] User profile is available. Using '/Users/yoann/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-02-03 23:46:24.318 +01:00 [INF] Now listening on: http://localhost:5141
+2025-02-03 23:46:24.321 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-02-03 23:46:24.321 +01:00 [INF] Hosting environment: Development
+2025-02-03 23:46:24.321 +01:00 [INF] Content root path: /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud
+2025-02-03 23:46:25.007 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5141/swagger/index.html - null null
+2025-02-03 23:46:25.113 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5141/swagger/index.html - 200 null text/html;charset=utf-8 107.1734ms
+2025-02-03 23:46:25.382 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5141/swagger/v1/swagger.json - null null
+2025-02-03 23:46:25.461 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5141/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 79.4061ms
+2025-02-03 23:46:38.837 +01:00 [INF] Request starting HTTP/1.1 PUT http://localhost:5141/api/Stocks/2 - application/json 97
+2025-02-03 23:46:38.844 +01:00 [WRN] Failed to determine the https port for redirect.
+2025-02-03 23:46:38.860 +01:00 [INF] CORS policy execution successful.
+2025-02-03 23:46:38.860 +01:00 [WRN] Failed to determine the https port for redirect.
+2025-02-03 23:46:38.891 +01:00 [INF] Executing endpoint 'backend_negosud.Controllers.StocksController.UpdateStockQuntity (backend-negosud)'
+2025-02-03 23:46:38.907 +01:00 [INF] Route matched with {action = "UpdateStockQuntity", controller = "Stocks"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UpdateStockQuntity(Int32, backend_negosud.DTOs.StockUpdateDto) on controller backend_negosud.Controllers.StocksController (backend-negosud).
+2025-02-03 23:46:39.091 +01:00 [INF] Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+2025-02-03 23:46:39.117 +01:00 [INF] Executed action backend_negosud.Controllers.StocksController.UpdateStockQuntity (backend-negosud) in 207.1596ms
+2025-02-03 23:46:39.117 +01:00 [INF] Executed endpoint 'backend_negosud.Controllers.StocksController.UpdateStockQuntity (backend-negosud)'
+2025-02-03 23:46:39.118 +01:00 [INF] Request finished HTTP/1.1 PUT http://localhost:5141/api/Stocks/2 - 400 null application/problem+json; charset=utf-8 281.7637ms
+2025-02-03 23:46:48.071 +01:00 [INF] Request starting HTTP/1.1 PUT http://localhost:5141/api/Stocks/2 - application/json 97
+2025-02-03 23:46:48.076 +01:00 [INF] CORS policy execution successful.
+2025-02-03 23:46:48.079 +01:00 [INF] Executing endpoint 'backend_negosud.Controllers.StocksController.UpdateStockQuntity (backend-negosud)'
+2025-02-03 23:46:48.082 +01:00 [INF] Route matched with {action = "UpdateStockQuntity", controller = "Stocks"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UpdateStockQuntity(Int32, backend_negosud.DTOs.StockUpdateDto) on controller backend_negosud.Controllers.StocksController (backend-negosud).
+2025-02-03 23:46:48.087 +01:00 [INF] Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+2025-02-03 23:46:48.087 +01:00 [INF] Executed action backend_negosud.Controllers.StocksController.UpdateStockQuntity (backend-negosud) in 5.2278ms
+2025-02-03 23:46:48.087 +01:00 [INF] Executed endpoint 'backend_negosud.Controllers.StocksController.UpdateStockQuntity (backend-negosud)'
+2025-02-03 23:46:48.087 +01:00 [INF] Request finished HTTP/1.1 PUT http://localhost:5141/api/Stocks/2 - 400 null application/problem+json; charset=utf-8 16.0518ms
+2025-02-03 23:46:54.265 +01:00 [INF] Request starting HTTP/1.1 PUT http://localhost:5141/api/Stocks/2 - application/json 98
+2025-02-03 23:46:54.267 +01:00 [INF] CORS policy execution successful.
+2025-02-03 23:46:54.270 +01:00 [INF] Executing endpoint 'backend_negosud.Controllers.StocksController.UpdateStockQuntity (backend-negosud)'
+2025-02-03 23:46:54.271 +01:00 [INF] Route matched with {action = "UpdateStockQuntity", controller = "Stocks"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UpdateStockQuntity(Int32, backend_negosud.DTOs.StockUpdateDto) on controller backend_negosud.Controllers.StocksController (backend-negosud).
+2025-02-03 23:46:54.292 +01:00 [INF] Executing action method backend_negosud.Controllers.StocksController.UpdateStockQuntity (backend-negosud) - Validation state: "Valid"
+2025-02-03 23:46:54.415 +01:00 [INF] Executed DbCommand (17ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT s.stock_id, s.article_id, s.quantite, s.reapprovisionnement_auto, s.ref_lot, s.seuil_minimum
+FROM stock AS s
+WHERE s.stock_id = @__p_0
+LIMIT 1
+2025-02-03 23:46:54.535 +01:00 [INF] Executed DbCommand (2ms) [Parameters=[@p5='?' (DbType = Int32), @p0='?' (DbType = Int32), @p1='?' (DbType = Int32), @p2='?' (DbType = Boolean), @p3='?', @p4='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+UPDATE stock SET article_id = @p0, quantite = @p1, reapprovisionnement_auto = @p2, ref_lot = @p3, seuil_minimum = @p4
+WHERE stock_id = @p5;
+2025-02-03 23:46:54.590 +01:00 [INF] Executed DbCommand (9ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = Int32), @p2='?' (DbType = DateTime2), @p3='?' (DbType = Int32), @p4='?' (DbType = Int32), @p5='?'], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO inventorier (stock_id, utilisateur_id, date_modification, quantite_post_modification, quantite_precedente, type_modification)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);
+2025-02-03 23:46:54.604 +01:00 [INF] Executed action method backend_negosud.Controllers.StocksController.UpdateStockQuntity (backend-negosud), returned result Microsoft.AspNetCore.Mvc.NoContentResult in 309.1385ms.
+2025-02-03 23:46:54.609 +01:00 [INF] Executing StatusCodeResult, setting HTTP status code 204
+2025-02-03 23:46:54.609 +01:00 [INF] Executed action backend_negosud.Controllers.StocksController.UpdateStockQuntity (backend-negosud) in 338.4294ms
+2025-02-03 23:46:54.610 +01:00 [INF] Executed endpoint 'backend_negosud.Controllers.StocksController.UpdateStockQuntity (backend-negosud)'
+2025-02-03 23:46:54.615 +01:00 [INF] Request finished HTTP/1.1 PUT http://localhost:5141/api/Stocks/2 - 204 null null 350.1675ms
+2025-02-03 23:48:37.342 +01:00 [INF] Application is shutting down...
+2025-02-03 23:52:54.288 +01:00 [INF] Executed DbCommand (15ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM client AS c)
+2025-02-03 23:52:54.408 +01:00 [INF] User profile is available. Using '/Users/yoann/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-02-03 23:52:54.443 +01:00 [INF] Now listening on: http://localhost:5141
+2025-02-03 23:52:54.446 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-02-03 23:52:54.446 +01:00 [INF] Hosting environment: Development
+2025-02-03 23:52:54.446 +01:00 [INF] Content root path: /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud
+2025-02-03 23:52:55.241 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5141/swagger/index.html - null null
+2025-02-03 23:52:55.396 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5141/swagger/index.html - 200 null text/html;charset=utf-8 159.5213ms
+2025-02-03 23:52:55.695 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5141/swagger/v1/swagger.json - null null
+2025-02-03 23:52:55.772 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5141/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 77.5275ms
+2025-02-03 23:53:35.220 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5141/api/Stocks/2 - null null
+2025-02-03 23:53:35.237 +01:00 [WRN] Failed to determine the https port for redirect.
+2025-02-03 23:53:35.265 +01:00 [WRN] Failed to determine the https port for redirect.
+2025-02-03 23:53:35.307 +01:00 [INF] Executing endpoint 'backend_negosud.Controllers.StocksController.GetStockById (backend-negosud)'
+2025-02-03 23:53:35.322 +01:00 [INF] Route matched with {action = "GetStockById", controller = "Stocks"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[backend_negosud.DTOs.StockDetailDto]] GetStockById(Int32) on controller backend_negosud.Controllers.StocksController (backend-negosud).
+2025-02-03 23:53:35.422 +01:00 [INF] Executing action method backend_negosud.Controllers.StocksController.GetStockById (backend-negosud) - Validation state: "Valid"
+2025-02-03 23:53:35.553 +01:00 [INF] Executed DbCommand (24ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT s.stock_id, s.article_id, s.quantite, s.reapprovisionnement_auto, s.ref_lot, s.seuil_minimum
+FROM stock AS s
+WHERE s.stock_id = @__p_0
+LIMIT 1
+2025-02-03 23:53:35.606 +01:00 [INF] Executed action method backend_negosud.Controllers.StocksController.GetStockById (backend-negosud), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 181.612ms.
+2025-02-03 23:53:35.614 +01:00 [INF] Executing OkObjectResult, writing value of type 'backend_negosud.DTOs.StockDetailDto'.
+2025-02-03 23:53:35.668 +01:00 [INF] Executed action backend_negosud.Controllers.StocksController.GetStockById (backend-negosud) in 342.4791ms
+2025-02-03 23:53:35.668 +01:00 [INF] Executed endpoint 'backend_negosud.Controllers.StocksController.GetStockById (backend-negosud)'
+2025-02-03 23:53:35.676 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5141/api/Stocks/2 - 200 null application/json; charset=utf-8 455.9626ms
+2025-02-03 23:53:44.611 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5141/api/Stocks/check-level?articleId=1&quantiteDemandee=2 - null null
+2025-02-03 23:53:44.622 +01:00 [INF] Executing endpoint 'backend_negosud.Controllers.StocksController.CheckStockLevel (backend-negosud)'
+2025-02-03 23:53:44.628 +01:00 [INF] Route matched with {action = "CheckStockLevel", controller = "Stocks"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult] CheckStockLevel(Int32, Int32) on controller backend_negosud.Controllers.StocksController (backend-negosud).
+2025-02-03 23:53:44.635 +01:00 [INF] Executing action method backend_negosud.Controllers.StocksController.CheckStockLevel (backend-negosud) - Validation state: "Valid"
+2025-02-03 23:53:44.685 +01:00 [INF] Executed DbCommand (1ms) [Parameters=[@__articleId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT s.stock_id, s.article_id, s.quantite, s.reapprovisionnement_auto, s.ref_lot, s.seuil_minimum
+FROM stock AS s
+WHERE s.article_id = @__articleId_0
+LIMIT 1
+2025-02-03 23:53:44.687 +01:00 [INF] Executed action method backend_negosud.Controllers.StocksController.CheckStockLevel (backend-negosud), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 51.6512ms.
+2025-02-03 23:53:44.688 +01:00 [INF] Executing OkObjectResult, writing value of type 'System.String'.
+2025-02-03 23:53:44.688 +01:00 [INF] Executed action backend_negosud.Controllers.StocksController.CheckStockLevel (backend-negosud) in 59.6417ms
+2025-02-03 23:53:44.688 +01:00 [INF] Executed endpoint 'backend_negosud.Controllers.StocksController.CheckStockLevel (backend-negosud)'
+2025-02-03 23:53:44.688 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5141/api/Stocks/check-level?articleId=1&quantiteDemandee=2 - 200 null text/plain; charset=utf-8 76.7829ms
+2025-02-03 23:53:51.401 +01:00 [INF] Request starting HTTP/1.1 POST http://localhost:5141/api/Stocks/reapprovisionner - null 0
+2025-02-03 23:53:51.404 +01:00 [INF] CORS policy execution successful.
+2025-02-03 23:53:51.408 +01:00 [INF] Executing endpoint 'backend_negosud.Controllers.StocksController.Reapprovisionner (backend-negosud)'
+2025-02-03 23:53:51.411 +01:00 [INF] Route matched with {action = "Reapprovisionner", controller = "Stocks"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult] Reapprovisionner() on controller backend_negosud.Controllers.StocksController (backend-negosud).
+2025-02-03 23:53:51.414 +01:00 [INF] Executing action method backend_negosud.Controllers.StocksController.Reapprovisionner (backend-negosud) - Validation state: "Valid"
+2025-02-03 23:53:51.424 +01:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT s.stock_id, s.article_id, s.quantite, s.reapprovisionnement_auto, s.ref_lot, s.seuil_minimum
+FROM stock AS s
+WHERE s.quantite <= s.seuil_minimum AND s.reapprovisionnement_auto
+2025-02-03 23:53:51.542 +01:00 [INF] Executed DbCommand (7ms) [Parameters=[@p0='?' (DbType = Double), @p1='?', @p2='?', @p3='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO bon_commande (prix, reference, status, utilisateur_id)
+VALUES (@p0, @p1, @p2, @p3)
+RETURNING bon_commande_id;
+2025-02-03 23:53:51.569 +01:00 [INF] Executed DbCommand (2ms) [Parameters=[@__stock_ArticleId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.prix
+FROM article AS a
+WHERE a.article_id = @__stock_ArticleId_0
+LIMIT 1
+2025-02-03 23:53:51.593 +01:00 [INF] Executed DbCommand (3ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = Int32), @p2='?' (DbType = Double), @p3='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO ligne_bon_commande (article_id, bon_commande_id, prix_unitaire, quantite)
+VALUES (@p0, @p1, @p2, @p3)
+RETURNING ligne_bon_commande_id;
+2025-02-03 23:53:51.599 +01:00 [INF] Executed DbCommand (1ms) [Parameters=[@p0='?' (DbType = Double), @p1='?', @p2='?', @p3='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO bon_commande (prix, reference, status, utilisateur_id)
+VALUES (@p0, @p1, @p2, @p3)
+RETURNING bon_commande_id;
+2025-02-03 23:53:51.603 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[@__stock_ArticleId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.prix
+FROM article AS a
+WHERE a.article_id = @__stock_ArticleId_0
+LIMIT 1
+2025-02-03 23:53:51.604 +01:00 [INF] Executed DbCommand (1ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = Int32), @p2='?' (DbType = Double), @p3='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO ligne_bon_commande (article_id, bon_commande_id, prix_unitaire, quantite)
+VALUES (@p0, @p1, @p2, @p3)
+RETURNING ligne_bon_commande_id;
+2025-02-03 23:53:51.606 +01:00 [INF] Executed DbCommand (1ms) [Parameters=[@p0='?' (DbType = Double), @p1='?', @p2='?', @p3='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO bon_commande (prix, reference, status, utilisateur_id)
+VALUES (@p0, @p1, @p2, @p3)
+RETURNING bon_commande_id;
+2025-02-03 23:53:51.607 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[@__stock_ArticleId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT a.prix
+FROM article AS a
+WHERE a.article_id = @__stock_ArticleId_0
+LIMIT 1
+2025-02-03 23:53:51.608 +01:00 [INF] Executed DbCommand (1ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = Int32), @p2='?' (DbType = Double), @p3='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO ligne_bon_commande (article_id, bon_commande_id, prix_unitaire, quantite)
+VALUES (@p0, @p1, @p2, @p3)
+RETURNING ligne_bon_commande_id;
+2025-02-03 23:53:51.609 +01:00 [INF] Executed action method backend_negosud.Controllers.StocksController.Reapprovisionner (backend-negosud), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 194.4734ms.
+2025-02-03 23:53:51.609 +01:00 [INF] Executing OkObjectResult, writing value of type 'System.String'.
+2025-02-03 23:53:51.609 +01:00 [INF] Executed action backend_negosud.Controllers.StocksController.Reapprovisionner (backend-negosud) in 198.5386ms
+2025-02-03 23:53:51.610 +01:00 [INF] Executed endpoint 'backend_negosud.Controllers.StocksController.Reapprovisionner (backend-negosud)'
+2025-02-03 23:53:51.610 +01:00 [INF] Request finished HTTP/1.1 POST http://localhost:5141/api/Stocks/reapprovisionner - 200 null text/plain; charset=utf-8 208.5483ms
+2025-02-03 23:53:57.520 +01:00 [INF] Application is shutting down...

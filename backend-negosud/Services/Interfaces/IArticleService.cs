@@ -12,5 +12,6 @@ public interface IArticleService
     Task<IResponseDataModel<string>> CreateArticle(ArticleInputCreateDto articleInput);
     Task<IResponseDataModel<string>> UpdateArticle(ArticleUpdateInputDto articleInput);
     Task<IResponseDataModel<string>> PatchArticle(int id, ArticleUpdateInputDto articleInput);
+    Task<IResponseDataModel<string>> DeleteArticleById(int id);
 
 }

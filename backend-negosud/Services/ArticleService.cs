@@ -228,88 +228,127 @@ public class ArticleService : IArticleService
             };
         }
     }
-    
-    public async Task<IResponseDataModel<string>> PatchArticle(int id, ArticleUpdateInputDto articleInput)
-{
-    // Créer une instance du validateur
-    var validator = new ArticleUpdateValidator();
-    ValidationResult validationResult = validator.Validate(articleInput);
-    
-    if (!validationResult.IsValid)
-    {
-        var errors = validationResult.Errors.Select(e => e.ErrorMessage).ToList();
-        _logger.LogWarning("Validation des données d'entrée échouée : {Errors}", string.Join(", ", errors));
-        return new ResponseDataModel<string>
-        {
-            Success = false,
-            StatusCode = 400,
-            Message = string.Join(", ", errors),
-        };
-    }
 
-    try
+    public async Task<IResponseDataModel<string>> DeleteArticleById(int id)
     {
-        var article = await _articleRepository.GetByIdAsync(articleInput.ArticleId);
-        if (article == null)
+        try
         {
+            var article = await _articleRepository.GetByIdAsync(id);
+            if (article == null)
+            {
+                _logger.LogError("article introuvable pour l'ID: {articleId}", id);
+                return new ResponseDataModel<string>
+                {
+                    Success = false,
+                    Message = "article introuvable.",
+                    StatusCode = 404
+                };
+            }
+
+            await _articleRepository.DeleteAsync(article);
+
+            return new ResponseDataModel<string>
+            {
+                Success = true,
+                Message = "article supprimé avec succès.",
+                StatusCode = 200,
+                Data = id.ToString()
+            };
+        }
+        catch (Exception e)
+        {
+            _logger.LogError(e, "Erreur lors de la suppression du article.");
             return new ResponseDataModel<string>
             {
                 Success = false,
-                StatusCode = 404,
-                Message = "Article non trouvé.",
-                Data = article.ArticleId.ToString(),
+                Message = "Une erreur s'est produite lors de la suppression du article.",
+                StatusCode = 500,
+                Data = id.ToString()
+            };
+        }
+    }
+    
+    public async Task<IResponseDataModel<string>> PatchArticle(int id, ArticleUpdateInputDto articleInput)
+    {
+        // Créer une instance du validateur
+        var validator = new ArticleUpdateValidator();
+        ValidationResult validationResult = validator.Validate(articleInput);
+        
+        if (!validationResult.IsValid)
+        {
+            var errors = validationResult.Errors.Select(e => e.ErrorMessage).ToList();
+            _logger.LogWarning("Validation des données d'entrée échouée : {Errors}", string.Join(", ", errors));
+            return new ResponseDataModel<string>
+            {
+                Success = false,
+                StatusCode = 400,
+                Message = string.Join(", ", errors),
             };
         }
 
-        // mis à jour uniquement des champs fournis
-        if (!string.IsNullOrEmpty(articleInput.Libelle))
+        try
         {
-            article.Libelle = articleInput.Libelle;
+            var article = await _articleRepository.GetByIdAsync(articleInput.ArticleId);
+            if (article == null)
+            {
+                return new ResponseDataModel<string>
+                {
+                    Success = false,
+                    StatusCode = 404,
+                    Message = "Article non trouvé.",
+                    Data = article.ArticleId.ToString(),
+                };
+            }
+
+            // mis à jour uniquement des champs fournis
+            if (!string.IsNullOrEmpty(articleInput.Libelle))
+            {
+                article.Libelle = articleInput.Libelle;
+            }
+
+            if (!string.IsNullOrEmpty(articleInput.Reference))
+            {
+                article.Reference = articleInput.Reference;
+            }
+
+            if (articleInput.Prix > 0)
+            {
+                article.Prix = articleInput.Prix;
+            }
+
+            if (articleInput.FamilleId != 0)
+            {
+                article.FamilleId = articleInput.FamilleId;
+            }
+
+            if (articleInput.FournisseurId != 0)
+            {
+                article.FournisseurId = articleInput.FournisseurId;
+            }
+
+            if (articleInput.TvaId != 0)
+            {
+                article.TvaId = articleInput.TvaId;
+            }
+
+            await _articleRepository.UpdateAsync(article);
+
+            return new ResponseDataModel<string>
+            {
+                Success = true,
+                StatusCode = 200,
+                Message = "L'article a été mis à jour avec succès.",
+            };
         }
-
-        if (!string.IsNullOrEmpty(articleInput.Reference))
+        catch (Exception e)
         {
-            article.Reference = articleInput.Reference;
+            _logger.LogError(e, "Une erreur s'est produite lors de la mise à jour de l'article.");
+            return new ResponseDataModel<string>
+            {
+                Success = false,
+                StatusCode = 500,
+                Message = "Une erreur s'est produite lors de la mise à jour de l'article.",
+            };
         }
-
-        if (articleInput.Prix > 0)
-        {
-            article.Prix = articleInput.Prix;
-        }
-
-        if (articleInput.FamilleId != 0)
-        {
-            article.FamilleId = articleInput.FamilleId;
-        }
-
-        if (articleInput.FournisseurId != 0)
-        {
-            article.FournisseurId = articleInput.FournisseurId;
-        }
-
-        if (articleInput.TvaId != 0)
-        {
-            article.TvaId = articleInput.TvaId;
-        }
-
-        await _articleRepository.UpdateAsync(article);
-
-        return new ResponseDataModel<string>
-        {
-            Success = true,
-            StatusCode = 200,
-            Message = "L'article a été mis à jour avec succès.",
-        };
     }
-    catch (Exception e)
-    {
-        _logger.LogError(e, "Une erreur s'est produite lors de la mise à jour de l'article.");
-        return new ResponseDataModel<string>
-        {
-            Success = false,
-            StatusCode = 500,
-            Message = "Une erreur s'est produite lors de la mise à jour de l'article.",
-        };
-    }
-}
 }

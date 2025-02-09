@@ -1,0 +1,838 @@
+2025-02-09 00:03:59.786 +01:00 [INF] Executed DbCommand (26ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1 FROM pg_catalog.pg_class c
+    JOIN pg_catalog.pg_namespace n ON n.oid=c.relnamespace
+    WHERE n.nspname='public' AND
+          c.relname='__EFMigrationsHistory'
+)
+2025-02-09 00:03:59.828 +01:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2025-02-09 00:03:59.877 +01:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1 FROM pg_catalog.pg_class c
+    JOIN pg_catalog.pg_namespace n ON n.oid=c.relnamespace
+    WHERE n.nspname='public' AND
+          c.relname='__EFMigrationsHistory'
+)
+2025-02-09 00:03:59.897 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1 FROM pg_catalog.pg_class c
+    JOIN pg_catalog.pg_namespace n ON n.oid=c.relnamespace
+    WHERE n.nspname='public' AND
+          c.relname='__EFMigrationsHistory'
+)
+2025-02-09 00:03:59.897 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2025-02-09 00:03:59.904 +01:00 [INF] Applying migration '20250208230348_ExpirationDateNullable'.
+2025-02-09 00:03:59.938 +01:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE commande ALTER COLUMN date_expiration DROP NOT NULL;
+2025-02-09 00:03:59.938 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "__EFMigrationsHistory" ("MigrationId", "ProductVersion")
+VALUES ('20250208230348_ExpirationDateNullable', '8.0.11');
+2025-02-09 00:07:52.011 +01:00 [INF] Executed DbCommand (27ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1 FROM pg_catalog.pg_class c
+    JOIN pg_catalog.pg_namespace n ON n.oid=c.relnamespace
+    WHERE n.nspname='public' AND
+          c.relname='__EFMigrationsHistory'
+)
+2025-02-09 00:07:52.054 +01:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2025-02-09 00:07:52.088 +01:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1 FROM pg_catalog.pg_class c
+    JOIN pg_catalog.pg_namespace n ON n.oid=c.relnamespace
+    WHERE n.nspname='public' AND
+          c.relname='__EFMigrationsHistory'
+)
+2025-02-09 00:07:52.102 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1 FROM pg_catalog.pg_class c
+    JOIN pg_catalog.pg_namespace n ON n.oid=c.relnamespace
+    WHERE n.nspname='public' AND
+          c.relname='__EFMigrationsHistory'
+)
+2025-02-09 00:07:52.103 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2025-02-09 00:07:52.110 +01:00 [INF] Applying migration '20250208230726_ExpirationDateNullable'.
+2025-02-09 00:07:52.138 +01:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "__EFMigrationsHistory" ("MigrationId", "ProductVersion")
+VALUES ('20250208230726_ExpirationDateNullable', '8.0.11');
+2025-02-09 00:11:46.273 +01:00 [INF] Executed DbCommand (27ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1 FROM pg_catalog.pg_class c
+    JOIN pg_catalog.pg_namespace n ON n.oid=c.relnamespace
+    WHERE n.nspname='public' AND
+          c.relname='__EFMigrationsHistory'
+)
+2025-02-09 00:11:46.318 +01:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2025-02-09 00:11:46.360 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1 FROM pg_catalog.pg_class c
+    JOIN pg_catalog.pg_namespace n ON n.oid=c.relnamespace
+    WHERE n.nspname='public' AND
+          c.relname='__EFMigrationsHistory'
+)
+2025-02-09 00:11:46.379 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1 FROM pg_catalog.pg_class c
+    JOIN pg_catalog.pg_namespace n ON n.oid=c.relnamespace
+    WHERE n.nspname='public' AND
+          c.relname='__EFMigrationsHistory'
+)
+2025-02-09 00:11:46.380 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2025-02-09 00:11:46.388 +01:00 [INF] Applying migration '20250208231140_DateLivraisonNullable'.
+2025-02-09 00:11:46.420 +01:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE livraison ALTER COLUMN date_livraison DROP NOT NULL;
+2025-02-09 00:11:46.421 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "__EFMigrationsHistory" ("MigrationId", "ProductVersion")
+VALUES ('20250208231140_DateLivraisonNullable', '8.0.11');
+2025-02-09 00:23:31.409 +01:00 [INF] Executed DbCommand (13ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM client AS c)
+2025-02-09 00:23:31.491 +01:00 [INF] Starting Hangfire Server using job storage: 'Hangfire.MemoryStorage.MemoryStorage'
+2025-02-09 00:23:31.491 +01:00 [INF] Using the following options for Hangfire Server:
+    Worker count: 20
+    Listening queues: 'default'
+    Shutdown timeout: 00:00:15
+    Schedule polling interval: 00:00:15
+2025-02-09 00:23:31.529 +01:00 [INF] Server macbookpro:60097:93ae8da9 successfully announced in 30,4227 ms
+2025-02-09 00:23:31.530 +01:00 [INF] Server macbookpro:60097:93ae8da9 is starting the registered dispatchers: ServerWatchdog, ServerJobCancellationWatcher, ExpirationManager, CountersAggregator, Worker, DelayedJobScheduler, RecurringJobScheduler...
+2025-02-09 00:23:31.533 +01:00 [INF] Server macbookpro:60097:93ae8da9 all the dispatchers started
+2025-02-09 00:23:31.576 +01:00 [INF] User profile is available. Using '/Users/yoann/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-02-09 00:23:31.605 +01:00 [INF] Now listening on: http://localhost:5141
+2025-02-09 00:23:31.605 +01:00 [INF] Starting Hangfire Server using job storage: 'Hangfire.MemoryStorage.MemoryStorage'
+2025-02-09 00:23:31.606 +01:00 [INF] Using the following options for Hangfire Server:
+    Worker count: 20
+    Listening queues: 'default'
+    Shutdown timeout: 00:00:15
+    Schedule polling interval: 00:00:15
+2025-02-09 00:23:31.606 +01:00 [INF] Server macbookpro:60097:44e23a61 successfully announced in 0,0622 ms
+2025-02-09 00:23:31.606 +01:00 [INF] Server macbookpro:60097:44e23a61 is starting the registered dispatchers: ServerWatchdog, ServerJobCancellationWatcher, ExpirationManager, CountersAggregator, Worker, DelayedJobScheduler, RecurringJobScheduler...
+2025-02-09 00:23:31.607 +01:00 [INF] Server macbookpro:60097:44e23a61 all the dispatchers started
+2025-02-09 00:23:31.608 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-02-09 00:23:31.608 +01:00 [INF] Hosting environment: Development
+2025-02-09 00:23:31.608 +01:00 [INF] Content root path: /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud
+2025-02-09 00:23:32.437 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5141/swagger/index.html - null null
+2025-02-09 00:23:32.570 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5141/swagger/index.html - 200 null text/html;charset=utf-8 133.5632ms
+2025-02-09 00:23:32.834 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5141/swagger/v1/swagger.json - null null
+2025-02-09 00:23:32.912 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5141/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 78.8986ms
+2025-02-09 00:23:37.273 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5141/api/Commande - null null
+2025-02-09 00:23:37.305 +01:00 [WRN] Failed to determine the https port for redirect.
+2025-02-09 00:23:37.336 +01:00 [INF] Executing endpoint 'backend_negosud.Controllers.CommandeController.Get (backend-negosud)'
+2025-02-09 00:23:37.347 +01:00 [INF] Route matched with {action = "Get", controller = "Commande"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Get() on controller backend_negosud.Controllers.CommandeController (backend-negosud).
+2025-02-09 00:23:37.440 +01:00 [INF] Executing action method backend_negosud.Controllers.CommandeController.Get (backend-negosud) - Validation state: "Valid"
+2025-02-09 00:23:37.588 +01:00 [INF] Executed DbCommand (9ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT c.commande_id, c.client_id, c.date_creation, c.date_expiration, c.facture_id, c.livraison_id, c.valide, t.ligne_commande_id, t.article_id, t.commande_id, t.quantite, t.article_id0, t.famille_id, t.fournisseur_id, t.libelle, t.prix, t.reference, t.tva_id
+FROM commande AS c
+LEFT JOIN (
+    SELECT l.ligne_commande_id, l.article_id, l.commande_id, l.quantite, a.article_id AS article_id0, a.famille_id, a.fournisseur_id, a.libelle, a.prix, a.reference, a.tva_id
+    FROM ligne_commande AS l
+    INNER JOIN article AS a ON l.article_id = a.article_id
+) AS t ON c.commande_id = t.commande_id
+ORDER BY c.commande_id, t.ligne_commande_id
+2025-02-09 00:23:37.657 +01:00 [INF] Executed action method backend_negosud.Controllers.CommandeController.Get (backend-negosud), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 212.5569ms.
+2025-02-09 00:23:37.664 +01:00 [INF] Executing OkObjectResult, writing value of type 'backend_negosud.Models.ResponseDataModel`1[[System.Collections.Generic.List`1[[backend_negosud.DTOs.Commande_client.Outputs.CommandeOutputDto, backend-negosud, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-02-09 00:23:37.749 +01:00 [INF] Executed action backend_negosud.Controllers.CommandeController.Get (backend-negosud) in 397.982ms
+2025-02-09 00:23:37.750 +01:00 [INF] Executed endpoint 'backend_negosud.Controllers.CommandeController.Get (backend-negosud)'
+2025-02-09 00:23:37.757 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5141/api/Commande - 200 null application/json; charset=utf-8 484.8151ms
+2025-02-09 00:24:02.983 +01:00 [INF] Request starting HTTP/1.1 POST http://localhost:5141/api/Panier/create - application/json 102
+2025-02-09 00:24:02.999 +01:00 [INF] CORS policy execution successful.
+2025-02-09 00:24:03.004 +01:00 [INF] Executing endpoint 'backend_negosud.Controllers.PanierController.CreateBasket (backend-negosud)'
+2025-02-09 00:24:03.024 +01:00 [INF] Route matched with {action = "CreateBasket", controller = "Panier"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] CreateBasket(backend_negosud.DTOs.Commande_client.PanierInputDto) on controller backend_negosud.Controllers.PanierController (backend-negosud).
+2025-02-09 00:24:03.071 +01:00 [INF] Executing action method backend_negosud.Controllers.PanierController.CreateBasket (backend-negosud) - Validation state: "Valid"
+2025-02-09 00:24:03.074 +01:00 [INF] Tentative de récupération du client avec ID: 4
+2025-02-09 00:24:03.139 +01:00 [INF] Executed DbCommand (10ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT c.client_id, c.acess_token, c.email, c.est_valide, c.mot_de_passe, c.nom, c.prenom, c.tel
+FROM client AS c
+WHERE c.client_id = @__p_0
+LIMIT 1
+2025-02-09 00:24:03.165 +01:00 [INF] Executed DbCommand (1ms) [Parameters=[@__ligne_ArticleId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM article AS a
+    WHERE a.article_id = @__ligne_ArticleId_0)
+2025-02-09 00:24:03.267 +01:00 [INF] Executed DbCommand (6ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = DateTime), @p2='?' (DbType = DateTime), @p3='?' (DbType = Int32), @p4='?' (DbType = Int32), @p5='?' (DbType = Boolean)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO commande (client_id, date_creation, date_expiration, facture_id, livraison_id, valide)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5)
+RETURNING commande_id;
+2025-02-09 00:24:03.281 +01:00 [INF] Executed DbCommand (1ms) [Parameters=[@p6='?' (DbType = Int32), @p7='?' (DbType = Int32), @p8='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO ligne_commande (article_id, commande_id, quantite)
+VALUES (@p6, @p7, @p8)
+RETURNING ligne_commande_id;
+2025-02-09 00:24:03.310 +01:00 [INF] Executed DbCommand (3ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT t.commande_id, t.client_id, t.date_creation, t.date_expiration, t.facture_id, t.livraison_id, t.valide, t0.ligne_commande_id, t0.article_id, t0.commande_id, t0.quantite, t0.article_id0, t0.famille_id, t0.fournisseur_id, t0.libelle, t0.prix, t0.reference, t0.tva_id
+FROM (
+    SELECT c.commande_id, c.client_id, c.date_creation, c.date_expiration, c.facture_id, c.livraison_id, c.valide
+    FROM commande AS c
+    WHERE c.commande_id = @__id_0
+    LIMIT 1
+) AS t
+LEFT JOIN (
+    SELECT l.ligne_commande_id, l.article_id, l.commande_id, l.quantite, a.article_id AS article_id0, a.famille_id, a.fournisseur_id, a.libelle, a.prix, a.reference, a.tva_id
+    FROM ligne_commande AS l
+    INNER JOIN article AS a ON l.article_id = a.article_id
+) AS t0 ON t.commande_id = t0.commande_id
+ORDER BY t.commande_id, t0.ligne_commande_id
+2025-02-09 00:24:03.328 +01:00 [INF] Executed action method backend_negosud.Controllers.PanierController.CreateBasket (backend-negosud), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 255.9816ms.
+2025-02-09 00:24:03.328 +01:00 [INF] Executing OkObjectResult, writing value of type 'backend_negosud.Models.ResponseDataModel`1[[backend_negosud.DTOs.Commande_client.Outputs.PanierOutputDto, backend-negosud, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-02-09 00:24:03.335 +01:00 [INF] Executed action backend_negosud.Controllers.PanierController.CreateBasket (backend-negosud) in 310.657ms
+2025-02-09 00:24:03.335 +01:00 [INF] Executed endpoint 'backend_negosud.Controllers.PanierController.CreateBasket (backend-negosud)'
+2025-02-09 00:24:03.336 +01:00 [INF] Request finished HTTP/1.1 POST http://localhost:5141/api/Panier/create - 200 null application/json; charset=utf-8 352.4431ms
+2025-02-09 00:25:07.238 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5141/api/Panier/63 - null null
+2025-02-09 00:25:07.245 +01:00 [INF] Executing endpoint 'backend_negosud.Controllers.PanierController.GetBasketClient (backend-negosud)'
+2025-02-09 00:25:07.252 +01:00 [INF] Route matched with {action = "GetBasketClient", controller = "Panier"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetBasketClient(Int32) on controller backend_negosud.Controllers.PanierController (backend-negosud).
+2025-02-09 00:25:07.258 +01:00 [INF] Executing action method backend_negosud.Controllers.PanierController.GetBasketClient (backend-negosud) - Validation state: "Valid"
+2025-02-09 00:25:07.283 +01:00 [INF] Executed DbCommand (5ms) [Parameters=[@__clientId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT t.commande_id, t.client_id, t.date_creation, t.date_expiration, t.facture_id, t.livraison_id, t.valide, t0.ligne_commande_id, t0.article_id, t0.commande_id, t0.quantite, t0.article_id0, t0.famille_id, t0.fournisseur_id, t0.libelle, t0.prix, t0.reference, t0.tva_id
+FROM (
+    SELECT c.commande_id, c.client_id, c.date_creation, c.date_expiration, c.facture_id, c.livraison_id, c.valide
+    FROM commande AS c
+    WHERE c.client_id = @__clientId_0 AND NOT (c.valide)
+    ORDER BY c.date_creation DESC
+    LIMIT 1
+) AS t
+LEFT JOIN (
+    SELECT l.ligne_commande_id, l.article_id, l.commande_id, l.quantite, a.article_id AS article_id0, a.famille_id, a.fournisseur_id, a.libelle, a.prix, a.reference, a.tva_id
+    FROM ligne_commande AS l
+    INNER JOIN article AS a ON l.article_id = a.article_id
+) AS t0 ON t.commande_id = t0.commande_id
+ORDER BY t.date_creation DESC, t.commande_id, t0.ligne_commande_id
+2025-02-09 00:25:07.285 +01:00 [WRN] Aucun panier actif trouvé pour le client avec l'ID: 63
+2025-02-09 00:25:07.285 +01:00 [INF] Executed action method backend_negosud.Controllers.PanierController.GetBasketClient (backend-negosud), returned result Microsoft.AspNetCore.Mvc.BadRequestObjectResult in 27.2137ms.
+2025-02-09 00:25:07.286 +01:00 [INF] Executing BadRequestObjectResult, writing value of type 'backend_negosud.Models.ResponseDataModel`1[[backend_negosud.DTOs.Commande_client.Outputs.PanierOutputDto, backend-negosud, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-02-09 00:25:07.288 +01:00 [INF] Executed action backend_negosud.Controllers.PanierController.GetBasketClient (backend-negosud) in 35.465ms
+2025-02-09 00:25:07.288 +01:00 [INF] Executed endpoint 'backend_negosud.Controllers.PanierController.GetBasketClient (backend-negosud)'
+2025-02-09 00:25:07.288 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5141/api/Panier/63 - 400 null application/json; charset=utf-8 49.6983ms
+2025-02-09 00:25:31.498 +01:00 [INF] Request starting HTTP/1.1 PUT http://localhost:5141/api/Panier/valid/63 - null 0
+2025-02-09 00:25:31.502 +01:00 [INF] CORS policy execution successful.
+2025-02-09 00:25:31.503 +01:00 [INF] Executing endpoint 'backend_negosud.Controllers.PanierController.BasketToCommand (backend-negosud)'
+2025-02-09 00:25:31.512 +01:00 [INF] Route matched with {action = "BasketToCommand", controller = "Panier"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] BasketToCommand(Int32) on controller backend_negosud.Controllers.PanierController (backend-negosud).
+2025-02-09 00:25:31.519 +01:00 [INF] Executing action method backend_negosud.Controllers.PanierController.BasketToCommand (backend-negosud) - Validation state: "Valid"
+2025-02-09 00:25:31.532 +01:00 [INF] Executed DbCommand (2ms) [Parameters=[@__clientId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT t.commande_id, t.client_id, t.date_creation, t.date_expiration, t.facture_id, t.livraison_id, t.valide, t0.ligne_commande_id, t0.article_id, t0.commande_id, t0.quantite, t0.article_id0, t0.famille_id, t0.fournisseur_id, t0.libelle, t0.prix, t0.reference, t0.tva_id
+FROM (
+    SELECT c.commande_id, c.client_id, c.date_creation, c.date_expiration, c.facture_id, c.livraison_id, c.valide
+    FROM commande AS c
+    WHERE c.client_id = @__clientId_0 AND NOT (c.valide)
+    ORDER BY c.date_creation DESC
+    LIMIT 1
+) AS t
+LEFT JOIN (
+    SELECT l.ligne_commande_id, l.article_id, l.commande_id, l.quantite, a.article_id AS article_id0, a.famille_id, a.fournisseur_id, a.libelle, a.prix, a.reference, a.tva_id
+    FROM ligne_commande AS l
+    INNER JOIN article AS a ON l.article_id = a.article_id
+) AS t0 ON t.commande_id = t0.commande_id
+ORDER BY t.date_creation DESC, t.commande_id, t0.ligne_commande_id
+2025-02-09 00:25:31.533 +01:00 [WRN] Aucun panier actif trouvé pour le client avec l'ID: 63
+2025-02-09 00:25:31.533 +01:00 [INF] Executed action method backend_negosud.Controllers.PanierController.BasketToCommand (backend-negosud), returned result Microsoft.AspNetCore.Mvc.BadRequestObjectResult in 13.8952ms.
+2025-02-09 00:25:31.533 +01:00 [INF] Executing BadRequestObjectResult, writing value of type 'backend_negosud.Models.ResponseDataModel`1[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-02-09 00:25:31.535 +01:00 [INF] Executed action backend_negosud.Controllers.PanierController.BasketToCommand (backend-negosud) in 22.9818ms
+2025-02-09 00:25:31.536 +01:00 [INF] Executed endpoint 'backend_negosud.Controllers.PanierController.BasketToCommand (backend-negosud)'
+2025-02-09 00:25:31.536 +01:00 [INF] Request finished HTTP/1.1 PUT http://localhost:5141/api/Panier/valid/63 - 400 null application/json; charset=utf-8 37.5195ms
+2025-02-09 00:25:51.947 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5141/api/Panier/4 - null null
+2025-02-09 00:25:51.948 +01:00 [INF] Executing endpoint 'backend_negosud.Controllers.PanierController.GetBasketClient (backend-negosud)'
+2025-02-09 00:25:51.948 +01:00 [INF] Route matched with {action = "GetBasketClient", controller = "Panier"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetBasketClient(Int32) on controller backend_negosud.Controllers.PanierController (backend-negosud).
+2025-02-09 00:25:51.949 +01:00 [INF] Executing action method backend_negosud.Controllers.PanierController.GetBasketClient (backend-negosud) - Validation state: "Valid"
+2025-02-09 00:25:51.952 +01:00 [INF] Executed DbCommand (1ms) [Parameters=[@__clientId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT t.commande_id, t.client_id, t.date_creation, t.date_expiration, t.facture_id, t.livraison_id, t.valide, t0.ligne_commande_id, t0.article_id, t0.commande_id, t0.quantite, t0.article_id0, t0.famille_id, t0.fournisseur_id, t0.libelle, t0.prix, t0.reference, t0.tva_id
+FROM (
+    SELECT c.commande_id, c.client_id, c.date_creation, c.date_expiration, c.facture_id, c.livraison_id, c.valide
+    FROM commande AS c
+    WHERE c.client_id = @__clientId_0 AND NOT (c.valide)
+    ORDER BY c.date_creation DESC
+    LIMIT 1
+) AS t
+LEFT JOIN (
+    SELECT l.ligne_commande_id, l.article_id, l.commande_id, l.quantite, a.article_id AS article_id0, a.famille_id, a.fournisseur_id, a.libelle, a.prix, a.reference, a.tva_id
+    FROM ligne_commande AS l
+    INNER JOIN article AS a ON l.article_id = a.article_id
+) AS t0 ON t.commande_id = t0.commande_id
+ORDER BY t.date_creation DESC, t.commande_id, t0.ligne_commande_id
+2025-02-09 00:25:51.955 +01:00 [INF] Executed action method backend_negosud.Controllers.PanierController.GetBasketClient (backend-negosud), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 5.437ms.
+2025-02-09 00:25:51.955 +01:00 [INF] Executing OkObjectResult, writing value of type 'backend_negosud.Models.ResponseDataModel`1[[backend_negosud.DTOs.Commande_client.Outputs.PanierOutputDto, backend-negosud, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-02-09 00:25:51.955 +01:00 [INF] Executed action backend_negosud.Controllers.PanierController.GetBasketClient (backend-negosud) in 7.0575ms
+2025-02-09 00:25:51.956 +01:00 [INF] Executed endpoint 'backend_negosud.Controllers.PanierController.GetBasketClient (backend-negosud)'
+2025-02-09 00:25:51.956 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5141/api/Panier/4 - 200 null application/json; charset=utf-8 8.5782ms
+2025-02-09 00:25:57.419 +01:00 [INF] Request starting HTTP/1.1 PUT http://localhost:5141/api/Panier/valid/4 - null 0
+2025-02-09 00:25:57.420 +01:00 [INF] CORS policy execution successful.
+2025-02-09 00:25:57.420 +01:00 [INF] Executing endpoint 'backend_negosud.Controllers.PanierController.BasketToCommand (backend-negosud)'
+2025-02-09 00:25:57.420 +01:00 [INF] Route matched with {action = "BasketToCommand", controller = "Panier"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] BasketToCommand(Int32) on controller backend_negosud.Controllers.PanierController (backend-negosud).
+2025-02-09 00:25:57.422 +01:00 [INF] Executing action method backend_negosud.Controllers.PanierController.BasketToCommand (backend-negosud) - Validation state: "Valid"
+2025-02-09 00:25:57.429 +01:00 [INF] Executed DbCommand (2ms) [Parameters=[@__clientId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT t.commande_id, t.client_id, t.date_creation, t.date_expiration, t.facture_id, t.livraison_id, t.valide, t0.ligne_commande_id, t0.article_id, t0.commande_id, t0.quantite, t0.article_id0, t0.famille_id, t0.fournisseur_id, t0.libelle, t0.prix, t0.reference, t0.tva_id
+FROM (
+    SELECT c.commande_id, c.client_id, c.date_creation, c.date_expiration, c.facture_id, c.livraison_id, c.valide
+    FROM commande AS c
+    WHERE c.client_id = @__clientId_0 AND NOT (c.valide)
+    ORDER BY c.date_creation DESC
+    LIMIT 1
+) AS t
+LEFT JOIN (
+    SELECT l.ligne_commande_id, l.article_id, l.commande_id, l.quantite, a.article_id AS article_id0, a.famille_id, a.fournisseur_id, a.libelle, a.prix, a.reference, a.tva_id
+    FROM ligne_commande AS l
+    INNER JOIN article AS a ON l.article_id = a.article_id
+) AS t0 ON t.commande_id = t0.commande_id
+ORDER BY t.date_creation DESC, t.commande_id, t0.ligne_commande_id
+2025-02-09 00:25:57.453 +01:00 [INF] Executed DbCommand (4ms) [Parameters=[@p6='?' (DbType = Int32), @p0='?' (DbType = Int32), @p1='?' (DbType = DateTime), @p2='?' (DbType = DateTime), @p3='?' (DbType = Int32), @p4='?' (DbType = Int32), @p5='?' (DbType = Boolean)], CommandType='"Text"', CommandTimeout='30']
+UPDATE commande SET client_id = @p0, date_creation = @p1, date_expiration = @p2, facture_id = @p3, livraison_id = @p4, valide = @p5
+WHERE commande_id = @p6;
+2025-02-09 00:25:57.454 +01:00 [INF] Executed action method backend_negosud.Controllers.PanierController.BasketToCommand (backend-negosud), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 31.6115ms.
+2025-02-09 00:25:57.454 +01:00 [INF] Executing OkObjectResult, writing value of type 'backend_negosud.Models.ResponseDataModel`1[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-02-09 00:25:57.454 +01:00 [INF] Executed action backend_negosud.Controllers.PanierController.BasketToCommand (backend-negosud) in 33.4575ms
+2025-02-09 00:25:57.454 +01:00 [INF] Executed endpoint 'backend_negosud.Controllers.PanierController.BasketToCommand (backend-negosud)'
+2025-02-09 00:25:57.455 +01:00 [INF] Request finished HTTP/1.1 PUT http://localhost:5141/api/Panier/valid/4 - 200 null application/json; charset=utf-8 35.2795ms
+2025-02-09 00:26:46.371 +01:00 [INF] Server macbookpro:60097:44e23a61 caught stopping signal...
+2025-02-09 00:26:46.376 +01:00 [INF] Application is shutting down...
+2025-02-09 00:26:46.376 +01:00 [INF] Server macbookpro:60097:93ae8da9 caught stopping signal...
+2025-02-09 00:26:46.378 +01:00 [INF] Server macbookpro:60097:44e23a61 All dispatchers stopped
+2025-02-09 00:26:46.379 +01:00 [INF] Server macbookpro:60097:93ae8da9 All dispatchers stopped
+2025-02-09 00:26:46.383 +01:00 [INF] Server macbookpro:60097:93ae8da9 successfully reported itself as stopped in 1,131 ms
+2025-02-09 00:26:46.383 +01:00 [INF] Server macbookpro:60097:44e23a61 successfully reported itself as stopped in 1,1129 ms
+2025-02-09 00:26:46.383 +01:00 [INF] Server macbookpro:60097:93ae8da9 has been stopped in total 6,8003 ms
+2025-02-09 00:26:46.383 +01:00 [INF] Server macbookpro:60097:44e23a61 has been stopped in total 9,806 ms
+2025-02-09 00:26:50.149 +01:00 [INF] Executed DbCommand (15ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM client AS c)
+2025-02-09 00:26:50.239 +01:00 [INF] Starting Hangfire Server using job storage: 'Hangfire.MemoryStorage.MemoryStorage'
+2025-02-09 00:26:50.239 +01:00 [INF] Using the following options for Hangfire Server:
+    Worker count: 20
+    Listening queues: 'default'
+    Shutdown timeout: 00:00:15
+    Schedule polling interval: 00:00:15
+2025-02-09 00:26:50.280 +01:00 [INF] Server macbookpro:60234:e8ecbbb1 successfully announced in 33,4698 ms
+2025-02-09 00:26:50.282 +01:00 [INF] Server macbookpro:60234:e8ecbbb1 is starting the registered dispatchers: ServerWatchdog, ServerJobCancellationWatcher, ExpirationManager, CountersAggregator, Worker, DelayedJobScheduler, RecurringJobScheduler...
+2025-02-09 00:26:50.289 +01:00 [INF] Server macbookpro:60234:e8ecbbb1 all the dispatchers started
+2025-02-09 00:26:50.325 +01:00 [INF] User profile is available. Using '/Users/yoann/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-02-09 00:26:50.353 +01:00 [INF] Now listening on: http://localhost:5141
+2025-02-09 00:26:50.353 +01:00 [INF] Starting Hangfire Server using job storage: 'Hangfire.MemoryStorage.MemoryStorage'
+2025-02-09 00:26:50.353 +01:00 [INF] Using the following options for Hangfire Server:
+    Worker count: 20
+    Listening queues: 'default'
+    Shutdown timeout: 00:00:15
+    Schedule polling interval: 00:00:15
+2025-02-09 00:26:50.354 +01:00 [INF] Server macbookpro:60234:ddbe004c successfully announced in 0,0478 ms
+2025-02-09 00:26:50.354 +01:00 [INF] Server macbookpro:60234:ddbe004c is starting the registered dispatchers: ServerWatchdog, ServerJobCancellationWatcher, ExpirationManager, CountersAggregator, Worker, DelayedJobScheduler, RecurringJobScheduler...
+2025-02-09 00:26:50.355 +01:00 [INF] Server macbookpro:60234:ddbe004c all the dispatchers started
+2025-02-09 00:26:50.356 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-02-09 00:26:50.356 +01:00 [INF] Hosting environment: Development
+2025-02-09 00:26:50.356 +01:00 [INF] Content root path: /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud
+2025-02-09 00:26:51.121 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5141/swagger/index.html - null null
+2025-02-09 00:26:51.247 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5141/swagger/index.html - 200 null text/html;charset=utf-8 132.4876ms
+2025-02-09 00:26:51.517 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5141/swagger/v1/swagger.json - null null
+2025-02-09 00:26:51.615 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5141/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 98.453ms
+2025-02-09 00:27:02.254 +01:00 [INF] Server macbookpro:60234:ddbe004c caught stopping signal...
+2025-02-09 00:27:02.257 +01:00 [INF] Application is shutting down...
+2025-02-09 00:27:02.257 +01:00 [INF] Server macbookpro:60234:e8ecbbb1 caught stopping signal...
+2025-02-09 00:27:02.261 +01:00 [INF] Server macbookpro:60234:e8ecbbb1 All dispatchers stopped
+2025-02-09 00:27:02.261 +01:00 [INF] Server macbookpro:60234:ddbe004c All dispatchers stopped
+2025-02-09 00:27:02.263 +01:00 [INF] Server macbookpro:60234:ddbe004c successfully reported itself as stopped in 0,8219 ms
+2025-02-09 00:27:02.263 +01:00 [INF] Server macbookpro:60234:e8ecbbb1 successfully reported itself as stopped in 0,8194 ms
+2025-02-09 00:27:02.263 +01:00 [INF] Server macbookpro:60234:ddbe004c has been stopped in total 7,0225 ms
+2025-02-09 00:27:02.263 +01:00 [INF] Server macbookpro:60234:e8ecbbb1 has been stopped in total 5,2111 ms
+2025-02-09 00:27:06.100 +01:00 [INF] Executed DbCommand (15ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM client AS c)
+2025-02-09 00:27:06.180 +01:00 [INF] Starting Hangfire Server using job storage: 'Hangfire.MemoryStorage.MemoryStorage'
+2025-02-09 00:27:06.181 +01:00 [INF] Using the following options for Hangfire Server:
+    Worker count: 20
+    Listening queues: 'default'
+    Shutdown timeout: 00:00:15
+    Schedule polling interval: 00:00:15
+2025-02-09 00:27:06.218 +01:00 [INF] Server macbookpro:60272:0802d6c0 successfully announced in 30,7357 ms
+2025-02-09 00:27:06.220 +01:00 [INF] Server macbookpro:60272:0802d6c0 is starting the registered dispatchers: ServerWatchdog, ServerJobCancellationWatcher, ExpirationManager, CountersAggregator, Worker, DelayedJobScheduler, RecurringJobScheduler...
+2025-02-09 00:27:06.223 +01:00 [INF] Server macbookpro:60272:0802d6c0 all the dispatchers started
+2025-02-09 00:27:06.259 +01:00 [INF] User profile is available. Using '/Users/yoann/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-02-09 00:27:06.286 +01:00 [INF] Now listening on: http://localhost:5141
+2025-02-09 00:27:06.286 +01:00 [INF] Starting Hangfire Server using job storage: 'Hangfire.MemoryStorage.MemoryStorage'
+2025-02-09 00:27:06.286 +01:00 [INF] Using the following options for Hangfire Server:
+    Worker count: 20
+    Listening queues: 'default'
+    Shutdown timeout: 00:00:15
+    Schedule polling interval: 00:00:15
+2025-02-09 00:27:06.286 +01:00 [INF] Server macbookpro:60272:77dcacf5 successfully announced in 0,0671 ms
+2025-02-09 00:27:06.287 +01:00 [INF] Server macbookpro:60272:77dcacf5 is starting the registered dispatchers: ServerWatchdog, ServerJobCancellationWatcher, ExpirationManager, CountersAggregator, Worker, DelayedJobScheduler, RecurringJobScheduler...
+2025-02-09 00:27:06.289 +01:00 [INF] Server macbookpro:60272:77dcacf5 all the dispatchers started
+2025-02-09 00:27:06.289 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-02-09 00:27:06.289 +01:00 [INF] Hosting environment: Development
+2025-02-09 00:27:06.289 +01:00 [INF] Content root path: /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud
+2025-02-09 00:27:07.153 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5141/swagger/index.html - null null
+2025-02-09 00:27:07.256 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5141/swagger/index.html - 200 null text/html;charset=utf-8 105.1684ms
+2025-02-09 00:27:07.526 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5141/swagger/v1/swagger.json - null null
+2025-02-09 00:27:07.618 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5141/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 91.7649ms
+2025-02-09 00:27:14.958 +01:00 [INF] Request starting HTTP/1.1 PUT http://localhost:5141/api/Panier/valid/4 - null 0
+2025-02-09 00:27:14.987 +01:00 [INF] CORS policy execution successful.
+2025-02-09 00:27:14.989 +01:00 [WRN] Failed to determine the https port for redirect.
+2025-02-09 00:27:15.020 +01:00 [INF] Executing endpoint 'backend_negosud.Controllers.PanierController.BasketToCommand (backend-negosud)'
+2025-02-09 00:27:15.035 +01:00 [INF] Route matched with {action = "BasketToCommand", controller = "Panier"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] BasketToCommand(Int32) on controller backend_negosud.Controllers.PanierController (backend-negosud).
+2025-02-09 00:27:15.134 +01:00 [INF] Executing action method backend_negosud.Controllers.PanierController.BasketToCommand (backend-negosud) - Validation state: "Valid"
+2025-02-09 00:27:15.315 +01:00 [INF] Executed DbCommand (24ms) [Parameters=[@__clientId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT t.commande_id, t.client_id, t.date_creation, t.date_expiration, t.facture_id, t.livraison_id, t.valide, t0.ligne_commande_id, t0.article_id, t0.commande_id, t0.quantite, t0.article_id0, t0.famille_id, t0.fournisseur_id, t0.libelle, t0.prix, t0.reference, t0.tva_id
+FROM (
+    SELECT c.commande_id, c.client_id, c.date_creation, c.date_expiration, c.facture_id, c.livraison_id, c.valide
+    FROM commande AS c
+    WHERE c.client_id = @__clientId_0 AND NOT (c.valide)
+    ORDER BY c.date_creation DESC
+    LIMIT 1
+) AS t
+LEFT JOIN (
+    SELECT l.ligne_commande_id, l.article_id, l.commande_id, l.quantite, a.article_id AS article_id0, a.famille_id, a.fournisseur_id, a.libelle, a.prix, a.reference, a.tva_id
+    FROM ligne_commande AS l
+    INNER JOIN article AS a ON l.article_id = a.article_id
+) AS t0 ON t.commande_id = t0.commande_id
+ORDER BY t.date_creation DESC, t.commande_id, t0.ligne_commande_id
+2025-02-09 00:27:15.535 +01:00 [ERR] Failed executing DbCommand (3ms) [Parameters=[@p0='?' (DbType = DateTime2), @p1='?' (DbType = DateTime2), @p2='?' (DbType = Boolean)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO livraison (date_estimee, date_livraison, livree)
+VALUES (@p0, @p1, @p2)
+RETURNING livraison_id;
+2025-02-09 00:27:15.571 +01:00 [ERR] An exception occurred in the database while saving changes for context type 'backend_negosud.Entities.PostgresContext'.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> System.ArgumentException: Cannot write DateTime with Kind=UTC to PostgreSQL type 'timestamp without time zone', consider using 'timestamp with time zone'. Note that it's not possible to mix DateTimes with different Kinds in an array, range, or multirange. (Parameter 'value')
+   at Npgsql.Internal.Converters.DateTimeConverterResolver`1.Get(DateTime value, Nullable`1 expectedPgTypeId, Boolean validateOnly)
+   at Npgsql.Internal.Converters.DateTimeConverterResolver.<>c.<CreateResolver>b__0_0(DateTimeConverterResolver`1 resolver, DateTime value, Nullable`1 expectedPgTypeId)
+   at Npgsql.Internal.Converters.DateTimeConverterResolver`1.Get(T value, Nullable`1 expectedPgTypeId)
+   at Npgsql.Internal.PgConverterResolver`1.GetAsObjectInternal(PgTypeInfo typeInfo, Object value, Nullable`1 expectedPgTypeId)
+   at Npgsql.Internal.PgResolverTypeInfo.GetResolutionAsObject(Object value, Nullable`1 expectedPgTypeId)
+   at Npgsql.Internal.PgTypeInfo.GetObjectResolution(Object value)
+   at Npgsql.NpgsqlParameter.ResolveConverter(PgTypeInfo typeInfo)
+   at Npgsql.NpgsqlParameter.ResolveTypeInfo(PgSerializerOptions options)
+   at Npgsql.NpgsqlParameterCollection.ProcessParameters(PgSerializerOptions options, Boolean validateValues, CommandType commandType)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> System.ArgumentException: Cannot write DateTime with Kind=UTC to PostgreSQL type 'timestamp without time zone', consider using 'timestamp with time zone'. Note that it's not possible to mix DateTimes with different Kinds in an array, range, or multirange. (Parameter 'value')
+   at Npgsql.Internal.Converters.DateTimeConverterResolver`1.Get(DateTime value, Nullable`1 expectedPgTypeId, Boolean validateOnly)
+   at Npgsql.Internal.Converters.DateTimeConverterResolver.<>c.<CreateResolver>b__0_0(DateTimeConverterResolver`1 resolver, DateTime value, Nullable`1 expectedPgTypeId)
+   at Npgsql.Internal.Converters.DateTimeConverterResolver`1.Get(T value, Nullable`1 expectedPgTypeId)
+   at Npgsql.Internal.PgConverterResolver`1.GetAsObjectInternal(PgTypeInfo typeInfo, Object value, Nullable`1 expectedPgTypeId)
+   at Npgsql.Internal.PgResolverTypeInfo.GetResolutionAsObject(Object value, Nullable`1 expectedPgTypeId)
+   at Npgsql.Internal.PgTypeInfo.GetObjectResolution(Object value)
+   at Npgsql.NpgsqlParameter.ResolveConverter(PgTypeInfo typeInfo)
+   at Npgsql.NpgsqlParameter.ResolveTypeInfo(PgSerializerOptions options)
+   at Npgsql.NpgsqlParameterCollection.ProcessParameters(PgSerializerOptions options, Boolean validateValues, CommandType commandType)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+2025-02-09 00:27:15.577 +01:00 [ERR] Erreur lors de la crátion de la commande.
+System.Exception: Error updating entity.
+ ---> System.Exception: Error saving changes to the database.
+ ---> Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> System.ArgumentException: Cannot write DateTime with Kind=UTC to PostgreSQL type 'timestamp without time zone', consider using 'timestamp with time zone'. Note that it's not possible to mix DateTimes with different Kinds in an array, range, or multirange. (Parameter 'value')
+   at Npgsql.Internal.Converters.DateTimeConverterResolver`1.Get(DateTime value, Nullable`1 expectedPgTypeId, Boolean validateOnly)
+   at Npgsql.Internal.Converters.DateTimeConverterResolver.<>c.<CreateResolver>b__0_0(DateTimeConverterResolver`1 resolver, DateTime value, Nullable`1 expectedPgTypeId)
+   at Npgsql.Internal.Converters.DateTimeConverterResolver`1.Get(T value, Nullable`1 expectedPgTypeId)
+   at Npgsql.Internal.PgConverterResolver`1.GetAsObjectInternal(PgTypeInfo typeInfo, Object value, Nullable`1 expectedPgTypeId)
+   at Npgsql.Internal.PgResolverTypeInfo.GetResolutionAsObject(Object value, Nullable`1 expectedPgTypeId)
+   at Npgsql.Internal.PgTypeInfo.GetObjectResolution(Object value)
+   at Npgsql.NpgsqlParameter.ResolveConverter(PgTypeInfo typeInfo)
+   at Npgsql.NpgsqlParameter.ResolveTypeInfo(PgSerializerOptions options)
+   at Npgsql.NpgsqlParameterCollection.ProcessParameters(PgSerializerOptions options, Boolean validateValues, CommandType commandType)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at backend_negosud.Repository.RepositoryBase`1.SaveChangesAsync(CancellationToken cancellationToken) in /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud/Repository/RepositoryBase.cs:line 94
+   --- End of inner exception stack trace ---
+   at backend_negosud.Repository.RepositoryBase`1.SaveChangesAsync(CancellationToken cancellationToken) in /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud/Repository/RepositoryBase.cs:line 98
+   at backend_negosud.Repository.RepositoryBase`1.UpdateAsync(TEntity entity, CancellationToken cancellationToken) in /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud/Repository/RepositoryBase.cs:line 57
+   --- End of inner exception stack trace ---
+   at backend_negosud.Repository.RepositoryBase`1.UpdateAsync(TEntity entity, CancellationToken cancellationToken) in /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud/Repository/RepositoryBase.cs:line 61
+   at backend_negosud.Services.PanierService.BasketToCommand(Int32 id) in /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud/Services/PanierService.cs:line 384
+2025-02-09 00:27:15.585 +01:00 [INF] Executed action method backend_negosud.Controllers.PanierController.BasketToCommand (backend-negosud), returned result Microsoft.AspNetCore.Mvc.BadRequestObjectResult in 447.8449ms.
+2025-02-09 00:27:15.594 +01:00 [INF] Executing BadRequestObjectResult, writing value of type 'backend_negosud.Models.ResponseDataModel`1[[backend_negosud.DTOs.Commande_client.Outputs.CommandeOutputDto, backend-negosud, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-02-09 00:27:15.680 +01:00 [INF] Executed action backend_negosud.Controllers.PanierController.BasketToCommand (backend-negosud) in 641.7202ms
+2025-02-09 00:27:15.681 +01:00 [INF] Executed endpoint 'backend_negosud.Controllers.PanierController.BasketToCommand (backend-negosud)'
+2025-02-09 00:27:15.689 +01:00 [INF] Request finished HTTP/1.1 PUT http://localhost:5141/api/Panier/valid/4 - 400 null application/json; charset=utf-8 731.2759ms
+2025-02-09 00:29:06.738 +01:00 [INF] Server macbookpro:60272:77dcacf5 caught stopping signal...
+2025-02-09 00:29:06.741 +01:00 [INF] Application is shutting down...
+2025-02-09 00:29:06.741 +01:00 [INF] Server macbookpro:60272:0802d6c0 caught stopping signal...
+2025-02-09 00:29:06.743 +01:00 [INF] Server macbookpro:60272:0802d6c0 All dispatchers stopped
+2025-02-09 00:29:06.743 +01:00 [INF] Server macbookpro:60272:77dcacf5 All dispatchers stopped
+2025-02-09 00:29:06.745 +01:00 [INF] Server macbookpro:60272:77dcacf5 successfully reported itself as stopped in 0,5601 ms
+2025-02-09 00:29:06.745 +01:00 [INF] Server macbookpro:60272:0802d6c0 successfully reported itself as stopped in 0,565 ms
+2025-02-09 00:29:06.745 +01:00 [INF] Server macbookpro:60272:77dcacf5 has been stopped in total 4,9379 ms
+2025-02-09 00:29:06.745 +01:00 [INF] Server macbookpro:60272:0802d6c0 has been stopped in total 3,9089 ms
+2025-02-09 00:29:44.653 +01:00 [INF] Executed DbCommand (27ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1 FROM pg_catalog.pg_class c
+    JOIN pg_catalog.pg_namespace n ON n.oid=c.relnamespace
+    WHERE n.nspname='public' AND
+          c.relname='__EFMigrationsHistory'
+)
+2025-02-09 00:29:44.695 +01:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2025-02-09 00:29:44.728 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1 FROM pg_catalog.pg_class c
+    JOIN pg_catalog.pg_namespace n ON n.oid=c.relnamespace
+    WHERE n.nspname='public' AND
+          c.relname='__EFMigrationsHistory'
+)
+2025-02-09 00:29:44.741 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1 FROM pg_catalog.pg_class c
+    JOIN pg_catalog.pg_namespace n ON n.oid=c.relnamespace
+    WHERE n.nspname='public' AND
+          c.relname='__EFMigrationsHistory'
+)
+2025-02-09 00:29:44.741 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2025-02-09 00:29:44.750 +01:00 [INF] Applying migration '20250208232929_ConvertAllDateWithTimeZone'.
+2025-02-09 00:29:44.794 +01:00 [INF] Executed DbCommand (14ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE reinitialisation_mdp ALTER COLUMN date_demande TYPE timestamp with time zone;
+2025-02-09 00:29:44.797 +01:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE reglement ALTER COLUMN date TYPE timestamp with time zone;
+2025-02-09 00:29:44.800 +01:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE livraison ALTER COLUMN date_livraison TYPE timestamp with time zone;
+2025-02-09 00:29:44.802 +01:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE livraison ALTER COLUMN date_estimee TYPE timestamp with time zone;
+2025-02-09 00:29:44.805 +01:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE inventorier ALTER COLUMN date_modification TYPE timestamp with time zone;
+2025-02-09 00:29:44.806 +01:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE facture ALTER COLUMN date_facturation TYPE timestamp with time zone;
+2025-02-09 00:29:44.807 +01:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "__EFMigrationsHistory" ("MigrationId", "ProductVersion")
+VALUES ('20250208232929_ConvertAllDateWithTimeZone', '8.0.11');
+2025-02-09 00:29:49.859 +01:00 [INF] Executed DbCommand (13ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM client AS c)
+2025-02-09 00:29:49.943 +01:00 [INF] Starting Hangfire Server using job storage: 'Hangfire.MemoryStorage.MemoryStorage'
+2025-02-09 00:29:49.943 +01:00 [INF] Using the following options for Hangfire Server:
+    Worker count: 20
+    Listening queues: 'default'
+    Shutdown timeout: 00:00:15
+    Schedule polling interval: 00:00:15
+2025-02-09 00:29:49.979 +01:00 [INF] Server macbookpro:60494:ab2e9a15 successfully announced in 29,6801 ms
+2025-02-09 00:29:49.981 +01:00 [INF] Server macbookpro:60494:ab2e9a15 is starting the registered dispatchers: ServerWatchdog, ServerJobCancellationWatcher, ExpirationManager, CountersAggregator, Worker, DelayedJobScheduler, RecurringJobScheduler...
+2025-02-09 00:29:49.984 +01:00 [INF] Server macbookpro:60494:ab2e9a15 all the dispatchers started
+2025-02-09 00:29:50.028 +01:00 [INF] User profile is available. Using '/Users/yoann/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-02-09 00:29:50.059 +01:00 [INF] Now listening on: http://localhost:5141
+2025-02-09 00:29:50.059 +01:00 [INF] Starting Hangfire Server using job storage: 'Hangfire.MemoryStorage.MemoryStorage'
+2025-02-09 00:29:50.059 +01:00 [INF] Using the following options for Hangfire Server:
+    Worker count: 20
+    Listening queues: 'default'
+    Shutdown timeout: 00:00:15
+    Schedule polling interval: 00:00:15
+2025-02-09 00:29:50.060 +01:00 [INF] Server macbookpro:60494:2eb19cf9 successfully announced in 0,0543 ms
+2025-02-09 00:29:50.060 +01:00 [INF] Server macbookpro:60494:2eb19cf9 is starting the registered dispatchers: ServerWatchdog, ServerJobCancellationWatcher, ExpirationManager, CountersAggregator, Worker, DelayedJobScheduler, RecurringJobScheduler...
+2025-02-09 00:29:50.062 +01:00 [INF] Server macbookpro:60494:2eb19cf9 all the dispatchers started
+2025-02-09 00:29:50.062 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-02-09 00:29:50.062 +01:00 [INF] Hosting environment: Development
+2025-02-09 00:29:50.062 +01:00 [INF] Content root path: /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud
+2025-02-09 00:29:50.777 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5141/swagger/index.html - null null
+2025-02-09 00:29:50.923 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5141/swagger/index.html - 200 null text/html;charset=utf-8 146.9211ms
+2025-02-09 00:29:51.192 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5141/swagger/v1/swagger.json - null null
+2025-02-09 00:29:51.285 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5141/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 93.3929ms
+2025-02-09 00:30:01.293 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5141/api/Panier/4 - null null
+2025-02-09 00:30:01.330 +01:00 [WRN] Failed to determine the https port for redirect.
+2025-02-09 00:30:01.367 +01:00 [INF] Executing endpoint 'backend_negosud.Controllers.PanierController.GetBasketClient (backend-negosud)'
+2025-02-09 00:30:01.382 +01:00 [INF] Route matched with {action = "GetBasketClient", controller = "Panier"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetBasketClient(Int32) on controller backend_negosud.Controllers.PanierController (backend-negosud).
+2025-02-09 00:30:01.492 +01:00 [INF] Executing action method backend_negosud.Controllers.PanierController.GetBasketClient (backend-negosud) - Validation state: "Valid"
+2025-02-09 00:30:01.662 +01:00 [INF] Executed DbCommand (17ms) [Parameters=[@__clientId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT t.commande_id, t.client_id, t.date_creation, t.date_expiration, t.facture_id, t.livraison_id, t.valide, t0.ligne_commande_id, t0.article_id, t0.commande_id, t0.quantite, t0.article_id0, t0.famille_id, t0.fournisseur_id, t0.libelle, t0.prix, t0.reference, t0.tva_id
+FROM (
+    SELECT c.commande_id, c.client_id, c.date_creation, c.date_expiration, c.facture_id, c.livraison_id, c.valide
+    FROM commande AS c
+    WHERE c.client_id = @__clientId_0 AND NOT (c.valide)
+    ORDER BY c.date_creation DESC
+    LIMIT 1
+) AS t
+LEFT JOIN (
+    SELECT l.ligne_commande_id, l.article_id, l.commande_id, l.quantite, a.article_id AS article_id0, a.famille_id, a.fournisseur_id, a.libelle, a.prix, a.reference, a.tva_id
+    FROM ligne_commande AS l
+    INNER JOIN article AS a ON l.article_id = a.article_id
+) AS t0 ON t.commande_id = t0.commande_id
+ORDER BY t.date_creation DESC, t.commande_id, t0.ligne_commande_id
+2025-02-09 00:30:01.748 +01:00 [INF] Executed action method backend_negosud.Controllers.PanierController.GetBasketClient (backend-negosud), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 253.3725ms.
+2025-02-09 00:30:01.756 +01:00 [INF] Executing OkObjectResult, writing value of type 'backend_negosud.Models.ResponseDataModel`1[[backend_negosud.DTOs.Commande_client.Outputs.PanierOutputDto, backend-negosud, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-02-09 00:30:01.828 +01:00 [INF] Executed action backend_negosud.Controllers.PanierController.GetBasketClient (backend-negosud) in 442.3723ms
+2025-02-09 00:30:01.829 +01:00 [INF] Executed endpoint 'backend_negosud.Controllers.PanierController.GetBasketClient (backend-negosud)'
+2025-02-09 00:30:01.836 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5141/api/Panier/4 - 200 null application/json; charset=utf-8 542.6868ms
+2025-02-09 00:30:05.063 +01:00 [WRN] Recurring job 'cleanup-expired-baskets' can't be scheduled due to an error and will be retried in 00:00:15.
+Hangfire.Common.JobLoadException: Could not load the job. See inner exception for the details.
+ ---> Newtonsoft.Json.JsonSerializationException: Could not create an instance of type System.IServiceProvider. Type is an interface or abstract class and cannot be instantiated. Path 'IsRootScope', line 1, position 15.
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateNewObject(JsonReader reader, JsonObjectContract objectContract, JsonProperty containerMember, JsonProperty containerProperty, String id, Boolean& createdFromNonDefaultCreator)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateObject(JsonReader reader, Type objectType, JsonContract contract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerMember, Object existingValue)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateValueInternal(JsonReader reader, Type objectType, JsonContract contract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerMember, Object existingValue)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.Deserialize(JsonReader reader, Type objectType, Boolean checkAdditionalContent)
+   at Newtonsoft.Json.JsonSerializer.DeserializeInternal(JsonReader reader, Type objectType)
+   at Newtonsoft.Json.JsonSerializer.Deserialize(JsonReader reader, Type objectType)
+   at Newtonsoft.Json.JsonConvert.DeserializeObject(String value, Type type, JsonSerializerSettings settings)
+   at Hangfire.Common.SerializationHelper.Deserialize(String value, Type type, SerializationOption option) in C:\projects\hangfire-525\src\Hangfire.Core\Common\SerializationHelper.cs:line 177
+   at Hangfire.Storage.InvocationData.DeserializeArgument(String argument, Type type) in C:\projects\hangfire-525\src\Hangfire.Core\Storage\InvocationData.cs:line 366
+--- End of stack trace from previous location ---
+   at Hangfire.Storage.InvocationData.DeserializeArgument(String argument, Type type) in C:\projects\hangfire-525\src\Hangfire.Core\Storage\InvocationData.cs:line 385
+--- End of stack trace from previous location ---
+   at Hangfire.Storage.InvocationData.DeserializeArgument(String argument, Type type) in C:\projects\hangfire-525\src\Hangfire.Core\Storage\InvocationData.cs:line 400
+   at Hangfire.Storage.InvocationData.DeserializeArguments(MethodInfo methodInfo, String[] arguments) in C:\projects\hangfire-525\src\Hangfire.Core\Storage\InvocationData.cs:line 300
+   at Hangfire.Storage.InvocationData.DeserializeJob() in C:\projects\hangfire-525\src\Hangfire.Core\Storage\InvocationData.cs:line 107
+   --- End of inner exception stack trace ---
+   at Hangfire.Storage.InvocationData.DeserializeJob() in C:\projects\hangfire-525\src\Hangfire.Core\Storage\InvocationData.cs:line 118
+   at Hangfire.RecurringJobExtensions.TriggerRecurringJob(IBackgroundJobFactory factory, JobStorage storage, IStorageConnection connection, IProfiler profiler, RecurringJobEntity recurringJob, DateTime now) in C:\projects\hangfire-525\src\Hangfire.Core\RecurringJobExtensions.cs:line 115
+   at Hangfire.Server.RecurringJobScheduler.ScheduleRecurringJob(BackgroundProcessContext context, IStorageConnection connection, String recurringJobId, RecurringJobEntity recurringJob, DateTime now) in C:\projects\hangfire-525\src\Hangfire.Core\Server\RecurringJobScheduler.cs:line 333
+2025-02-09 00:30:20.070 +01:00 [WRN] Recurring job 'cleanup-expired-baskets' can't be scheduled due to an error and will be retried in 00:00:15.
+Hangfire.Common.JobLoadException: Could not load the job. See inner exception for the details.
+ ---> Newtonsoft.Json.JsonSerializationException: Could not create an instance of type System.IServiceProvider. Type is an interface or abstract class and cannot be instantiated. Path 'IsRootScope', line 1, position 15.
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateNewObject(JsonReader reader, JsonObjectContract objectContract, JsonProperty containerMember, JsonProperty containerProperty, String id, Boolean& createdFromNonDefaultCreator)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateObject(JsonReader reader, Type objectType, JsonContract contract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerMember, Object existingValue)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateValueInternal(JsonReader reader, Type objectType, JsonContract contract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerMember, Object existingValue)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.Deserialize(JsonReader reader, Type objectType, Boolean checkAdditionalContent)
+   at Newtonsoft.Json.JsonSerializer.DeserializeInternal(JsonReader reader, Type objectType)
+   at Newtonsoft.Json.JsonSerializer.Deserialize(JsonReader reader, Type objectType)
+   at Newtonsoft.Json.JsonConvert.DeserializeObject(String value, Type type, JsonSerializerSettings settings)
+   at Hangfire.Common.SerializationHelper.Deserialize(String value, Type type, SerializationOption option) in C:\projects\hangfire-525\src\Hangfire.Core\Common\SerializationHelper.cs:line 177
+   at Hangfire.Storage.InvocationData.DeserializeArgument(String argument, Type type) in C:\projects\hangfire-525\src\Hangfire.Core\Storage\InvocationData.cs:line 366
+--- End of stack trace from previous location ---
+   at Hangfire.Storage.InvocationData.DeserializeArgument(String argument, Type type) in C:\projects\hangfire-525\src\Hangfire.Core\Storage\InvocationData.cs:line 385
+--- End of stack trace from previous location ---
+   at Hangfire.Storage.InvocationData.DeserializeArgument(String argument, Type type) in C:\projects\hangfire-525\src\Hangfire.Core\Storage\InvocationData.cs:line 400
+   at Hangfire.Storage.InvocationData.DeserializeArguments(MethodInfo methodInfo, String[] arguments) in C:\projects\hangfire-525\src\Hangfire.Core\Storage\InvocationData.cs:line 300
+   at Hangfire.Storage.InvocationData.DeserializeJob() in C:\projects\hangfire-525\src\Hangfire.Core\Storage\InvocationData.cs:line 107
+   --- End of inner exception stack trace ---
+   at Hangfire.Storage.InvocationData.DeserializeJob() in C:\projects\hangfire-525\src\Hangfire.Core\Storage\InvocationData.cs:line 118
+   at Hangfire.RecurringJobExtensions.TriggerRecurringJob(IBackgroundJobFactory factory, JobStorage storage, IStorageConnection connection, IProfiler profiler, RecurringJobEntity recurringJob, DateTime now) in C:\projects\hangfire-525\src\Hangfire.Core\RecurringJobExtensions.cs:line 115
+   at Hangfire.Server.RecurringJobScheduler.ScheduleRecurringJob(BackgroundProcessContext context, IStorageConnection connection, String recurringJobId, RecurringJobEntity recurringJob, DateTime now) in C:\projects\hangfire-525\src\Hangfire.Core\Server\RecurringJobScheduler.cs:line 333
+2025-02-09 00:30:35.077 +01:00 [WRN] Recurring job 'cleanup-expired-baskets' can't be scheduled due to an error and will be retried in 00:00:15.
+Hangfire.Common.JobLoadException: Could not load the job. See inner exception for the details.
+ ---> Newtonsoft.Json.JsonSerializationException: Could not create an instance of type System.IServiceProvider. Type is an interface or abstract class and cannot be instantiated. Path 'IsRootScope', line 1, position 15.
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateNewObject(JsonReader reader, JsonObjectContract objectContract, JsonProperty containerMember, JsonProperty containerProperty, String id, Boolean& createdFromNonDefaultCreator)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateObject(JsonReader reader, Type objectType, JsonContract contract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerMember, Object existingValue)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateValueInternal(JsonReader reader, Type objectType, JsonContract contract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerMember, Object existingValue)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.Deserialize(JsonReader reader, Type objectType, Boolean checkAdditionalContent)
+   at Newtonsoft.Json.JsonSerializer.DeserializeInternal(JsonReader reader, Type objectType)
+   at Newtonsoft.Json.JsonSerializer.Deserialize(JsonReader reader, Type objectType)
+   at Newtonsoft.Json.JsonConvert.DeserializeObject(String value, Type type, JsonSerializerSettings settings)
+   at Hangfire.Common.SerializationHelper.Deserialize(String value, Type type, SerializationOption option) in C:\projects\hangfire-525\src\Hangfire.Core\Common\SerializationHelper.cs:line 177
+   at Hangfire.Storage.InvocationData.DeserializeArgument(String argument, Type type) in C:\projects\hangfire-525\src\Hangfire.Core\Storage\InvocationData.cs:line 366
+--- End of stack trace from previous location ---
+   at Hangfire.Storage.InvocationData.DeserializeArgument(String argument, Type type) in C:\projects\hangfire-525\src\Hangfire.Core\Storage\InvocationData.cs:line 385
+--- End of stack trace from previous location ---
+   at Hangfire.Storage.InvocationData.DeserializeArgument(String argument, Type type) in C:\projects\hangfire-525\src\Hangfire.Core\Storage\InvocationData.cs:line 400
+   at Hangfire.Storage.InvocationData.DeserializeArguments(MethodInfo methodInfo, String[] arguments) in C:\projects\hangfire-525\src\Hangfire.Core\Storage\InvocationData.cs:line 300
+   at Hangfire.Storage.InvocationData.DeserializeJob() in C:\projects\hangfire-525\src\Hangfire.Core\Storage\InvocationData.cs:line 107
+   --- End of inner exception stack trace ---
+   at Hangfire.Storage.InvocationData.DeserializeJob() in C:\projects\hangfire-525\src\Hangfire.Core\Storage\InvocationData.cs:line 118
+   at Hangfire.RecurringJobExtensions.TriggerRecurringJob(IBackgroundJobFactory factory, JobStorage storage, IStorageConnection connection, IProfiler profiler, RecurringJobEntity recurringJob, DateTime now) in C:\projects\hangfire-525\src\Hangfire.Core\RecurringJobExtensions.cs:line 115
+   at Hangfire.Server.RecurringJobScheduler.ScheduleRecurringJob(BackgroundProcessContext context, IStorageConnection connection, String recurringJobId, RecurringJobEntity recurringJob, DateTime now) in C:\projects\hangfire-525\src\Hangfire.Core\Server\RecurringJobScheduler.cs:line 333
+2025-02-09 00:30:50.085 +01:00 [WRN] Recurring job 'cleanup-expired-baskets' can't be scheduled due to an error and will be retried in 00:00:15.
+Hangfire.Common.JobLoadException: Could not load the job. See inner exception for the details.
+ ---> Newtonsoft.Json.JsonSerializationException: Could not create an instance of type System.IServiceProvider. Type is an interface or abstract class and cannot be instantiated. Path 'IsRootScope', line 1, position 15.
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateNewObject(JsonReader reader, JsonObjectContract objectContract, JsonProperty containerMember, JsonProperty containerProperty, String id, Boolean& createdFromNonDefaultCreator)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateObject(JsonReader reader, Type objectType, JsonContract contract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerMember, Object existingValue)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateValueInternal(JsonReader reader, Type objectType, JsonContract contract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerMember, Object existingValue)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.Deserialize(JsonReader reader, Type objectType, Boolean checkAdditionalContent)
+   at Newtonsoft.Json.JsonSerializer.DeserializeInternal(JsonReader reader, Type objectType)
+   at Newtonsoft.Json.JsonSerializer.Deserialize(JsonReader reader, Type objectType)
+   at Newtonsoft.Json.JsonConvert.DeserializeObject(String value, Type type, JsonSerializerSettings settings)
+   at Hangfire.Common.SerializationHelper.Deserialize(String value, Type type, SerializationOption option) in C:\projects\hangfire-525\src\Hangfire.Core\Common\SerializationHelper.cs:line 177
+   at Hangfire.Storage.InvocationData.DeserializeArgument(String argument, Type type) in C:\projects\hangfire-525\src\Hangfire.Core\Storage\InvocationData.cs:line 366
+--- End of stack trace from previous location ---
+   at Hangfire.Storage.InvocationData.DeserializeArgument(String argument, Type type) in C:\projects\hangfire-525\src\Hangfire.Core\Storage\InvocationData.cs:line 385
+--- End of stack trace from previous location ---
+   at Hangfire.Storage.InvocationData.DeserializeArgument(String argument, Type type) in C:\projects\hangfire-525\src\Hangfire.Core\Storage\InvocationData.cs:line 400
+   at Hangfire.Storage.InvocationData.DeserializeArguments(MethodInfo methodInfo, String[] arguments) in C:\projects\hangfire-525\src\Hangfire.Core\Storage\InvocationData.cs:line 300
+   at Hangfire.Storage.InvocationData.DeserializeJob() in C:\projects\hangfire-525\src\Hangfire.Core\Storage\InvocationData.cs:line 107
+   --- End of inner exception stack trace ---
+   at Hangfire.Storage.InvocationData.DeserializeJob() in C:\projects\hangfire-525\src\Hangfire.Core\Storage\InvocationData.cs:line 118
+   at Hangfire.RecurringJobExtensions.TriggerRecurringJob(IBackgroundJobFactory factory, JobStorage storage, IStorageConnection connection, IProfiler profiler, RecurringJobEntity recurringJob, DateTime now) in C:\projects\hangfire-525\src\Hangfire.Core\RecurringJobExtensions.cs:line 115
+   at Hangfire.Server.RecurringJobScheduler.ScheduleRecurringJob(BackgroundProcessContext context, IStorageConnection connection, String recurringJobId, RecurringJobEntity recurringJob, DateTime now) in C:\projects\hangfire-525\src\Hangfire.Core\Server\RecurringJobScheduler.cs:line 333
+2025-02-09 00:31:05.100 +01:00 [WRN] Recurring job 'cleanup-expired-baskets' can't be scheduled due to an error and will be retried in 00:00:15.
+Hangfire.Common.JobLoadException: Could not load the job. See inner exception for the details.
+ ---> Newtonsoft.Json.JsonSerializationException: Could not create an instance of type System.IServiceProvider. Type is an interface or abstract class and cannot be instantiated. Path 'IsRootScope', line 1, position 15.
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateNewObject(JsonReader reader, JsonObjectContract objectContract, JsonProperty containerMember, JsonProperty containerProperty, String id, Boolean& createdFromNonDefaultCreator)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateObject(JsonReader reader, Type objectType, JsonContract contract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerMember, Object existingValue)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateValueInternal(JsonReader reader, Type objectType, JsonContract contract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerMember, Object existingValue)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.Deserialize(JsonReader reader, Type objectType, Boolean checkAdditionalContent)
+   at Newtonsoft.Json.JsonSerializer.DeserializeInternal(JsonReader reader, Type objectType)
+   at Newtonsoft.Json.JsonSerializer.Deserialize(JsonReader reader, Type objectType)
+   at Newtonsoft.Json.JsonConvert.DeserializeObject(String value, Type type, JsonSerializerSettings settings)
+   at Hangfire.Common.SerializationHelper.Deserialize(String value, Type type, SerializationOption option) in C:\projects\hangfire-525\src\Hangfire.Core\Common\SerializationHelper.cs:line 177
+   at Hangfire.Storage.InvocationData.DeserializeArgument(String argument, Type type) in C:\projects\hangfire-525\src\Hangfire.Core\Storage\InvocationData.cs:line 366
+--- End of stack trace from previous location ---
+   at Hangfire.Storage.InvocationData.DeserializeArgument(String argument, Type type) in C:\projects\hangfire-525\src\Hangfire.Core\Storage\InvocationData.cs:line 385
+--- End of stack trace from previous location ---
+   at Hangfire.Storage.InvocationData.DeserializeArgument(String argument, Type type) in C:\projects\hangfire-525\src\Hangfire.Core\Storage\InvocationData.cs:line 400
+   at Hangfire.Storage.InvocationData.DeserializeArguments(MethodInfo methodInfo, String[] arguments) in C:\projects\hangfire-525\src\Hangfire.Core\Storage\InvocationData.cs:line 300
+   at Hangfire.Storage.InvocationData.DeserializeJob() in C:\projects\hangfire-525\src\Hangfire.Core\Storage\InvocationData.cs:line 107
+   --- End of inner exception stack trace ---
+   at Hangfire.Storage.InvocationData.DeserializeJob() in C:\projects\hangfire-525\src\Hangfire.Core\Storage\InvocationData.cs:line 118
+   at Hangfire.RecurringJobExtensions.TriggerRecurringJob(IBackgroundJobFactory factory, JobStorage storage, IStorageConnection connection, IProfiler profiler, RecurringJobEntity recurringJob, DateTime now) in C:\projects\hangfire-525\src\Hangfire.Core\RecurringJobExtensions.cs:line 115
+   at Hangfire.Server.RecurringJobScheduler.ScheduleRecurringJob(BackgroundProcessContext context, IStorageConnection connection, String recurringJobId, RecurringJobEntity recurringJob, DateTime now) in C:\projects\hangfire-525\src\Hangfire.Core\Server\RecurringJobScheduler.cs:line 333
+2025-02-09 00:31:06.933 +01:00 [INF] Server macbookpro:60494:2eb19cf9 caught stopping signal...
+2025-02-09 00:31:06.936 +01:00 [INF] Application is shutting down...
+2025-02-09 00:31:06.936 +01:00 [INF] Server macbookpro:60494:ab2e9a15 caught stopping signal...
+2025-02-09 00:31:06.939 +01:00 [INF] Server macbookpro:60494:2eb19cf9 All dispatchers stopped
+2025-02-09 00:31:06.939 +01:00 [INF] Server macbookpro:60494:ab2e9a15 All dispatchers stopped
+2025-02-09 00:31:06.942 +01:00 [INF] Server macbookpro:60494:2eb19cf9 successfully reported itself as stopped in 0,4871 ms
+2025-02-09 00:31:06.942 +01:00 [INF] Server macbookpro:60494:ab2e9a15 successfully reported itself as stopped in 0,4874 ms
+2025-02-09 00:31:06.942 +01:00 [INF] Server macbookpro:60494:2eb19cf9 has been stopped in total 7,6626 ms
+2025-02-09 00:31:06.942 +01:00 [INF] Server macbookpro:60494:ab2e9a15 has been stopped in total 5,1748 ms
+2025-02-09 00:31:42.867 +01:00 [INF] Executed DbCommand (14ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM client AS c)
+2025-02-09 00:32:31.508 +01:00 [INF] Executed DbCommand (19ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM client AS c)
+2025-02-09 00:32:58.741 +01:00 [INF] Executed DbCommand (14ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM client AS c)
+2025-02-09 00:32:58.850 +01:00 [INF] User profile is available. Using '/Users/yoann/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-02-09 00:32:58.877 +01:00 [INF] Now listening on: http://localhost:5141
+2025-02-09 00:32:58.879 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-02-09 00:32:58.880 +01:00 [INF] Hosting environment: Development
+2025-02-09 00:32:58.880 +01:00 [INF] Content root path: /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud
+2025-02-09 00:32:59.962 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5141/swagger/index.html - null null
+2025-02-09 00:33:00.111 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5141/swagger/index.html - 200 null text/html;charset=utf-8 151.3648ms
+2025-02-09 00:33:00.373 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5141/swagger/v1/swagger.json - null null
+2025-02-09 00:33:00.443 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5141/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 71.1153ms
+2025-02-09 00:33:05.646 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5141/api/Panier/4 - null null
+2025-02-09 00:33:05.673 +01:00 [WRN] Failed to determine the https port for redirect.
+2025-02-09 00:33:05.704 +01:00 [INF] Executing endpoint 'backend_negosud.Controllers.PanierController.GetBasketClient (backend-negosud)'
+2025-02-09 00:33:05.720 +01:00 [INF] Route matched with {action = "GetBasketClient", controller = "Panier"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetBasketClient(Int32) on controller backend_negosud.Controllers.PanierController (backend-negosud).
+2025-02-09 00:33:05.822 +01:00 [INF] Executing action method backend_negosud.Controllers.PanierController.GetBasketClient (backend-negosud) - Validation state: "Valid"
+2025-02-09 00:33:05.996 +01:00 [INF] Executed DbCommand (21ms) [Parameters=[@__clientId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT t.commande_id, t.client_id, t.date_creation, t.date_expiration, t.facture_id, t.livraison_id, t.valide, t0.ligne_commande_id, t0.article_id, t0.commande_id, t0.quantite, t0.article_id0, t0.famille_id, t0.fournisseur_id, t0.libelle, t0.prix, t0.reference, t0.tva_id
+FROM (
+    SELECT c.commande_id, c.client_id, c.date_creation, c.date_expiration, c.facture_id, c.livraison_id, c.valide
+    FROM commande AS c
+    WHERE c.client_id = @__clientId_0 AND NOT (c.valide)
+    ORDER BY c.date_creation DESC
+    LIMIT 1
+) AS t
+LEFT JOIN (
+    SELECT l.ligne_commande_id, l.article_id, l.commande_id, l.quantite, a.article_id AS article_id0, a.famille_id, a.fournisseur_id, a.libelle, a.prix, a.reference, a.tva_id
+    FROM ligne_commande AS l
+    INNER JOIN article AS a ON l.article_id = a.article_id
+) AS t0 ON t.commande_id = t0.commande_id
+ORDER BY t.date_creation DESC, t.commande_id, t0.ligne_commande_id
+2025-02-09 00:33:06.091 +01:00 [INF] Executed action method backend_negosud.Controllers.PanierController.GetBasketClient (backend-negosud), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 265.451ms.
+2025-02-09 00:33:06.099 +01:00 [INF] Executing OkObjectResult, writing value of type 'backend_negosud.Models.ResponseDataModel`1[[backend_negosud.DTOs.Commande_client.Outputs.PanierOutputDto, backend-negosud, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-02-09 00:33:06.180 +01:00 [INF] Executed action backend_negosud.Controllers.PanierController.GetBasketClient (backend-negosud) in 456.9474ms
+2025-02-09 00:33:06.181 +01:00 [INF] Executed endpoint 'backend_negosud.Controllers.PanierController.GetBasketClient (backend-negosud)'
+2025-02-09 00:33:06.189 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5141/api/Panier/4 - 200 null application/json; charset=utf-8 542.4362ms
+2025-02-09 00:33:15.034 +01:00 [INF] Request starting HTTP/1.1 PUT http://localhost:5141/api/Panier/valid/4 - null 0
+2025-02-09 00:33:15.039 +01:00 [INF] CORS policy execution successful.
+2025-02-09 00:33:15.040 +01:00 [INF] Executing endpoint 'backend_negosud.Controllers.PanierController.BasketToCommand (backend-negosud)'
+2025-02-09 00:33:15.043 +01:00 [INF] Route matched with {action = "BasketToCommand", controller = "Panier"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] BasketToCommand(Int32) on controller backend_negosud.Controllers.PanierController (backend-negosud).
+2025-02-09 00:33:15.044 +01:00 [INF] Executing action method backend_negosud.Controllers.PanierController.BasketToCommand (backend-negosud) - Validation state: "Valid"
+2025-02-09 00:33:15.081 +01:00 [INF] Executed DbCommand (2ms) [Parameters=[@__clientId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT t.commande_id, t.client_id, t.date_creation, t.date_expiration, t.facture_id, t.livraison_id, t.valide, t0.ligne_commande_id, t0.article_id, t0.commande_id, t0.quantite, t0.article_id0, t0.famille_id, t0.fournisseur_id, t0.libelle, t0.prix, t0.reference, t0.tva_id
+FROM (
+    SELECT c.commande_id, c.client_id, c.date_creation, c.date_expiration, c.facture_id, c.livraison_id, c.valide
+    FROM commande AS c
+    WHERE c.client_id = @__clientId_0 AND NOT (c.valide)
+    ORDER BY c.date_creation DESC
+    LIMIT 1
+) AS t
+LEFT JOIN (
+    SELECT l.ligne_commande_id, l.article_id, l.commande_id, l.quantite, a.article_id AS article_id0, a.famille_id, a.fournisseur_id, a.libelle, a.prix, a.reference, a.tva_id
+    FROM ligne_commande AS l
+    INNER JOIN article AS a ON l.article_id = a.article_id
+) AS t0 ON t.commande_id = t0.commande_id
+ORDER BY t.date_creation DESC, t.commande_id, t0.ligne_commande_id
+2025-02-09 00:33:15.215 +01:00 [INF] Executed DbCommand (5ms) [Parameters=[@p0='?' (DbType = DateTime), @p1='?' (DbType = DateTime), @p2='?' (DbType = Boolean)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO livraison (date_estimee, date_livraison, livree)
+VALUES (@p0, @p1, @p2)
+RETURNING livraison_id;
+2025-02-09 00:33:15.229 +01:00 [INF] Executed DbCommand (2ms) [Parameters=[@p9='?' (DbType = Int32), @p3='?' (DbType = Int32), @p4='?' (DbType = DateTime), @p5='?' (DbType = DateTime), @p6='?' (DbType = Int32), @p7='?' (DbType = Int32), @p8='?' (DbType = Boolean)], CommandType='"Text"', CommandTimeout='30']
+UPDATE commande SET client_id = @p3, date_creation = @p4, date_expiration = @p5, facture_id = @p6, livraison_id = @p7, valide = @p8
+WHERE commande_id = @p9;
+2025-02-09 00:33:15.247 +01:00 [INF] Executed action method backend_negosud.Controllers.PanierController.BasketToCommand (backend-negosud), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 203.0687ms.
+2025-02-09 00:33:15.248 +01:00 [INF] Executing OkObjectResult, writing value of type 'backend_negosud.Models.ResponseDataModel`1[[backend_negosud.DTOs.Commande_client.Outputs.CommandeOutputDto, backend-negosud, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-02-09 00:33:15.262 +01:00 [INF] Executed action backend_negosud.Controllers.PanierController.BasketToCommand (backend-negosud) in 219.4929ms
+2025-02-09 00:33:15.263 +01:00 [INF] Executed endpoint 'backend_negosud.Controllers.PanierController.BasketToCommand (backend-negosud)'
+2025-02-09 00:33:15.263 +01:00 [INF] Request finished HTTP/1.1 PUT http://localhost:5141/api/Panier/valid/4 - 200 null application/json; charset=utf-8 228.704ms
+2025-02-09 00:37:30.515 +01:00 [INF] Application is shutting down...
+2025-02-09 00:38:00.979 +01:00 [INF] Executed DbCommand (13ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM client AS c)
+2025-02-09 00:38:01.059 +01:00 [INF] Starting Hangfire Server using job storage: 'Hangfire.MemoryStorage.MemoryStorage'
+2025-02-09 00:38:01.059 +01:00 [INF] Using the following options for Hangfire Server:
+    Worker count: 20
+    Listening queues: 'default'
+    Shutdown timeout: 00:00:15
+    Schedule polling interval: 00:00:15
+2025-02-09 00:38:01.097 +01:00 [INF] Server macbookpro:61168:ae5a3a41 successfully announced in 31,6403 ms
+2025-02-09 00:38:01.099 +01:00 [INF] Server macbookpro:61168:ae5a3a41 is starting the registered dispatchers: ServerWatchdog, ServerJobCancellationWatcher, ExpirationManager, CountersAggregator, Worker, DelayedJobScheduler, RecurringJobScheduler...
+2025-02-09 00:38:01.101 +01:00 [INF] Server macbookpro:61168:ae5a3a41 all the dispatchers started
+2025-02-09 00:38:01.146 +01:00 [INF] User profile is available. Using '/Users/yoann/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-02-09 00:38:01.175 +01:00 [INF] Now listening on: http://localhost:5141
+2025-02-09 00:38:01.175 +01:00 [INF] Starting Hangfire Server using job storage: 'Hangfire.MemoryStorage.MemoryStorage'
+2025-02-09 00:38:01.175 +01:00 [INF] Using the following options for Hangfire Server:
+    Worker count: 20
+    Listening queues: 'default'
+    Shutdown timeout: 00:00:15
+    Schedule polling interval: 00:00:15
+2025-02-09 00:38:01.176 +01:00 [INF] Server macbookpro:61168:00361e96 successfully announced in 0,0625 ms
+2025-02-09 00:38:01.176 +01:00 [INF] Server macbookpro:61168:00361e96 is starting the registered dispatchers: ServerWatchdog, ServerJobCancellationWatcher, ExpirationManager, CountersAggregator, Worker, DelayedJobScheduler, RecurringJobScheduler...
+2025-02-09 00:38:01.177 +01:00 [INF] Server macbookpro:61168:00361e96 all the dispatchers started
+2025-02-09 00:38:01.178 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-02-09 00:38:01.178 +01:00 [INF] Hosting environment: Development
+2025-02-09 00:38:01.178 +01:00 [INF] Content root path: /Users/yoann/Workspace/CESI DI 2023/Negosud/backend/backend-negosud
+2025-02-09 00:38:01.889 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5141/swagger/index.html - null null
+2025-02-09 00:38:02.043 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5141/swagger/index.html - 200 null text/html;charset=utf-8 154.984ms
+2025-02-09 00:38:02.302 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5141/swagger/v1/swagger.json - null null
+2025-02-09 00:38:02.381 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5141/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 79.4002ms
