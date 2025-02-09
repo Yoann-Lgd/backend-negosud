@@ -10,5 +10,7 @@ public interface IArticleService
     Task<IResponseDataModel<ArticleEssentialOutputDto>> getArticleById(int id);
     Task<IResponseDataModel<List<ArticleEssentialOutputDto>>> getAll();
     Task<IResponseDataModel<string>> CreateArticle(ArticleInputCreateDto articleInput);
+    Task<IResponseDataModel<string>> UpdateArticle(ArticleUpdateInputDto articleInput);
+    Task<IResponseDataModel<string>> PatchArticle(int id, ArticleUpdateInputDto articleInput);
 
 }

@@ -47,6 +47,31 @@ public class ArticleController : ControllerBase
     {
         var result = await _articleService.CreateArticle(articleInputCreateDto);
         return result.Success ? Ok(result) : BadRequest(result);
+    }    
+    
+    // PUT: api/article
+    /// <summary>
+    ///  Modification de l'article
+    /// </summary>
+    /// <returns>Retourne l'id de l'article qui a été modifié</returns>
+    [HttpPut("update")]
+    public async Task<ActionResult> UpdateArticle([FromBody] ArticleUpdateInputDto articleUpdateInput)
+    {
+        var result = await _articleService.UpdateArticle(articleUpdateInput);
+        return result.Success ? Ok(result) : BadRequest(result);
     }
+    
+    // PATCH: api/article
+    /// <summary>
+    ///  Modification de l'article, modification d'un champ ou de plusieurs
+    /// </summary>
+    /// <returns>Retourne l'id de l'article qui a été modifié</returns>
+    [HttpPatch("{id}")]
+    public async Task<IActionResult> PatchArticle(int id, [FromBody] ArticleUpdateInputDto articleInput)
+    {
+        var result = await _articleService.PatchArticle(id, articleInput);
+        return result.Success ? Ok(result) : StatusCode(result.StatusCode, result);
+    }
+
     
 }

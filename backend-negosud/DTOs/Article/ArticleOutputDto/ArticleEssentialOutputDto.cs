@@ -14,7 +14,7 @@ public class ArticleEssentialOutputDto
 
     public double Prix { get; set; }
 
-    public FamilleOutputDto Famille { get; set; } = null!;
+    public FamilleMinimalOutputDto Famille { get; set; } = null!;
     public FournisseurOutputCompleteDto Fournisseur { get; set; } = null!;
     public TvaOutputDto Tva { get; set; } = null!;
 }
