@@ -9,4 +9,5 @@ public interface ICommandeService
 {
     Task<IResponseDataModel<List<CommandeOutputDto>>> GetAllCommandes();
     Task<CommandeOutputDto> GetCommandeById(int id);
+    Task<IResponseDataModel<CommandeOutputDto>> CreateCommande(CommandeInputDto commandeInput);
 }
