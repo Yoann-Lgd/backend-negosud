@@ -1,3 +1,4 @@
+using backend_negosud.DTOs.Article.ArticleInputDto;
 using backend_negosud.Services;
 using Microsoft.AspNetCore.Mvc;
 
@@ -33,6 +34,18 @@ public class ArticleController : ControllerBase
     public async Task<ActionResult> GetArticles()
     {
         var result = await _articleService.getAll();
+        return result.Success ? Ok(result) : BadRequest(result);
+    }    
+    
+    // POST: api/article
+    /// <summary>
+    ///  Création d'un article en renseignant l'id d'une famille, d'un fournisseur et de la tva
+    /// </summary>
+    /// <returns>Retourne l'id de l'article qui a été créé</returns>
+    [HttpPost("create")]
+    public async Task<ActionResult> CreateArticle([FromBody] ArticleInputCreateDto articleInputCreateDto)
+    {
+        var result = await _articleService.CreateArticle(articleInputCreateDto);
         return result.Success ? Ok(result) : BadRequest(result);
     }
     

@@ -1,6 +1,7 @@
 using AutoMapper;
 using backend_negosud.DTOs;
 using backend_negosud.DTOs.Adresse.AdresseOutputDto;
+using backend_negosud.DTOs.Article.ArticleInputDto;
 using backend_negosud.DTOs.Article.ArticleOutputDto;
 using backend_negosud.DTOs.Commande_client;
 using backend_negosud.DTOs.Commande_client.Outputs;
@@ -30,6 +31,16 @@ namespace backend_negosud.Mapper;
                 .ForMember(dest => dest.Prenom, opt => opt.MapFrom(src => src.Prenom));
 
             CreateMap<Utilisateur, UtilisateurInputDto>();
+            
+            CreateMap<ArticleInputCreateDto, Article>()
+                .ForMember(dest => dest.ArticleId, opt => opt.Ignore())
+                .ForMember(dest => dest.Libelle, opt => opt.MapFrom(src => src.Libelle))
+                .ForMember(dest => dest.Reference, opt => opt.MapFrom(src => src.Reference))
+                .ForMember(dest => dest.Prix, opt => opt.MapFrom(src => src.Prix))
+                .ForMember(dest => dest.FamilleId, opt => opt.MapFrom(src => src.FamilleId))
+                .ForMember(dest => dest.FournisseurId, opt => opt.MapFrom(src => src.FournisseurId))
+                .ForMember(dest => dest.TvaId, opt => opt.MapFrom(src => src.TvaId));
+
 
             CreateMap<ClientInputDto, Client>();
             CreateMap<Client, ClientInputDto>();

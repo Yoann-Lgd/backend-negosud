@@ -1,8 +1,10 @@
 using AutoMapper;
+using backend_negosud.DTOs.Article.ArticleInputDto;
 using backend_negosud.DTOs.Article.ArticleOutputDto;
 using backend_negosud.Entities;
 using backend_negosud.Models;
 using backend_negosud.Repository;
+using backend_negosud.Validation;
 
 namespace backend_negosud.Services;
 
@@ -91,6 +93,54 @@ public class ArticleService : IArticleService
                 Success = false,
                 Message = "Une erreur s'est produite lors de la récupération des articles.",
                 StatusCode = 500,
+            };
+        }
+    }
+
+    public async Task<IResponseDataModel<string>> CreateArticle(ArticleInputCreateDto articleInput)
+    {
+        try
+        {
+            // Valider les données d'entrée
+            var validator = new ArticleInputCreateDtoValidator();
+            var validationResult = validator.Validate(articleInput);
+
+            if (!validationResult.IsValid)
+            {
+                var errors = validationResult.Errors.Select(e => e.ErrorMessage).ToList();
+                _logger.LogWarning("Validation des données d'entrée échouée : {Errors}", string.Join(", ", errors));
+                return new ResponseDataModel<string>
+                {
+                    Success = false,
+                    StatusCode = 400,
+                    Message = string.Join(", ", errors),
+                };
+            }
+
+            // Mapper les données d'entrée vers l'entité
+            var article = _mapper.Map<Article>(articleInput);
+
+            // Enregistrer l'entité dans la base de données
+            await _articleRepository.AddAsync(article);
+
+            _logger.LogInformation("L'article avec l'ID {ArticleId} a été créé avec succès.", article.ArticleId);
+
+            return new ResponseDataModel<string>
+            {
+                Success = true,
+                StatusCode = 201,
+                Message = "L'article a été créé avec succès.",
+                Data = article.ArticleId.ToString(),
+            };
+        }
+        catch (Exception e)
+        {
+            _logger.LogError(e, "Un problème est survenu pendant la création de l'article.");
+            return new ResponseDataModel<string>
+            {
+                Success = false,
+                StatusCode = 500,
+                Message = "Un problème est survenu pendant la création de l'article.",
             };
         }
     }

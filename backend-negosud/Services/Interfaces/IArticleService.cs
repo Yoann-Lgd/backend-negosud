@@ -1,3 +1,4 @@
+using backend_negosud.DTOs.Article.ArticleInputDto;
 using backend_negosud.DTOs.Article.ArticleOutputDto;
 
 using backend_negosud.Models;
@@ -8,5 +9,6 @@ public interface IArticleService
 {
     Task<IResponseDataModel<ArticleEssentialOutputDto>> getArticleById(int id);
     Task<IResponseDataModel<List<ArticleEssentialOutputDto>>> getAll();
-    
+    Task<IResponseDataModel<string>> CreateArticle(ArticleInputCreateDto articleInput);
+
 }
