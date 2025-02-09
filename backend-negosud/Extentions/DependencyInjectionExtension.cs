@@ -54,6 +54,7 @@ public static class DependencyInjectionExtension
     public static void AddServices(this WebApplicationBuilder builder)
     {
         builder.Services.AddScoped<IUtilisateurService, UtilisateurService>();
+        builder.Services.AddScoped<IArticleService, ArticleService>();
         builder.Services.AddScoped<StripeService>();
         builder.Services.AddScoped<IStockService, StockService>();
         builder.Services.AddScoped<ICommandeService, CommandeService>();

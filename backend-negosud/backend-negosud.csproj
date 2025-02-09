@@ -43,7 +43,12 @@
     </ItemGroup>
 
     <ItemGroup>
+      <Folder Include="DTOs\Adresse\AdresseInputDto\" />
+      <Folder Include="DTOs\Article\ArticleInputDto\" />
+      <Folder Include="DTOs\Fournisseur\FournisseurInputDto\" />
       <Folder Include="DTOs\Livraison\Inputs\" />
+      <Folder Include="DTOs\Pays\PaysInputDto\" />
+      <Folder Include="DTOs\Tva\TvaIpuntDto\" />
       <Folder Include="Migrations\" />
     </ItemGroup>
 

@@ -4,5 +4,6 @@ namespace backend_negosud.Repository;
 
 public interface IArticleRepository : IRepositoryBase<Article>
 {
-    
+    Task<Article> GetCompletArticleById(int id);
+    Task<List<Article>> GetAllCompletArticlesAsync();
 }
