@@ -1,4 +1,5 @@
 using backend_negosud.DTOs;
+using backend_negosud.DTOs.Utilisateur.Input;
 using backend_negosud.Entities;
 using backend_negosud.Models;
 using Supabase.Gotrue;
@@ -14,6 +15,7 @@ public interface IUtilisateurService : IAuthService<Utilisateur, UtilisateurInpu
     Task UpdateUtilisateur(Utilisateur utilisateur);
 
     Task <Utilisateur>GetUtilisateuByEmail(string email);
+    Task<BooleanResponseDataModel> UtilisateurExistEmail(UtilisateurEmailInputDto utilisateurEmailInputDto);
 
     Task<IResponseDataModel<UtilisateurOutputDto>> Login(string email, string motDePasse);
 

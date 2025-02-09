@@ -11,6 +11,7 @@ using backend_negosud.DTOs.Fournisseur.FournisseurOutputDto;
 using backend_negosud.DTOs.Livraison.Outputs;
 using backend_negosud.DTOs.Pays.PaysOutputDto;
 using backend_negosud.DTOs.Tva.TvaOutputDto;
+using backend_negosud.DTOs.Utilisateur.Input;
 using backend_negosud.Entities;
 
 namespace backend_negosud.Mapper;
@@ -31,6 +32,7 @@ namespace backend_negosud.Mapper;
                 .ForMember(dest => dest.Prenom, opt => opt.MapFrom(src => src.Prenom));
 
             CreateMap<Utilisateur, UtilisateurInputDto>();
+            CreateMap<Utilisateur, UtilisateurEmailInputDto>();
             
             CreateMap<ArticleInputCreateDto, Article>()
                 .ForMember(dest => dest.ArticleId, opt => opt.Ignore())
