@@ -5,6 +5,7 @@ using backend_negosud.Entities;
 using backend_negosud.Models;
 using backend_negosud.Repository;
 using backend_negosud.Validation;
+using FluentValidation.Results;
 using Microsoft.EntityFrameworkCore;
 using Supabase.Gotrue;
 
@@ -136,20 +137,26 @@ public class UtilisateurService : IUtilisateurService
     {
         try
         {
-            if (string.IsNullOrEmpty(utilisateurEmailInputDto.Email))
+            var validator = new UtilisateurEmailInputDtoValidator();
+            
+            ValidationResult validationResult = validator.Validate(utilisateurEmailInputDto);
+            if (!validationResult.IsValid)
             {
-                _logger.LogWarning("L'email fourni est vide ou nul.");
+                var errors = validationResult.Errors.Select(e => e.ErrorMessage).ToList();
+                _logger.LogWarning("Validation des données d'entrée échouée : {Errors}", string.Join(", ", errors));
                 return new BooleanResponseDataModel
                 {
                     Success = false,
                     StatusCode = 400,
-                    Message = "L'email fourni est invalide.",
+                    Message = string.Join(", ", errors),
                     Data = false,
                 };
             }
 
+            var emailLower = utilisateurEmailInputDto.Email.ToLower();
+
             var exists = await _context.Utilisateurs
-                .AnyAsync(u => u.Email == utilisateurEmailInputDto.Email);
+                .AnyAsync(u => u.Email.ToLower() == emailLower);
 
             if (exists)
             {
