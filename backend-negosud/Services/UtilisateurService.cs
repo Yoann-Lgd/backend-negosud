@@ -172,8 +172,8 @@ public class UtilisateurService : IUtilisateurService
             {
                 return new BooleanResponseDataModel
                 {
-                    Success = true,
-                    StatusCode = 200,
+                    Success = false,
+                    StatusCode = 404,
                     Message = "Aucun utilisateur trouvé avec cet email.",
                     Data = false,
                 };

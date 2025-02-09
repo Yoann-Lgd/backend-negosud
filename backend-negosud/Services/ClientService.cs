@@ -4,6 +4,7 @@ using backend_negosud.Entities;
 using backend_negosud.Models;
 using backend_negosud.Repository;
 using backend_negosud.Validation;
+using FluentValidation.Results;
 using Microsoft.EntityFrameworkCore;
 
 namespace backend_negosud.Services;
@@ -282,6 +283,63 @@ public ClientService(IEnvoieEmailService emailService, IClientRepository ClientR
             {
                 Success = false,
                 Message = "Une erreur est survenue lors de la connexion"
+            };
+        }
+    }
+    
+        public async Task<BooleanResponseDataModel> ClientExistEmail(ClientEmailInputDto clientEmailInputDto)
+    {
+        try
+        {
+            var validator = new ClientEmailValidation();
+            
+            ValidationResult validationResult = validator.Validate(clientEmailInputDto);
+            if (!validationResult.IsValid)
+            {
+                var errors = validationResult.Errors.Select(e => e.ErrorMessage).ToList();
+                _logger.LogWarning("Validation des données d'entrée échouée : {Errors}", string.Join(", ", errors));
+                return new BooleanResponseDataModel
+                {
+                    Success = false,
+                    StatusCode = 400,
+                    Message = string.Join(", ", errors),
+                    Data = false,
+                };
+            }
+
+            var emailLower = clientEmailInputDto.Email.ToLower();
+            var exists = await _repository.EmailExistsAsync(emailLower);
+
+            if (exists)
+            {
+                return new BooleanResponseDataModel
+                {
+                    Success = true,
+                    StatusCode = 200,
+                    Message = "Un client avec cet email existe.",
+                    Data = true,
+                };
+            }
+            else
+            {
+                return new BooleanResponseDataModel
+                {
+                    Success = false,
+                    StatusCode = 404,
+                    Message = "Aucun client trouvé avec cet email.",
+                    Data = false,
+                };
+            }
+        }
+        catch (Exception e)
+        {
+            _logger.LogError(e, "Une erreur s'est produite lors de la vérification de lu client par email.");
+            return new BooleanResponseDataModel
+            {
+                Success = false,
+                StatusCode = 500,
+                Message = "Une erreur s'est produite lors de la vérification du client.",
+                Data = false,
             };
         }
     }

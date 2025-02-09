@@ -30,6 +30,18 @@ public class ClientController : ControllerBase
         var result = await _clientService.VerifierCodeValidation(validationDto.Email, validationDto.Code);
         return result.Success ? Ok(result) : BadRequest(result);
     }
+    
+    // POST: api/client
+    /// <summary>
+    /// Il faut renseigner l'adresse email du client 
+    /// </summary>
+    /// <returns>Un booleen response. </returns>
+    [HttpPost("exist")]
+    public async Task<IActionResult> FindByEmail([FromBody] ClientEmailInputDto emailInput)
+    {
+        var result = await _clientService.ClientExistEmail(emailInput);
+        return result.Success ? Ok(result) : BadRequest(result);
+    }
 
     [HttpPost("login")]
     public async Task<IActionResult> Login([FromBody] ClientInputDtoSimplified clientInputDto)
