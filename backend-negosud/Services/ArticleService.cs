@@ -5,6 +5,7 @@ using backend_negosud.Entities;
 using backend_negosud.Models;
 using backend_negosud.Repository;
 using backend_negosud.Validation;
+using FluentValidation.Results;
 
 namespace backend_negosud.Services;
 
@@ -144,4 +145,171 @@ public class ArticleService : IArticleService
             };
         }
     }
+    
+    public async Task<IResponseDataModel<string>> UpdateArticle(ArticleUpdateInputDto articleInput)
+    {
+        // vérif des données entrée vuia fluent
+        var validator = new ArticleUpdateValidator();
+        ValidationResult validationResult = validator.Validate(articleInput);
+        
+        if (!validationResult.IsValid)
+        {
+            var errors = validationResult.Errors.Select(e => e.ErrorMessage).ToList();
+            _logger.LogWarning("Validation des données d'entrée échouée : {Errors}", string.Join(", ", errors));
+            return new ResponseDataModel<string>
+            {
+                Success = false,
+                StatusCode = 400,
+                Message = string.Join(", ", errors),
+            };
+        }
+
+        try
+        {
+            var article = await _articleRepository.GetByIdAsync(articleInput.ArticleId);
+            if (article == null)
+            {
+                return new ResponseDataModel<string>
+                {
+                    Success = false,
+                    StatusCode = 404,
+                    Message = "Article non trouvé.",
+                };
+            }
+            
+            if (!string.IsNullOrEmpty(articleInput.Libelle))
+            {
+                article.Libelle = articleInput.Libelle;
+            }
+
+            if (!string.IsNullOrEmpty(articleInput.Reference))
+            {
+                article.Reference = articleInput.Reference;
+            }
+
+            if (articleInput.Prix > 0)
+            {
+                article.Prix = articleInput.Prix;
+            }
+
+            if (articleInput.FamilleId != 0)
+            {
+                article.FamilleId = articleInput.FamilleId;
+            }
+
+            if (articleInput.FournisseurId != 0)
+            {
+                article.FournisseurId = articleInput.FournisseurId;
+            }
+
+            if (articleInput.TvaId != 0)
+            {
+                article.TvaId = articleInput.TvaId;
+            }
+
+            await _articleRepository.UpdateAsync(article);
+
+            return new ResponseDataModel<string>
+            {
+                Success = true,
+                StatusCode = 200,
+                Message = "L'article a été mis à jour avec succès.",
+                Data = article.ArticleId.ToString(),
+            };
+        }
+        catch (Exception e)
+        {
+            _logger.LogError(e, "Une erreur s'est produite lors de la mise à jour de l'article.");
+            return new ResponseDataModel<string>
+            {
+                Success = false,
+                StatusCode = 500,
+                Message = "Une erreur s'est produite lors de la mise à jour de l'article.",
+            };
+        }
+    }
+    
+    public async Task<IResponseDataModel<string>> PatchArticle(int id, ArticleUpdateInputDto articleInput)
+{
+    // Créer une instance du validateur
+    var validator = new ArticleUpdateValidator();
+    ValidationResult validationResult = validator.Validate(articleInput);
+    
+    if (!validationResult.IsValid)
+    {
+        var errors = validationResult.Errors.Select(e => e.ErrorMessage).ToList();
+        _logger.LogWarning("Validation des données d'entrée échouée : {Errors}", string.Join(", ", errors));
+        return new ResponseDataModel<string>
+        {
+            Success = false,
+            StatusCode = 400,
+            Message = string.Join(", ", errors),
+        };
+    }
+
+    try
+    {
+        var article = await _articleRepository.GetByIdAsync(articleInput.ArticleId);
+        if (article == null)
+        {
+            return new ResponseDataModel<string>
+            {
+                Success = false,
+                StatusCode = 404,
+                Message = "Article non trouvé.",
+                Data = article.ArticleId.ToString(),
+            };
+        }
+
+        // mis à jour uniquement des champs fournis
+        if (!string.IsNullOrEmpty(articleInput.Libelle))
+        {
+            article.Libelle = articleInput.Libelle;
+        }
+
+        if (!string.IsNullOrEmpty(articleInput.Reference))
+        {
+            article.Reference = articleInput.Reference;
+        }
+
+        if (articleInput.Prix > 0)
+        {
+            article.Prix = articleInput.Prix;
+        }
+
+        if (articleInput.FamilleId != 0)
+        {
+            article.FamilleId = articleInput.FamilleId;
+        }
+
+        if (articleInput.FournisseurId != 0)
+        {
+            article.FournisseurId = articleInput.FournisseurId;
+        }
+
+        if (articleInput.TvaId != 0)
+        {
+            article.TvaId = articleInput.TvaId;
+        }
+
+        await _articleRepository.UpdateAsync(article);
+
+        return new ResponseDataModel<string>
+        {
+            Success = true,
+            StatusCode = 200,
+            Message = "L'article a été mis à jour avec succès.",
+        };
+    }
+    catch (Exception e)
+    {
+        _logger.LogError(e, "Une erreur s'est produite lors de la mise à jour de l'article.");
+        return new ResponseDataModel<string>
+        {
+            Success = false,
+            StatusCode = 500,
+            Message = "Une erreur s'est produite lors de la mise à jour de l'article.",
+        };
+    }
+}
 }
