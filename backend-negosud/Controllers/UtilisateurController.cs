@@ -1,4 +1,5 @@
 using backend_negosud.DTOs;
+using backend_negosud.DTOs.Utilisateur.Input;
 using backend_negosud.Entities;
 using backend_negosud.Services;
 using Microsoft.AspNetCore.Authorization;
@@ -46,5 +47,19 @@ public class UtilisateurController : ControllerBase
     public IActionResult ProtectedTest()
     {
         return Ok("Hello autorized");
+    }    
+    
+    // POST: api/utilisateur
+    /// <summary>
+    /// Il faut renseigner l'adresse email. 
+    /// </summary>
+    /// <returns>Un booleen response. </returns>
+    [HttpPost("exist")]
+    public async Task<IActionResult> FindByEmail([FromBody] UtilisateurEmailInputDto emailInput)
+    {
+        var result = await _utilisateurService.UtilisateurExistEmail(emailInput);
+        return result.Success ? Ok(result) : BadRequest(result);
     }
+
+
 }

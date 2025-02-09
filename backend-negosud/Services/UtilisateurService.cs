@@ -1,5 +1,6 @@
 using AutoMapper;
 using backend_negosud.DTOs;
+using backend_negosud.DTOs.Utilisateur.Input;
 using backend_negosud.Entities;
 using backend_negosud.Models;
 using backend_negosud.Repository;
@@ -130,6 +131,60 @@ public class UtilisateurService : IUtilisateurService
     {
         return await _context.Utilisateurs.FirstOrDefaultAsync(u => u.Email == email);
     }
+    
+    public async Task<BooleanResponseDataModel> UtilisateurExistEmail(UtilisateurEmailInputDto utilisateurEmailInputDto)
+    {
+        try
+        {
+            if (string.IsNullOrEmpty(utilisateurEmailInputDto.Email))
+            {
+                _logger.LogWarning("L'email fourni est vide ou nul.");
+                return new BooleanResponseDataModel
+                {
+                    Success = false,
+                    StatusCode = 400,
+                    Message = "L'email fourni est invalide.",
+                    Data = false,
+                };
+            }
+
+            var exists = await _context.Utilisateurs
+                .AnyAsync(u => u.Email == utilisateurEmailInputDto.Email);
+
+            if (exists)
+            {
+                return new BooleanResponseDataModel
+                {
+                    Success = true,
+                    StatusCode = 200,
+                    Message = "Un utilisateur avec cet email existe.",
+                    Data = true,
+                };
+            }
+            else
+            {
+                return new BooleanResponseDataModel
+                {
+                    Success = true,
+                    StatusCode = 200,
+                    Message = "Aucun utilisateur trouvé avec cet email.",
+                    Data = false,
+                };
+            }
+        }
+        catch (Exception e)
+        {
+            _logger.LogError(e, "Une erreur s'est produite lors de la vérification de l'utilisateur par email.");
+            return new BooleanResponseDataModel
+            {
+                Success = false,
+                StatusCode = 500,
+                Message = "Une erreur s'est produite lors de la vérification de l'utilisateur.",
+                Data = false,
+            };
+        }
+    }
+
 
     public async Task<IResponseDataModel<UtilisateurOutputDto>> Login(string email, string motDePasse)
     {

@@ -47,6 +47,7 @@
       <Folder Include="DTOs\Livraison\Inputs\" />
       <Folder Include="DTOs\Pays\PaysInputDto\" />
       <Folder Include="DTOs\Tva\TvaIpuntDto\" />
+      <Folder Include="DTOs\Utilisateur\Output\" />
       <Folder Include="Migrations\" />
     </ItemGroup>
 
