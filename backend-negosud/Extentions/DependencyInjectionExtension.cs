@@ -49,6 +49,7 @@ public static class DependencyInjectionExtension
         builder.Services.AddScoped<ILigneBonCommandeRepository, LigneBonCommandeRepository>();
         builder.Services.AddScoped<ICommandeRepository, CommandeRepository>();
         builder.Services.AddScoped<IArticleRepository, ArticleRepository>();
+        builder.Services.AddScoped<IPaysRepository, PaysRepository>();
     }
     
     public static void AddServices(this WebApplicationBuilder builder)
@@ -60,6 +61,7 @@ public static class DependencyInjectionExtension
         builder.Services.AddScoped<ICommandeService, CommandeService>();
         builder.Services.AddScoped<IPanierService, PanierService>();        
         builder.Services.AddScoped<IClientService, ClientService>();
+        builder.Services.AddScoped<IPaysService, PaysService>();
         builder.Services.AddScoped<IJwtService<Client, ClientInputDto, ClientOutputDto>, JwtService<Client, ClientInputDto, ClientOutputDto>>();
         builder.Services.AddScoped<IAuthService<Client, ClientInputDto, ClientOutputDto>, ClientService>();
         builder.Services.AddScoped<IJwtService<Utilisateur, UtilisateurInputDto, UtilisateurOutputDto>, JwtService<Utilisateur, UtilisateurInputDto, UtilisateurOutputDto>>();
