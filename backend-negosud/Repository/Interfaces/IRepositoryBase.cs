@@ -13,6 +13,10 @@ public interface IRepositoryBase<TEntity> where TEntity : class
     Task UpdateAsync(TEntity entity, CancellationToken cancellationToken = default);
     Task DeleteAsync(TEntity entity, CancellationToken cancellationToken = default);
 
+    Task<bool> SoftDeleteEntityByIdAsync<TEntity, TId>(TId id, CancellationToken cancellationToken = default)
+        where TEntity : class, ISoftDelete
+        where TId : notnull;
+
     Task<TEntity?> FirstOrDefaultAsync(Expression<Func<TEntity, bool>> predicate,
         CancellationToken cancellationToken = default);
 }

@@ -22,4 +22,5 @@ public interface IClientService : IAuthService<Client, ClientInputDto, ClientOut
 
     Task<IResponseDataModel<string>> ResetMotDePasse(string email);
     Task<BooleanResponseDataModel> ClientExistEmail(ClientEmailInputDto utilisateurEmailInputDto);
+    Task<IResponseDataModel<string>> SoftDeleteClientAsync(int clientId);
 }

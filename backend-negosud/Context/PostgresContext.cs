@@ -184,6 +184,9 @@ public partial class PostgresContext : DbContext
             entity.Property(e => e.Tel)
                 .HasMaxLength(15)
                 .HasColumnName("tel");
+            entity.Property(e => e.DeletedAt)
+                .HasColumnType("timestamp with time zone")
+                .HasColumnName("deleted_at");
         });
 
         modelBuilder.Entity<Commande>(entity =>
@@ -198,7 +201,7 @@ public partial class PostgresContext : DbContext
             entity.Property(e => e.ClientId).HasColumnName("client_id");
             entity.Property(e => e.DateCreation)
                 .HasColumnType("timestamp with time zone")
-                .HasColumnName("date_creation");            
+                .HasColumnName("date_creation");                    
             entity.Property(e => e.ExpirationDate)
                 .HasColumnType("timestamp with time zone")
                 .HasColumnName("date_expiration");

@@ -41,6 +41,18 @@ public class ClientController : ControllerBase
     {
         var result = await _clientService.ClientExistEmail(emailInput);
         return result.Success ? Ok(result) : BadRequest(result);
+    }    
+    
+    // DELETE: api/article
+    /// <summary>
+    ///  SoftDelete du client, il faut renseigner juste l'id du client. 
+    /// </summary>
+    /// <returns>Retourne l'id de l'article qui a été softdelete</returns>
+    [HttpDelete("{id}")]
+    public async Task<IActionResult> SoftDeleteClient(int id)
+    {
+        var result = await _clientService.SoftDeleteClientAsync(id);
+        return result.Success ? Ok(result) : StatusCode(result.StatusCode, result);
     }
 
     [HttpPost("login")]

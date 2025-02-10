@@ -1,6 +1,7 @@
 using backend_negosud.Entities;
 using Microsoft.EntityFrameworkCore;
 using System.Linq.Expressions;
+using backend_negosud.Models;
 
 namespace backend_negosud.Repository
 {
@@ -23,7 +24,7 @@ namespace backend_negosud.Repository
             }
             catch (Exception ex)
             {
-                throw new Exception("Error adding entity.", ex);
+                throw new Exception("Erreur pendant l'ajout de l'entité.", ex);
             }
         }
         
@@ -41,7 +42,7 @@ namespace backend_negosud.Repository
             }
             catch (Exception ex)
             {
-                throw new Exception("Error retrieving entities.", ex);
+                throw new Exception("Erreur pendant la récupérations des entités.", ex);
             }
         }
         public virtual async Task<TEntity?> FirstOrDefaultAsync(Expression<Func<TEntity, bool>> predicate, CancellationToken cancellationToken = default)
@@ -58,7 +59,7 @@ namespace backend_negosud.Repository
             }
             catch (Exception ex)
             {
-                throw new Exception("Error updating entity.", ex);
+                throw new Exception("Erreur pendant la mis à jour", ex);
             }
         }
         
@@ -70,7 +71,7 @@ namespace backend_negosud.Repository
             }
             catch (Exception ex)
             {
-                throw new Exception($"Error retrieving entity with ID {id}.", ex);
+                throw new Exception($"Erreur lors de la récupération avec l'id : {id}.", ex);
             }
         }
         
@@ -83,7 +84,7 @@ namespace backend_negosud.Repository
             }
             catch (Exception ex)
             {
-                throw new Exception("Error deleting entity.", ex);
+                throw new Exception("Erreur pendant la suppression de l'entité", ex);
             }
         }
         
@@ -95,7 +96,7 @@ namespace backend_negosud.Repository
             }
             catch (Exception ex)
             {
-                throw new Exception("Error saving changes to the database.", ex);
+                throw new Exception("Erreur pendant le sauvegarde en base de donnése.", ex);
             }
         }
         
@@ -107,8 +108,34 @@ namespace backend_negosud.Repository
             }
             catch (Exception ex)
             {
-                throw new Exception("Error listing entities.", ex);
+                throw new Exception("Erreur qui concerne le listing des entités", ex);
             }
         }
+        
+        public async Task<bool>  SoftDeleteEntityByIdAsync<TEntity, TId>(TId id, CancellationToken cancellationToken = default)
+            where TEntity : class, ISoftDelete
+            where TId : notnull
+        {
+            try
+            {
+                var entity = await _context.Set<TEntity>().FindAsync(new object[] { id }, cancellationToken);
+
+                if (entity != null)
+                {
+                    entity.DeletedAt = DateTime.UtcNow;
+                    await _context.SaveChangesAsync(cancellationToken);
+                    return true;
+                }
+                else
+                {
+                    throw new KeyNotFoundException($"L'entité avec l'{id} est inconnue.");
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Erreur lors de la suppression de l'entité.", ex);
+            }
+        }
+
     }
 }
