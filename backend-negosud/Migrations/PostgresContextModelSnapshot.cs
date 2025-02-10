@@ -183,6 +183,10 @@ namespace backend_negosud.Migrations
                         .HasColumnType("character varying(1000)")
                         .HasColumnName("acess_token");
 
+                    b.Property<DateTime?>("DeletedAt")
+                        .HasColumnType("timestamp with time zone")
+                        .HasColumnName("deleted_at");
+
                     b.Property<string>("Email")
                         .IsRequired()
                         .HasMaxLength(100)

@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using backend_negosud.Models;
 
 namespace backend_negosud.Entities;
 
-public partial class Client
+public partial class Client : ISoftDelete
 {
     public int ClientId { get; set; }
 
@@ -20,6 +21,7 @@ public partial class Client
     public bool EstValide { get; set; }
 
     public string AcessToken { get; set; } = null!;
+    public DateTime? DeletedAt { get; set; }
 
     public virtual ICollection<Adresse> Adresses { get; set; } = new List<Adresse>();
 

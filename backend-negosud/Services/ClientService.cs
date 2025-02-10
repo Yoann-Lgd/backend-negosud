@@ -413,4 +413,52 @@ public ClientService(IEnvoieEmailService emailService, IClientRepository ClientR
             };
         }
     }
+    
+    public async Task<IResponseDataModel<string>> SoftDeleteClientAsync(int clientId)
+    {
+        try
+        {
+            if (clientId <= 0)
+            {
+                _logger.LogWarning("Identifiant invalide fourni pour supprimer le client : {Id}", clientId);
+                return new ResponseDataModel<string>
+                {
+                    Success = false,
+                    Message = "Identifiant invalide fourni.",
+                    StatusCode = 400,
+                };
+            }
+
+            var response = await _repository.SoftDeleteEntityByIdAsync<Client, int>(clientId);
+            if (response)
+            {
+                return new ResponseDataModel<string>
+                {
+                    Success = true,
+                    Message = "Le client a été soft-supprimé.",
+                    StatusCode = 200,
+                    Data = clientId.ToString(),
+                };
+            }
+            else
+            {
+                return new ResponseDataModel<string>
+                {
+                    Success = false,
+                    Message = "Le client n'a pas été trouvé.",
+                    StatusCode = 404,
+                };
+            }
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, "Erreur lors du soft delete du client");
+            return new ResponseDataModel<string>
+            {
+                Success = false,
+                Message = "Une erreur est survenue lors du soft delete du client.",
+                StatusCode = 500,
+            };
+        }
+    }
 }
