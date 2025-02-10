@@ -43,7 +43,7 @@ public class ClientController : ControllerBase
         return result.Success ? Ok(result) : BadRequest(result);
     }    
     
-    // DELETE: api/article
+    // DELETE: api/client
     /// <summary>
     ///  SoftDelete du client, il faut renseigner juste l'id du client. 
     /// </summary>

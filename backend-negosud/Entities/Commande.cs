@@ -1,14 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
+using backend_negosud.Models;
 
 namespace backend_negosud.Entities;
 
-public partial class Commande
+public partial class Commande : ISoftDelete
 {
     public int CommandeId { get; set; }
 
     public DateTime DateCreation { get; set; }
     public DateTime? ExpirationDate { get; set; } 
+    public DateTime? DeletedAt { get; set; } 
 
     public bool Valide { get; set; }
 
