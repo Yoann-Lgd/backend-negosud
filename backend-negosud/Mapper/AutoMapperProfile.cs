@@ -10,6 +10,7 @@ using backend_negosud.DTOs.Famille.Outputs;
 using backend_negosud.DTOs.Fournisseur.FournisseurOutputDto;
 using backend_negosud.DTOs.Livraison.Inputs;
 using backend_negosud.DTOs.Livraison.Outputs;
+using backend_negosud.DTOs.Pays.PaysInputDto;
 using backend_negosud.DTOs.Pays.PaysOutputDto;
 using backend_negosud.DTOs.Tva.TvaOutputDto;
 using backend_negosud.DTOs.Utilisateur.Input;
@@ -146,6 +147,7 @@ namespace backend_negosud.Mapper;
             CreateMap<Stock, StockSummaryDto>();
             CreateMap<Stock, StockInputDto>();
             CreateMap<Pays, PaysEssentialOutputDto>();
+            CreateMap<PaysInputDto, Pays>();
             CreateMap<Tva, TvaOutputDto>();
             CreateMap<LivraisonInputCommandeDto, Livraison>();
         }
