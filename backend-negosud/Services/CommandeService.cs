@@ -143,4 +143,75 @@ public class CommandeService : ICommandeService
             };
         }
     }
+
+    public async Task<IResponseDataModel<string>> SoftDeleteAsync(int commandeId)
+    {
+        try
+        {
+            if (commandeId <= 0)
+            {
+                _logger.LogWarning("Identifiant invalide fourni pour supprimer la commande : {Id}", commandeId);
+                return new ResponseDataModel<string>
+                {
+                    Success = false,
+                    Message = "Identifiant invalide fourni.",
+                    StatusCode = 400,
+                };
+            }
+
+            var commande = await _commandeRepository.GetByIdAsync(commandeId);
+            if (commande == null)
+            {
+                return new ResponseDataModel<string>
+                {
+                    Success = false,
+                    Message = "La commande n'a pas été trouvée.",
+                    StatusCode = 404,
+                };
+            }
+
+            if (!commande.Valide)
+            {
+                return new ResponseDataModel<string>
+                {
+                    Success = false,
+                    Message = "La commande est à l'état de panier.",
+                    StatusCode = 400,
+                    Data = commandeId.ToString(),
+                };
+            }
+
+            var response = await _commandeRepository.SoftDeleteEntityByIdAsync<Commande, int>(commandeId);
+            if (response)
+            {
+                return new ResponseDataModel<string>
+                {
+                    Success = true,
+                    Message = "La commande a été soft-supprimée.",
+                    StatusCode = 200,
+                    Data = commandeId.ToString(),
+                };
+            }
+            else
+            {
+                return new ResponseDataModel<string>
+                {
+                    Success = false,
+                    Message = "La commande n'a pas été trouvée.",
+                    StatusCode = 404,
+                };
+            }
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, "Erreur lors du soft delete de la commande");
+            return new ResponseDataModel<string>
+            {
+                Success = false,
+                Message = "Une erreur est survenue lors du soft delete de la commande.",
+                StatusCode = 500,
+            };
+        }
+    }
+
 }
