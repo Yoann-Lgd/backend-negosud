@@ -10,19 +10,19 @@ namespace backend_negosud.Migrations
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.RenameColumn(
-                name: "date_creation",
+            migrationBuilder.AddColumn<DateTime>(
+                name: "deleted_at",
                 table: "client",
-                newName: "deleted_at");
+                type: "timestamp with time zone",
+                nullable: true);
         }
 
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.RenameColumn(
+            migrationBuilder.DropColumn(
                 name: "deleted_at",
-                table: "client",
-                newName: "date_creation");
+                table: "client");
         }
     }
 }
