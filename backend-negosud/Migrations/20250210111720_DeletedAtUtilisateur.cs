@@ -1,21 +1,21 @@
-﻿using System;
-using Microsoft.EntityFrameworkCore.Migrations;
+﻿using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
 namespace backend_negosud.Migrations
 {
     /// <inheritdoc />
-    public partial class DeletedAtCommande : Migration
+    public partial class DeletedAtUtilisateur : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.AddColumn<DateTime>(
                 name: "deleted_at",
-                table: "commande",
+                table: "utilisateur",
                 type: "timestamp with time zone",
-                nullable: true);
+                nullable: true
+            );
         }
 
         /// <inheritdoc />
@@ -23,7 +23,7 @@ namespace backend_negosud.Migrations
         {
             migrationBuilder.DropColumn(
                 name: "deleted_at",
-                table: "commande");
+                table: "utilisateur");
         }
     }
 }

@@ -61,5 +61,16 @@ public class UtilisateurController : ControllerBase
         return result.Success ? Ok(result) : BadRequest(result);
     }
 
+    // DELETE: api/utilisateur
+    /// <summary>
+    ///  SoftDelete de l'utilisateur, il faut renseigner l'id de l'utilisateur. 
+    /// </summary>
+    /// <returns>Retourne l'id de l'utilisateur qui a été softdelete</returns>
+    [HttpDelete("{id}")]
+    public async Task<IActionResult> SoftDeleteUtilisateur(int id)
+    {
+        var result = await _utilisateurService.SoftDeleteAsync(id);
+        return result.Success ? Ok(result) : StatusCode(result.StatusCode, result);
+    }
 
 }

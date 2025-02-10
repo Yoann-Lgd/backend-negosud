@@ -309,4 +309,61 @@ public class UtilisateurService : IUtilisateurService
             };
         }
     }
+    public async Task<IResponseDataModel<string>> SoftDeleteAsync(int id)
+    {
+        try
+        {
+            if (id <= 0)
+            {
+                _logger.LogWarning("Identifiant invalide fourni pour supprimer l'utilisateur : {Id}", id);
+                return new ResponseDataModel<string>
+                {
+                    Success = false,
+                    Message = "Identifiant invalide fourni.",
+                    StatusCode = 400,
+                };
+            }
+            var utilisateur = await _repository.GetByIdAsync(id);
+            if (utilisateur == null)
+            {
+                return new ResponseDataModel<string>
+                {
+                    Success = false,
+                    Message = "L'utilisateur n'a pas été trouvée.",
+                    StatusCode = 404,
+                };
+            }
+
+            var response = await _repository.SoftDeleteEntityByIdAsync<Utilisateur, int>(id);
+            if (response)
+            {
+                return new ResponseDataModel<string>
+                {
+                    Success = true,
+                    Message = "Le utilisateur a été soft-supprimé.",
+                    StatusCode = 200,
+                    Data = id.ToString(),
+                };
+            }
+            else
+            {
+                return new ResponseDataModel<string>
+                {
+                    Success = false,
+                    Message = "Le utilisateur n'a pas été trouvé.",
+                    StatusCode = 404,
+                };
+            }
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, "Erreur lors du soft delete de l'utilisateur");
+            return new ResponseDataModel<string>
+            {
+                Success = false,
+                Message = "Une erreur est survenue lors du soft delete de l'utilisateur.",
+                StatusCode = 500,
+            };
+        }
+    }
 }

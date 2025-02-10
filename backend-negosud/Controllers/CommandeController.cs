@@ -38,7 +38,7 @@ public class CommandeController : ControllerBase
         return result.Success ? Ok(result) : StatusCode(result.StatusCode, result);
     }
     
-    // DELETE: api/article
+    // DELETE: api/commande
     /// <summary>
     ///  SoftDelete de la comamnde, il faut renseigner l'id de la commande. 
     /// </summary>

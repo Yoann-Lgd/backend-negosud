@@ -583,6 +583,9 @@ public partial class PostgresContext : DbContext
             entity.Property(e => e.Telephone)
                 .HasMaxLength(25)
                 .HasColumnName("telephone");
+            entity.Property(e => e.DeletedAt)
+                .HasColumnType("timestamp with time zone")
+                .HasColumnName("deleted_at");
 
             entity.HasOne(d => d.Role).WithMany(p => p.Utilisateurs)
                 .HasForeignKey(d => d.RoleId)

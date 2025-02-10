@@ -428,6 +428,17 @@ public ClientService(IEnvoieEmailService emailService, IClientRepository ClientR
                     StatusCode = 400,
                 };
             }
+            
+            var utilisateur = await _repository.GetByIdAsync(clientId);
+            if (utilisateur == null)
+            {
+                return new ResponseDataModel<string>
+                {
+                    Success = false,
+                    Message = "Le client n'a pas été trouvée.",
+                    StatusCode = 404,
+                };
+            }
 
             var response = await _repository.SoftDeleteEntityByIdAsync<Client, int>(clientId);
             if (response)
