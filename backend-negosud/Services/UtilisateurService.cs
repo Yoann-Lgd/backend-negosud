@@ -36,83 +36,83 @@ public class UtilisateurService : IUtilisateurService
     }
 
         public async Task<IResponseDataModel<UtilisateurOutputDto>> CreateUtilisateur(UtilisateurInputDto utilisateurInputDto)
-    {
-        try
         {
-            // Validation des entrées
-            if (string.IsNullOrEmpty(utilisateurInputDto.Email) || string.IsNullOrEmpty(utilisateurInputDto.MotDePasse))
+            try
             {
-                _logger.LogWarning("Tentative de création d'utilisateur avec email ou mot de passe vide");
+                // Validation des entrées
+                if (string.IsNullOrEmpty(utilisateurInputDto.Email) || string.IsNullOrEmpty(utilisateurInputDto.MotDePasse))
+                {
+                    _logger.LogWarning("Tentative de création d'utilisateur avec email ou mot de passe vide");
+                    return new ResponseDataModel<UtilisateurOutputDto>
+                    {
+                        Success = false,
+                        Message = "Email ou mot de passe non spécifié"
+                    };
+                }
+
+                // Vérification email existant
+                if (await _repository.EmailExistsAsync(utilisateurInputDto.Email))
+                {
+                    return new ResponseDataModel<UtilisateurOutputDto>
+                    {
+                        Success = false,
+                        Message = "Email déjà utilisé"
+                    };
+                }
+
+                // Validation
+                var validation = new UtilisateurValidation();
+                var result = validation.Validate(utilisateurInputDto);
+
+                if (!result.IsValid)
+                {
+                    return new ResponseDataModel<UtilisateurOutputDto>
+                    {
+                        Success = false,
+                        Message = "Données utilisateur invalides: " + string.Join(", ", result.Errors)
+                    };
+                }
+                
+                var role = await _role_repository.GetByIdAsync(utilisateurInputDto.RoleId); 
+
+                if (role == null)
+                {
+                    return new ResponseDataModel<UtilisateurOutputDto>
+                    {
+                        Success = false,
+                        Message = "Le rôle spécifié n'existe pas."
+                    };
+                }
+
+                // Création utilisateur
+                var utilisateur = _mapper.Map<Utilisateur>(utilisateurInputDto);
+                utilisateur.MotDePasse = _hash.HashMotDePasse(utilisateur.MotDePasse);
+                utilisateur.Role = role;
+
+                // Sauvegarde via repository
+                await _repository.AddAsync(utilisateur);
+                
+                // Génération token
+                var tokenJWT = _jwtService.GenererToken(_mapper.Map<UtilisateurInputDto>(utilisateur));
+                utilisateur.AccessToken = tokenJWT;
+
+                await _repository.UpdateAsync(utilisateur);
+
+                var userOutput = _mapper.Map<UtilisateurOutputDto>(utilisateur);
+
                 return new ResponseDataModel<UtilisateurOutputDto>
                 {
-                    Success = false,
-                    Message = "Email ou mot de passe non spécifié"
+                    TokenJWT = tokenJWT,
+                    Success = true,
+                    Data = userOutput
                 };
             }
-
-            // Vérification email existant
-            if (await _repository.EmailExistsAsync(utilisateurInputDto.Email))
+            catch (Exception e)
             {
-                return new ResponseDataModel<UtilisateurOutputDto>
-                {
-                    Success = false,
-                    Message = "Email déjà utilisé"
-                };
+                _logger.LogError(e, "Erreur lors de la création de l'utilisateur");
+                throw;
             }
-
-            // Validation
-            var validation = new UtilisateurValidation();
-            var result = validation.Validate(utilisateurInputDto);
-
-            if (!result.IsValid)
-            {
-                return new ResponseDataModel<UtilisateurOutputDto>
-                {
-                    Success = false,
-                    Message = "Données utilisateur invalides: " + string.Join(", ", result.Errors)
-                };
-            }
-            
-            var role = await _role_repository.GetByIdAsync(utilisateurInputDto.RoleId); 
-
-            if (role == null)
-            {
-                return new ResponseDataModel<UtilisateurOutputDto>
-                {
-                    Success = false,
-                    Message = "Le rôle spécifié n'existe pas."
-                };
-            }
-
-            // Création utilisateur
-            var utilisateur = _mapper.Map<Utilisateur>(utilisateurInputDto);
-            utilisateur.MotDePasse = _hash.HashMotDePasse(utilisateur.MotDePasse);
-            utilisateur.Role = role;
-
-            // Sauvegarde via repository
-            await _repository.AddAsync(utilisateur);
-
-            // Génération token
-            var tokenJWT = _jwtService.GenererToken(_mapper.Map<UtilisateurInputDto>(utilisateur));
-            utilisateur.AccessToken = tokenJWT;
-
-            await _repository.UpdateAsync(utilisateur);
-
-            var userOutput = _mapper.Map<UtilisateurOutputDto>(utilisateur);
-
-            return new ResponseDataModel<UtilisateurOutputDto>
-            {
-                TokenJWT = tokenJWT,
-                Success = true,
-                Data = userOutput
-            };
         }
-        catch (Exception e)
-        {
-            _logger.LogError(e, "Erreur lors de la création de l'utilisateur");
-            throw;
-        }
-    }
 
     public async Task<Utilisateur> GetUtilisateurByToken(string token)
     {
@@ -215,10 +215,25 @@ public class UtilisateurService : IUtilisateurService
                     Message = "Mot de passe incorrect"
                 };
             }
+
+            var role = await _role_repository.GetByIdAsync(utilisateur.RoleId);
+
+            if (role == null)
+            {
+                return new ResponseDataModel<UtilisateurOutputDto>
+                {
+                    Success = false,
+                    Message = "Le rôle spécifié n'existe pas."
+                };
+            }
+
+            // mapper l'entité en DTO pour la génération du token
+            var utilisateurInputDto = _mapper.Map<UtilisateurInputDto>(utilisateur);
+            utilisateurInputDto.Role = role?.Nom ?? string.Empty;
             
-            var tokenJWT = _jwtService.GenererToken(_mapper.Map<UtilisateurInputDto>(utilisateur));
+            var tokenJWT = _jwtService.GenererToken(utilisateurInputDto);
             utilisateur.AccessToken = tokenJWT;
-            
+
             var outputDto = _mapper.Map<UtilisateurOutputDto>(utilisateur);
 
             return new ResponseDataModel<UtilisateurOutputDto>
