@@ -86,6 +86,18 @@ public class PanierController : ControllerBase
     {
         var result = await _panierService.DeletePanier(id);
         return result.Success ? Ok(result) : BadRequest(result);
+    }    
+    
+    // DELETE: api/panier/{id}/ligne-de-commande
+    /// <summary>
+    /// Endpoint qui sert à supprimmer une ligne de commande en passant dans le body : commandId, clientId et ligneCommandeId
+    /// </summary>
+    /// <returns>l'id de la ligne supprimée</returns>
+    [HttpDelete("delete/ligne-commande")]
+    public async Task<IActionResult> DeleteLigneDeCommande([FromBody]PanierDeleteLigneInputDto panierInputDto)
+    {
+        var result = await _panierService.DeleteLigneCommande(panierInputDto);
+        return result.Success ? Ok(result) : BadRequest(result);
     }
 
     

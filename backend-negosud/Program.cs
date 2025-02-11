@@ -99,7 +99,6 @@ if (app.Environment.IsDevelopment())
 
 app.UseHangfire();
 app.UseRouting();
-app.UseCors("AllowAll");
 app.UseHttpsRedirection();
 app.UseAuthentication();
 app.UseAuthorization();
