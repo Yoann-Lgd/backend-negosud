@@ -109,7 +109,8 @@ public class JwtService<TEntity, TInputDto, TOutputDto> : IJwtService<TEntity, T
                 new Claim(ClaimTypes.NameIdentifier, idValue),
                 new Claim(ClaimTypes.Email, emailValue),
                 new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
-                new Claim(JwtRegisteredClaimNames.Iat, DateTimeOffset.UtcNow.ToUnixTimeSeconds().ToString()),
+                new Claim(JwtRegisteredClaimNames.Iat, DateTimeOffset.UtcNow.ToUnixTimeSeconds().ToString(), ClaimValueTypes.Integer64),
+
             };
 
             // ajout du rôle s'il est valide
