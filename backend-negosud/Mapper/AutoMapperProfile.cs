@@ -73,8 +73,8 @@ namespace backend_negosud.Mapper;
 
             CreateMap<PanierUpdateInputDto, Commande>()
                 .ForMember(dest => dest.CommandeId, opt => opt.MapFrom(src => src.CommandId))
-                .ForMember(dest => dest.LigneCommandes, opt => opt.MapFrom(src => src.LigneCommandes))
-                .ForMember(dest => dest.ClientId, opt => opt.MapFrom(src => src.ClientId));
+                .ForMember(dest => dest.ClientId, opt => opt.Ignore())
+                .ForMember(dest => dest.LigneCommandes, opt => opt.Ignore()); 
 
             CreateMap<Commande, PanierOutputDto>()
                 .ForMember(dest => dest.LigneCommandes, opt => opt.MapFrom(src => src.LigneCommandes));

@@ -40,9 +40,12 @@ public class PanierController : ControllerBase
 
     // PUT: api/panier
     /// <summary>
-    /// Il faut fournir un au minimum : l'id commande, l'articleId. Si, une ligne de commande existe déjà il faudra préciser son Id sinon une autre ligne va être créée
+    /// Il faut fournir un au minimum : l'id commande, l'articleId et la quantité. Le panier se mettra à jour automatiquement et supprimera les ligne de commande si la quantité de l'article est à 0 
     /// </summary>
-    /// <returns>Le panier modifié</returns>
+    /// <param name="commandId">L'identifiant de la commande.</param>
+    /// <param name="articleId">L'identifiant de l'article à mettre à jour.</param>
+    /// <param name="quantite">La nouvelle quantité de l'article. Si la quantité est zéro, l'article sera supprimé du panier.</param>
+    /// <returns>Le panier modifié.</returns>
     [HttpPut("update")]
     public async Task<IActionResult> UpdateBasket([FromBody] PanierUpdateInputDto panierInputDto)
     {
