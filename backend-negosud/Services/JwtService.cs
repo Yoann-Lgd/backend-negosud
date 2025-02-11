@@ -171,4 +171,10 @@ public string GenererToken(TInputDto inputDto)
             return null;
         }
     }
+    
+    public async Task<string> GetPublicKey()
+    {
+        using var rsa = LoadOrCreateRsaKey();
+        return await Task.FromResult(Convert.ToBase64String(rsa.ExportRSAPublicKey()));
+    }
 }

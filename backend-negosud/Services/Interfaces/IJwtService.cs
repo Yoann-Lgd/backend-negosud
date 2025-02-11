@@ -9,4 +9,6 @@ public interface IJwtService<TEntity, TInputDto, TOutputDto>
 {
     string GenererToken(TInputDto inputDto);
     Task<TOutputDto> ValidateToken(string token, int id);
+
+    Task<string> GetPublicKey();
 }
