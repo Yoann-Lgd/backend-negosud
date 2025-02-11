@@ -34,7 +34,7 @@ public class DatabaseSeeder
             _context.Clients.AddRange(clients);
             _context.SaveChanges();
 
-            // table :Pays
+            // table : Pays
             var paysFaker = new Faker<Pays>("fr")
                 .RuleFor(p => p.Nom, f => f.Address.Country());
 
@@ -42,7 +42,7 @@ public class DatabaseSeeder
             _context.Pays.AddRange(pays);
             _context.SaveChanges();
 
-                //table : Adresse
+            // table : Adresse
             var adresseFaker = new Faker<Adresse>("fr")
                 .RuleFor(a => a.Numero, f => int.Parse(f.Address.BuildingNumber()))
                 .RuleFor(a => a.Ville, f => f.Address.City())
@@ -50,11 +50,11 @@ public class DatabaseSeeder
                 .RuleFor(a => a.Departement, f => f.Address.County())
                 .RuleFor(a => a.PaysId, f => f.PickRandom(pays).PaysId)
                 .RuleFor(a => a.ClientId, f => f.PickRandom(clients).ClientId);
-            
+
             var adresses = adresseFaker.Generate(100);
             _context.Adresses.AddRange(adresses);
             _context.SaveChanges();
-            
+
             // table : Famille
             var familles = new List<Famille>
             {
@@ -62,82 +62,80 @@ public class DatabaseSeeder
                 new Famille { Nom = "Blanc" },
                 new Famille { Nom = "Rouge" },
             };
-            
+
             _context.Familles.AddRange(familles);
             _context.SaveChanges();
 
-                // table : Fournisseur
-                var fournisseurFaker = new Faker<Fournisseur>("fr")
-                    .RuleFor(f => f.Nom, f => f.Company.CompanyName())
-                    .RuleFor(f => f.RaisonSociale, f => f.Company.Nipc())
-                    .RuleFor(f => f.Email, f => f.Person.Email)
-                    .RuleFor(f => f.Tel, f => f.Person.Phone);
+            // table : Fournisseur
+            var fournisseurFaker = new Faker<Fournisseur>("fr")
+                .RuleFor(f => f.Nom, f => f.Company.CompanyName())
+                .RuleFor(f => f.RaisonSociale, f => f.Company.Nipc())
+                .RuleFor(f => f.Email, f => f.Person.Email)
+                .RuleFor(f => f.Tel, f => f.Person.Phone);
 
-                var fournisseurs = fournisseurFaker.Generate(25);
-                _context.Fournisseurs.AddRange(fournisseurs);
-                _context.SaveChanges();
-                
-                    // table : TVA
-                var tva = new List<Tva>
-                {
-                    new Tva { Valeur = 20.0 },
-                    new Tva { Valeur = 10.0 },
-                    new Tva { Valeur = 5.5 },
-                    new Tva { Valeur = 2.1 }
-                };
-                
-                _context.Tvas.AddRange(tva);
-                _context.SaveChanges();
-            
-              // table : Article
-              var articleFaker = new Faker<Article>("fr")
-                  .RuleFor(a => a.Libelle, f => f.Commerce.ProductName())
-                  .RuleFor(a => a.Reference, f => f.Commerce.Ean13())
-                  .RuleFor(a => a.Prix, f => double.Parse(f.Commerce.Price()))
-                  .RuleFor(a => a.FamilleId, f => f.PickRandom(familles).FamilleId)
-                  .RuleFor(a => a.FournisseurId, f => f.PickRandom(fournisseurs).FournisseurId)
-                  .RuleFor(a => a.TvaId, f => f.PickRandom(tva).TvaId);
-            
+            var fournisseurs = fournisseurFaker.Generate(25);
+            _context.Fournisseurs.AddRange(fournisseurs);
+            _context.SaveChanges();
+
+            // table : TVA
+            var tva = new List<Tva>
+            {
+                new Tva { Valeur = 20.0 },
+                new Tva { Valeur = 10.0 },
+                new Tva { Valeur = 5.5 },
+                new Tva { Valeur = 2.1 }
+            };
+
+            _context.Tvas.AddRange(tva);
+            _context.SaveChanges();
+
+            // table : Article
+            var articleFaker = new Faker<Article>("fr")
+                .RuleFor(a => a.Libelle, f => f.Commerce.ProductName())
+                .RuleFor(a => a.Reference, f => f.Commerce.Ean13())
+                .RuleFor(a => a.Prix, f => double.Parse(f.Commerce.Price()))
+                .RuleFor(a => a.FamilleId, f => f.PickRandom(familles).FamilleId)
+                .RuleFor(a => a.FournisseurId, f => f.PickRandom(fournisseurs).FournisseurId)
+                .RuleFor(a => a.TvaId, f => f.PickRandom(tva).TvaId);
+
             var articles = articleFaker.Generate(30);
             _context.Articles.AddRange(articles);
             _context.SaveChanges();
-            
-            
-                // table : Image
+
+            // table : Image
             var imageFaker = new Faker<Image>("fr")
                 .RuleFor(i => i.ArticleId, f => f.PickRandom(articles).ArticleId)
                 .RuleFor(i => i.Format, f => f.Random.AlphaNumeric(10))
                 .RuleFor(i => i.Libelle, f => f.Lorem.Sentence())
                 .RuleFor(i => i.Slug, f => f.Lorem.Slug());
-            
+
             var images = imageFaker.Generate(25);
             _context.Images.AddRange(images);
             _context.SaveChanges();
-            
-            
-                // table : Stock
+
+            // table : Stock
             var stockFaker = new Faker<Stock>("fr")
                 .RuleFor(s => s.ArticleId, f => f.PickRandom(articles).ArticleId)
                 .RuleFor(s => s.Quantite, f => f.Random.Int(0, 1000))
                 .RuleFor(s => s.RefLot, f => f.Random.AlphaNumeric(10))
                 .RuleFor(s => s.SeuilMinimum, f => f.Random.Int(0, 50))
                 .RuleFor(s => s.ReapprovisionnementAuto, f => f.Random.Bool());
-            
+
             var stocks = stockFaker.Generate(100);
             _context.Stocks.AddRange(stocks);
             _context.SaveChanges();
-            
-                // table : Role
-                var roles = new List<Role>
-                {
-                    new Role { Nom = "admin"},
-                    new Role { Nom = "employe"}
-                };
-                
-                _context.Roles.AddRange(roles);
-                _context.SaveChanges();
-            
-                // table : Utilisateur
+
+            // table : Role
+            var roles = new List<Role>
+            {
+                new Role { Nom = "admin"},
+                new Role { Nom = "employe"}
+            };
+
+            _context.Roles.AddRange(roles);
+            _context.SaveChanges();
+
+            // table : Utilisateur
             var utilisateurFaker = new Faker<Utilisateur>("fr")
                 .RuleFor(u => u.Nom, f => f.Person.LastName)
                 .RuleFor(u => u.Prenom, f => f.Person.FirstName)
@@ -149,7 +147,6 @@ public class DatabaseSeeder
             var utilisateurs = utilisateurFaker.Generate(20);
             _context.Utilisateurs.AddRange(utilisateurs);
             _context.SaveChanges();
-            
 
             // table : Inventorier
             var inventorierFaker = new Faker<Inventorier>("fr")
@@ -159,14 +156,14 @@ public class DatabaseSeeder
                 .RuleFor(i => i.QuantitePostModification, f => f.Random.Int(0, 1000))
                 .RuleFor(i => i.QuantitePrecedente, f => f.Random.Int(0, 1000))
                 .RuleFor(i => i.TypeModification, f => f.Random.Word());
-            
+
             var inventoriers = inventorierFaker.Generate(50);
 
             foreach (var inventorier in inventoriers)
             {
-                // vérifie si l'entité existe déjà dans la base
+                // Check if the entity already exists
                 var existingInventorier = _context.Inventoriers
-                    .AsNoTracking() // on désactive le suivi pour éviter les conflits
+                    .AsNoTracking()
                     .SingleOrDefault(i => i.UtilisateurId == inventorier.UtilisateurId && i.StockId == inventorier.StockId);
 
                 if (existingInventorier == null)
@@ -175,16 +172,19 @@ public class DatabaseSeeder
                 }
                 else
                 {
-                    inventorier.UtilisateurId = existingInventorier.UtilisateurId;
-                    _context.Inventoriers.Update(inventorier);
+                    // Update the existing entity
+                    existingInventorier.DateModification = inventorier.DateModification;
+                    existingInventorier.QuantitePostModification = inventorier.QuantitePostModification;
+                    existingInventorier.QuantitePrecedente = inventorier.QuantitePrecedente;
+                    existingInventorier.TypeModification = inventorier.TypeModification;
+                    _context.Inventoriers.Update(existingInventorier);
                 }
             }
 
-// Sauvegarder les modifications dans la base
+            // Save changes after processing all Inventorier entities
             _context.SaveChanges();
 
-            
-                // table : Livraison
+            // table : Livraison
             var livraisonFaker = new Faker<Livraison>("fr")
                 .RuleFor(l => l.Livree, f => f.Random.Bool())
                 .RuleFor(l => l.DateLivraison, f => f.Date.Past())
@@ -193,20 +193,19 @@ public class DatabaseSeeder
             var livraisons = livraisonFaker.Generate(20);
             _context.Livraisons.AddRange(livraisons);
             _context.SaveChanges();
-            
-            
-                // table : Commande
-                var commandeFaker = new Faker<Commande>("fr")
-                    .RuleFor(c => c.ClientId, f => f.PickRandom(clients).ClientId)
-                    .RuleFor(c => c.DateCreation, f => f.Date.Past())
-                    .RuleFor(c => c.Valide, f => f.Random.Bool())
-                    .RuleFor(c => c.LivraisonId, f => f.PickRandom(livraisons).LivraisonId);
+
+            // table : Commande
+            var commandeFaker = new Faker<Commande>("fr")
+                .RuleFor(c => c.ClientId, f => f.PickRandom(clients).ClientId)
+                .RuleFor(c => c.DateCreation, f => f.Date.Past())
+                .RuleFor(c => c.Valide, f => f.Random.Bool())
+                .RuleFor(c => c.LivraisonId, f => f.PickRandom(livraisons).LivraisonId);
 
             var commandes = commandeFaker.Generate(50);
             _context.Commandes.AddRange(commandes);
             _context.SaveChanges();
-            
-                // table : BonCommande
+
+            // table : BonCommande
             string[] status = { "en cours", "valide", "livree", "termine"};
             var bonCommandeFaker = new Faker<BonCommande>()
                 .RuleFor(b => b.Prix, f => f.Random.Double())
@@ -217,13 +216,11 @@ public class DatabaseSeeder
             var bonCommandes = bonCommandeFaker.Generate(50);
             _context.BonCommandes.AddRange(bonCommandes);
             _context.SaveChanges();
-            
-            
-                
-                // table : LigneBonCommande
+
+            // table : LigneBonCommande
             // var ligneBonCommandeFaker = new Faker<LigneBonCommande>()
             //     .RuleFor(l => l.ArticleId, f => f.PickRandom(articles).ArticleId)
-            //     .RuleFor(l => l.BonCommandeId, f => f.PickRandom(bonCommandes).BonCommandeId) 
+            //     .RuleFor(l => l.BonCommandeId, f => f.PickRandom(bonCommandes).BonCommandeId)
             //     .RuleFor(l => l.LigneLivraisonId, f => f.Random.Int(1, 20))
             //     .RuleFor(l => l.PrixUnitaire, f => double.Parse(f.Commerce.Price()))
             //     .RuleFor(l => l.Quantite, f => f.Random.Int(1, 50));
@@ -231,7 +228,6 @@ public class DatabaseSeeder
             // var ligneBonCommandes = ligneBonCommandeFaker.Generate(200);
             // _context.LigneBonCommandes.AddRange(ligneBonCommandes);
             // _context.SaveChanges();
-
         }
     }
 }

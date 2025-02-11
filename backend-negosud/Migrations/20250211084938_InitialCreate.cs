@@ -24,7 +24,8 @@ namespace backend_negosud.Migrations
                     mot_de_passe = table.Column<string>(type: "character varying(300)", maxLength: 300, nullable: false),
                     tel = table.Column<string>(type: "character varying(15)", maxLength: 15, nullable: false),
                     est_valide = table.Column<bool>(type: "boolean", nullable: false),
-                    acess_token = table.Column<string>(type: "character varying(1000)", maxLength: 1000, nullable: false)
+                    acess_token = table.Column<string>(type: "character varying(1000)", maxLength: 1000, nullable: false),
+                    deleted_at = table.Column<DateTime>(type: "timestamp with time zone", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -66,8 +67,8 @@ namespace backend_negosud.Migrations
                 {
                     livraison_id = table.Column<int>(type: "integer", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    date_estimee = table.Column<DateTime>(type: "timestamp without time zone", nullable: true),
-                    date_livraison = table.Column<DateTime>(type: "timestamp without time zone", nullable: false),
+                    date_estimee = table.Column<DateTime>(type: "timestamp with time zone", nullable: true),
+                    date_livraison = table.Column<DateTime>(type: "timestamp with time zone", nullable: true),
                     livree = table.Column<bool>(type: "boolean", nullable: false)
                 },
                 constraints: table =>
@@ -143,7 +144,8 @@ namespace backend_negosud.Migrations
                     mot_de_passe = table.Column<string>(type: "character varying(300)", maxLength: 300, nullable: false),
                     telephone = table.Column<string>(type: "character varying(25)", maxLength: 25, nullable: true),
                     access_token = table.Column<string>(type: "character varying(1000)", maxLength: 1000, nullable: false),
-                    role_id = table.Column<int>(type: "integer", nullable: false)
+                    role_id = table.Column<int>(type: "integer", nullable: false),
+                    deleted_at = table.Column<DateTime>(type: "timestamp with time zone", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -255,7 +257,7 @@ namespace backend_negosud.Migrations
                 {
                     reinitialisation_mdp_id = table.Column<int>(type: "integer", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    date_demande = table.Column<DateTime>(type: "timestamp without time zone", nullable: false),
+                    date_demande = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
                     mot_de_passe = table.Column<string>(type: "character varying(300)", maxLength: 300, nullable: false),
                     reset_token = table.Column<string>(type: "character varying(1000)", maxLength: 1000, nullable: false),
                     utilisateur_id = table.Column<int>(type: "integer", nullable: false),
@@ -351,7 +353,7 @@ namespace backend_negosud.Migrations
                 {
                     utilisateur_id = table.Column<int>(type: "integer", nullable: false),
                     stock_id = table.Column<int>(type: "integer", nullable: false),
-                    date_modification = table.Column<DateTime>(type: "timestamp without time zone", nullable: false),
+                    date_modification = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
                     type_modification = table.Column<string>(type: "character varying(70)", maxLength: 70, nullable: false),
                     quantite_precedente = table.Column<int>(type: "integer", nullable: false),
                     quantite_post_modification = table.Column<int>(type: "integer", nullable: false)
@@ -402,12 +404,13 @@ namespace backend_negosud.Migrations
                 {
                     commande_id = table.Column<int>(type: "integer", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    date_creation = table.Column<DateTime>(type: "timestamp without time zone", nullable: false),
-                    quantite = table.Column<int>(type: "integer", nullable: false),
+                    date_creation = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
+                    date_expiration = table.Column<DateTime>(type: "timestamp with time zone", nullable: true),
+                    DeletedAt = table.Column<DateTime>(type: "timestamp with time zone", nullable: true),
                     valide = table.Column<bool>(type: "boolean", nullable: false),
                     client_id = table.Column<int>(type: "integer", nullable: false),
-                    livraison_id = table.Column<int>(type: "integer", nullable: false),
-                    facture_id = table.Column<int>(type: "integer", nullable: false)
+                    livraison_id = table.Column<int>(type: "integer", nullable: true),
+                    facture_id = table.Column<int>(type: "integer", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -431,7 +434,7 @@ namespace backend_negosud.Migrations
                     facture_id = table.Column<int>(type: "integer", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     reference = table.Column<string>(type: "character varying(100)", maxLength: 100, nullable: false),
-                    date_facturation = table.Column<DateTime>(type: "timestamp without time zone", nullable: false),
+                    date_facturation = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
                     montant_ht = table.Column<double>(type: "double precision", nullable: false),
                     montant_ttc = table.Column<double>(type: "double precision", nullable: false),
                     montant_tva = table.Column<double>(type: "double precision", nullable: false),
@@ -470,12 +473,14 @@ namespace backend_negosud.Migrations
                         name: "ligne_commande_article1_fk",
                         column: x => x.article_id,
                         principalTable: "article",
-                        principalColumn: "article_id");
+                        principalColumn: "article_id",
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "ligne_commande_commande0_fk",
                         column: x => x.commande_id,
                         principalTable: "commande",
-                        principalColumn: "commande_id");
+                        principalColumn: "commande_id",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -486,7 +491,7 @@ namespace backend_negosud.Migrations
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     reference = table.Column<string>(type: "character varying(50)", maxLength: 50, nullable: false),
                     montant = table.Column<double>(type: "double precision", nullable: false),
-                    date = table.Column<DateTime>(type: "timestamp without time zone", nullable: false),
+                    date = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
                     commande_id = table.Column<int>(type: "integer", nullable: false)
                 },
                 constraints: table =>

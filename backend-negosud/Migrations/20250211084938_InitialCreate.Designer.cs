@@ -12,7 +12,7 @@ using backend_negosud.Entities;
 namespace backend_negosud.Migrations
 {
     [DbContext(typeof(PostgresContext))]
-    [Migration("20250117163721_InitialCreate")]
+    [Migration("20250211084938_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -186,6 +186,10 @@ namespace backend_negosud.Migrations
                         .HasColumnType("character varying(1000)")
                         .HasColumnName("acess_token");
 
+                    b.Property<DateTime?>("DeletedAt")
+                        .HasColumnType("timestamp with time zone")
+                        .HasColumnName("deleted_at");
+
                     b.Property<string>("Email")
                         .IsRequired()
                         .HasMaxLength(100)
@@ -240,20 +244,23 @@ namespace backend_negosud.Migrations
                         .HasColumnName("client_id");
 
                     b.Property<DateTime>("DateCreation")
-                        .HasColumnType("timestamp without time zone")
+                        .HasColumnType("timestamp with time zone")
                         .HasColumnName("date_creation");
 
-                    b.Property<int>("FactureId")
+                    b.Property<DateTime?>("DeletedAt")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<DateTime?>("ExpirationDate")
+                        .HasColumnType("timestamp with time zone")
+                        .HasColumnName("date_expiration");
+
+                    b.Property<int?>("FactureId")
                         .HasColumnType("integer")
                         .HasColumnName("facture_id");
 
-                    b.Property<int>("LivraisonId")
+                    b.Property<int?>("LivraisonId")
                         .HasColumnType("integer")
                         .HasColumnName("livraison_id");
-
-                    b.Property<int>("Quantite")
-                        .HasColumnType("integer")
-                        .HasColumnName("quantite");
 
                     b.Property<bool>("Valide")
                         .HasColumnType("boolean")
@@ -290,7 +297,7 @@ namespace backend_negosud.Migrations
                         .HasColumnName("commande_id");
 
                     b.Property<DateTime>("DateFacturation")
-                        .HasColumnType("timestamp without time zone")
+                        .HasColumnType("timestamp with time zone")
                         .HasColumnName("date_facturation");
 
                     b.Property<double>("MontantHt")
@@ -432,7 +439,7 @@ namespace backend_negosud.Migrations
                         .HasColumnName("stock_id");
 
                     b.Property<DateTime>("DateModification")
-                        .HasColumnType("timestamp without time zone")
+                        .HasColumnType("timestamp with time zone")
                         .HasColumnName("date_modification");
 
                     b.Property<int>("QuantitePostModification")
@@ -583,11 +590,11 @@ namespace backend_negosud.Migrations
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("LivraisonId"));
 
                     b.Property<DateTime?>("DateEstimee")
-                        .HasColumnType("timestamp without time zone")
+                        .HasColumnType("timestamp with time zone")
                         .HasColumnName("date_estimee");
 
-                    b.Property<DateTime>("DateLivraison")
-                        .HasColumnType("timestamp without time zone")
+                    b.Property<DateTime?>("DateLivraison")
+                        .HasColumnType("timestamp with time zone")
                         .HasColumnName("date_livraison");
 
                     b.Property<bool>("Livree")
@@ -635,7 +642,7 @@ namespace backend_negosud.Migrations
                         .HasColumnName("commande_id");
 
                     b.Property<DateTime>("Date")
-                        .HasColumnType("timestamp without time zone")
+                        .HasColumnType("timestamp with time zone")
                         .HasColumnName("date");
 
                     b.Property<double>("Montant")
@@ -670,7 +677,7 @@ namespace backend_negosud.Migrations
                         .HasColumnName("client_id");
 
                     b.Property<DateTime>("DateDemande")
-                        .HasColumnType("timestamp without time zone")
+                        .HasColumnType("timestamp with time zone")
                         .HasColumnName("date_demande");
 
                     b.Property<string>("MotDePasse")
@@ -792,6 +799,10 @@ namespace backend_negosud.Migrations
                         .HasMaxLength(1000)
                         .HasColumnType("character varying(1000)")
                         .HasColumnName("access_token");
+
+                    b.Property<DateTime?>("DeletedAt")
+                        .HasColumnType("timestamp with time zone")
+                        .HasColumnName("deleted_at");
 
                     b.Property<string>("Email")
                         .IsRequired()
@@ -915,13 +926,11 @@ namespace backend_negosud.Migrations
                     b.HasOne("backend_negosud.Entities.Facture", "Facture")
                         .WithOne("Commande")
                         .HasForeignKey("backend_negosud.Entities.Commande", "FactureId")
-                        .IsRequired()
                         .HasConstraintName("commande_facture2_fk");
 
                     b.HasOne("backend_negosud.Entities.Livraison", "Livraison")
                         .WithMany("Commandes")
                         .HasForeignKey("LivraisonId")
-                        .IsRequired()
                         .HasConstraintName("commande_livraison1_fk");
 
                     b.Navigation("Client");
@@ -1015,12 +1024,14 @@ namespace backend_negosud.Migrations
                     b.HasOne("backend_negosud.Entities.Article", "Article")
                         .WithMany("LigneCommandes")
                         .HasForeignKey("ArticleId")
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired()
                         .HasConstraintName("ligne_commande_article1_fk");
 
                     b.HasOne("backend_negosud.Entities.Commande", "Commande")
                         .WithMany("LigneCommandes")
                         .HasForeignKey("CommandeId")
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired()
                         .HasConstraintName("ligne_commande_commande0_fk");
 
