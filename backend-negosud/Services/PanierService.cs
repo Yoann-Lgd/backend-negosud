@@ -351,6 +351,75 @@ public class PanierService : IPanierService
         }
     }
 
+   public async Task<IResponseDataModel<string>> DeleteLigneCommande(PanierDeleteLigneInputDto panierDeleteLigneInput)
+    {
+        try
+        {
+            // vérification si le panier existe
+            var panier = await _commandeRepository.GetByIdAndLigneCommandesAsync(panierDeleteLigneInput.CommandId);
+            if (panier == null)
+            {
+                _logger.LogError("Panier introuvable pour l'ID: {PanierId}", panierDeleteLigneInput.CommandId);
+                return new ResponseDataModel<string>
+                {
+                    Success = false,
+                    Message = "Panier introuvable.",
+                    StatusCode = 404
+                };
+            }
+
+            // si le panier est déjà validé
+            if (panier.Valide)
+            {
+                _logger.LogError("Le panier est déjà validé.");
+                return new ResponseDataModel<string>
+                {
+                    Success = false,
+                    Message = "Le panier est déjà validé.",
+                    StatusCode = 400
+                };
+            }
+
+            // on trouve la ligne de commande à supprimer
+            var ligneCommande = panier.LigneCommandes.FirstOrDefault(lc => lc.LigneCommandeId == panierDeleteLigneInput.LigneCommandeId);
+            if (ligneCommande == null)
+            {
+                _logger.LogError("Ligne de commande introuvable pour l'ID: {LigneCommandeId}", panierDeleteLigneInput.LigneCommandeId);
+                return new ResponseDataModel<string>
+                {
+                    Success = false,
+                    Message = "Ligne de commande introuvable.",
+                    StatusCode = 404
+                };
+            }
+
+            // on la supprime
+            panier.LigneCommandes.Remove(ligneCommande);
+
+            // on met à jour les modifications
+            await _commandeRepository.UpdateAsync(panier);
+
+            return new ResponseDataModel<string>
+            {
+                Success = true,
+                Message = "Ligne de commande supprimée avec succès.",
+                StatusCode = 200
+            };
+        }
+        catch (Exception e)
+        {
+            _logger.LogError(e, "Erreur lors de la suppression d'une ligne de commande.");
+            return new ResponseDataModel<string>
+            {
+                Success = false,
+                Message = "Une erreur s'est produite lors de la suppression d'une ligne de commande",
+                StatusCode = 500,
+            };
+        }
+    }
+
+
+
     public async Task<IResponseDataModel<CommandeOutputDto>> BasketToCommand(int id)
     {
         try
