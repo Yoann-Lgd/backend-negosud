@@ -205,6 +205,7 @@ public class JwtService<TEntity, TInputDto, TOutputDto> : IJwtService<TEntity, T
     public async Task<string> GetPublicKey()
     {
         using var rsa = LoadOrCreateRsaKey();
-        return await Task.FromResult(Convert.ToBase64String(rsa.ExportRSAPublicKey()));
+        var publicKey = rsa.ExportSubjectPublicKeyInfo(); // Important : utiliser SubjectPublicKeyInfo
+        return Convert.ToBase64String(publicKey);
     }
 }
