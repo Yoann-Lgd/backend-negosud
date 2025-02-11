@@ -45,7 +45,6 @@
     <ItemGroup>
       <Folder Include="DTOs\Fournisseur\FournisseurInputDto\" />
       <Folder Include="DTOs\Tva\TvaIpuntDto\" />
-      <Folder Include="DTOs\Utilisateur\Output\" />
       <Folder Include="Migrations\" />
     </ItemGroup>
 

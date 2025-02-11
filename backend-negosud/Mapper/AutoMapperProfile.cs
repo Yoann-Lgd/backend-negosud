@@ -29,11 +29,15 @@ namespace backend_negosud.Mapper;
             CreateMap<UtilisateurInputDto, Utilisateur>()
                 .ForMember(dest => dest.AccessToken, opt => opt.MapFrom(src => src.access_token))
                 .ForMember(dest => dest.RoleId, opt => opt.MapFrom(src => src.RoleId))
-                .ForMember(dest => dest.Role, opt => opt.Ignore())
+                .ForMember(dest => dest.Role, opt => opt.MapFrom(src => new Role { Nom = src.Role }))
                 .ForMember(dest => dest.Nom, opt => opt.MapFrom(src => src.Nom))
-                .ForMember(dest => dest.Prenom, opt => opt.MapFrom(src => src.Prenom));
+                .ForMember(dest => dest.Prenom, opt => opt.MapFrom(src => src.Prenom));  
 
-            CreateMap<Utilisateur, UtilisateurInputDto>();
+            CreateMap<Utilisateur, UtilisateurInputDto>()
+                .ForMember(dest => dest.access_token, opt => opt.MapFrom(src => src.AccessToken))
+                .ForMember(dest => dest.RoleId, opt => opt.MapFrom(src => src.RoleId))
+                .ForMember(dest => dest.Role, opt => opt.MapFrom(src => src.Role.Nom)); 
+            
             CreateMap<Utilisateur, UtilisateurEmailInputDto>();
 
             CreateMap<ArticleInputCreateDto, Article>()
@@ -43,7 +47,7 @@ namespace backend_negosud.Mapper;
                 .ForMember(dest => dest.Prix, opt => opt.MapFrom(src => src.Prix))
                 .ForMember(dest => dest.FamilleId, opt => opt.MapFrom(src => src.FamilleId))
                 .ForMember(dest => dest.FournisseurId, opt => opt.MapFrom(src => src.FournisseurId))
-                .ForMember(dest => dest.TvaId, opt => opt.MapFrom(src => src.TvaId)); 
+                .ForMember(dest => dest.TvaId, opt => opt.MapFrom(src => src.TvaId));
             
             CreateMap<ArticleUpdateInputDto, Article>()
                 .ForMember(dest => dest.ArticleId, opt => opt.MapFrom(src => src.ArticleId))

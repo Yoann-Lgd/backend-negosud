@@ -68,40 +68,62 @@ public class JwtService<TEntity, TInputDto, TOutputDto> : IJwtService<TEntity, T
         }
     }
 
-public string GenererToken(TInputDto inputDto)
+    public string GenererToken(TInputDto inputDto)
     {
         try
         {
             var entity = _mapper.Map<TEntity>(inputDto);
 
+            // Générer la clé RSA
             RSA rsa = LoadOrCreateRsaKey();
             var key = new RsaSecurityKey(rsa);
             var credentials = new SigningCredentials(key, SecurityAlgorithms.RsaSha256);
 
-            // Utilisation de réflexion pour obtenir l'ID et l'email
+            // récupération les propriétés de l'entité
             var idProperty = typeof(TEntity).GetProperties()
                 .FirstOrDefault(p => p.Name.EndsWith("Id", StringComparison.OrdinalIgnoreCase));
-            
+
             var emailProperty = typeof(TEntity).GetProperties()
                 .FirstOrDefault(p => p.Name.Equals("Email", StringComparison.OrdinalIgnoreCase));
+
+            var roleProperty = typeof(TEntity).GetProperty("Role");
 
             if (idProperty == null || emailProperty == null)
             {
                 throw new InvalidOperationException("Impossible de trouver les propriétés ID et Email");
             }
 
-            var claims = new[]
+            // vérif et récupération des valeurs
+            var idValue = idProperty.GetValue(entity)?.ToString();
+            var emailValue = emailProperty.GetValue(entity)?.ToString();
+            var roleValue = roleProperty?.GetValue(entity) is Role role ? role.Nom : null;
+
+            if (string.IsNullOrEmpty(idValue) || string.IsNullOrEmpty(emailValue))
             {
-                new Claim(ClaimTypes.NameIdentifier, idProperty.GetValue(entity).ToString()),
-                new Claim(ClaimTypes.Email, emailProperty.GetValue(entity).ToString()),
+                throw new InvalidOperationException("Les valeurs ID ou Email sont nulles.");
+            }
+
+            // création des claims
+            var claims = new List<Claim>
+            {
+                new Claim(ClaimTypes.NameIdentifier, idValue),
+                new Claim(ClaimTypes.Email, emailValue),
                 new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
                 new Claim(JwtRegisteredClaimNames.Iat, DateTimeOffset.UtcNow.ToUnixTimeSeconds().ToString()),
             };
 
+            // ajout du rôle s'il est valide
+            if (!string.IsNullOrEmpty(roleValue))
+            {
+                claims.Add(new Claim(ClaimTypes.Role, roleValue));
+            }
+
+            // déf de la durée d'expiration du token
             var tokenExpiration = DateTime.UtcNow.AddHours(
                 double.Parse(_configuration["Jwt:ExpirationHours"] ?? "6")
             );
 
+            // génération du token JWT
             var token = new JwtSecurityToken(
                 issuer: _configuration["Jwt:Issuer"],
                 audience: _configuration["Jwt:Audience"],
@@ -111,7 +133,10 @@ public string GenererToken(TInputDto inputDto)
                 signingCredentials: credentials
             );
 
-            return new JwtSecurityTokenHandler().WriteToken(token);
+            var tokenString = new JwtSecurityTokenHandler().WriteToken(token);
+            Console.WriteLine($"Generated Token: {tokenString}");
+
+            return tokenString;
         }
         catch (Exception ex)
         {
@@ -126,7 +151,7 @@ public string GenererToken(TInputDto inputDto)
         {
             var tokenHandler = new JwtSecurityTokenHandler();
             var entity = await _context.FindAsync<TEntity>(id);
-            
+
             if (entity == null)
             {
                 return null;
@@ -148,11 +173,17 @@ public string GenererToken(TInputDto inputDto)
             };
 
             var principal = tokenHandler.ValidateToken(token, validationParameters, out var validatedToken);
-            
+
             var nameIdClaim = principal.FindFirst(ClaimTypes.NameIdentifier);
             if (nameIdClaim == null || !int.TryParse(nameIdClaim.Value, out var tokenUserId) || tokenUserId != id)
             {
                 return null;
+            }
+            
+            var roleClaim = principal.FindFirst(ClaimTypes.Role);
+            if (roleClaim != null)
+            {
+                // vérif si nécessaire
             }
 
             // Mettre à jour le token d'accès si nécessaire
@@ -171,4 +202,5 @@ public string GenererToken(TInputDto inputDto)
             return null;
         }
     }
+
 }
