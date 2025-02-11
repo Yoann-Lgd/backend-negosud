@@ -95,7 +95,8 @@ public string GenererToken(TInputDto inputDto)
                 new Claim(ClaimTypes.NameIdentifier, idProperty.GetValue(entity).ToString()),
                 new Claim(ClaimTypes.Email, emailProperty.GetValue(entity).ToString()),
                 new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
-                new Claim(JwtRegisteredClaimNames.Iat, DateTimeOffset.UtcNow.ToUnixTimeSeconds().ToString()),
+                new Claim(JwtRegisteredClaimNames.Iat, DateTimeOffset.UtcNow.ToUnixTimeSeconds().ToString(), ClaimValueTypes.Integer64),
+
             };
 
             var tokenExpiration = DateTime.UtcNow.AddHours(
