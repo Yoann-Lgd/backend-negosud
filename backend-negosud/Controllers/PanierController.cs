@@ -88,7 +88,7 @@ public class PanierController : ControllerBase
         return result.Success ? Ok(result) : BadRequest(result);
     }    
     
-    // DELETE: api/panier/{id}/ligne-de-commande
+    // DELETE: api/panier/ligne-de-commande
     /// <summary>
     /// Endpoint qui sert à supprimmer une ligne de commande en passant dans le body : commandId, clientId et ligneCommandeId
     /// </summary>
