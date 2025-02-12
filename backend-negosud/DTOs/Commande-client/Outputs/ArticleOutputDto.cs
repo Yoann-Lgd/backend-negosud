@@ -1,3 +1,5 @@
+using backend_negosud.DTOs.Famille.Outputs;
+
 namespace backend_negosud.DTOs.Commande_client.Outputs;
 
 public class ArticleOutputDto
@@ -10,7 +12,7 @@ public class ArticleOutputDto
 
     public double Prix { get; set; }
 
-    public int FamilleId { get; set; }
+    public FamilleMinimalOutputDto Famille { get; set; }
 
     public int FournisseurId { get; set; }
 

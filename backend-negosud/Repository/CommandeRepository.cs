@@ -38,6 +38,7 @@ public class CommandeRepository : RepositoryBase<Commande> , ICommandeRepository
             .Where(c => c.ClientId == clientId && !c.Valide)
             .Include(c => c.LigneCommandes)
             .ThenInclude(l => l.Article)
+            .ThenInclude(a => a.Famille) // Inclure la relation Famille ici
             .OrderByDescending(c => c.DateCreation)
             .FirstOrDefaultAsync();
     }

@@ -114,7 +114,8 @@ namespace backend_negosud.Mapper;
                 .ForMember(dest => dest.ArticleId, opt => opt.MapFrom(src => src.ArticleId))
                 .ForMember(dest => dest.Libelle, opt => opt.MapFrom(src => src.Libelle))
                 .ForMember(dest => dest.Prix, opt => opt.MapFrom(src => src.Prix))
-                .ForMember(dest => dest.Reference, opt => opt.MapFrom(src => src.Reference));
+                .ForMember(dest => dest.Reference, opt => opt.MapFrom(src => src.Reference))
+                .ForMember(dest => dest.Famille, opt => opt.MapFrom(src => src.Famille));
 
             CreateMap<Article, ArticleEssentialOutputDto>()
                 .ForMember(dest => dest.ArticleId, opt => opt.MapFrom(src => src.ArticleId))
@@ -136,7 +137,10 @@ namespace backend_negosud.Mapper;
             CreateMap<Livraison, LivraisonOutputDto>();
             CreateMap<FamilleCreateInputDto, Famille>();
             CreateMap<Famille, FamilleOutputDto>();
-            CreateMap<Famille, FamilleMinimalOutputDto>();
+            CreateMap<Famille, FamilleMinimalOutputDto>()
+                .ForMember(dest => dest.FamilleId, opt => opt.MapFrom(src => src.FamilleId))
+                .ForMember(dest => dest.Nom, opt => opt.MapFrom(src => src.Nom));
+            
             CreateMap<Fournisseur, FournisseurOutputCompleteDto>();
 
             CreateMap<RoleDto, Role>()
