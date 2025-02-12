@@ -23,7 +23,7 @@ public class PanierController : ControllerBase
     public async Task<IActionResult> GetBasketClient(int id)
     {
         var result = await _panierService.GetBasketByClientId(id);
-        return result.Success ? Ok(result) : BadRequest(result);
+        return result.StatusCode.Equals(200) ? Ok(result) : BadRequest(result);
     }
     
     // POST: api/panier
