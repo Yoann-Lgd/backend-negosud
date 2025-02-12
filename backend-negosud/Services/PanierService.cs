@@ -279,7 +279,7 @@ public async Task<IResponseDataModel<PanierOutputDto>> CreatePanier(PanierInputD
                 {
                     Success = false,
                     Message = "Aucun panier actif trouvé pour ce client.",
-                    StatusCode = 404,
+                    StatusCode = 200,
                     Data = null
                 };
             }
