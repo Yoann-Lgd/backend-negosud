@@ -15,3 +15,9 @@ public class UtilisateurInputDto
     public required int RoleId { get; set; }
     public string Role { get; set; } 
 }
+
+public class utilisateurSimplifiedDto
+{
+    public string Email { get; set; }
+    public string MotDePasse { get; set; }
+}
