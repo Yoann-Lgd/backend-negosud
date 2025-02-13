@@ -29,7 +29,7 @@ public class UtilisateurController : ControllerBase
     }
 
     [HttpPost("login")]
-    public async Task<IActionResult> Login([FromBody] UtilisateurInputDto utilisateurInputDto)
+    public async Task<IActionResult> Login([FromBody] utilisateurSimplifiedDto utilisateurInputDto)
     {
         var result = await _utilisateurService.Login(utilisateurInputDto.Email, utilisateurInputDto.MotDePasse);
         return result.Success ? Ok(result) : BadRequest(result);
