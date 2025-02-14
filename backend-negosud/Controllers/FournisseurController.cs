@@ -1,3 +1,5 @@
+using backend_negosud.DTOs.Fournisseur.FournisseurInputDto;
+using backend_negosud.DTOs.Fournisseur.FournisseurOutputDto;
 using backend_negosud.Services;
 using Microsoft.AspNetCore.Mvc;
 
@@ -21,6 +23,30 @@ public class FournisseurController : ControllerBase
     public async Task<IActionResult> getAllFournisseur()
     {
         var result = await _fournisseurService.getAll();
+        return result.Success ? Ok(result) : StatusCode(result.StatusCode, result);
+    }
+    
+    // DELETE: api/commande
+    /// <summary>
+    ///  SoftDelete du fournisseur, il faut renseigner l'id du fournisseur. 
+    /// </summary>
+    /// <returns>Retourne l'id du fournisseur qui a été softdelete</returns>
+    [HttpDelete("{id}")]
+    public async Task<IActionResult> SoftDeleteCommande(int id)
+    {
+        var result = await _fournisseurService.softDeleteFournisseurById(id);
+        return result.Success ? Ok(result) : StatusCode(result.StatusCode, result);
+    }
+    
+    // PATCH: api/fournisseur
+    /// <summary>
+    ///  Modification du fournisseur, modification d'un champ ou de plusieurs
+    /// </summary>
+    /// <returns>Retourne l'id du fournisseur qui a été modifié</returns>
+    [HttpPatch]
+    public async Task<IActionResult> PatchFournisseur([FromBody] FournisseurInputMinimal fournisseurInputMinimal)
+    {
+        var result = await _fournisseurService.PatchMinimalFournisseur(fournisseurInputMinimal);
         return result.Success ? Ok(result) : StatusCode(result.StatusCode, result);
     }
 }

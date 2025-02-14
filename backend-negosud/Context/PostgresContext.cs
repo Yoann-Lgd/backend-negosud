@@ -295,6 +295,9 @@ public partial class PostgresContext : DbContext
             entity.Property(e => e.Tel)
                 .HasMaxLength(25)
                 .HasColumnName("tel");
+            entity.Property(e => e.DeletedAt)
+                .HasColumnType("timestamp with time zone")
+                .HasColumnName("deleted_at");
         });
 
         modelBuilder.Entity<Image>(entity =>
