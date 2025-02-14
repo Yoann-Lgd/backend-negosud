@@ -40,6 +40,7 @@ public static class DependencyInjectionExtension
     public static void AddRepositories(this WebApplicationBuilder builder)
     {
         builder.Services.AddScoped<IUtilisateurRepository, UtilisateurRepository>();
+        builder.Services.AddScoped<IFournisseurRepository, FournisseurRepository>();
         builder.Services.AddScoped<IFamilleRepository, FamilleRepository>();
         builder.Services.AddScoped<IRoleRepository, RoleRepository>();
         builder.Services.AddScoped<IStockRepository, StockRepository>();
@@ -55,6 +56,7 @@ public static class DependencyInjectionExtension
     public static void AddServices(this WebApplicationBuilder builder)
     {
         builder.Services.AddScoped<IUtilisateurService, UtilisateurService>();
+        builder.Services.AddScoped<IFournisseurService, FournisseurService>();
         builder.Services.AddScoped<IArticleService, ArticleService>();
         builder.Services.AddScoped<StripeService>();
         builder.Services.AddScoped<IStockService, StockService>();

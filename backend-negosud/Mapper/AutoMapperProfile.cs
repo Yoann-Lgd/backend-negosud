@@ -143,6 +143,18 @@ namespace backend_negosud.Mapper;
             
             CreateMap<Fournisseur, FournisseurOutputCompleteDto>();
 
+            CreateMap<Article, ArticleEssentialOutputDto>();
+            CreateMap<Article, ArticleMinimalOutputDto>();
+
+            CreateMap<Fournisseur, FournisseurOutputCompleteDto>()
+                .ForMember(dest => dest.FournisseurId, opt => opt.MapFrom(src => src.FournisseurId))
+                .ForMember(dest => dest.Nom, opt => opt.MapFrom(src => src.Nom))
+                .ForMember(dest => dest.Email, opt => opt.MapFrom(src => src.Email))
+                .ForMember(dest => dest.RaisonSociale, opt => opt.MapFrom(src => src.RaisonSociale))
+                .ForMember(dest => dest.Tel, opt => opt.MapFrom(src => src.Tel))
+                .ForMember(dest => dest.adresse, opt => opt.Ignore())
+                .ForMember(dest => dest.ArticleMinimalOutputDtos, opt => opt.MapFrom(src => src.Articles));
+
             CreateMap<RoleDto, Role>()
                 .ForMember(dest => dest.RoleId, opt => opt.MapFrom(src => src.RoleId));
 
