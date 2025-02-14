@@ -178,7 +178,7 @@ public async Task<IResponseDataModel<PanierOutputDto>> CreatePanier(PanierInputD
                 }
             }
 
-            panier.ExpirationDate = DateTime.UtcNow.AddDays(7);
+            panier.ExpirationDate = DateTime.UtcNow.AddHours(1);
             await _commandeRepository.UpdateAsync(panier);
 
             // charger les articles associés aux lignes de commande
