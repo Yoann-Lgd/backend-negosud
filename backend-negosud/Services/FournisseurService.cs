@@ -39,79 +39,84 @@ public class FournisseurService : IFournisseurService
         };
     }
     
-     public async Task<IResponseDataModel<string>> PatchMinimalFournisseur(FournisseurInputMinimal fournisseurInputMinimal)
+   public async Task<IResponseDataModel<string>> PatchMinimalFournisseur(int id, FournisseurInputMinimal fournisseurInputMinimal)
+{
+    if (id != null)
     {
-        // instance du validateur
-        var validator = new FournisseurValidation();
-        ValidationResult validationResult = validator.Validate(fournisseurInputMinimal);
-        
-        if (!validationResult.IsValid)
-        {
-            var errors = validationResult.Errors.Select(e => e.ErrorMessage).ToList();
-            _logger.LogWarning("Validation des données d'entrée échouée : {Errors}", string.Join(", ", errors));
-            return new ResponseDataModel<string>
-            {
-                Success = false,
-                StatusCode = 400,
-                Message = string.Join(", ", errors),
-            };
-        }
-
-        try
-        {
-            var fournisseur = await _fournisseurRepository.GetByIdAsync(fournisseurInputMinimal.FournisseurId);
-            if (fournisseur == null)
-            {
-                return new ResponseDataModel<string>
-                {
-                    Success = false,
-                    StatusCode = 404,
-                    Message = "fournisseur non trouvé.",
-                    Data = fournisseur.FournisseurId.ToString(),
-                };
-            }
-
-            // mis à jour uniquement des champs fournis
-            if (!string.IsNullOrEmpty(fournisseurInputMinimal.Email))
-            {
-                fournisseur.Email = fournisseurInputMinimal.Email;
-            }
-
-            if (!string.IsNullOrEmpty(fournisseurInputMinimal.Nom))
-            {
-                fournisseur.Nom = fournisseurInputMinimal.Nom;
-            }
-
-            if (!string.IsNullOrEmpty(fournisseurInputMinimal.Tel))
-            {
-                fournisseur.Tel = fournisseurInputMinimal.Tel;
-            }
-
-            if (!string.IsNullOrEmpty(fournisseurInputMinimal.RaisonSociale))
-            {
-                fournisseur.RaisonSociale = fournisseurInputMinimal.RaisonSociale;
-            }
-
-            await _fournisseurRepository.UpdateAsync(fournisseur);
-
-            return new ResponseDataModel<string>
-            {
-                Success = true,
-                StatusCode = 200,
-                Message = "Le fournisseur a été mis à jour avec succès.",
-            };
-        }
-        catch (Exception e)
-        {
-            _logger.LogError(e, "Une erreur s'est produite lors de la mise à jour du ofurnisseur.");
-            return new ResponseDataModel<string>
-            {
-                Success = false,
-                StatusCode = 500,
-                Message = "Une erreur s'est produite lors de la mise à jour du fournisseur.",
-            };
-        }
+        fournisseurInputMinimal.FournisseurId = id;
     }
+    
+    var validator = new FournisseurValidation();
+    ValidationResult validationResult = validator.Validate(fournisseurInputMinimal);
+
+    if (!validationResult.IsValid)
+    {
+        var errors = validationResult.Errors.Select(e => e.ErrorMessage).ToList();
+        _logger.LogWarning("Validation des données d'entrée échouée : {Errors}", string.Join(", ", errors));
+        return new ResponseDataModel<string>
+        {
+            Success = false,
+            StatusCode = 400,
+            Message = string.Join(", ", errors),
+        };
+    }
+
+    try
+    {
+        var fournisseur = await _fournisseurRepository.GetByIdAsync(id);
+        if (fournisseur == null)
+        {
+            return new ResponseDataModel<string>
+            {
+                Success = false,
+                StatusCode = 404,
+                Message = "Fournisseur non trouvé.",
+            };
+        }
+
+        // mis à jour uniquement des champs fournis
+        if (!string.IsNullOrEmpty(fournisseurInputMinimal.Email))
+        {
+            fournisseur.Email = fournisseurInputMinimal.Email;
+        }
+
+        if (!string.IsNullOrEmpty(fournisseurInputMinimal.Nom))
+        {
+            fournisseur.Nom = fournisseurInputMinimal.Nom;
+        }
+
+        if (!string.IsNullOrEmpty(fournisseurInputMinimal.Tel))
+        {
+            fournisseur.Tel = fournisseurInputMinimal.Tel;
+        }
+
+        if (!string.IsNullOrEmpty(fournisseurInputMinimal.RaisonSociale))
+        {
+            fournisseur.RaisonSociale = fournisseurInputMinimal.RaisonSociale;
+        }
+
+        await _fournisseurRepository.UpdateAsync(fournisseur);
+
+        return new ResponseDataModel<string>
+        {
+            Success = true,
+            StatusCode = 200,
+            Message = "Le fournisseur a été mis à jour avec succès.",
+        };
+    }
+    catch (Exception e)
+    {
+        _logger.LogError(e, "Une erreur s'est produite lors de la mise à jour du fournisseur.");
+        return new ResponseDataModel<string>
+        {
+            Success = false,
+            StatusCode = 500,
+            Message = "Une erreur s'est produite lors de la mise à jour du fournisseur.",
+        };
+    }
+}
+
+
     
     public async Task<IResponseDataModel<string>> softDeleteFournisseurById(int id)
     {
