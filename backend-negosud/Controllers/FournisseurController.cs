@@ -43,10 +43,10 @@ public class FournisseurController : ControllerBase
     ///  Modification du fournisseur, modification d'un champ ou de plusieurs
     /// </summary>
     /// <returns>Retourne l'id du fournisseur qui a été modifié</returns>
-    [HttpPatch]
-    public async Task<IActionResult> PatchFournisseur([FromBody] FournisseurInputMinimal fournisseurInputMinimal)
+    [HttpPatch("{id}")]
+    public async Task<IActionResult> PatchFournisseur(int id,[FromBody] FournisseurInputMinimal fournisseurInputMinimal)
     {
-        var result = await _fournisseurService.PatchMinimalFournisseur(fournisseurInputMinimal);
+        var result = await _fournisseurService.PatchMinimalFournisseur(id, fournisseurInputMinimal);
         return result.Success ? Ok(result) : StatusCode(result.StatusCode, result);
     }
 }
