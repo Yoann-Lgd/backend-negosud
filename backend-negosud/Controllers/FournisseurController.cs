@@ -26,6 +26,18 @@ public class FournisseurController : ControllerBase
         return result.Success ? Ok(result) : StatusCode(result.StatusCode, result);
     }
     
+    
+    /// <summary>
+    /// Crée un nouveau fournisseur
+    /// </summary>
+    /// <returns> Un code 200</returns>
+    [HttpPost]
+    public async Task<IActionResult> CreateFournisseur(FournisseurInputMinimal fournisseurInputMinimal)
+    {
+        var result = await _fournisseurService.CreateFournisseur(fournisseurInputMinimal);
+        return result.Success ? Ok(result) : StatusCode(result.StatusCode, result);
+    }
+    
     // DELETE: api/commande
     /// <summary>
     ///  SoftDelete du fournisseur, il faut renseigner l'id du fournisseur. 

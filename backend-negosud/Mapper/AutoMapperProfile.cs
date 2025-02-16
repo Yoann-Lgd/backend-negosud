@@ -7,6 +7,7 @@ using backend_negosud.DTOs.Commande_client;
 using backend_negosud.DTOs.Commande_client.Outputs;
 using backend_negosud.DTOs.Famille;
 using backend_negosud.DTOs.Famille.Outputs;
+using backend_negosud.DTOs.Fournisseur.FournisseurInputDto;
 using backend_negosud.DTOs.Fournisseur.FournisseurOutputDto;
 using backend_negosud.DTOs.Livraison.Inputs;
 using backend_negosud.DTOs.Livraison.Outputs;
@@ -142,6 +143,8 @@ namespace backend_negosud.Mapper;
                 .ForMember(dest => dest.Nom, opt => opt.MapFrom(src => src.Nom));
             
             CreateMap<Fournisseur, FournisseurOutputCompleteDto>();
+            CreateMap<Fournisseur, FournisseurInputMinimal>();
+            CreateMap<FournisseurInputMinimal, Fournisseur>();
 
             CreateMap<Article, ArticleEssentialOutputDto>();
             CreateMap<Article, ArticleMinimalOutputDto>();

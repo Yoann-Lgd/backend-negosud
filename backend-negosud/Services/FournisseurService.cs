@@ -116,9 +116,47 @@ public class FournisseurService : IFournisseurService
     }
 }
 
-
+public async Task<IResponseDataModel<string>> CreateFournisseur(FournisseurInputMinimal fournisseurInputMinimal)
+{
+    try
+    {
+        var nouveauFournisseur = _mapper.Map<Fournisseur>(fournisseurInputMinimal);
+        var createdFournisseur = await _fournisseurRepository.AddAsync(nouveauFournisseur);
     
-    public async Task<IResponseDataModel<string>> softDeleteFournisseurById(int id)
+        if (createdFournisseur == null)
+        {
+            _logger.LogError("Fournisseur vide");
+            return new ResponseDataModel<string>
+            {
+                Success = false,
+                Message = "Renseignez un fournisseur non vide",
+                StatusCode = 404
+            };
+        }
+    
+        return new ResponseDataModel<string>
+        {
+            Success = true,
+            Message = "Fournisseur créé avec succès",
+            StatusCode = 200
+        };
+    }
+    catch (Exception e)
+    {
+        _logger.LogError(e, "Erreur lors de la création du fournisseur.");
+        return new ResponseDataModel<string>
+        {
+            Success = false,
+            Message = "Une erreur s'est produite lors de la création du fournisseur.",
+            StatusCode = 500,
+            
+        };
+    }
+    
+}
+
+
+public async Task<IResponseDataModel<string>> softDeleteFournisseurById(int id)
     {
         try
         {
@@ -156,6 +194,8 @@ public class FournisseurService : IFournisseurService
             };
         }
     }
+    
+    
     
     
 }
