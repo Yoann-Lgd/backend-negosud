@@ -155,6 +155,43 @@ public async Task<IResponseDataModel<string>> CreateFournisseur(FournisseurInput
     
 }
 
+public async Task<IResponseDataModel<FournisseurOutputCompleteDto>> GetFournisseurById(int id)
+{
+    try
+    {
+        var fournisseur = await _fournisseurRepository.GetByIdAsync(id);
+        if (fournisseur == null)
+        {
+            _logger.LogError("fournisseur introuvable pour l'ID: {fournisseurId}", id);
+            return new ResponseDataModel<FournisseurOutputCompleteDto>
+            {
+                Success = false,
+                Message = "fournisseur introuvable.",
+                StatusCode = 404
+            };
+        }
+        
+
+        return new ResponseDataModel<FournisseurOutputCompleteDto>
+        {
+            Success = true,
+            Message = "fournisseur récupéré",
+            StatusCode = 200,
+            Data = _mapper.Map<FournisseurOutputCompleteDto>(fournisseur)
+        };
+    }
+    catch (Exception e)
+    {
+        _logger.LogError(e, "Erreur lors de la récupération du fournisseur.");
+        return new ResponseDataModel<FournisseurOutputCompleteDto>
+        {
+            Success = false,
+            Message = "Une erreur s'est produite lors de la récupération du fournisseur.",
+            StatusCode = 500
+        };
+    }
+}
+
 
 public async Task<IResponseDataModel<string>> softDeleteFournisseurById(int id)
     {
