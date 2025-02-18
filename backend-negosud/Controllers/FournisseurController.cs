@@ -38,6 +38,17 @@ public class FournisseurController : ControllerBase
         return result.Success ? Ok(result) : StatusCode(result.StatusCode, result);
     }
     
+    /// <summary>
+    /// Obtenir un fournisseur avec son ID
+    /// </summary>
+    /// <returns> Un code 200</returns>
+    [HttpGet("{id}")]
+    public async Task<IActionResult> GetFournisseurById(int id)
+    {
+        var result = await _fournisseurService.GetFournisseurById(id);
+        return result.Success ? Ok(result) : StatusCode(result.StatusCode, result);
+    }
+    
     // DELETE: api/commande
     /// <summary>
     ///  SoftDelete du fournisseur, il faut renseigner l'id du fournisseur. 

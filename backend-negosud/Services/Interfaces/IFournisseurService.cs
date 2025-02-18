@@ -12,4 +12,6 @@ public interface IFournisseurService
     Task<IResponseDataModel<string>> PatchMinimalFournisseur(int id, FournisseurInputMinimal fournisseurInputMinimal);
     Task<IResponseDataModel<string>> CreateFournisseur(FournisseurInputMinimal fournisseurInputMinimal);
 
+    Task<IResponseDataModel<FournisseurOutputCompleteDto>> GetFournisseurById(int id);
+
 }
