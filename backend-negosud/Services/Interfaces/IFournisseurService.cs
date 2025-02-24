@@ -11,4 +11,6 @@ public interface IFournisseurService
     Task<IResponseDataModel<string>> softDeleteFournisseurById(int id);
     Task<IResponseDataModel<string>> PatchMinimalFournisseur(int id, FournisseurInputMinimal fournisseurInputMinimal);
 
+    Task<IResponseDataModel<string>> CreateFournisseur(FournisseurInputMinimal fournisseurInputMinimal);
+
 }

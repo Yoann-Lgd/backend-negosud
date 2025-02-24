@@ -40,81 +40,128 @@ public class FournisseurService : IFournisseurService
     }
     
    public async Task<IResponseDataModel<string>> PatchMinimalFournisseur(int id, FournisseurInputMinimal fournisseurInputMinimal)
-{
-    if (id != null)
     {
-        fournisseurInputMinimal.FournisseurId = id;
-    }
-    
-    var validator = new FournisseurValidation();
-    ValidationResult validationResult = validator.Validate(fournisseurInputMinimal);
-
-    if (!validationResult.IsValid)
-    {
-        var errors = validationResult.Errors.Select(e => e.ErrorMessage).ToList();
-        _logger.LogWarning("Validation des données d'entrée échouée : {Errors}", string.Join(", ", errors));
-        return new ResponseDataModel<string>
+        if (id != null)
         {
-            Success = false,
-            StatusCode = 400,
-            Message = string.Join(", ", errors),
-        };
-    }
+            fournisseurInputMinimal.FournisseurId = id;
+        }
+        
+        var validator = new FournisseurValidation();
+        ValidationResult validationResult = validator.Validate(fournisseurInputMinimal);
 
-    try
-    {
-        var fournisseur = await _fournisseurRepository.GetByIdAsync(id);
-        if (fournisseur == null)
+        if (!validationResult.IsValid)
         {
+            var errors = validationResult.Errors.Select(e => e.ErrorMessage).ToList();
+            _logger.LogWarning("Validation des données d'entrée échouée : {Errors}", string.Join(", ", errors));
             return new ResponseDataModel<string>
             {
                 Success = false,
-                StatusCode = 404,
-                Message = "Fournisseur non trouvé.",
+                StatusCode = 400,
+                Message = string.Join(", ", errors),
             };
         }
 
-        // mis à jour uniquement des champs fournis
-        if (!string.IsNullOrEmpty(fournisseurInputMinimal.Email))
+        try
         {
-            fournisseur.Email = fournisseurInputMinimal.Email;
+            var fournisseur = await _fournisseurRepository.GetByIdAsync(id);
+            if (fournisseur == null)
+            {
+                return new ResponseDataModel<string>
+                {
+                    Success = false,
+                    StatusCode = 404,
+                    Message = "Fournisseur non trouvé.",
+                };
+            }
+
+            // mis à jour uniquement des champs fournis
+            if (!string.IsNullOrEmpty(fournisseurInputMinimal.Email))
+            {
+                fournisseur.Email = fournisseurInputMinimal.Email;
+            }
+
+            if (!string.IsNullOrEmpty(fournisseurInputMinimal.Nom))
+            {
+                fournisseur.Nom = fournisseurInputMinimal.Nom;
+            }
+
+            if (!string.IsNullOrEmpty(fournisseurInputMinimal.Tel))
+            {
+                fournisseur.Tel = fournisseurInputMinimal.Tel;
+            }
+
+            if (!string.IsNullOrEmpty(fournisseurInputMinimal.RaisonSociale))
+            {
+                fournisseur.RaisonSociale = fournisseurInputMinimal.RaisonSociale;
+            }
+
+            await _fournisseurRepository.UpdateAsync(fournisseur);
+
+            return new ResponseDataModel<string>
+            {
+                Success = true,
+                StatusCode = 200,
+                Message = "Le fournisseur a été mis à jour avec succès.",
+            };
         }
-
-        if (!string.IsNullOrEmpty(fournisseurInputMinimal.Nom))
+        catch (Exception e)
         {
-            fournisseur.Nom = fournisseurInputMinimal.Nom;
+            _logger.LogError(e, "Une erreur s'est produite lors de la mise à jour du fournisseur.");
+            return new ResponseDataModel<string>
+            {
+                Success = false,
+                StatusCode = 500,
+                Message = "Une erreur s'est produite lors de la mise à jour du fournisseur.",
+            };
         }
-
-        if (!string.IsNullOrEmpty(fournisseurInputMinimal.Tel))
-        {
-            fournisseur.Tel = fournisseurInputMinimal.Tel;
-        }
-
-        if (!string.IsNullOrEmpty(fournisseurInputMinimal.RaisonSociale))
-        {
-            fournisseur.RaisonSociale = fournisseurInputMinimal.RaisonSociale;
-        }
-
-        await _fournisseurRepository.UpdateAsync(fournisseur);
-
-        return new ResponseDataModel<string>
-        {
-            Success = true,
-            StatusCode = 200,
-            Message = "Le fournisseur a été mis à jour avec succès.",
-        };
     }
-    catch (Exception e)
+
+    public async Task<IResponseDataModel<string>> CreateFournisseur(
+        FournisseurInputMinimal fournisseurInputMinimal)
     {
-        _logger.LogError(e, "Une erreur s'est produite lors de la mise à jour du fournisseur.");
-        return new ResponseDataModel<string>
+        try
         {
-            Success = false,
-            StatusCode = 500,
-            Message = "Une erreur s'est produite lors de la mise à jour du fournisseur.",
-        };
+            var validator = new FournisseurValidation();
+                    ValidationResult validationResult = validator.Validate(fournisseurInputMinimal);
+                    if (!validationResult.IsValid)
+                    {
+                        var errors = validationResult.Errors.Select(e => e.ErrorMessage).ToList();
+                        _logger.LogWarning("Validation des données d'entrée échouée : {Errors}", string.Join(", ", errors));
+                        return new ResponseDataModel<string>
+                        {
+                            Success = false,
+                            StatusCode = 400,
+                            Message = string.Join(", ", errors),
+                        };
+                    }
+
+                    var fournisseur = _mapper.Map<Fournisseur>(fournisseurInputMinimal);
+                    
+                    await _fournisseurRepository.AddAsync(fournisseur);
+                    
+                    _logger.LogInformation("Le fournisseur avec l'ID {FournisseurId} a été créé avec succès.", fournisseur.FournisseurId);
+
+                    return new ResponseDataModel<string>
+                    {
+                        Success = true,
+                        StatusCode = 201,
+                        Message = "Le fournisseur a bien été créé",
+                        Data = fournisseur.FournisseurId.ToString(),
+                    };
+        }
+        catch (Exception e)
+        {
+            _logger.LogError(e, "Un problème est survenu pendant la création de l'article.");
+            return new ResponseDataModel<string>
+            {
+                Success = false,
+                StatusCode = 500,
+                Message = "Un problème est survenu pendant la création de l'article.",
+            };
+        }
+        
+
     }
-}
 
 
     
