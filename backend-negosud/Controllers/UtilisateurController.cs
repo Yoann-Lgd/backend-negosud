@@ -72,5 +72,12 @@ public class UtilisateurController : ControllerBase
         var result = await _utilisateurService.SoftDeleteAsync(id);
         return result.Success ? Ok(result) : StatusCode(result.StatusCode, result);
     }
+    
+    [HttpGet]
+    public async Task<IActionResult> GetAllUtilisateurs()
+    {
+        var result = await _utilisateurService.GetAllUtilisateurs();
+        return result.Success ? Ok(result) : StatusCode(result.StatusCode, result);
+    }
 
 }

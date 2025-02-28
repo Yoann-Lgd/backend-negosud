@@ -18,6 +18,8 @@ public interface IUtilisateurService : IAuthService<Utilisateur, UtilisateurInpu
     Task<BooleanResponseDataModel> UtilisateurExistEmail(UtilisateurEmailInputDto utilisateurEmailInputDto);
 
     Task<IResponseDataModel<UtilisateurOutputDto>> Login(string email, string motDePasse);
+    
+    Task<IResponseDataModel<List<UtilisateurOutputDto>>> GetAllUtilisateurs();
 
     Task<IResponseDataModel<string>> ResetMotDePasse(string email);
     Task<IResponseDataModel<string>> SoftDeleteAsync(int id);

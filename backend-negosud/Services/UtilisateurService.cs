@@ -254,6 +254,19 @@ public class UtilisateurService : IUtilisateurService
             };
         }
     }
+    
+        public async Task<IResponseDataModel<List<UtilisateurOutputDto>>> GetAllUtilisateurs()
+        {
+            var utilisateurs = await _repository.GetAllAsync();
+            var output = _mapper.Map<List<UtilisateurOutputDto>>(utilisateurs);
+        
+            return new ResponseDataModel<List<UtilisateurOutputDto>>
+            {
+                Success = true,
+                StatusCode = 200,
+                Data = output,
+            };
+        }
 
     public async Task<IResponseDataModel<string>> ResetMotDePasse(string email)
     {
