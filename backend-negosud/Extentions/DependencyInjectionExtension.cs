@@ -30,7 +30,7 @@ public static class DependencyInjectionExtension
         builder.Services.AddControllers();
         builder.AddSeeder();
         builder.AddEFCoreConfiguration();
-        builder.CorseConfiguration();
+        builder.CorseConfiguration(); 
         builder.AddSwagger();
         builder.AddStripeConfiguration();
         builder.AddHangfireConfiguration();
