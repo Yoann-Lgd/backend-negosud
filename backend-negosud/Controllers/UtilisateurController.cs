@@ -79,5 +79,18 @@ public class UtilisateurController : ControllerBase
         var result = await _utilisateurService.GetAllUtilisateurs();
         return result.Success ? Ok(result) : StatusCode(result.StatusCode, result);
     }
-
+    
+    [HttpPatch]
+    public async Task<IActionResult> PatchUtilisateurs([FromBody] UtilisateurInputIdDto utilisateurInputDto)
+    {
+        var result = await _utilisateurService.UpdateUtilisateur( utilisateurInputDto);
+        return result.Success ? Ok(result) : StatusCode(result.StatusCode, result);
+    }
+    
+    [HttpGet("{id}")]
+    public async Task<IActionResult> GetUtilisateurById(int id)
+    {
+        var result = await _utilisateurService.GetUtilisateurById(id);
+        return result.Success ? Ok(result) : StatusCode(result.StatusCode, result);
+    }
 }
