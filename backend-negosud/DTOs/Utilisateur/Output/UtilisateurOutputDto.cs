@@ -9,5 +9,7 @@ public class UtilisateurOutputDto
     public string? Telephone { get; set; }
     public int RoleId { get; set; }
     public string? RoleNom { get; set; }
+    
+    public DateTime deleted_at { get; set; }
     /*public ICollection<AdresseDto>? Adresses { get; set; }*/
 }

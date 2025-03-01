@@ -12,12 +12,14 @@ public interface IUtilisateurService : IAuthService<Utilisateur, UtilisateurInpu
 
     Task<Utilisateur> GetUtilisateurByToken(string token);
 
-    Task UpdateUtilisateur(Utilisateur utilisateur);
+    Task<IResponseDataModel<string>> UpdateUtilisateur(UtilisateurInputIdDto utilisateurInputDto);
 
     Task <Utilisateur>GetUtilisateuByEmail(string email);
     Task<BooleanResponseDataModel> UtilisateurExistEmail(UtilisateurEmailInputDto utilisateurEmailInputDto);
 
     Task<IResponseDataModel<UtilisateurOutputDto>> Login(string email, string motDePasse);
+    
+    Task<IResponseDataModel<UtilisateurOutputDto>> GetUtilisateurById(int id);
     
     Task<IResponseDataModel<List<UtilisateurOutputDto>>> GetAllUtilisateurs();
 

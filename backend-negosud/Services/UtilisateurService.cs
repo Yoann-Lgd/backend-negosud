@@ -120,6 +120,63 @@ public class UtilisateurService : IUtilisateurService
             .FirstOrDefaultAsync(u => u.AccessToken.ToString() == token);
     }
 
+    public async Task<IResponseDataModel<string>> UpdateUtilisateur(UtilisateurInputIdDto utilisateurInputDto)
+    {
+        try
+        {
+            var utilisateur = await _repository.GetByIdAsync(utilisateurInputDto.Id);
+            if (utilisateur == null)
+            {
+                return new ResponseDataModel<string>
+                {
+                    Success = false,
+                    StatusCode = 404,
+                    Message = "Utilisateur non trouvé.",
+                };
+            }
+            
+            if (!string.IsNullOrEmpty(utilisateurInputDto.Prenom))
+            {
+                utilisateur.Prenom = utilisateurInputDto.Prenom;
+            }
+
+            if (!string.IsNullOrEmpty(utilisateurInputDto.Nom))
+            {
+                utilisateur.Nom = utilisateurInputDto.Nom;
+            }
+
+            if (utilisateurInputDto.Id > 0)
+            {
+                utilisateur.UtilisateurId = utilisateurInputDto.Id;
+            }
+
+            if (utilisateurInputDto.RoleId != 0)
+            {
+                utilisateur.RoleId = utilisateurInputDto.RoleId;
+            }
+            if (!string.IsNullOrEmpty(utilisateurInputDto.Email))
+            {
+                utilisateur.Email = utilisateurInputDto.Email;
+            }
+
+
+            await _repository.UpdateAsync(utilisateur);
+
+            return new ResponseDataModel<string>
+            {
+                Success = true,
+                StatusCode = 200,
+                Message = "L'article a été mis à jour avec succès.",
+                Data = utilisateur.UtilisateurId.ToString(),
+            };
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            throw;
+        }
+    }
+
     public async Task UpdateUtilisateur(Utilisateur utilisateur)
     {
         
@@ -255,7 +312,19 @@ public class UtilisateurService : IUtilisateurService
         }
     }
     
-        public async Task<IResponseDataModel<List<UtilisateurOutputDto>>> GetAllUtilisateurs()
+        public async Task<IResponseDataModel<UtilisateurOutputDto>> GetUtilisateurById(int id)
+        {
+            var utilisateur = await _repository.GetByIdAsync(id);
+            var utilisateurOutputDto = _mapper.Map<UtilisateurOutputDto>(utilisateur);
+            return new ResponseDataModel<UtilisateurOutputDto>
+            {
+                Success = true,
+                StatusCode = 200,
+                Data = utilisateurOutputDto,
+            };
+        }
+
+    public async Task<IResponseDataModel<List<UtilisateurOutputDto>>> GetAllUtilisateurs()
         {
             var utilisateurs = await _repository.GetAllAsync();
             var output = _mapper.Map<List<UtilisateurOutputDto>>(utilisateurs);

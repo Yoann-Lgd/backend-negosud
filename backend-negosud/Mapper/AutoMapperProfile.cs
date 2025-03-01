@@ -25,7 +25,8 @@ namespace backend_negosud.Mapper;
         {
             CreateMap<Utilisateur, UtilisateurOutputDto>()
                 .ForMember(dest => dest.Id, opt => opt.MapFrom(src => src.UtilisateurId))
-                .ForMember(dest => dest.RoleId, opt => opt.MapFrom(src => src.RoleId));
+                .ForMember(dest => dest.RoleId, opt => opt.MapFrom(src => src.RoleId))
+                .ForMember(dest => dest.deleted_at, opt => opt.MapFrom(src => src.DeletedAt));
 
             CreateMap<UtilisateurInputDto, Utilisateur>()
                 .ForMember(dest => dest.AccessToken, opt => opt.MapFrom(src => src.access_token))
@@ -37,7 +38,11 @@ namespace backend_negosud.Mapper;
             CreateMap<Utilisateur, UtilisateurInputDto>()
                 .ForMember(dest => dest.access_token, opt => opt.MapFrom(src => src.AccessToken))
                 .ForMember(dest => dest.RoleId, opt => opt.MapFrom(src => src.RoleId))
-                .ForMember(dest => dest.Role, opt => opt.MapFrom(src => src.Role.Nom)); 
+                .ForMember(dest => dest.Role, opt => opt.MapFrom(src => src.Role.Nom));
+
+            CreateMap<Utilisateur, UtilisateurInputIdDto>()
+                .ForMember(dest => dest.RoleId, opt => opt.MapFrom(src => src.RoleId));
+                
             
             CreateMap<Utilisateur, UtilisateurEmailInputDto>();
 
