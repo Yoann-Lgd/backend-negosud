@@ -102,7 +102,7 @@ public class StockService : IStockService
                 QuantitePrecedente = ancienneQuantite,
                 QuantitePostModification = nouvelleQuantite,
                 TypeModification = typeModification,
-                DateModification = DateTime.UtcNow.ToLocalTime()
+                DateModification = DateTime.UtcNow
             };
 
             await _inventorierRepository.AddAsync(inventorier);

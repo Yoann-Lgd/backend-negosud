@@ -82,7 +82,7 @@ namespace backend_negosud.Controllers
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        [HttpPut("{id}")]
+        [HttpPut("UpdateStockQuantity/{id}")]
         public async Task<IActionResult> UpdateStockQuntity(int id, [FromBody] StockUpdateDto updateStockDto)
         {
             var validation = new StockValidationUpdate();
@@ -100,9 +100,9 @@ namespace backend_negosud.Controllers
 
             var result = await _stockService.UpdateStockQuantity(
                 id,
-                updateStockDto.Quantite,
-                1, // ID de l'utilisateur système (à adapter)
-                "Mise à jour manuelle"
+                updateStockDto.nouvelleQuantite,
+                updateStockDto.utilisateurId, 
+                updateStockDto.typeModification
             );
 
             if (!result.Success)
