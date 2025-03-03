@@ -43,6 +43,16 @@ public class StockService : IStockService
             };
         }
 
+        var existingStock = await _stockRepository.FirstOrDefaultAsync(s => s.ArticleId == articleId);
+        if (existingStock != null)
+        {
+            return new ResponseDataModel<Stock>
+            {
+                Success = false,
+                Message = "Un stock avec cet article existe déjà"
+            };
+        }
+
         var stock = new Stock
         {
             ArticleId = articleId,
@@ -51,7 +61,7 @@ public class StockService : IStockService
             SeuilMinimum = seuilMinimum,
             ReapprovisionnementAuto = reapprovisionnementAuto
         };
-        
+    
         var stockCreated = await _stockRepository.AddAsync(stock);
 
         return new ResponseDataModel<Stock>
@@ -116,7 +126,7 @@ public class StockService : IStockService
         }
     }
 
-    public async Task<IResponseDataModel<Stock>>  CheckStockLevel(int articleId, int quantiteDemandee)
+    public async Task<IResponseDataModel<Stock>>  CheckStockLevel(int articleId)
     {
         var stock = await _stockRepository.FirstOrDefaultAsync(s => s.ArticleId == articleId);
         if (stock == null)
@@ -128,7 +138,7 @@ public class StockService : IStockService
             };
         }
 
-        if (stock.Quantite < quantiteDemandee)
+        if (stock.Quantite < stock.SeuilMinimum)
         {
             return new ResponseDataModel<Stock>
             {
@@ -175,6 +185,7 @@ public class StockService : IStockService
         };
     }
 
+    // TODO : Automatiser comme le fait de vider le panier automatiquement.
     public async Task<IResponseDataModel<Stock>> CheckAndReapprovisionner()
     {
         var stocksAReapprovisionner = await _context.Stocks

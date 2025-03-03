@@ -143,9 +143,9 @@ namespace backend_negosud.Controllers
 
         // GET: api/stocks/check-level?articleId={articleId}&quantiteDemandee={quantiteDemandee}
         [HttpGet("check-level")]
-        public async Task<ActionResult> CheckStockLevel([FromQuery] int articleId, [FromQuery] int quantiteDemandee)
+        public async Task<ActionResult> CheckStockLevel([FromQuery] int articleId)
         {
-            var result = await _stockService.CheckStockLevel(articleId, quantiteDemandee);
+            var result = await _stockService.CheckStockLevel(articleId);
             if (!result.Success)
             {
                 return BadRequest(result.Message);

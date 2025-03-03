@@ -13,7 +13,7 @@ public interface IStockService
     Task<IResponseDataModel<Stock>> UpdateStockQuantity(int stockId, int nouvelleQuantite, int utilisateurId,
         string typeModification);
 
-    Task<IResponseDataModel<Stock>>  CheckStockLevel(int articleId, int quantiteDemandee);
+    Task<IResponseDataModel<Stock>>  CheckStockLevel(int articleId);
 
     Task<IResponseDataModel<Stock>>  CheckAndReapprovisionner();
     Task<IResponseDataModel<Stock>> GetById(int id);
