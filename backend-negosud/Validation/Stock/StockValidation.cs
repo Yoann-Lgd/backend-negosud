@@ -29,12 +29,8 @@ public class StockValidationUpdate : AbstractValidator<StockUpdateDto>
 {
    public StockValidationUpdate()
    {
-      RuleFor(stock => stock.Quantite)
+      RuleFor(stock => stock.nouvelleQuantite)
          .ExclusiveBetween(0, Int32.MaxValue);
-      RuleFor(stock => stock.RefLot)
-         .NotEmpty()
-         .NotNull();
-      RuleFor(stock => stock.SeuilMinimum)
-         .ExclusiveBetween(0, Int32.MaxValue);
+
    }
 }

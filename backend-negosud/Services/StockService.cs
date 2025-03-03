@@ -94,7 +94,16 @@ public class StockService : IStockService
             stock.Quantite = nouvelleQuantite;
             await _stockRepository.UpdateAsync(stock);
 
-            // Enregistrer l'historique dans la table Inventorier
+            var existingEntry = await _context.Inventoriers
+                .FirstOrDefaultAsync(i => i.UtilisateurId == utilisateurId && i.StockId == stockId);
+
+            if (existingEntry != null)
+            {
+                _context.Inventoriers.Remove(existingEntry);
+                await _context.SaveChangesAsync();
+            }
+
+// Créer une nouvelle entrée
             var inventorier = new Inventorier
             {
                 UtilisateurId = utilisateurId,
@@ -102,7 +111,7 @@ public class StockService : IStockService
                 QuantitePrecedente = ancienneQuantite,
                 QuantitePostModification = nouvelleQuantite,
                 TypeModification = typeModification,
-                DateModification = DateTime.UtcNow.ToLocalTime()
+                DateModification = DateTime.UtcNow
             };
 
             await _inventorierRepository.AddAsync(inventorier);

@@ -7,11 +7,11 @@ public class StockUpdateDto
     
 
 
-    public int Quantite { get; set; }
+    public int stockId { get; set; }
 
-    public string RefLot { get; set; }
+    public int nouvelleQuantite { get; set; }
     
-    public int SeuilMinimum { get; set; }
+    public int utilisateurId { get; set; }
 
-    public bool ReapprovisionnementAuto { get; set; }
+    public string typeModification { get; set; }
 }
