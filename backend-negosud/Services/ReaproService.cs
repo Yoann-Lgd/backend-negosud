@@ -6,9 +6,9 @@ namespace backend_negosud.Services;
 public class ReaproService
 {
     private static IServiceProvider _serviceProvider;
-    private static ILogger<PanierExpirationService> _logger;
+    private static ILogger<ReaproService> _logger;
 
-    public static void Initialize(IServiceProvider serviceProvider, ILogger<PanierExpirationService> logger)
+    public static void Initialize(IServiceProvider serviceProvider, ILogger<ReaproService> logger)
     {
         _serviceProvider = serviceProvider;
         _logger = logger;
