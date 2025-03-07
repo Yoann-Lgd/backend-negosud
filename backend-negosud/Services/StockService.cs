@@ -18,8 +18,9 @@ public class StockService : IStockService
     private readonly IMapper _mapper;
     private readonly ILogger<StockService> _logger;
     private readonly PostgresContext _context;
+    private readonly IServiceProvider _serviceProvider;
 
-    public StockService(IMapper mapper, IStockRepository stockRepository, IArticleRepository articleRepository, IBonCommandeRepository bonCommandeRepository, IInventorierRepository inventorierRepository, PostgresContext context, ILogger<StockService> logger)
+    public StockService(IServiceProvider serviceProvider,IMapper mapper, IStockRepository stockRepository, IArticleRepository articleRepository, IBonCommandeRepository bonCommandeRepository, IInventorierRepository inventorierRepository, PostgresContext context, ILogger<StockService> logger)
     {
         _stockRepository = stockRepository;
         _articleRepository = articleRepository;
@@ -28,6 +29,7 @@ public class StockService : IStockService
         _context = context;
         _mapper = mapper;
         _logger = logger;
+        _serviceProvider = serviceProvider;
     }
     
     public async Task<IResponseDataModel<Stock>> AddArticleToStock(int articleId, int quantite, string refLot,
@@ -191,50 +193,6 @@ public class StockService : IStockService
         {
             Success = true,
             Data = stock.StockId.ToString()
-        };
-    }
-
-    // TODO : Automatiser comme le fait de vider le panier automatiquement.
-    public async Task<IResponseDataModel<Stock>> CheckAndReapprovisionner()
-    {
-        var stocksAReapprovisionner = await _context.Stocks
-            .Where(s => s.Quantite <= s.SeuilMinimum && s.ReapprovisionnementAuto)
-            .ToListAsync();
-
-        foreach (var stock in stocksAReapprovisionner)
-        {
-            // Créer un bon de commande pour le fournisseur
-            var bonCommande = new BonCommande
-            {
-                Reference = $"BC-{DateTime.UtcNow:yyyyMMdd-HHmmss}",
-                Status = "En attente",
-                UtilisateurId = 1, // On image que le user ID 1 gère le stock
-                Prix = 0 // À calculer en fonction des articles commandés
-            };
-
-            _context.BonCommandes.Add(bonCommande);
-            await _context.SaveChangesAsync();
-
-            // Ajouter une ligne de bon de commande
-            var ligneBonCommande = new LigneBonCommande
-            {
-                ArticleId = stock.ArticleId,
-                BonCommandeId = bonCommande.BonCommandeId,
-                Quantite = stock.SeuilMinimum * 2, // On imagine qu'on commande le double du seuil minimum
-                PrixUnitaire = await _context.Articles
-                    .Where(a => a.ArticleId == stock.ArticleId)
-                    .Select(a => a.Prix)
-                    .FirstOrDefaultAsync()
-            };
-
-            _context.LigneBonCommandes.Add(ligneBonCommande);
-            await _context.SaveChangesAsync();
-        }
-
-        return new ResponseDataModel<Stock>
-        {
-            Success = true,
-            Message = "Réapprovisionnement automatique effectué."
         };
     }
 
