@@ -167,7 +167,7 @@ public class StockService : IStockService
 
     public async Task<IResponseDataModel<List<StockSummaryDto>>> GetAllStocks()
     {
-        var stocks = await _stockRepository.GetAllAsync();
+        var stocks = await _stockRepository.GetAllStocksWithArticles();
         var stockDtos = _mapper.Map<List<StockSummaryDto>>(stocks);
         return new ResponseDataModel<List<StockSummaryDto>>
         {

@@ -5,4 +5,5 @@ namespace backend_negosud.Repository;
 public interface IStockRepository : IRepositoryBase<Stock>
 {
     Task<List<Stock>> GetStocksAReapprovisionnerAsync();
+    Task<List<Stock>> GetAllStocksWithArticles();
 }
