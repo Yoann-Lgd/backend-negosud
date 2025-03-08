@@ -172,9 +172,9 @@ namespace backend_negosud.Mapper;
             CreateMap<Stock, StockHistoryDto>();
             CreateMap<Inventorier, StockHistoryDto>();
             CreateMap<Stock, StockDetailDto>()
-                .ForMember(dest => dest.ArticleReference, opt => opt.MapFrom(src => src.ArticleId));
+                .ForMember(dest => dest.ArticleReference, opt => opt.MapFrom(src => src.Article.Libelle));
             CreateMap<Stock, StockSummaryDto>()
-                .ForMember(dest => dest.ArticleReference, opt => opt.MapFrom(src => src.ArticleId));
+                .ForMember(dest => dest.ArticleReference, opt => opt.MapFrom(src => src.Article.Libelle));
             CreateMap<Stock, StockInputDto>();
             CreateMap<Pays, PaysEssentialOutputDto>();
             CreateMap<PaysInputDto, Pays>();

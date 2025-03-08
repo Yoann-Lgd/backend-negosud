@@ -15,7 +15,7 @@ public interface IStockService
 
     Task<IResponseDataModel<Stock>>  CheckStockLevel(int articleId);
 
-    Task<IResponseDataModel<Stock>>  CheckAndReapprovisionner();
+    /*Task<IResponseDataModel<Stock>>  CheckAndReapprovisionner();*/
     Task<IResponseDataModel<Stock>> GetById(int id);
     Task<IResponseDataModel<String>> Delete(Stock stock);
 

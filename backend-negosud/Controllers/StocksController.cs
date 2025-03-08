@@ -154,7 +154,7 @@ namespace backend_negosud.Controllers
             return Ok(result.Message);
         }
 
-        // POST: api/stocks/reapprovisionner
+        /*// POST: api/stocks/reapprovisionner
         [HttpPost("reapprovisionner")]
         public async Task<ActionResult> Reapprovisionner()
         {
@@ -165,6 +165,6 @@ namespace backend_negosud.Controllers
             }
 
             return Ok(result.Message);
-        }
+        }*/
     }
 }

@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace backend_negosud.Extentions;
 
+
 public static class HangFireExtension
 {
     public static void UseHangfire(this WebApplication app)
@@ -18,5 +19,11 @@ public static class HangFireExtension
             "cleanup-expired-baskets",
             () => PanierExpirationService.CleanupExpiredBasketsAsync(),
             "*/30 * * * *"); // exec toutes les 30 minutes
+        
+        // tâche récurrente pour reaprovisionner les stocks auto 
+        recurringJobManager.AddOrUpdate(
+            "reapro-low-stocks",
+            () => ReaproService.CheckAndReapprovisionnerAsync(),
+            "*/05 * * * *", TimeZoneInfo.Local); // exec toutes les 5 minutes
     }
 }

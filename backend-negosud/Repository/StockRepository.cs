@@ -17,4 +17,11 @@ public class StockRepository : RepositoryBase<Stock>, IStockRepository
             .Where(s => s.Quantite <= s.SeuilMinimum && s.ReapprovisionnementAuto)
             .ToListAsync();
     }
+
+    public async Task<List<Stock>> GetAllStocksWithArticles()
+    {
+        return await _context.Stocks
+            .Include(a => a.Article)
+            .ToListAsync();
+    }
 }

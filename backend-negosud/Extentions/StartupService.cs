@@ -5,17 +5,23 @@ namespace backend_negosud.Extentions;
 public class StartupService : IHostedService
 {
     private readonly IServiceProvider _serviceProvider;
-    private readonly ILogger<PanierExpirationService> _logger;
+    private readonly ILogger<PanierExpirationService> _loggerPanier;
+    private readonly ILogger<ReaproService> _loggerStocks;
 
-    public StartupService(IServiceProvider serviceProvider, ILogger<PanierExpirationService> logger)
+    public StartupService(
+        IServiceProvider serviceProvider, 
+        ILogger<PanierExpirationService> loggerPanier,
+        ILogger<ReaproService> loggerStocks)
     {
         _serviceProvider = serviceProvider;
-        _logger = logger;
+        _loggerPanier = loggerPanier;
+        _loggerStocks = loggerStocks;
     }
 
     public Task StartAsync(CancellationToken cancellationToken)
     {
-        PanierExpirationService.Initialize(_serviceProvider, _logger);
+        PanierExpirationService.Initialize(_serviceProvider, _loggerPanier);
+        ReaproService.Initialize(_serviceProvider, _loggerStocks);
         return Task.CompletedTask;
     }
 
