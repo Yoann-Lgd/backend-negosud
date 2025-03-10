@@ -120,11 +120,11 @@ public class UtilisateurService : IUtilisateurService
             .FirstOrDefaultAsync(u => u.AccessToken.ToString() == token);
     }
 
-    public async Task<IResponseDataModel<string>> UpdateUtilisateur(UtilisateurInputIdDto utilisateurInputDto)
+    public async Task<IResponseDataModel<string>> UpdateUtilisateur(int id, UtilisateurInputDtoWithRole utilisateurInputDto)
     {
         try
         {
-            var utilisateur = await _repository.GetByIdAsync(utilisateurInputDto.Id);
+            var utilisateur = await _repository.GetByIdAsync(id);
             if (utilisateur == null)
             {
                 return new ResponseDataModel<string>
@@ -145,14 +145,14 @@ public class UtilisateurService : IUtilisateurService
                 utilisateur.Nom = utilisateurInputDto.Nom;
             }
 
-            if (utilisateurInputDto.Id > 0)
+            if (id > 0)
             {
-                utilisateur.UtilisateurId = utilisateurInputDto.Id;
+                utilisateur.UtilisateurId = id;
             }
 
-            if (utilisateurInputDto.RoleId != 0)
+            if (utilisateur.RoleId != 0)
             {
-                utilisateur.RoleId = utilisateurInputDto.RoleId;
+                utilisateur.RoleId = utilisateurInputDto.roleId;
             }
             if (!string.IsNullOrEmpty(utilisateurInputDto.Email))
             {
