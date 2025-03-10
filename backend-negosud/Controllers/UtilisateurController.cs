@@ -80,10 +80,10 @@ public class UtilisateurController : ControllerBase
         return result.Success ? Ok(result) : StatusCode(result.StatusCode, result);
     }
     
-    [HttpPatch]
-    public async Task<IActionResult> PatchUtilisateurs([FromBody] UtilisateurInputIdDto utilisateurInputDto)
+    [HttpPatch("{id}")]
+    public async Task<IActionResult> PatchUtilisateurs(int id, [FromBody] UtilisateurInputDtoWithRole utilisateurInputDto)
     {
-        var result = await _utilisateurService.UpdateUtilisateur( utilisateurInputDto);
+        var result = await _utilisateurService.UpdateUtilisateur(id, utilisateurInputDto);
         return result.Success ? Ok(result) : StatusCode(result.StatusCode, result);
     }
     

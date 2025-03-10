@@ -10,7 +10,7 @@ public class UtilisateurInputDto
     public string Nom { get; set; }
     
     public string Prenom { get; set; }
-    public required string access_token { get; set; }
+    public string access_token { get; set; }
     
     public required int RoleId { get; set; }
     public string Role { get; set; } 
