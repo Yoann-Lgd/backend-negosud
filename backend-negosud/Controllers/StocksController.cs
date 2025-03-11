@@ -154,6 +154,18 @@ namespace backend_negosud.Controllers
             return Ok(result.Message);
         }
 
+        [HttpPatch("{id}")]
+        public async Task<ActionResult<StockUpdateDto>> UpdateStock(int id, [FromBody] StockInputPatchDto updateStockDto)
+        {
+            var result = await _stockService.PatchStock(id, updateStockDto);
+            if (!result.Success)
+            {
+                return BadRequest(result.Message);
+            }
+
+            return Ok(result.Message);
+        }
+
         /*// POST: api/stocks/reapprovisionner
         [HttpPost("reapprovisionner")]
         public async Task<ActionResult> Reapprovisionner()

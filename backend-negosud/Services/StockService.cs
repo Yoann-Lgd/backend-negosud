@@ -137,6 +137,59 @@ public class StockService : IStockService
         }
     }
 
+    public async Task<IResponseDataModel<Stock>> PatchStock(int stockId, StockInputPatchDto stockInputDto)
+    {
+        try
+        {
+            var stock = await _stockRepository.FirstOrDefaultAsync(s => s.StockId == stockId);
+            if (stock == null)
+            {
+                return new ResponseDataModel<Stock>
+                {
+                    Success = false,
+                    Message = "Stock non trouvé"
+                };
+            }
+
+            if (!string.IsNullOrEmpty(stockInputDto.RefLot))
+            {
+                stock.RefLot = stockInputDto.RefLot;
+            }
+        
+            if (stockInputDto.SeuilMinimum != 0)
+            {
+                stock.SeuilMinimum = stockInputDto.SeuilMinimum;
+            }
+
+            if (stockInputDto.ReapprovisionnementAuto != null)
+            {
+                stock.ReapprovisionnementAuto = stockInputDto.ReapprovisionnementAuto;
+            }
+
+            if (stockInputDto.Quantite != 0)
+            {
+                stock.Quantite = stockInputDto.Quantite;
+            }
+        
+            await _stockRepository.UpdateAsync(stock);
+
+            return new ResponseDataModel<Stock>()
+            {
+                Success = true,
+                StatusCode = 200,
+                Message = "Le stock a été mis à jour avec succès"
+            };
+
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            throw;
+        }
+        
+
+    }
+
     public async Task<IResponseDataModel<Stock>>  CheckStockLevel(int articleId)
     {
         var stock = await _stockRepository.FirstOrDefaultAsync(s => s.ArticleId == articleId);

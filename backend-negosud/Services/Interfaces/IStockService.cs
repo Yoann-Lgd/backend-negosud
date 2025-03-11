@@ -12,6 +12,8 @@ public interface IStockService
 
     Task<IResponseDataModel<Stock>> UpdateStockQuantity(int stockId, int nouvelleQuantite, int utilisateurId,
         string typeModification);
+    
+    Task<IResponseDataModel<Stock>> PatchStock(int stockId, StockInputPatchDto stockInputDto);
 
     Task<IResponseDataModel<Stock>>  CheckStockLevel(int articleId);
 
