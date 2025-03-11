@@ -61,6 +61,7 @@ public static class DependencyInjectionExtension
         builder.Services.AddScoped<StripeService>();
         builder.Services.AddScoped<IStockService, StockService>();
         builder.Services.AddScoped<ICommandeService, CommandeService>();
+        builder.Services.AddScoped<IBonCommandeService, BonCommandeService>();
         builder.Services.AddScoped<IPanierService, PanierService>();        
         builder.Services.AddScoped<IClientService, ClientService>();
         builder.Services.AddScoped<IPaysService, PaysService>();

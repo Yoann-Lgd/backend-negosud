@@ -5,6 +5,7 @@ using backend_negosud.DTOs.Article.ArticleInputDto;
 using backend_negosud.DTOs.Article.ArticleOutputDto;
 using backend_negosud.DTOs.Commande_client;
 using backend_negosud.DTOs.Commande_client.Outputs;
+using backend_negosud.DTOs.Commande_fournisseur.Inputs;
 using backend_negosud.DTOs.Famille;
 using backend_negosud.DTOs.Famille.Outputs;
 using backend_negosud.DTOs.Fournisseur.FournisseurInputDto;
@@ -89,12 +90,20 @@ namespace backend_negosud.Mapper;
                 .ForMember(dest => dest.Article, opt => opt.MapFrom(src => src.Article));
 
             CreateMap<LigneCommandeCreateInputDto, LigneCommande>()
-                .ForMember(dest => dest.LigneCommandeId, opt => opt.Ignore());
+                .ForMember(dest => dest.LigneCommandeId, opt => opt.Ignore());            
+            
 
             CreateMap<CommandeInputDto, Commande>()
                 .ForMember(dest => dest.DateCreation, opt => opt.MapFrom(_ => DateTime.UtcNow))
                 .ForMember(dest => dest.Valide, opt => opt.MapFrom(_ => true))
                 .ForMember(dest => dest.LigneCommandes, opt => opt.MapFrom(src => src.LigneCommandes));
+
+            CreateMap<LigneBonCommandeCreateInputDto, LigneBonCommande>()
+                .ForMember(dest => dest.LigneBonCommandeId, opt => opt.Ignore());
+
+            CreateMap<BonCommandeCreateInputDto, BonCommande>()
+                .ForMember(dest => dest.LigneBonCommandes, opt => opt.MapFrom(src => src.LigneCommandes));
+                
             
             CreateMap<Commande, CommandeOutputDto>()
                 .ForMember(dest => dest.CommandeId, opt => opt.MapFrom(src => src.CommandeId))

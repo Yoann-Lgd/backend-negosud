@@ -14,6 +14,7 @@ public partial class LigneBonCommande
     public int ArticleId { get; set; }
 
     public int BonCommandeId { get; set; }
+    public bool Livree { get; set; }
 
     public virtual Article Article { get; set; } = null!;
 

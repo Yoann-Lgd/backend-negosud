@@ -16,6 +16,7 @@ public partial class Fournisseur : ISoftDelete
 
     public string Tel { get; set; } = null!;
     public DateTime? DeletedAt { get; set; }
+    public virtual ICollection<BonCommande> BonCommandes { get; set; } = new List<BonCommande>();
 
     public virtual ICollection<Adresse> Adresses { get; set; } = new List<Adresse>();
 
