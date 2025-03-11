@@ -133,7 +133,7 @@ public partial class PostgresContext : DbContext
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("article_tva2_fk");
         });
-
+        
         modelBuilder.Entity<BonCommande>(entity =>
         {
             entity.HasKey(e => e.BonCommandeId).HasName("bon_commande_pk");
@@ -151,11 +151,17 @@ public partial class PostgresContext : DbContext
                 .HasMaxLength(50)
                 .HasColumnName("status");
             entity.Property(e => e.UtilisateurId).HasColumnName("utilisateur_id");
+            entity.Property(e => e.FournisseurId).HasColumnName("fournisseur_id");  // Nouvelle propriété
 
             entity.HasOne(d => d.Utilisateur).WithMany(p => p.BonCommandes)
                 .HasForeignKey(d => d.UtilisateurId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("bon_commande_utilisateur0_fk");
+            
+            entity.HasOne(d => d.Fournisseur).WithMany(p => p.BonCommandes)
+                .HasForeignKey(d => d.FournisseurId)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("bon_commande_fournisseur1_fk");
         });
 
         modelBuilder.Entity<Client>(entity =>
@@ -378,6 +384,7 @@ public partial class PostgresContext : DbContext
             entity.Property(e => e.BonCommandeId).HasColumnName("bon_commande_id");
             entity.Property(e => e.PrixUnitaire).HasColumnName("prix_unitaire");
             entity.Property(e => e.Quantite).HasColumnName("quantite");
+            entity.Property(e => e.Livree).HasColumnName("livree");  // Nouvelle propriété
 
             entity.HasOne(d => d.Article).WithMany(p => p.LigneBonCommandes)
                 .HasForeignKey(d => d.ArticleId)

@@ -12,12 +12,8 @@ public class ArticleRepository : RepositoryBase<Article>, IArticleRepository
     
     public ArticleRepository(
         PostgresContext context, 
-        IMapper mapper, 
-
         ILogger<ClientRepository> logger) : base(context)
     {
-        _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
-
         _logger = logger ?? throw new ArgumentNullException(nameof(logger));
     }
     

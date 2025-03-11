@@ -1,4 +1,5 @@
 using backend_negosud.Entities;
+using backend_negosud.Repository;
 using Microsoft.EntityFrameworkCore;
 
 namespace backend_negosud.Services;
@@ -14,57 +15,82 @@ public class ReaproService
         _logger = logger;
     }
     
-    public static async Task CheckAndReapprovisionnerAsync()
+   public static async Task CheckAndReapprovisionnerAsync()
     {
         using (var scope = _serviceProvider.CreateScope())
         {
             var context = scope.ServiceProvider.GetRequiredService<PostgresContext>();
+            var bonCommandeRepository = scope.ServiceProvider.GetRequiredService<IBonCommandeRepository>();
+            var articleRepository = scope.ServiceProvider.GetRequiredService<IArticleRepository>();
 
             try
             {
+                // Récupérer les stocks à réapprovisionner
                 var stocksAReapprovisionner = await context.Stocks
+                    .Include(s => s.Article)
+                    .ThenInclude(a => a.Fournisseur)
                     .Where(s => s.Quantite <= s.SeuilMinimum && s.ReapprovisionnementAuto)
                     .ToListAsync();
 
-                if (stocksAReapprovisionner.Any())
+                if (!stocksAReapprovisionner.Any())
                 {
-                    foreach (var stock in stocksAReapprovisionner)
+                    _logger.LogInformation("Aucun stock à réapprovisionner automatiquement.");
+                    return;
+                }
+
+                // Grouper les stocks par fournisseur
+                var stocksParFournisseur = stocksAReapprovisionner
+                    .GroupBy(s => s.Article.FournisseurId)
+                    .ToDictionary(g => g.Key, g => g.ToList());
+
+                foreach (var kvp in stocksParFournisseur)
+                {
+                    int fournisseurId = kvp.Key;
+                    var stocksDuFournisseur = kvp.Value;
+
+                    // Préparer les lignes de commande
+                    var lignesBonCommande = new List<LigneBonCommande>();
+                    double prixTotal = 0;
+
+                    foreach (var stock in stocksDuFournisseur)
                     {
-                        // Créer un bon de commande pour le fournisseur
-                        var bonCommande = new BonCommande
-                        {
-                            Reference = $"BC-{DateTime.UtcNow:yyyyMMdd-HHmmss}",
-                            Status = "En attente",
-                            UtilisateurId = 1, // On image que le user ID 1 gère le stock
-                            Prix = 0 // À calculer en fonction des articles commandés
-                        };
-
-                        context.BonCommandes.Add(bonCommande);
-                        await context.SaveChangesAsync();
-
-                        // Ajouter une ligne de bon de commande
+                        var article = await articleRepository.GetByIdAsync(stock.ArticleId);
+                        int quantiteACommander = stock.SeuilMinimum * 2; // Double du seuil minimum
+                        double prixUnitaire = article.Prix;
+                        
                         var ligneBonCommande = new LigneBonCommande
                         {
                             ArticleId = stock.ArticleId,
-                            BonCommandeId = bonCommande.BonCommandeId,
-                            Quantite = stock.SeuilMinimum * 2, // On imagine qu'on commande le double du seuil minimum
-                            PrixUnitaire = await context.Articles
-                                .Where(a => a.ArticleId == stock.ArticleId)
-                                .Select(a => a.Prix)
-                                .FirstOrDefaultAsync()
+                            Quantite = quantiteACommander,
+                            PrixUnitaire = prixUnitaire,
+                            Livree = false
                         };
 
-                        context.LigneBonCommandes.Add(ligneBonCommande);
-                        await context.SaveChangesAsync();
+                        lignesBonCommande.Add(ligneBonCommande);
+                        prixTotal += prixUnitaire * quantiteACommander;
                     }
 
-                    _logger.LogInformation("{Count} articles ont été réapprovisionnés automatiquement.",
-                        stocksAReapprovisionner.Count);
+                    // Créer le bon de commande
+                    var bonCommande = new BonCommande
+                    {
+                        Reference = $"BC-AUTO-{DateTime.UtcNow:yyyyMMdd-HHmmss}",
+                        Status = "En attente",
+                        UtilisateurId = 1, // Utilisateur système pour l'automatisation
+                        FournisseurId = fournisseurId,
+                        Prix = prixTotal,
+                        LigneBonCommandes = lignesBonCommande
+                    };
+
+                    // Sauvegarder le bon de commande avec ses lignes
+                    await bonCommandeRepository.AddAsync(bonCommande);
+
+                    _logger.LogInformation(
+                        "Bon de commande automatique créé pour le fournisseur ID {FournisseurId} avec {Count} articles pour un total de {Total}€.",
+                        fournisseurId, lignesBonCommande.Count, prixTotal);
                 }
-                else
-                {
-                    _logger.LogInformation("Aucun stock à réapprovisionner automatiquement.");
-                }
+
+                _logger.LogInformation("{Count} articles ont été réapprovisionnés automatiquement pour {FournisseurCount} fournisseurs.",
+                    stocksAReapprovisionner.Count, stocksParFournisseur.Count);
             }
             catch (Exception ex)
             {

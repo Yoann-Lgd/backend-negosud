@@ -14,8 +14,10 @@ public partial class BonCommande
     public double Prix { get; set; }
 
     public int UtilisateurId { get; set; }
+    public int FournisseurId { get; set; }
 
     public virtual ICollection<LigneBonCommande> LigneBonCommandes { get; set; } = new List<LigneBonCommande>();
 
     public virtual Utilisateur Utilisateur { get; set; } = null!;
+    public virtual Fournisseur Fournisseur { get; set; } = null!;
 }

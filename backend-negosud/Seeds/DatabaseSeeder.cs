@@ -210,8 +210,7 @@ public class DatabaseSeeder
             var bonCommandeFaker = new Faker<BonCommande>()
                 .RuleFor(b => b.Prix, f => f.Random.Double())
                 .RuleFor(b => b.UtilisateurId, f => f.PickRandom(utilisateurs).UtilisateurId)
-                .RuleFor(b => b.Status, f => f.Random.ArrayElement(status))
-                .RuleFor(b => b.Reference, f => f.Commerce.Ean13());
+                .RuleFor(b => b.Status, f => f.Random.ArrayElement(status));
 
             var bonCommandes = bonCommandeFaker.Generate(50);
             _context.BonCommandes.AddRange(bonCommandes);
