@@ -15,7 +15,7 @@ public class ReaproService
         _logger = logger;
     }
     
-   public static async Task CheckAndReapprovisionnerAsync()
+    public static async Task CheckAndReapprovisionnerAsync()
     {
         using (var scope = _serviceProvider.CreateScope())
         {
@@ -25,11 +25,23 @@ public class ReaproService
 
             try
             {
-                // Récupérer les stocks à réapprovisionner
+                //  on récupère tous les articles qui ont déjà une commande en cours (non livrée)
+                var articlesEnCommande = await context.LigneBonCommandes
+                    .Include(l => l.BonCommande) 
+                    .Where(l => !l.Livree && 
+                              (l.BonCommande.Status == "En attente" || 
+                               l.BonCommande.Status == "Validée"))
+                    .Select(l => l.ArticleId)
+                    .Distinct()
+                    .ToListAsync();
+
+                // on récupère les stocks à réapprovisionner, et on exclut ceux qui ont déjà une commande en cours
                 var stocksAReapprovisionner = await context.Stocks
                     .Include(s => s.Article)
                     .ThenInclude(a => a.Fournisseur)
-                    .Where(s => s.Quantite <= s.SeuilMinimum && s.ReapprovisionnementAuto)
+                    .Where(s => s.Quantite <= s.SeuilMinimum && 
+                              s.ReapprovisionnementAuto && 
+                              !articlesEnCommande.Contains(s.ArticleId))
                     .ToListAsync();
 
                 if (!stocksAReapprovisionner.Any())
@@ -38,7 +50,7 @@ public class ReaproService
                     return;
                 }
 
-                // Grouper les stocks par fournisseur
+                // on regroupe les stocks par fournisseur
                 var stocksParFournisseur = stocksAReapprovisionner
                     .GroupBy(s => s.Article.FournisseurId)
                     .ToDictionary(g => g.Key, g => g.ToList());
@@ -70,7 +82,7 @@ public class ReaproService
                         prixTotal += prixUnitaire * quantiteACommander;
                     }
 
-                    // Créer le bon de commande
+                    // création du bon de commande
                     var bonCommande = new BonCommande
                     {
                         Reference = $"BC-AUTO-{DateTime.UtcNow:yyyyMMdd-HHmmss}",

@@ -6,6 +6,7 @@ using backend_negosud.DTOs.Article.ArticleOutputDto;
 using backend_negosud.DTOs.Commande_client;
 using backend_negosud.DTOs.Commande_client.Outputs;
 using backend_negosud.DTOs.Commande_fournisseur.Inputs;
+using backend_negosud.DTOs.Commande_fournisseur.Outputs;
 using backend_negosud.DTOs.Famille;
 using backend_negosud.DTOs.Famille.Outputs;
 using backend_negosud.DTOs.Fournisseur.FournisseurInputDto;
@@ -103,6 +104,14 @@ namespace backend_negosud.Mapper;
 
             CreateMap<BonCommandeCreateInputDto, BonCommande>()
                 .ForMember(dest => dest.LigneBonCommandes, opt => opt.MapFrom(src => src.LigneCommandes));
+
+            CreateMap<BonCommande, BonCommandeOutputDto>()
+                .ForMember(dest => dest.Fournisseur, opt => opt.MapFrom(src => src.Fournisseur))
+                .ForMember(dest => dest.LigneBonCommandes, opt => opt.MapFrom(src => src.LigneBonCommandes));
+            
+            CreateMap<LigneBonCommande, LigneBonCommandeOutputDto>()
+                .ForMember(dest => dest.Article, opt => opt.MapFrom(src => src.Article));
+                
                 
             
             CreateMap<Commande, CommandeOutputDto>()

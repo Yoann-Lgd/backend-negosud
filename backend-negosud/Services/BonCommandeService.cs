@@ -1,5 +1,6 @@
 using AutoMapper;
 using backend_negosud.DTOs.Commande_fournisseur.Inputs;
+using backend_negosud.DTOs.Commande_fournisseur.Outputs;
 using backend_negosud.Entities;
 using backend_negosud.Models;
 using backend_negosud.Repository;
@@ -151,6 +152,75 @@ public class BonCommandeService : IBonCommandeService
                 Success = false,
                 Message = "Une erreur s'est produite lors de la création du bon de commande.",
                 StatusCode = 500
+            };
+        }
+    }
+
+    public async Task<IResponseDataModel<List<BonCommandeOutputDto>>> GetAllBonCommandes()
+    {
+        try
+        {
+            var bonCommandes = await _bonCommandeRepository.GetAllCommandeAsync();
+            
+            var bonCommandeOutputDtos = _mapper.Map<List<BonCommandeOutputDto>>(bonCommandes);
+            
+            return new ResponseDataModel<List<BonCommandeOutputDto>>
+            {
+                Success = true,
+                Message = "Commandes récupérées avec succès.",
+                StatusCode = 200,
+                Data = bonCommandeOutputDtos
+            };
+        }
+        catch (Exception e)
+        {
+            _logger.LogError(e, "Erreur lors de la récupération des commandes");
+
+            return new ResponseDataModel<List<BonCommandeOutputDto>>
+            {
+                Success = false,
+                Message = "Une erreur s'est produite lors de la récupération des commandes.",
+                StatusCode = 500,
+            };
+        }
+    }
+
+    public async Task<IResponseDataModel<BonCommandeOutputDto>> GetBonCommandeById(int id)
+    {
+        try
+        {
+            if (id <= 0)
+            {
+                _logger.LogWarning("Identifiant invalide fourni pour récupérer la commande : {Id}", id);
+                return new ResponseDataModel<BonCommandeOutputDto>
+                {
+                    Success = false,
+                    Message = "Identifiant invalide fourni.",
+                    StatusCode = 400,
+                };
+            }
+            
+            var bonCommande = await _bonCommandeRepository.GetById(id);
+            
+            var bonCommandeOutputDto = _mapper.Map<BonCommandeOutputDto>(bonCommande);
+            
+            return new ResponseDataModel<BonCommandeOutputDto>
+            {
+                Success = true,
+                Message = "Commande récupérée avec succès.",
+                StatusCode = 200,
+                Data = bonCommandeOutputDto
+            };
+        }
+        catch (Exception e)
+        {
+            _logger.LogError(e, "Erreur lors de la récupération des commandes");
+
+            return new ResponseDataModel<BonCommandeOutputDto>
+            {
+                Success = false,
+                Message = "Une erreur s'est produite lors de la récupération des commandes.",
+                StatusCode = 500,
             };
         }
     }

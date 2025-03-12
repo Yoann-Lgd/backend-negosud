@@ -42,7 +42,7 @@ public class ArticleController : ControllerBase
     /// récupère les articles liés au fournisseur récupéré via l'id passé dans l'url
     /// </summary>
     /// <returns>Retourne les articles liés au fournisseur</returns>
-    [HttpGet("/fournisseur/{id}")]
+    [HttpGet("fournisseur/{id}")]
     public async Task<ActionResult> GetArticlesByFournisseur(int id)
     {
         var result = await _articleService.GetArticlesByFournisseur(id);

@@ -17,7 +17,7 @@ public class BonCommandeController : ControllerBase
     }
     
     
-    // POST: api/boncommande
+    // POST: api/BonCommande
     /// <summary>
     /// Création d'un bon de commande. 
     /// </summary>
@@ -29,5 +29,30 @@ public class BonCommandeController : ControllerBase
         var result = await _bonCommandeService.CreateBonCommande(bonCommandeCreateInput);
         return result.Success ? Ok(result) : StatusCode(result.StatusCode, result);
     }
+    
+    // GET: api/BonCommande
+    /// <summary>
+    /// </summary>
+    /// <returns>Retourne toutes les commandes fournisseurs, les lignes de commandes</returns>
+    [HttpGet]
+    [Authorize]
+    public async Task<ActionResult> GetBonCommandes()
+    {
+        var result = await _bonCommandeService.GetAllBonCommandes();
+        return result.Success ? Ok(result) : BadRequest(result);
+    }      
+    
+    
+    // GET: api/BonCommande/id
+    /// <summary>
+    /// </summary>
+    /// <returns>Retourne la commande, les lignes de commandes</returns>
+    [HttpGet("{id}")]
+    [Authorize]
+    public async Task<ActionResult> GetBonCommandeById(int id)
+    {
+        var result = await _bonCommandeService.GetBonCommandeById(id);
+        return result.Success ? Ok(result) : BadRequest(result);
+    }        
 
 }
