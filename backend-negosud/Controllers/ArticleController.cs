@@ -35,6 +35,18 @@ public class ArticleController : ControllerBase
     {
         var result = await _articleService.getAll();
         return result.Success ? Ok(result) : BadRequest(result);
+    }        
+    
+    // GET: api/article/fournisseur/{id}
+    /// <summary>
+    /// récupère les articles liés au fournisseur récupéré via l'id passé dans l'url
+    /// </summary>
+    /// <returns>Retourne les articles liés au fournisseur</returns>
+    [HttpGet("/fournisseur/{id}")]
+    public async Task<ActionResult> GetArticlesByFournisseur(int id)
+    {
+        var result = await _articleService.GetArticlesByFournisseur(id);
+        return result.Success ? Ok(result) : BadRequest(result);
     }    
     
     // POST: api/article

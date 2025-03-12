@@ -70,7 +70,45 @@ public class ArticleService : IArticleService
             };
         }
     }
-    
+
+    public async Task<IResponseDataModel<List<ArticleFournisseurCommandeOutput>>> GetArticlesByFournisseur(int fournisseurId)
+    {
+        try
+        {
+            if (fournisseurId <= 0)
+            {
+                {
+                    _logger.LogWarning("Identifiant invalide fourni pour récupérer la liste d'article de ce fournisseur : {fournisseurId}", fournisseurId);
+                    return new ResponseDataModel<List<ArticleFournisseurCommandeOutput>>
+                    {
+                        Success = false,
+                        Message = "Identifiant du fournisseur invalide fourni.",
+                        StatusCode = 400,
+                    };
+                }
+            }
+            
+            var articles = await _articleRepository.GetArticlesByFournisseurAsync(fournisseurId);
+            var listArticleEssentialOutputDtos = _mapper.Map<List<ArticleFournisseurCommandeOutput>>(articles);
+
+            return new ResponseDataModel<List<ArticleFournisseurCommandeOutput>>()
+            {
+                Success = true,
+                StatusCode = 200,
+                Data = listArticleEssentialOutputDtos
+            };
+        }
+        catch (Exception e)
+        {
+            _logger.LogError(e, "Une erreur s'est produite lors de la récupération des articles liés à ce fournisseur.");
+            return new ResponseDataModel<List<ArticleFournisseurCommandeOutput>>
+            {
+                Success = false,
+                Message = "Une erreur s'est produite lors de la récupération des articles de ce fournisseur",
+                StatusCode = 500,
+            };
+        }
+    }
 
     public async Task<IResponseDataModel<List<ArticleEssentialOutputDto>>> getAll()
     {

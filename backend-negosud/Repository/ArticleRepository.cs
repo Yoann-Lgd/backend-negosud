@@ -35,5 +35,13 @@ public class ArticleRepository : RepositoryBase<Article>, IArticleRepository
             .ToListAsync();
     }
 
+    public async Task<List<Article>> GetArticlesByFournisseurAsync(int fournisseurId)
+    {
+        return await _context.Articles.Where(a => a.FournisseurId == fournisseurId)
+            .Include(a => a.Fournisseur)
+            .Include(a => a.Tva)
+            .ToListAsync();
+    }
+
 
 }

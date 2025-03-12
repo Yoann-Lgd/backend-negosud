@@ -13,5 +13,6 @@ public interface IArticleService
     Task<IResponseDataModel<string>> UpdateArticle(ArticleUpdateInputDto articleInput);
     Task<IResponseDataModel<string>> PatchArticle(int id, ArticleUpdateInputDto articleInput);
     Task<IResponseDataModel<string>> DeleteArticleById(int id);
+    Task<IResponseDataModel<List<ArticleFournisseurCommandeOutput>>> GetArticlesByFournisseur(int fournisseurId);
 
 }
