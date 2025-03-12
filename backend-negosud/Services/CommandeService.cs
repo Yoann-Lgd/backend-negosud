@@ -138,8 +138,7 @@ public class CommandeService : ICommandeService
             {
                 Success = false,
                 Message = "Une erreur s'est produite lors de la récupération des commandes.",
-                StatusCode = 500,
-                Data = new List<CommandeOutputDto>()
+                StatusCode = 500
             };
         }
     }
