@@ -141,7 +141,9 @@ namespace backend_negosud.Mapper;
                 .ForMember(dest => dest.Fournisseur, opt => opt.MapFrom(src => src.Fournisseur))
                 .ForMember(dest => dest.Tva, opt => opt.MapFrom(src => src.Tva));
 
-
+            CreateMap<Article, ArticleFournisseurCommandeOutput>()
+                .ForMember(dest => dest.Fournisseur, opt => opt.MapFrom(src => src.Fournisseur));
+            
             CreateMap<Famille, FamilleOutputDto>()
                 .ForMember(dest => dest.FamilleId, opt => opt.MapFrom(src => src.FamilleId))
                 .ForMember(dest => dest.Nom, opt => opt.MapFrom(src => src.Nom))
@@ -157,6 +159,7 @@ namespace backend_negosud.Mapper;
                 .ForMember(dest => dest.Nom, opt => opt.MapFrom(src => src.Nom));
             
             CreateMap<Fournisseur, FournisseurOutputCompleteDto>();
+            CreateMap<Fournisseur, FournisseurMinimalOutputDto>();
             CreateMap<Fournisseur, FournisseurInputMinimal>();
             CreateMap<FournisseurInputMinimal, Fournisseur>();
 
