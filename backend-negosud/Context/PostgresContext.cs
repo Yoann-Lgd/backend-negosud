@@ -150,8 +150,13 @@ public partial class PostgresContext : DbContext
             entity.Property(e => e.Status)
                 .HasMaxLength(50)
                 .HasColumnName("status");
+            
+            entity.Property(e => e.DateCreation)
+                .IsRequired()
+                .HasColumnType("timestamp with time zone")
+                .HasColumnName("date_creation");  
             entity.Property(e => e.UtilisateurId).HasColumnName("utilisateur_id");
-            entity.Property(e => e.FournisseurId).HasColumnName("fournisseur_id");  // Nouvelle propriété
+            entity.Property(e => e.FournisseurId).HasColumnName("fournisseur_id");
 
             entity.HasOne(d => d.Utilisateur).WithMany(p => p.BonCommandes)
                 .HasForeignKey(d => d.UtilisateurId)

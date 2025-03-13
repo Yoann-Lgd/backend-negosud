@@ -9,4 +9,9 @@ public interface IBonCommandeService
     Task<BooleanResponseDataModel> CreateBonCommande(BonCommandeCreateInputDto bonCommandeInput);
     Task<IResponseDataModel<List<BonCommandeOutputDto>>> GetAllBonCommandes();
     Task<IResponseDataModel<BonCommandeOutputDto>> GetBonCommandeById(int id);
+
+    Task<IResponseDataModel<BonCommandeOutputDto>> UpdateBonCommande(int id,
+        BonCommandeUpdateDto bonCommandeUpdateInput);
+    
+    Task<BooleanResponseDataModel> DeleteLigneCommande(int id);
 }
