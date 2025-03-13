@@ -99,11 +99,16 @@ namespace backend_negosud.Mapper;
                 .ForMember(dest => dest.Valide, opt => opt.MapFrom(_ => true))
                 .ForMember(dest => dest.LigneCommandes, opt => opt.MapFrom(src => src.LigneCommandes));
 
+
             CreateMap<LigneBonCommandeCreateInputDto, LigneBonCommande>()
                 .ForMember(dest => dest.LigneBonCommandeId, opt => opt.Ignore());
-
+            
+            CreateMap<LigneBonCommandeUpdateDto, LigneBonCommande>()
+                .ForMember(dest => dest.LigneBonCommandeId, opt => opt.Ignore());
             CreateMap<BonCommandeCreateInputDto, BonCommande>()
                 .ForMember(dest => dest.LigneBonCommandes, opt => opt.MapFrom(src => src.LigneCommandes));
+            CreateMap<BonCommandeUpdateDto, BonCommande>()
+                        .ForMember(dest => dest.LigneBonCommandes, opt => opt.MapFrom(src => src.LigneCommandes));
 
             CreateMap<BonCommande, BonCommandeOutputDto>()
                 .ForMember(dest => dest.Fournisseur, opt => opt.MapFrom(src => src.Fournisseur))

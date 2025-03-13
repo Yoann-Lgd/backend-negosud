@@ -87,6 +87,7 @@ public class ReaproService
                     {
                         Reference = $"BC-AUTO-{DateTime.UtcNow:yyyyMMdd-HHmmss}",
                         Status = "En attente",
+                        DateCreation = DateTime.UtcNow,
                         UtilisateurId = 1, // Utilisateur système pour l'automatisation
                         FournisseurId = fournisseurId,
                         Prix = prixTotal,

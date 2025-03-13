@@ -14,12 +14,13 @@ public class BonCommandeService : IBonCommandeService
 {
     private readonly IMapper _mapper;
     private readonly IBonCommandeRepository _bonCommandeRepository;
+    private readonly ILigneBonCommandeRepository _ligneBonCommandeRepository;
     private readonly IArticleRepository _articleRepository;
     private readonly IUtilisateurRepository _utilisateurRepository;
     private readonly ILogger<BonCommandeService> _logger;
     private readonly IFournisseurRepository _fournisseurRepository;
-    public BonCommandeService(IMapper mapper, IBonCommandeRepository bonCommandeRepository, IArticleRepository articleRepository, 
-        IUtilisateurRepository utilisateurRepository, ILogger<BonCommandeService> logger, IFournisseurRepository fournisseurRepository)
+    public BonCommandeService(IMapper mapper, IBonCommandeRepository bonCommandeRepository, IArticleRepository articleRepository,
+        ILigneBonCommandeRepository ligneCommandeRepository, IUtilisateurRepository utilisateurRepository, ILogger<BonCommandeService> logger, IFournisseurRepository fournisseurRepository)
     {
         _mapper = mapper;
         _bonCommandeRepository = bonCommandeRepository;
@@ -27,6 +28,7 @@ public class BonCommandeService : IBonCommandeService
         _utilisateurRepository = utilisateurRepository;
         _logger = logger;
         _fournisseurRepository = fournisseurRepository;
+        _ligneBonCommandeRepository = ligneCommandeRepository;
     }
     
     public async Task<BooleanResponseDataModel> CreateBonCommande(BonCommandeCreateInputDto bonCommandeInput)
@@ -125,6 +127,7 @@ public class BonCommandeService : IBonCommandeService
                 FournisseurId = bonCommandeInput.FournisseurID,
                 UtilisateurId = bonCommandeInput.UtilisateurId,
                 Reference = $"BC-{DateTime.UtcNow:yyyyMMdd-HHmmss}",
+                DateCreation = DateTime.UtcNow,
                 Status = "En attente",
                 Prix = bonCommandeInput.Prix <= 0 
                     ? ligneBonCommandes.Sum(l => l.PrixUnitaire * l.Quantite) 
@@ -221,6 +224,196 @@ public class BonCommandeService : IBonCommandeService
                 Success = false,
                 Message = "Une erreur s'est produite lors de la récupération des commandes.",
                 StatusCode = 500,
+            };
+        }
+    }
+
+    public async Task<IResponseDataModel<BonCommandeOutputDto>> UpdateBonCommande(int id, BonCommandeUpdateDto bonCommandeUpdateInput)
+    {
+        try
+        {
+            if (id <= 0)
+            {
+                _logger.LogWarning("Identifiant invalide fourni pour récupérer la commande : {Id}", id);
+                return new ResponseDataModel<BonCommandeOutputDto>
+                {
+                    Success = false,
+                    Message = "Identifiant invalide fourni.",
+                    StatusCode = 400,
+                };
+            }
+            
+            var bonCommande = await _bonCommandeRepository.GetById(id);
+            if (bonCommande == null)
+            {
+                _logger.LogError("Commande fournisseur introuvable pour l'ID: {BonCommandeId}", id);
+                return new ResponseDataModel<BonCommandeOutputDto>
+                {
+                    Success = false,
+                    Message = "Commande fournisseur introuvable.",
+                    StatusCode = 404
+                };
+            }
+            
+            bonCommande.Status = bonCommandeUpdateInput.Status;
+            
+            // Vérifier si la liste des lignes est vide ou null
+            if (bonCommandeUpdateInput.LigneCommandes == null || !bonCommandeUpdateInput.LigneCommandes.Any())
+            {
+                _logger.LogInformation("Aucune ligne de commande spécifiée, conservation des lignes existantes.");
+            }
+            else
+            {
+                // id des lignes présentes dans le DTO d'entrée
+                var updateDtoLigneIds = bonCommandeUpdateInput.LigneCommandes
+                    .Where(l => l.LigneBonCommandeId > 0) // Filtrer pour obtenir seulement les lignes existantes
+                    .Select(l => l.LigneBonCommandeId)
+                    .ToHashSet();
+                    
+                // suppression des lignes qui ne sont plus présentes dans le DTO d'entrée
+                var lignesToRemove = bonCommande.LigneBonCommandes
+                    .Where(l => !updateDtoLigneIds.Contains(l.LigneBonCommandeId))
+                    .ToList();
+                    
+                foreach (var ligne in lignesToRemove)
+                {
+                    _logger.LogInformation("Suppression de la ligne de commande {LigneId} de la commande {CommandeId}", 
+                        ligne.LigneBonCommandeId, id);
+                    bonCommande.LigneBonCommandes.Remove(ligne);
+                }
+                
+                // mise à jour les lignes existantes
+                foreach (var ligneUpdateDto in bonCommandeUpdateInput.LigneCommandes.Where(l => l.LigneBonCommandeId > 0))
+                {
+                    var existingLigne = bonCommande.LigneBonCommandes
+                        .FirstOrDefault(l => l.LigneBonCommandeId == ligneUpdateDto.LigneBonCommandeId);
+                        
+                    if (existingLigne != null)
+                    {
+                        // mise à jour uniquement la quantité et le statut livré
+                        existingLigne.Quantite = ligneUpdateDto.Quantite;
+                        existingLigne.Livree = ligneUpdateDto.Livree;
+                    }
+                    else
+                    {
+                        _logger.LogWarning("Ligne de commande non trouvée : {LigneId} pour la commande {CommandeId}", 
+                            ligneUpdateDto.LigneBonCommandeId, id);
+                    }
+                }
+                
+                // ajout des nouvelles lignes de commande
+                var newLines = bonCommandeUpdateInput.LigneCommandes
+                    .Where(l => l.LigneBonCommandeId <= 0)
+                    .ToList();
+
+                foreach (var newLineDto in newLines)
+                {
+                    // Récupère les informations de l'article pour cette ligne
+                    var article = await _articleRepository.GetByIdAsync(newLineDto.ArticleId);
+                    if (article == null)
+                    {
+                        _logger.LogWarning("Article non trouvé pour l'ID: {ArticleId}", newLineDto.ArticleId);
+                        continue; // Ignorez cette ligne si l'article n'existe pas
+                    }
+                    
+                    // création d'une nouvelle ligne de commande
+                    var newLine = new LigneBonCommande
+                    {
+                        ArticleId = newLineDto.ArticleId,
+                        BonCommandeId = bonCommande.BonCommandeId,
+                        Quantite = newLineDto.Quantite,
+                        PrixUnitaire = article.Prix,
+                        Livree = newLineDto.Livree
+                    };
+                    
+                    // ajout à la collection
+                    bonCommande.LigneBonCommandes.Add(newLine);
+                    _logger.LogInformation("Ajout d'une nouvelle ligne pour l'article {ArticleId} à la commande {CommandeId}", 
+                        newLineDto.ArticleId, id);
+                }
+            }
+            
+            // recalcul du prix total en fonction des nouvelles quantités
+            double nouveauPrix = bonCommande.LigneBonCommandes.Sum(l => l.PrixUnitaire * l.Quantite);
+            bonCommande.Prix = nouveauPrix;
+            
+            await _bonCommandeRepository.UpdateAsync(bonCommande);
+            
+            // rçupère la commande mise à jour avec toutes ses relations
+            var updatedBonCommande = await _bonCommandeRepository.GetById(id);
+            var outputDto = _mapper.Map<BonCommandeOutputDto>(updatedBonCommande);
+            
+            return new ResponseDataModel<BonCommandeOutputDto>
+            {
+                Success = true,
+                Message = "Commande fournisseur mise à jour avec succès.",
+                StatusCode = 200,
+                Data = outputDto
+            };
+        }
+        catch (Exception e)
+        {
+            _logger.LogError(e, "Erreur lors de la mise à jour de la commande fournisseur");
+            
+            return new ResponseDataModel<BonCommandeOutputDto>
+            {
+                Success = false,
+                Message = "Une erreur s'est produite lors de la mise à jour de la commande fournisseur.",
+                StatusCode = 500,
+                Data = null
+            };
+        }
+    }
+    
+    public async Task<BooleanResponseDataModel> DeleteLigneCommande(int id)
+    {
+        try
+        {
+            if (id <= 0)
+            {
+                _logger.LogWarning("Identifiant invalide fourni pour supprimer la ligne de commande : {Id}", id);
+                return new BooleanResponseDataModel
+                {
+                    Success = false,
+                    Message = "Identifiant invalide fourni.",
+                    StatusCode = 400,
+                    Data = false
+                };
+            }
+            
+            var ligneBonCommande = await _ligneBonCommandeRepository.GetByIdAsync(id);
+            if (ligneBonCommande == null)
+            {
+                _logger.LogError("Commande fournisseur introuvable pour l'ID: {BonCommandeId}", id);
+                return new BooleanResponseDataModel()
+                {
+                    Success = false,
+                    Message = "Ligne de la commande fournisseur introuvable.",
+                    StatusCode = 404,
+                    Data = false
+                };
+            }
+            
+            await _ligneBonCommandeRepository.DeleteAsync(ligneBonCommande);
+            
+            return new BooleanResponseDataModel()
+            {
+                Success = true,
+                Message = "Ligne de commande fournisseur supprimée avec succès.",
+                StatusCode = 200,
+                Data = true
+            };
+        }
+        catch (Exception e)
+        {
+            _logger.LogError(e, "Erreur lors de la suppression de la ligne de commande fournisseur");
+            
+            return new BooleanResponseDataModel
+            {
+                Success = false,
+                Message = "Une erreur s'est produite lors de la suppression de la ligne de commande.",
+                StatusCode = 500,
+                Data = false
             };
         }
     }

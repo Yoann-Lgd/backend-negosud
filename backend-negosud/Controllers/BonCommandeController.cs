@@ -55,4 +55,27 @@ public class BonCommandeController : ControllerBase
         return result.Success ? Ok(result) : BadRequest(result);
     }        
 
+    // PUT: api/BonCommande/{id}
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <returns>La commande modifiée.</returns>
+    [HttpPut("update/{id}")]
+    public async Task<IActionResult> UpdateBasket(int id,[FromBody] BonCommandeUpdateDto bonCommandeUpdate)
+    {
+        var result = await _bonCommandeService.UpdateBonCommande(id,bonCommandeUpdate);
+        return result.Success ? Ok(result) : BadRequest(result);
+    }
+    
+    // DELETE: api/BonCommande/ligne-de-commande/{id}
+    /// <summary>
+    /// Endpoint qui sert à supprimmer une ligne de commande en passant dans le body : commandId, clientId et ligneCommandeId
+    /// </summary>
+    /// <returns>l'id de la ligne supprimée</returns>
+    [HttpDelete("delete/ligne-commande/{id}")]
+    public async Task<IActionResult> DeleteLigneDeCommande(int id)
+    {
+        var result = await _bonCommandeService.DeleteLigneCommande(id);
+        return result.Success ? Ok(result) : BadRequest(result);
+    }
 }

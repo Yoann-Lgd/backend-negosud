@@ -6,6 +6,7 @@ namespace backend_negosud.Entities;
 public partial class BonCommande
 {
     public int BonCommandeId { get; set; }
+    public DateTime? DateCreation { get; set; }
 
     public string Status { get; set; } = null!;
 
