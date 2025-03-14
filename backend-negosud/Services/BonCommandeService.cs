@@ -18,11 +18,13 @@ public class BonCommandeService : IBonCommandeService
     private readonly IArticleRepository _articleRepository;
     private readonly IUtilisateurRepository _utilisateurRepository;
     private readonly ILogger<BonCommandeService> _logger;
+    private readonly IStockService _stockService;
     private readonly IFournisseurRepository _fournisseurRepository;
-    public BonCommandeService(IMapper mapper, IBonCommandeRepository bonCommandeRepository, IArticleRepository articleRepository,
+    public BonCommandeService(IMapper mapper, IBonCommandeRepository bonCommandeRepository, IArticleRepository articleRepository, IStockService stockService,
         ILigneBonCommandeRepository ligneCommandeRepository, IUtilisateurRepository utilisateurRepository, ILogger<BonCommandeService> logger, IFournisseurRepository fournisseurRepository)
     {
         _mapper = mapper;
+        _stockService = stockService;
         _bonCommandeRepository = bonCommandeRepository;
         _articleRepository = articleRepository;
         _utilisateurRepository = utilisateurRepository;
@@ -254,10 +256,11 @@ public class BonCommandeService : IBonCommandeService
                     StatusCode = 404
                 };
             }
+            string ancienStatus = bonCommande.Status;
             
             bonCommande.Status = bonCommandeUpdateInput.Status;
             
-            // Vérifier si la liste des lignes est vide ou null
+            // on vérifie si la liste des lignes est vide ou null
             if (bonCommandeUpdateInput.LigneCommandes == null || !bonCommandeUpdateInput.LigneCommandes.Any())
             {
                 _logger.LogInformation("Aucune ligne de commande spécifiée, conservation des lignes existantes.");
@@ -308,7 +311,6 @@ public class BonCommandeService : IBonCommandeService
 
                 foreach (var newLineDto in newLines)
                 {
-                    // Récupère les informations de l'article pour cette ligne
                     var article = await _articleRepository.GetByIdAsync(newLineDto.ArticleId);
                     if (article == null)
                     {
@@ -339,6 +341,19 @@ public class BonCommandeService : IBonCommandeService
             
             await _bonCommandeRepository.UpdateAsync(bonCommande);
             
+            // vérification du statut, s'il est bien à Livrée, quu'il n'était déjà pas à ce statut et que toutes les ligne de commandes ont livree a true
+            if (bonCommande.Status == "Livrée" && bonCommande.LigneBonCommandes.All(l => l.Livree) && ancienStatus != "Livrée")
+            {
+                
+                var reapproResult = await _stockService.ReapprovisionnerStockDepuisBonCommande(id, bonCommandeUpdateInput.UtilisateurId);
+                
+                if (!reapproResult.Success)
+                {
+                    _logger.LogWarning("La mise à jour du bon de commande a réussi mais le réapprovisionnement du stock a échoué: {Message}", 
+                        reapproResult.Message);
+                }
+            }
+                
             // rçupère la commande mise à jour avec toutes ses relations
             var updatedBonCommande = await _bonCommandeRepository.GetById(id);
             var outputDto = _mapper.Map<BonCommandeOutputDto>(updatedBonCommande);

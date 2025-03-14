@@ -273,5 +273,138 @@ public class StockService : IStockService
             Data = history
         };
     }
+    public async Task<IResponseDataModel<string>> ReapprovisionnerStockDepuisBonCommande(int bonCommandeId, int utilisateurId)
+    {
+        try
+        {
+            var bonCommande = await _bonCommandeRepository.GetById(bonCommandeId);
+            if (bonCommande == null)
+            {
+                return new ResponseDataModel<string>
+                {
+                    Success = false,
+                    Message = "Bon de commande non trouvé",
+                    StatusCode = 404
+                };
+            }
 
+            // vérifie si le statut est égal à "Livrée"
+            if (bonCommande.Status != "Livrée")
+            {
+                return new ResponseDataModel<string>
+                {
+                    Success = false,
+                    Message = "Le bon de commande n'est pas au statut 'Livrée'",
+                    StatusCode = 400
+                };
+            }
+
+            // cehck si toutes les lignes sont marquées comme livrées
+            if (bonCommande.LigneBonCommandes.Any(l => !l.Livree))
+            {
+                return new ResponseDataModel<string>
+                {
+                    Success = false,
+                    Message = "Toutes les lignes du bon de commande ne sont pas marquées comme livrées",
+                    StatusCode = 400
+                };
+            }
+
+            // utiliser un système de transaction pour s'assurer que toutes les mises à jour du stock réussissent ensemble
+            using var transaction = await _context.Database.BeginTransactionAsync();
+            
+            try
+            {
+                // mis à jour du stock de l'article pour chaque ligne de commande
+                foreach (var ligne in bonCommande.LigneBonCommandes)
+                {
+                    var stock = await _stockRepository.FirstOrDefaultAsync(s => s.ArticleId == ligne.ArticleId);
+                    
+                    if (stock == null)
+                    {
+                        // si le stock n'existe pas, en créer un nouveau
+                        stock = new Stock
+                        {
+                            ArticleId = ligne.ArticleId,
+                            Quantite = ligne.Quantite,
+                            RefLot = $"BC-{bonCommande.Reference}-{DateTime.UtcNow:yyyyMMdd}",
+                            SeuilMinimum = 5, //valeur par défaut
+                            ReapprovisionnementAuto = true
+                        };
+                        
+                        await _stockRepository.AddAsync(stock);
+                        
+                        
+                        var inventorier = new Inventorier
+                        {
+                            UtilisateurId = utilisateurId,
+                            StockId = stock.StockId,
+                            QuantitePrecedente = 0,
+                            QuantitePostModification = ligne.Quantite,
+                            TypeModification = "Réapprovisionnement après la livraison d'une commande d'un fournisseur",
+                            DateModification = DateTime.UtcNow
+                        };
+                        
+                        await _inventorierRepository.AddAsync(inventorier);
+                    }
+                    else
+                    {
+                        // si le stock existe, mettre à jour la quantité
+                        int ancienneQuantite = stock.Quantite;
+                        stock.Quantite += ligne.Quantite;
+                        
+                        await _stockRepository.UpdateAsync(stock);
+                        
+                        // création d'une entrée d'historique
+                        var inventorier = new Inventorier
+                        {
+                            UtilisateurId = utilisateurId,
+                            StockId = stock.StockId,
+                            QuantitePrecedente = ancienneQuantite,
+                            QuantitePostModification = stock.Quantite,
+                            TypeModification = "Réapprovisionnement après la livraison d'une commande d'un fournisseur",
+                            DateModification = DateTime.UtcNow
+                        };
+                        
+                        await _inventorierRepository.AddAsync(inventorier);
+                    }
+                }
+                
+                // on valide la transaction
+                await transaction.CommitAsync();
+                
+                return new ResponseDataModel<string>
+                {
+                    Success = true,
+                    Message = "Stock réapprovisionné avec succès depuis le bon de commande",
+                    StatusCode = 200,
+                    Data = bonCommande.BonCommandeId.ToString()
+                };
+            }
+            catch (Exception ex)
+            {
+                // roolback si une erreur est survenue
+                await transaction.RollbackAsync();
+                _logger.LogError(ex, "Erreur lors du réapprovisionnement du stock depuis le bon de commande {BonCommandeId}", bonCommandeId);
+                
+                return new ResponseDataModel<string>
+                {
+                    Success = false,
+                    Message = $"Erreur lors du réapprovisionnement du stock : {ex.Message}",
+                    StatusCode = 500
+                };
+            }
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, "Erreur lors du réapprovisionnement du stock depuis le bon de commande {BonCommandeId}", bonCommandeId);
+            
+            return new ResponseDataModel<string>
+            {
+                Success = false,
+                Message = $"Erreur lors du réapprovisionnement du stock : {ex.Message}",
+                StatusCode = 500
+            };
+        }
+    }
 }

@@ -14,6 +14,7 @@ public interface IStockService
         string typeModification);
     
     Task<IResponseDataModel<Stock>> PatchStock(int stockId, StockInputPatchDto stockInputDto);
+    Task<IResponseDataModel<string>> ReapprovisionnerStockDepuisBonCommande(int bonCommandeId, int utilisateurId);
 
     Task<IResponseDataModel<Stock>>  CheckStockLevel(int articleId);
 

@@ -389,7 +389,7 @@ public partial class PostgresContext : DbContext
             entity.Property(e => e.BonCommandeId).HasColumnName("bon_commande_id");
             entity.Property(e => e.PrixUnitaire).HasColumnName("prix_unitaire");
             entity.Property(e => e.Quantite).HasColumnName("quantite");
-            entity.Property(e => e.Livree).HasColumnName("livree");  // Nouvelle propriété
+            entity.Property(e => e.Livree).HasColumnName("livree");
 
             entity.HasOne(d => d.Article).WithMany(p => p.LigneBonCommandes)
                 .HasForeignKey(d => d.ArticleId)
