@@ -1,2 +1,2 @@
 ## MCD Negocud
-<img width="1351" alt="mcd-negocud" src="https://github.com/user-attachments/assets/94822699-c274-4226-ba78-d2c6c16124cf" />
+<img width="1351" alt="mcd-negosud" src="https://github.com/user-attachments/assets/fe3ffa83-d2d2-4ee0-8d1b-e1eab786707f" />
