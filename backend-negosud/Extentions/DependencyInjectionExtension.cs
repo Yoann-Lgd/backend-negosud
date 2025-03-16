@@ -63,6 +63,7 @@ public static class DependencyInjectionExtension
         builder.Services.AddScoped<ICommandeService, CommandeService>();
         builder.Services.AddScoped<IBonCommandeService, BonCommandeService>();
         builder.Services.AddScoped<IPanierService, PanierService>();        
+        builder.Services.AddScoped<IRoleService, RoleService>();        
         builder.Services.AddScoped<IClientService, ClientService>();
         builder.Services.AddScoped<IPaysService, PaysService>();
         builder.Services.AddScoped<IJwtService<Client, ClientInputDto, ClientOutputDto>, JwtService<Client, ClientInputDto, ClientOutputDto>>();
