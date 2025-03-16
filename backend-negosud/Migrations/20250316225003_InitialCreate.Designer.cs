@@ -12,7 +12,7 @@ using backend_negosud.Entities;
 namespace backend_negosud.Migrations
 {
     [DbContext(typeof(PostgresContext))]
-    [Migration("20250316211211_InitialCreate")]
+    [Migration("20250316225003_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -1061,7 +1061,7 @@ namespace backend_negosud.Migrations
                     b.HasOne("backend_negosud.Entities.Commande", "Commande")
                         .WithMany("LigneCommandes")
                         .HasForeignKey("CommandeId")
-                        .OnDelete(DeleteBehavior.Restrict)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired()
                         .HasConstraintName("ligne_commande_commande0_fk");
 
