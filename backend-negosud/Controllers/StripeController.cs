@@ -1,6 +1,5 @@
 using backend_negosud.DTOs.Commande_client;
 using backend_negosud.Services;
-using backend_negosud.Validation;
 using Microsoft.AspNetCore.Mvc;
 using Stripe;
 using Stripe.Checkout;
@@ -11,12 +10,15 @@ namespace backend_negosud.Controllers
     [Route("api/[controller]")]
     public class StripeController : ControllerBase
     {
+        private readonly ICommandeService _commandeService;
         private readonly StripeService _stripeService;
         private readonly ILogger<StripeController> _logger;
         private readonly string _webhookSecret;
 
-        public StripeController(StripeService stripeService, ILogger<StripeController> logger, IConfiguration configuration)
+        public StripeController(StripeService stripeService, ILogger<StripeController> logger,
+            IConfiguration configuration, ICommandeService commandeService)
         {
+            _commandeService = commandeService;
             _stripeService = stripeService;
             _logger = logger;
             _webhookSecret = configuration["Stripe:WebhookSecret"];
@@ -47,14 +49,17 @@ namespace backend_negosud.Controllers
             }
         }
 
-       [HttpPost("webhook")]
+        [HttpPost("webhook")]
         public async Task<IActionResult> StripeWebhook()
         {
+            _logger.LogInformation("Webhook Stripe reçu");
+
             string json;
             try
             {
                 using var reader = new StreamReader(HttpContext.Request.Body);
                 json = await reader.ReadToEndAsync();
+                _logger.LogInformation("Corps du webhook reçu: {Json}", json);
             }
             catch (Exception e)
             {
@@ -64,37 +69,69 @@ namespace backend_negosud.Controllers
 
             try
             {
-                var stripeEvent = EventUtility.ConstructEvent(json, Request.Headers["Stripe-Signature"], _webhookSecret);
+                var stripeEvent = EventUtility.ConstructEvent(
+                    json,
+                    Request.Headers["Stripe-Signature"],
+                    _webhookSecret,
+                    throwOnApiVersionMismatch: false
+                );
 
                 switch (stripeEvent.Type)
                 {
-                    case Events.CheckoutSessionCompleted:
+                    case "checkout.session.completed":
                         var session = stripeEvent.Data.Object as Session;
                         _logger.LogInformation($"✅ Paiement réussi pour la session : {session?.Id}");
 
-                        // TODO: Mettre à jour la commande comme "Payée" et enregistrer le règlement
                         if (session != null)
                         {
-                            var orderId = session.Metadata?["order_id"];
+                            var orderId = session.Metadata?["commande id"];
                             if (orderId != null)
                             {
-                                // TODO : logique pour mettre à jour la commande avec l'ID de commande récupéré depuis les metadata
-                                // var result = await _commandeService.UpdateOrderStatusToPaidAsync(orderId);
-                                // if (result)
-                                // {
-                                //     _logger.LogInformation($"Commande {orderId} mise à jour avec succès comme payée.");
-                                // }
-                                // else
-                                // {
-                                //     _logger.LogError($"Erreur lors de la mise à jour de la commande {orderId}.");
-                                // }
+                                // récupération du montant depuis la session
+                                decimal? stripeAmount = session.AmountTotal;
+
+                                var result = await _commandeService.UpdateOrderStatusToPaidAsync(orderId, stripeAmount);
+                                if (result.Success)
+                                {
+                                    _logger.LogInformation($"commande {orderId} mise à jour avec succès comme payée.");
+                                }
+                                else
+                                {
+                                    _logger.LogError(
+                                        $"Erreur lors de la mise à jour de la commande {orderId}: {result.Message}");
+                                }
                             }
                         }
+
                         break;
 
-                    case Events.PaymentIntentPaymentFailed:
+                    case "payment_intent.succeeded":
                         var paymentIntent = stripeEvent.Data.Object as PaymentIntent;
-                        _logger.LogWarning($"❌ Échec du paiement pour {paymentIntent?.Id}. Raison : {paymentIntent?.LastPaymentError?.Message}");
+                        _logger.LogInformation($"🔍 Paiement réussi pour l'intention : {paymentIntent?.Id}");
+
+                        // rçupération de l'id de la commande à partir des métadonnées du paiement
+                        if (paymentIntent?.Metadata?.TryGetValue("commande id", out string paymentOrderId) == true)
+                        {
+                            decimal? amount = paymentIntent.Amount;
+                            var result = await _commandeService.UpdateOrderStatusToPaidAsync(paymentOrderId, amount);
+                            if (result.Success)
+                            {
+                                _logger.LogInformation(
+                                    $"commande {paymentOrderId} mise à jour avec succès comme payée.");
+                            }
+                            else
+                            {
+                                _logger.LogError(
+                                    $"Erreur lors de la mise à jour de la commande {paymentOrderId}: {result.Message}");
+                            }
+                        }
+
+                        break;
+
+                    case "payment_intent.payment_failed":
+                        var failedPaymentIntent = stripeEvent.Data.Object as PaymentIntent;
+                        _logger.LogWarning(
+                            $"❌ Échec du paiement pour {failedPaymentIntent?.Id}. Raison : {failedPaymentIntent?.LastPaymentError?.Message}");
                         break;
 
                     default:
@@ -110,6 +147,5 @@ namespace backend_negosud.Controllers
                 return BadRequest();
             }
         }
-
     }
 }

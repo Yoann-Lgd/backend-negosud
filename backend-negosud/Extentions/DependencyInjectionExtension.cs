@@ -51,6 +51,8 @@ public static class DependencyInjectionExtension
         builder.Services.AddScoped<ICommandeRepository, CommandeRepository>();
         builder.Services.AddScoped<IArticleRepository, ArticleRepository>();
         builder.Services.AddScoped<IPaysRepository, PaysRepository>();
+        builder.Services.AddScoped<IFactureRepository, FactureRepository>();
+        builder.Services.AddScoped<IReglementRepository, ReglementRepository>();
     }
     
     public static void AddServices(this WebApplicationBuilder builder)

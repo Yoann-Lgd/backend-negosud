@@ -489,7 +489,7 @@ namespace backend_negosud.Migrations
                         column: x => x.commande_id,
                         principalTable: "commande",
                         principalColumn: "commande_id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
