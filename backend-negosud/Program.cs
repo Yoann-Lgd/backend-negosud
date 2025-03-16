@@ -4,6 +4,7 @@ using backend_negosud.Entities;
 using backend_negosud.Extentions;
 using backend_negosud.Seeds;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using Serilog;
@@ -86,6 +87,7 @@ using (var scope = app.Services.CreateScope())
 {
     var services = scope.ServiceProvider;
     var context = services.GetRequiredService<PostgresContext>();
+    context.Database.Migrate();
     var seedData = new DatabaseSeeder(context);
     seedData.SeedDatabase();
 }
@@ -99,7 +101,7 @@ if (app.Environment.IsDevelopment())
 
 app.UseHangfire();
 app.UseRouting();
-app.UseHttpsRedirection();
+// app.UseHttpsRedirection();
 app.UseAuthentication();
 app.UseAuthorization();
 app.MapControllers();
