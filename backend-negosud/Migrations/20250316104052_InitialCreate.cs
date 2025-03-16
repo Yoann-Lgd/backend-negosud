@@ -54,7 +54,8 @@ namespace backend_negosud.Migrations
                     nom = table.Column<string>(type: "character varying(70)", maxLength: 70, nullable: false),
                     raison_sociale = table.Column<string>(type: "character varying(150)", maxLength: 150, nullable: false),
                     email = table.Column<string>(type: "character varying(100)", maxLength: 100, nullable: false),
-                    tel = table.Column<string>(type: "character varying(25)", maxLength: 25, nullable: false)
+                    tel = table.Column<string>(type: "character varying(25)", maxLength: 25, nullable: false),
+                    deleted_at = table.Column<DateTime>(type: "timestamp with time zone", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -236,14 +237,21 @@ namespace backend_negosud.Migrations
                 {
                     bon_commande_id = table.Column<int>(type: "integer", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    date_creation = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
                     status = table.Column<string>(type: "character varying(50)", maxLength: 50, nullable: false),
                     reference = table.Column<string>(type: "character varying(25)", maxLength: 25, nullable: false),
                     prix = table.Column<double>(type: "double precision", precision: 15, scale: 3, nullable: false),
-                    utilisateur_id = table.Column<int>(type: "integer", nullable: false)
+                    utilisateur_id = table.Column<int>(type: "integer", nullable: false),
+                    fournisseur_id = table.Column<int>(type: "integer", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("bon_commande_pk", x => x.bon_commande_id);
+                    table.ForeignKey(
+                        name: "bon_commande_fournisseur1_fk",
+                        column: x => x.fournisseur_id,
+                        principalTable: "fournisseur",
+                        principalColumn: "fournisseur_id");
                     table.ForeignKey(
                         name: "bon_commande_utilisateur0_fk",
                         column: x => x.utilisateur_id,
@@ -330,7 +338,8 @@ namespace backend_negosud.Migrations
                     quantite = table.Column<int>(type: "integer", nullable: false),
                     prix_unitaire = table.Column<double>(type: "double precision", nullable: false),
                     article_id = table.Column<int>(type: "integer", nullable: false),
-                    bon_commande_id = table.Column<int>(type: "integer", nullable: false)
+                    bon_commande_id = table.Column<int>(type: "integer", nullable: false),
+                    livree = table.Column<bool>(type: "boolean", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -540,6 +549,11 @@ namespace backend_negosud.Migrations
                 column: "tva_id");
 
             migrationBuilder.CreateIndex(
+                name: "IX_bon_commande_fournisseur_id",
+                table: "bon_commande",
+                column: "fournisseur_id");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_bon_commande_utilisateur_id",
                 table: "bon_commande",
                 column: "utilisateur_id");
@@ -708,10 +722,10 @@ namespace backend_negosud.Migrations
                 name: "famille");
 
             migrationBuilder.DropTable(
-                name: "fournisseur");
+                name: "tva");
 
             migrationBuilder.DropTable(
-                name: "tva");
+                name: "fournisseur");
 
             migrationBuilder.DropTable(
                 name: "utilisateur");

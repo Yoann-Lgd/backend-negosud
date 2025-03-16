@@ -12,7 +12,7 @@ using backend_negosud.Entities;
 namespace backend_negosud.Migrations
 {
     [DbContext(typeof(PostgresContext))]
-    [Migration("20250211084938_InitialCreate")]
+    [Migration("20250316104052_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -142,6 +142,15 @@ namespace backend_negosud.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("BonCommandeId"));
 
+                    b.Property<DateTime?>("DateCreation")
+                        .IsRequired()
+                        .HasColumnType("timestamp with time zone")
+                        .HasColumnName("date_creation");
+
+                    b.Property<int>("FournisseurId")
+                        .HasColumnType("integer")
+                        .HasColumnName("fournisseur_id");
+
                     b.Property<double>("Prix")
                         .HasPrecision(15, 3)
                         .HasColumnType("double precision")
@@ -165,6 +174,8 @@ namespace backend_negosud.Migrations
 
                     b.HasKey("BonCommandeId")
                         .HasName("bon_commande_pk");
+
+                    b.HasIndex("FournisseurId");
 
                     b.HasIndex("UtilisateurId");
 
@@ -359,6 +370,10 @@ namespace backend_negosud.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("FournisseurId"));
 
+                    b.Property<DateTime?>("DeletedAt")
+                        .HasColumnType("timestamp with time zone")
+                        .HasColumnName("deleted_at");
+
                     b.Property<string>("Email")
                         .IsRequired()
                         .HasMaxLength(100)
@@ -498,6 +513,10 @@ namespace backend_negosud.Migrations
                     b.Property<int>("BonCommandeId")
                         .HasColumnType("integer")
                         .HasColumnName("bon_commande_id");
+
+                    b.Property<bool>("Livree")
+                        .HasColumnType("boolean")
+                        .HasColumnName("livree");
 
                     b.Property<double>("PrixUnitaire")
                         .HasColumnType("double precision")
@@ -906,11 +925,19 @@ namespace backend_negosud.Migrations
 
             modelBuilder.Entity("backend_negosud.Entities.BonCommande", b =>
                 {
+                    b.HasOne("backend_negosud.Entities.Fournisseur", "Fournisseur")
+                        .WithMany("BonCommandes")
+                        .HasForeignKey("FournisseurId")
+                        .IsRequired()
+                        .HasConstraintName("bon_commande_fournisseur1_fk");
+
                     b.HasOne("backend_negosud.Entities.Utilisateur", "Utilisateur")
                         .WithMany("BonCommandes")
                         .HasForeignKey("UtilisateurId")
                         .IsRequired()
                         .HasConstraintName("bon_commande_utilisateur0_fk");
+
+                    b.Navigation("Fournisseur");
 
                     b.Navigation("Utilisateur");
                 });
@@ -1162,6 +1189,8 @@ namespace backend_negosud.Migrations
                     b.Navigation("Adresses");
 
                     b.Navigation("Articles");
+
+                    b.Navigation("BonCommandes");
                 });
 
             modelBuilder.Entity("backend_negosud.Entities.LigneBonCommande", b =>

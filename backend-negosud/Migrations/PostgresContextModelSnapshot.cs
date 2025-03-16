@@ -139,6 +139,11 @@ namespace backend_negosud.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("BonCommandeId"));
 
+                    b.Property<DateTime?>("DateCreation")
+                        .IsRequired()
+                        .HasColumnType("timestamp with time zone")
+                        .HasColumnName("date_creation");
+
                     b.Property<int>("FournisseurId")
                         .HasColumnType("integer")
                         .HasColumnName("fournisseur_id");
