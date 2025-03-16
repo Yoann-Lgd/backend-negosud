@@ -238,12 +238,11 @@ public partial class PostgresContext : DbContext
                 .HasForeignKey(d => d.LivraisonId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("commande_livraison1_fk");
-    
-    
+            
             entity.HasMany(c => c.LigneCommandes)
                 .WithOne(lc => lc.Commande)
                 .HasForeignKey(lc => lc.CommandeId)
-                .OnDelete(DeleteBehavior.Restrict);
+                .OnDelete(DeleteBehavior.Cascade);
         });
 
         modelBuilder.Entity<Facture>(entity =>
@@ -424,7 +423,7 @@ public partial class PostgresContext : DbContext
 
             entity.HasOne(d => d.Commande).WithMany(p => p.LigneCommandes)
                 .HasForeignKey(d => d.CommandeId)
-                .OnDelete(DeleteBehavior.Restrict)
+                .OnDelete(DeleteBehavior.Cascade) 
                 .HasConstraintName("ligne_commande_commande0_fk");
         });
 
