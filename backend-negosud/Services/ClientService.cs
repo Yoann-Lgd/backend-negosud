@@ -65,6 +65,7 @@ public ClientService(IEnvoieEmailService emailService, IClientRepository ClientR
         {
             StatusCode = 200,
             Data = client,
+            Success = true,
         };
     }
 
