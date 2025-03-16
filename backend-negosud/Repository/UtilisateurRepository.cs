@@ -49,15 +49,13 @@ public class UtilisateurRepository : RepositoryBase<Utilisateur>, IUtilisateurRe
                 throw;
             }
         }
+        
 
-        public Task<ResponseDataModel<UtilisateurOutputDto>> GetByIdAsync<TId>(TId id, CancellationToken cancellationToken = default) where TId : notnull
+        public async Task<List<Utilisateur>> GetUtilisateursWithRole()
         {
-            throw new NotImplementedException();
-        }
-
-        public Task<ResponseDataModel<List<UtilisateurOutputDto>>> GetAllAsync(CancellationToken cancellationToken = default)
-        {
-            throw new NotImplementedException();
+            return await _context.Utilisateurs
+                .Include(u => u.Role)
+                .ToListAsync();
         }
 
         public async Task UpdateAsync(Utilisateur entity, CancellationToken cancellationToken = default)

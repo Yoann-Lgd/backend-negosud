@@ -326,7 +326,7 @@ public class UtilisateurService : IUtilisateurService
 
     public async Task<IResponseDataModel<List<UtilisateurOutputDto>>> GetAllUtilisateurs()
         {
-            var utilisateurs = await _repository.GetAllAsync();
+            var utilisateurs = await _repository.GetUtilisateursWithRole();
             var output = _mapper.Map<List<UtilisateurOutputDto>>(utilisateurs);
         
             return new ResponseDataModel<List<UtilisateurOutputDto>>
