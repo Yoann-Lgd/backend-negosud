@@ -213,6 +213,9 @@ public partial class PostgresContext : DbContext
             entity.Property(e => e.DateCreation)
                 .HasColumnType("timestamp with time zone")
                 .HasColumnName("date_creation");                    
+            entity.Property(e => e.DeletedAt)
+                .HasColumnType("timestamp with time zone")
+                .HasColumnName("DeletedAt");
             entity.Property(e => e.ExpirationDate)
                 .HasColumnType("timestamp with time zone")
                 .HasColumnName("date_expiration");
@@ -227,20 +230,20 @@ public partial class PostgresContext : DbContext
 
             entity.HasOne(d => d.Facture).WithOne(p => p.Commande)
                 .HasForeignKey<Commande>(d => d.FactureId)
-                .OnDelete(DeleteBehavior.ClientSetNull)
                 .IsRequired(false)
+                .OnDelete(DeleteBehavior.NoAction)
                 .HasConstraintName("commande_facture2_fk");
 
             entity.HasOne(d => d.Livraison).WithMany(p => p.Commandes)
                 .HasForeignKey(d => d.LivraisonId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("commande_livraison1_fk");
-            
-            
+    
+    
             entity.HasMany(c => c.LigneCommandes)
                 .WithOne(lc => lc.Commande)
                 .HasForeignKey(lc => lc.CommandeId)
-                .OnDelete(DeleteBehavior.Cascade);
+                .OnDelete(DeleteBehavior.Restrict);
         });
 
         modelBuilder.Entity<Facture>(entity =>
@@ -271,7 +274,7 @@ public partial class PostgresContext : DbContext
 
             entity.HasOne(d => d.CommandeNavigation).WithOne(p => p.FactureNavigation)
                 .HasForeignKey<Facture>(d => d.CommandeId)
-                .OnDelete(DeleteBehavior.ClientSetNull)
+                .OnDelete(DeleteBehavior.NoAction)
                 .HasConstraintName("facture_commande1_fk");
         });
 
@@ -421,7 +424,7 @@ public partial class PostgresContext : DbContext
 
             entity.HasOne(d => d.Commande).WithMany(p => p.LigneCommandes)
                 .HasForeignKey(d => d.CommandeId)
-                .OnDelete(DeleteBehavior.Cascade) 
+                .OnDelete(DeleteBehavior.Restrict)
                 .HasConstraintName("ligne_commande_commande0_fk");
         });
 

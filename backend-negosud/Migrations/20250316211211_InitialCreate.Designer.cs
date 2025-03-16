@@ -12,7 +12,7 @@ using backend_negosud.Entities;
 namespace backend_negosud.Migrations
 {
     [DbContext(typeof(PostgresContext))]
-    [Migration("20250316104052_InitialCreate")]
+    [Migration("20250316211211_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -259,7 +259,8 @@ namespace backend_negosud.Migrations
                         .HasColumnName("date_creation");
 
                     b.Property<DateTime?>("DeletedAt")
-                        .HasColumnType("timestamp with time zone");
+                        .HasColumnType("timestamp with time zone")
+                        .HasColumnName("DeletedAt");
 
                     b.Property<DateTime?>("ExpirationDate")
                         .HasColumnType("timestamp with time zone")
@@ -953,6 +954,7 @@ namespace backend_negosud.Migrations
                     b.HasOne("backend_negosud.Entities.Facture", "Facture")
                         .WithOne("Commande")
                         .HasForeignKey("backend_negosud.Entities.Commande", "FactureId")
+                        .OnDelete(DeleteBehavior.NoAction)
                         .HasConstraintName("commande_facture2_fk");
 
                     b.HasOne("backend_negosud.Entities.Livraison", "Livraison")
@@ -978,6 +980,7 @@ namespace backend_negosud.Migrations
                     b.HasOne("backend_negosud.Entities.Commande", "CommandeNavigation")
                         .WithOne("FactureNavigation")
                         .HasForeignKey("backend_negosud.Entities.Facture", "CommandeId")
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired()
                         .HasConstraintName("facture_commande1_fk");
 
@@ -1058,7 +1061,7 @@ namespace backend_negosud.Migrations
                     b.HasOne("backend_negosud.Entities.Commande", "Commande")
                         .WithMany("LigneCommandes")
                         .HasForeignKey("CommandeId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired()
                         .HasConstraintName("ligne_commande_commande0_fk");
 

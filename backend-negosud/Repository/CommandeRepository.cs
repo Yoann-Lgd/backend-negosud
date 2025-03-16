@@ -1,6 +1,7 @@
 using AutoMapper;
 using backend_negosud.Entities;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Storage;
 
 namespace backend_negosud.Repository;
 
@@ -42,6 +43,40 @@ public class CommandeRepository : RepositoryBase<Commande> , ICommandeRepository
             .OrderByDescending(c => c.DateCreation)
             .FirstOrDefaultAsync();
     }
+    
+    public async Task UpdateCommandeFieldsAsync(Commande commande)
+    {
+        try
+        {
+            var existingEntity = await _context.Commandes
+                .AsNoTracking()
+                .FirstOrDefaultAsync(c => c.CommandeId == commande.CommandeId);
 
+            if (existingEntity == null)
+            {
+                throw new Exception($"Commande avec ID {commande.CommandeId} non trouvée.");
+            }
+            
+            var sql = @"
+            UPDATE commande 
+            SET valide = @Valide, facture_id = @FactureId
+            WHERE commande_id = @CommandeId";
+            
+            await _context.Database.ExecuteSqlRawAsync(sql,
+                new Npgsql.NpgsqlParameter("@Valide", commande.Valide),
+                new Npgsql.NpgsqlParameter("@FactureId", commande.FactureId),
+                new Npgsql.NpgsqlParameter("@CommandeId", commande.CommandeId));
+        }
+        catch (Exception ex)
+        {
+            throw new Exception($"Erreur lors de la mise à jour des champs de la commande : {ex.Message}", ex);
+        }
+    }
+    
+    public async Task<IDbContextTransaction> BeginTransactionAsync()
+    {
+        return await _context.Database.BeginTransactionAsync();
+    }
+    
     
 }

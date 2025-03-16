@@ -81,19 +81,7 @@ public class DatabaseSeeder
             var pays = paysFaker.Generate(50);
             _context.Pays.AddRange(pays);
             _context.SaveChanges();
-
-            // table : Adresse
-            var adresseFaker = new Faker<Adresse>("fr")
-                .RuleFor(a => a.Numero, f => int.Parse(f.Address.BuildingNumber()))
-                .RuleFor(a => a.Ville, f => f.Address.City().ToLower())
-                .RuleFor(a => a.CodePostal, f => int.Parse(f.Address.ZipCode()))
-                .RuleFor(a => a.Departement, f => f.Address.County().ToLower())
-                .RuleFor(a => a.PaysId, f => f.PickRandom(pays).PaysId)
-                .RuleFor(a => a.ClientId, f => f.PickRandom(clients).ClientId);
-
-            var adresses = adresseFaker.Generate(100);
-            _context.Adresses.AddRange(adresses);
-            _context.SaveChanges();
+            
 
             // table : Famille
             var familles = new List<Famille>
@@ -228,6 +216,32 @@ public class DatabaseSeeder
                 }
             }
 
+            _context.SaveChanges();
+            
+            // table : adresse pour les clients
+            var adresseClientFaker = new Faker<Adresse>("fr")
+                .RuleFor(a => a.Numero, f => int.Parse(f.Address.BuildingNumber()))
+                .RuleFor(a => a.Ville, f => f.Address.City().ToLower())
+                .RuleFor(a => a.CodePostal, f => int.Parse(f.Address.ZipCode()))
+                .RuleFor(a => a.Departement, f => f.Address.County().ToLower())
+                .RuleFor(a => a.PaysId, f => f.PickRandom(pays).PaysId)
+                .RuleFor(a => a.ClientId, f => f.PickRandom(clients).ClientId);
+
+            var adressesClient = adresseClientFaker.Generate(100);
+            _context.Adresses.AddRange(adressesClient);
+            _context.SaveChanges();
+
+            // table : adresse pour les fournisseurs
+            var adresseFournisseurFaker = new Faker<Adresse>("fr")
+                .RuleFor(a => a.Numero, f => int.Parse(f.Address.BuildingNumber()))
+                .RuleFor(a => a.Ville, f => f.Address.City().ToLower())
+                .RuleFor(a => a.CodePostal, f => int.Parse(f.Address.ZipCode()))
+                .RuleFor(a => a.Departement, f => f.Address.County().ToLower())
+                .RuleFor(a => a.PaysId, f => f.PickRandom(pays).PaysId)
+                .RuleFor(a => a.FournisseurId, f => f.PickRandom(fournisseurs).FournisseurId);
+
+            var adressesFournisseur = adresseFournisseurFaker.Generate(50);
+            _context.Adresses.AddRange(adressesFournisseur);
             _context.SaveChanges();
 
             // table : Livraison
