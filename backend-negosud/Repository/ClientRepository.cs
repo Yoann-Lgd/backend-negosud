@@ -28,4 +28,12 @@ public class ClientRepository : RepositoryBase<Client>,IClientRepository
         return await _context.Clients
             .AnyAsync(c => c.Email.ToLower() == email.ToLower());
     }
+
+public async Task<Client?> GetClientBydIdComandes(int id)
+{
+    return await _context.Clients
+        .Where(c => c.ClientId == id)
+        .Include(client => client.Commandes)
+        .FirstOrDefaultAsync();
+}
 }

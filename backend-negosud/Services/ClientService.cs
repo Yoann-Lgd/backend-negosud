@@ -60,7 +60,7 @@ public ClientService(IEnvoieEmailService emailService, IClientRepository ClientR
 
     public async Task<IResponseDataModel<Client>> GetClientBydId(int id)
     {
-        var client = await _repository.GetByIdAsync(id);
+        var client = await _repository.GetClientBydIdComandes(id);
         return new ResponseDataModel<Client>
         {
             StatusCode = 200,

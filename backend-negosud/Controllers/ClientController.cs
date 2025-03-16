@@ -77,7 +77,7 @@ public class ClientController : ControllerBase
     }
     
     [HttpGet("{id}")]
-    public async Task<ActionResult> GetStockById(int id)
+    public async Task<ActionResult> GetClientById(int id)
     {
         var result = await _clientService.GetClientBydId(id);
         return result.Success ? Ok(result) : BadRequest(result);
