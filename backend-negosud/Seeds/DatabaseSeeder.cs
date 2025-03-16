@@ -46,6 +46,20 @@ public class DatabaseSeeder
         
         if (!_context.Clients.Any())
         {
+            
+            var client = new Client
+            {
+                Nom = "Admin",
+                Prenom = "System",
+                Email = "client@negosud.com",
+                Tel= "0673289321",
+                EstValide = true,
+                MotDePasse = "$2a$11$wkJKJ2Ijw5c7tKKnpUIGdOOAFdeM3Mgmt3SP3TDV8Fe1oWfmMt9d.",
+                AcessToken = "meyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IjAiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9lbWFpbGFkZHJlc3MiOiJhZG1pbkBuZWdvc3VkLmNvbSIsImp0aSI6IjhjZDRhMDNlLWIxNzctNGE5MS05NWZhLTQzMmE3NTFlY2EyYSIsImlhdCI6MTc0MjE0MDQ4NiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiYWRtaW4iLCJuYmYiOjE3NDIxNDA0ODYsImV4cCI6MTc0MjE2MjA4NiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo1MTQxLyIsImF1ZCI6Imh0dHA6Ly9sb2NhbGhvc3Q6MzAwMC8ifQ.U6k5JZxOKEGeONWNH9I6z_EdxM9rU9_8wq3QXcIcbYB6DJHIg0BRnK9KIB4Z3qkRap5_Oo9F4vHDV1qBVv4NEoINOT2Gd4gNrBhUAm8kEl5Fn48Ox-AVbLvCZ8EWytn9UZ53bZVguFklnm2huuTzXUzLyamWpLvGW5vbzgcw_YYAEKgXq82bCByGujc0uUz0ZyQfQ83SowX_lSZD5B9qyONnZD8lwAB7OqmTR4dHm0UrYalJ9WqXi8pzYLdJPnTcFuF0QFv4TQLvFNBDeQC0sOzvnBW_lqhhTZY7jrQaOb4fYBuAHRaGs7gpPODgG24eEEI7K8ytF4qLJnLht9kubg"
+            };
+
+            _context.Clients.Add(client);
+            _context.SaveChanges();
             // table : Client
             var clientFaker = new Faker<Client>("fr")
                 .RuleFor(c => c.Nom, f => f.Name.LastName().ToLower())
@@ -154,7 +168,6 @@ public class DatabaseSeeder
             // table : Role
             var roles = new List<Role>
             {
-                new Role { Nom = "admin"},
                 new Role { Nom = "employe"}
             };
 
