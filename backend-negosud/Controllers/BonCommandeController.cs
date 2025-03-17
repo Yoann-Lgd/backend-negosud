@@ -61,6 +61,7 @@ public class BonCommandeController : ControllerBase
     /// </summary>
     /// <returns>La commande modifiée.</returns>
     [HttpPut("update/{id}")]
+    [Authorize(Roles = "admin")]
     public async Task<IActionResult> UpdateBasket(int id,[FromBody] BonCommandeUpdateDto bonCommandeUpdate)
     {
         var result = await _bonCommandeService.UpdateBonCommande(id,bonCommandeUpdate);
@@ -73,6 +74,7 @@ public class BonCommandeController : ControllerBase
     /// </summary>
     /// <returns>l'id de la ligne supprimée</returns>
     [HttpDelete("delete/ligne-commande/{id}")]
+    [Authorize(Roles = "admin")]
     public async Task<IActionResult> DeleteLigneDeCommande(int id)
     {
         var result = await _bonCommandeService.DeleteLigneCommande(id);
