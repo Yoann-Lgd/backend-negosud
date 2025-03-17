@@ -58,13 +58,27 @@ public ClientService(IEnvoieEmailService emailService, IClientRepository ClientR
         return client;
     }
 
-    public async Task<IResponseDataModel<Client>> GetClientBydId(int id)
+    public async Task<IResponseDataModel<ClientOutputCommandeDto>> GetClientCommandeBydId(int id)
     {
         var client = await _repository.GetClientBydIdComandes(id);
-        return new ResponseDataModel<Client>
+
+        if (client == null)
+        {
+            _logger.LogError("Client introuvable pour l'ID : {ClientID}", id);
+            return new ResponseDataModel<ClientOutputCommandeDto>()
+            {
+                Success = false,
+                Message = "Commande introuvable.",
+                StatusCode = 404
+            };
+        }
+        
+        var clientOutput = _mapper.Map<ClientOutputCommandeDto>(client);
+        
+        return new ResponseDataModel<ClientOutputCommandeDto>
         {
             StatusCode = 200,
-            Data = client,
+            Data = clientOutput,
             Success = true,
         };
     }
