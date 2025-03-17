@@ -61,6 +61,7 @@ public partial class PostgresContext : DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+        modelBuilder.UseIdentityByDefaultColumns();
         modelBuilder.Entity<Adresse>(entity =>
         {
             entity.HasKey(e => e.AdresseId).HasName("adresse_pk");
@@ -132,7 +133,7 @@ public partial class PostgresContext : DbContext
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("article_tva2_fk");
         });
-
+        
         modelBuilder.Entity<BonCommande>(entity =>
         {
             entity.HasKey(e => e.BonCommandeId).HasName("bon_commande_pk");
@@ -149,12 +150,23 @@ public partial class PostgresContext : DbContext
             entity.Property(e => e.Status)
                 .HasMaxLength(50)
                 .HasColumnName("status");
+            
+            entity.Property(e => e.DateCreation)
+                .IsRequired()
+                .HasColumnType("timestamp with time zone")
+                .HasColumnName("date_creation");  
             entity.Property(e => e.UtilisateurId).HasColumnName("utilisateur_id");
+            entity.Property(e => e.FournisseurId).HasColumnName("fournisseur_id");
 
             entity.HasOne(d => d.Utilisateur).WithMany(p => p.BonCommandes)
                 .HasForeignKey(d => d.UtilisateurId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("bon_commande_utilisateur0_fk");
+            
+            entity.HasOne(d => d.Fournisseur).WithMany(p => p.BonCommandes)
+                .HasForeignKey(d => d.FournisseurId)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("bon_commande_fournisseur1_fk");
         });
 
         modelBuilder.Entity<Client>(entity =>
@@ -183,6 +195,9 @@ public partial class PostgresContext : DbContext
             entity.Property(e => e.Tel)
                 .HasMaxLength(15)
                 .HasColumnName("tel");
+            entity.Property(e => e.DeletedAt)
+                .HasColumnType("timestamp with time zone")
+                .HasColumnName("deleted_at");
         });
 
         modelBuilder.Entity<Commande>(entity =>
@@ -196,11 +211,16 @@ public partial class PostgresContext : DbContext
             entity.Property(e => e.CommandeId).HasColumnName("commande_id");
             entity.Property(e => e.ClientId).HasColumnName("client_id");
             entity.Property(e => e.DateCreation)
-                .HasColumnType("timestamp without time zone")
-                .HasColumnName("date_creation");
+                .HasColumnType("timestamp with time zone")
+                .HasColumnName("date_creation");                    
+            entity.Property(e => e.DeletedAt)
+                .HasColumnType("timestamp with time zone")
+                .HasColumnName("DeletedAt");
+            entity.Property(e => e.ExpirationDate)
+                .HasColumnType("timestamp with time zone")
+                .HasColumnName("date_expiration");
             entity.Property(e => e.FactureId).HasColumnName("facture_id");
             entity.Property(e => e.LivraisonId).HasColumnName("livraison_id");
-            entity.Property(e => e.Quantite).HasColumnName("quantite");
             entity.Property(e => e.Valide).HasColumnName("valide");
 
             entity.HasOne(d => d.Client).WithMany(p => p.Commandes)
@@ -210,14 +230,19 @@ public partial class PostgresContext : DbContext
 
             entity.HasOne(d => d.Facture).WithOne(p => p.Commande)
                 .HasForeignKey<Commande>(d => d.FactureId)
-                .OnDelete(DeleteBehavior.ClientSetNull)
                 .IsRequired(false)
+                .OnDelete(DeleteBehavior.NoAction)
                 .HasConstraintName("commande_facture2_fk");
 
             entity.HasOne(d => d.Livraison).WithMany(p => p.Commandes)
                 .HasForeignKey(d => d.LivraisonId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("commande_livraison1_fk");
+            
+            entity.HasMany(c => c.LigneCommandes)
+                .WithOne(lc => lc.Commande)
+                .HasForeignKey(lc => lc.CommandeId)
+                .OnDelete(DeleteBehavior.Cascade);
         });
 
         modelBuilder.Entity<Facture>(entity =>
@@ -232,7 +257,7 @@ public partial class PostgresContext : DbContext
             entity.Property(e => e.ClientId).HasColumnName("client_id");
             entity.Property(e => e.CommandeId).HasColumnName("commande_id");
             entity.Property(e => e.DateFacturation)
-                .HasColumnType("timestamp without time zone")
+                .HasColumnType("timestamp with time zone")
                 .HasColumnName("date_facturation");
             entity.Property(e => e.MontantHt).HasColumnName("montant_ht");
             entity.Property(e => e.MontantTtc).HasColumnName("montant_ttc");
@@ -248,7 +273,7 @@ public partial class PostgresContext : DbContext
 
             entity.HasOne(d => d.CommandeNavigation).WithOne(p => p.FactureNavigation)
                 .HasForeignKey<Facture>(d => d.CommandeId)
-                .OnDelete(DeleteBehavior.ClientSetNull)
+                .OnDelete(DeleteBehavior.NoAction)
                 .HasConstraintName("facture_commande1_fk");
         });
 
@@ -283,6 +308,9 @@ public partial class PostgresContext : DbContext
             entity.Property(e => e.Tel)
                 .HasMaxLength(25)
                 .HasColumnName("tel");
+            entity.Property(e => e.DeletedAt)
+                .HasColumnType("timestamp with time zone")
+                .HasColumnName("deleted_at");
         });
 
         modelBuilder.Entity<Image>(entity =>
@@ -318,7 +346,7 @@ public partial class PostgresContext : DbContext
             entity.Property(e => e.UtilisateurId).HasColumnName("utilisateur_id");
             entity.Property(e => e.StockId).HasColumnName("stock_id");
             entity.Property(e => e.DateModification)
-                .HasColumnType("timestamp without time zone")
+                .HasColumnType("timestamp with time zone")
                 .HasColumnName("date_modification");
             entity.Property(e => e.QuantitePostModification).HasColumnName("quantite_post_modification");
             entity.Property(e => e.QuantitePrecedente).HasColumnName("quantite_precedente");
@@ -363,6 +391,7 @@ public partial class PostgresContext : DbContext
             entity.Property(e => e.BonCommandeId).HasColumnName("bon_commande_id");
             entity.Property(e => e.PrixUnitaire).HasColumnName("prix_unitaire");
             entity.Property(e => e.Quantite).HasColumnName("quantite");
+            entity.Property(e => e.Livree).HasColumnName("livree");
 
             entity.HasOne(d => d.Article).WithMany(p => p.LigneBonCommandes)
                 .HasForeignKey(d => d.ArticleId)
@@ -381,19 +410,20 @@ public partial class PostgresContext : DbContext
 
             entity.ToTable("ligne_commande");
 
-            entity.Property(e => e.LigneCommandeId).HasColumnName("ligne_commande_id");
+            entity.Property(e => e.LigneCommandeId).HasColumnName("ligne_commande_id").ValueGeneratedOnAdd();
             entity.Property(e => e.ArticleId).HasColumnName("article_id");
             entity.Property(e => e.CommandeId).HasColumnName("commande_id");
             entity.Property(e => e.Quantite).HasColumnName("quantite");
 
-            entity.HasOne(d => d.Article).WithMany(p => p.LigneCommandes)
+            entity.HasOne(d => d.Article)
+                .WithMany(p => p.LigneCommandes)
                 .HasForeignKey(d => d.ArticleId)
-                .OnDelete(DeleteBehavior.ClientSetNull)
+                .OnDelete(DeleteBehavior.Restrict)
                 .HasConstraintName("ligne_commande_article1_fk");
 
             entity.HasOne(d => d.Commande).WithMany(p => p.LigneCommandes)
                 .HasForeignKey(d => d.CommandeId)
-                .OnDelete(DeleteBehavior.ClientSetNull)
+                .OnDelete(DeleteBehavior.Cascade) 
                 .HasConstraintName("ligne_commande_commande0_fk");
         });
 
@@ -429,10 +459,10 @@ public partial class PostgresContext : DbContext
 
             entity.Property(e => e.LivraisonId).HasColumnName("livraison_id");
             entity.Property(e => e.DateEstimee)
-                .HasColumnType("timestamp without time zone")
+                .HasColumnType("timestamp with time zone")
                 .HasColumnName("date_estimee");
             entity.Property(e => e.DateLivraison)
-                .HasColumnType("timestamp without time zone")
+                .HasColumnType("timestamp with time zone")
                 .HasColumnName("date_livraison");
             entity.Property(e => e.Livree).HasColumnName("livree");
         });
@@ -458,7 +488,7 @@ public partial class PostgresContext : DbContext
             entity.Property(e => e.ReglementId).HasColumnName("reglement_id");
             entity.Property(e => e.CommandeId).HasColumnName("commande_id");
             entity.Property(e => e.Date)
-                .HasColumnType("timestamp without time zone")
+                .HasColumnType("timestamp with time zone")
                 .HasColumnName("date");
             entity.Property(e => e.Montant).HasColumnName("montant");
             entity.Property(e => e.Reference)
@@ -480,7 +510,7 @@ public partial class PostgresContext : DbContext
             entity.Property(e => e.ReinitialisationMdpId).HasColumnName("reinitialisation_mdp_id");
             entity.Property(e => e.ClientId).HasColumnName("client_id");
             entity.Property(e => e.DateDemande)
-                .HasColumnType("timestamp without time zone")
+                .HasColumnType("timestamp with time zone")
                 .HasColumnName("date_demande");
             entity.Property(e => e.MotDePasse)
                 .HasMaxLength(300)
@@ -570,6 +600,9 @@ public partial class PostgresContext : DbContext
             entity.Property(e => e.Telephone)
                 .HasMaxLength(25)
                 .HasColumnName("telephone");
+            entity.Property(e => e.DeletedAt)
+                .HasColumnType("timestamp with time zone")
+                .HasColumnName("deleted_at");
 
             entity.HasOne(d => d.Role).WithMany(p => p.Utilisateurs)
                 .HasForeignKey(d => d.RoleId)

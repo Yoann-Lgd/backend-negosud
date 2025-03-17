@@ -9,7 +9,7 @@ public partial class Livraison
 
     public DateTime? DateEstimee { get; set; }
 
-    public DateTime DateLivraison { get; set; }
+    public DateTime? DateLivraison { get; set; }
 
     public bool Livree { get; set; }
 

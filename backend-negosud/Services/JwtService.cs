@@ -1,24 +1,32 @@
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Security.Cryptography;
+using AutoMapper;
 using backend_negosud.Entities;
+using backend_negosud.Mapper;
 using backend_negosud.Services;
 using Microsoft.IdentityModel.Tokens;
 
-public class JwtService : IJwtService
+public class JwtService<TEntity, TInputDto, TOutputDto> : IJwtService<TEntity, TInputDto, TOutputDto>
+    where TEntity : class
+    where TInputDto : class
+    where TOutputDto : class
 {
     private readonly IConfiguration _configuration;
     private readonly PostgresContext _context;
+    private readonly  IMapper _mapper;
     private readonly string _keyPath;
-    private readonly ILogger<JwtService> _logger;
+    private readonly ILogger<JwtService<TEntity, TInputDto, TOutputDto>> _logger;
 
     public JwtService(
         IConfiguration configuration, 
         PostgresContext context,
-        ILogger<JwtService> logger)
+        IMapper mapper,
+        ILogger<JwtService<TEntity, TInputDto, TOutputDto>> logger)
     {
         _configuration = configuration;
         _context = context;
+        _mapper = mapper;
         _logger = logger;
         _keyPath = _configuration["Jwt:KeyPath"] ?? "key.bin";
     }
@@ -60,26 +68,63 @@ public class JwtService : IJwtService
         }
     }
 
-    public string GenererToken(Utilisateur utilisateur)
+    public string GenererToken(TInputDto inputDto)
     {
         try
         {
-            using var rsa = LoadOrCreateRsaKey();
+            var entity = _mapper.Map<TEntity>(inputDto);
+
+            // Générer la clé RSA
+            RSA rsa = LoadOrCreateRsaKey();
             var key = new RsaSecurityKey(rsa);
             var credentials = new SigningCredentials(key, SecurityAlgorithms.RsaSha256);
 
-            var claims = new[]
+            // récupération les propriétés de l'entité
+            var idProperty = typeof(TEntity).GetProperties()
+                .FirstOrDefault(p => p.Name.EndsWith("Id", StringComparison.OrdinalIgnoreCase));
+
+            var emailProperty = typeof(TEntity).GetProperties()
+                .FirstOrDefault(p => p.Name.Equals("Email", StringComparison.OrdinalIgnoreCase));
+
+            var roleProperty = typeof(TEntity).GetProperty("Role");
+
+            if (idProperty == null || emailProperty == null)
             {
-                new Claim(ClaimTypes.NameIdentifier, utilisateur.UtilisateurId.ToString()),
-                new Claim(ClaimTypes.Email, utilisateur.Email),
+                throw new InvalidOperationException("Impossible de trouver les propriétés ID et Email");
+            }
+
+            // vérif et récupération des valeurs
+            var idValue = idProperty.GetValue(entity)?.ToString();
+            var emailValue = emailProperty.GetValue(entity)?.ToString();
+            var roleValue = roleProperty?.GetValue(entity) is Role role ? role.Nom : null;
+
+            if (string.IsNullOrEmpty(idValue) || string.IsNullOrEmpty(emailValue))
+            {
+                throw new InvalidOperationException("Les valeurs ID ou Email sont nulles.");
+            }
+
+            // création des claims
+            var claims = new List<Claim>
+            {
+                new Claim(ClaimTypes.NameIdentifier, idValue),
+                new Claim(ClaimTypes.Email, emailValue),
                 new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
-                new Claim(JwtRegisteredClaimNames.Iat, DateTimeOffset.UtcNow.ToUnixTimeSeconds().ToString()),
+                new Claim(JwtRegisteredClaimNames.Iat, DateTimeOffset.UtcNow.ToUnixTimeSeconds().ToString(), ClaimValueTypes.Integer64),
+
             };
 
+            // ajout du rôle s'il est valide
+            if (!string.IsNullOrEmpty(roleValue))
+            {
+                claims.Add(new Claim(ClaimTypes.Role, roleValue));
+            }
+
+            // déf de la durée d'expiration du token
             var tokenExpiration = DateTime.UtcNow.AddHours(
                 double.Parse(_configuration["Jwt:ExpirationHours"] ?? "6")
             );
 
+            // génération du token JWT
             var token = new JwtSecurityToken(
                 issuer: _configuration["Jwt:Issuer"],
                 audience: _configuration["Jwt:Audience"],
@@ -89,25 +134,28 @@ public class JwtService : IJwtService
                 signingCredentials: credentials
             );
 
-            return new JwtSecurityTokenHandler().WriteToken(token);
+            var tokenString = new JwtSecurityTokenHandler().WriteToken(token);
+            Console.WriteLine($"Generated Token: {tokenString}");
+
+            return tokenString;
         }
         catch (Exception ex)
         {
-            _logger.LogError(ex, "Erreur lors de la génération du token pour l'utilisateur {UserId}", utilisateur.UtilisateurId);
+            _logger.LogError(ex, "Erreur lors de la génération du token");
             throw;
         }
     }
 
-    public async Task<bool> ValidateToken(string token, int id)
+    public async Task<TOutputDto> ValidateToken(string token, int id)
     {
         try
         {
             var tokenHandler = new JwtSecurityTokenHandler();
-            var utilisateur = await _context.Utilisateurs.FindAsync(id);
-            
-            if (utilisateur == null)
+            var entity = await _context.FindAsync<TEntity>(id);
+
+            if (entity == null)
             {
-                return false;
+                return null;
             }
 
             using var rsa = LoadOrCreateRsaKey();
@@ -126,23 +174,39 @@ public class JwtService : IJwtService
             };
 
             var principal = tokenHandler.ValidateToken(token, validationParameters, out var validatedToken);
-            
-            // Vérification supplémentaire que l'ID dans le token correspond
+
             var nameIdClaim = principal.FindFirst(ClaimTypes.NameIdentifier);
             if (nameIdClaim == null || !int.TryParse(nameIdClaim.Value, out var tokenUserId) || tokenUserId != id)
             {
-                return false;
+                return null;
+            }
+            
+            var roleClaim = principal.FindFirst(ClaimTypes.Role);
+            if (roleClaim != null)
+            {
+                // vérif si nécessaire
             }
 
-            utilisateur.AccessToken = token;
-            await _context.SaveChangesAsync();
+            // Mettre à jour le token d'accès si nécessaire
+            var accessTokenProperty = entity.GetType().GetProperty("AccessToken");
+            if (accessTokenProperty != null)
+            {
+                accessTokenProperty.SetValue(entity, token);
+                await _context.SaveChangesAsync();
+            }
 
-            return true;
+            return _mapper.Map<TOutputDto>(entity);
         }
         catch (Exception ex)
         {
-            _logger.LogError(ex, "Erreur lors de la validation du token pour l'utilisateur {UserId}", id);
-            return false;
+            _logger.LogError(ex, "Erreur lors de la validation du token pour l'ID {Id}", id);
+            return null;
         }
+    }
+    public async Task<string> GetPublicKey()
+    {
+        using var rsa = LoadOrCreateRsaKey();
+        var publicKey = rsa.ExportSubjectPublicKeyInfo(); // Important : utiliser SubjectPublicKeyInfo
+        return Convert.ToBase64String(publicKey);
     }
 }
