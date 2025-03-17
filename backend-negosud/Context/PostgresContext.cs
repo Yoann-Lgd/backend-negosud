@@ -222,6 +222,9 @@ public partial class PostgresContext : DbContext
             entity.Property(e => e.FactureId).HasColumnName("facture_id");
             entity.Property(e => e.LivraisonId).HasColumnName("livraison_id");
             entity.Property(e => e.Valide).HasColumnName("valide");
+            entity.Property(e => e.Status)
+                .HasMaxLength(50)
+                .HasColumnName("status");
 
             entity.HasOne(d => d.Client).WithMany(p => p.Commandes)
                 .HasForeignKey(d => d.ClientId)

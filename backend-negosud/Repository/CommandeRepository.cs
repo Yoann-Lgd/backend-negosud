@@ -59,12 +59,13 @@ public class CommandeRepository : RepositoryBase<Commande> , ICommandeRepository
             
             var sql = @"
             UPDATE commande 
-            SET valide = @Valide, facture_id = @FactureId
+            SET valide = @Valide, facture_id = @FactureId, status = @Status
             WHERE commande_id = @CommandeId";
             
             await _context.Database.ExecuteSqlRawAsync(sql,
                 new Npgsql.NpgsqlParameter("@Valide", commande.Valide),
                 new Npgsql.NpgsqlParameter("@FactureId", commande.FactureId),
+                new Npgsql.NpgsqlParameter("@Status", commande.Status),
                 new Npgsql.NpgsqlParameter("@CommandeId", commande.CommandeId));
         }
         catch (Exception ex)

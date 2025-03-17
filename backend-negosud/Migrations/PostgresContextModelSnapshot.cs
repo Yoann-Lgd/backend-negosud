@@ -271,6 +271,11 @@ namespace backend_negosud.Migrations
                         .HasColumnType("integer")
                         .HasColumnName("livraison_id");
 
+                    b.Property<string>("Status")
+                        .HasMaxLength(50)
+                        .HasColumnType("character varying(50)")
+                        .HasColumnName("status");
+
                     b.Property<bool>("Valide")
                         .HasColumnType("boolean")
                         .HasColumnName("valide");
