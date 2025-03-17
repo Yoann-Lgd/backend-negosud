@@ -28,4 +28,13 @@ public class FournisseurRepository : RepositoryBase<Fournisseur>, IFournisseurRe
             .ToListAsync();
     }
     
+    public async Task<List<Fournisseur>> GetAllFournisseursNotDeleteAsync()
+    {
+        return await _context.Fournisseurs
+            .Include(f => f.Articles)
+            .Include(f => f.Adresses)
+            .Where(f=> f.DeletedAt == null)
+            .ToListAsync();
+    }
+    
 }
