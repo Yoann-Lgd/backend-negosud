@@ -28,7 +28,7 @@ public class FournisseurService : IFournisseurService
 
     public async Task<IResponseDataModel<List<FournisseurOutputCompleteDto>>> getAll()
     {
-        var fournisseurs = await _fournisseurRepository.GetAllFournisseursAsync();
+        var fournisseurs = await _fournisseurRepository.GetAllFournisseursNotDeleteAsync();
         var fournisseursOutputDtos = _mapper.Map<List<FournisseurOutputCompleteDto>>(fournisseurs);
         return new ResponseDataModel<List<FournisseurOutputCompleteDto>>
         {
