@@ -12,7 +12,7 @@ using backend_negosud.Entities;
 namespace backend_negosud.Migrations
 {
     [DbContext(typeof(PostgresContext))]
-    [Migration("20250316225003_InitialCreate")]
+    [Migration("20250317125556_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -273,6 +273,11 @@ namespace backend_negosud.Migrations
                     b.Property<int?>("LivraisonId")
                         .HasColumnType("integer")
                         .HasColumnName("livraison_id");
+
+                    b.Property<string>("Status")
+                        .HasMaxLength(50)
+                        .HasColumnType("character varying(50)")
+                        .HasColumnName("status");
 
                     b.Property<bool>("Valide")
                         .HasColumnType("boolean")

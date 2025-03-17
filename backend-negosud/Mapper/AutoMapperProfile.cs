@@ -71,6 +71,9 @@ namespace backend_negosud.Mapper;
             CreateMap<ClientInputDto, Client>();
             CreateMap<Client, ClientInputDto>();
             CreateMap<Client, ClientOutputDto>();
+            CreateMap<Client, ClientOutputCommandeDto>()
+                .ForMember(dest => dest.Commandes, opt => opt.MapFrom(src => src.Commandes));
+            
             CreateMap<ClientOutputDto, Client>();
             CreateMap<ClientInputDtoSimplified, Client>();
             CreateMap<Client, ClientInputDtoSimplified>();
@@ -127,6 +130,7 @@ namespace backend_negosud.Mapper;
                 .ForMember(dest => dest.ClientId, opt => opt.MapFrom(src => src.ClientId))
                 .ForMember(dest => dest.LivraisonId, opt => opt.MapFrom(src => src.LivraisonId))
                 .ForMember(dest => dest.FactureId, opt => opt.MapFrom(src => src.FactureId))
+                .ForMember(dest => dest.Status, opt => opt.MapFrom(src => src.Status))
                 .ForMember(dest => dest.LigneCommandes, opt => opt.MapFrom(src => src.LigneCommandes));
 
             CreateMap<LigneCommande, LigneCommandeOutputDto>()

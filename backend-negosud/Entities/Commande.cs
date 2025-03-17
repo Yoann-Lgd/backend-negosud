@@ -10,13 +10,13 @@ public partial class Commande : ISoftDelete
 
     public DateTime DateCreation { get; set; }
     public DateTime? ExpirationDate { get; set; } 
-    public DateTime? DeletedAt { get; set; } 
-
+    public DateTime? DeletedAt { get; set; }
     public bool Valide { get; set; }
 
     public int ClientId { get; set; }
 
     public int? LivraisonId { get; set; } 
+    public string? Status { get; set; }
 
     public int? FactureId { get; set; }
 

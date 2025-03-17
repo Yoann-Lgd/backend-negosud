@@ -419,6 +419,7 @@ namespace backend_negosud.Migrations
                     valide = table.Column<bool>(type: "boolean", nullable: false),
                     client_id = table.Column<int>(type: "integer", nullable: false),
                     livraison_id = table.Column<int>(type: "integer", nullable: true),
+                    status = table.Column<string>(type: "character varying(50)", maxLength: 50, nullable: true),
                     facture_id = table.Column<int>(type: "integer", nullable: true)
                 },
                 constraints: table =>

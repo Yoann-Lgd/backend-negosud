@@ -49,6 +49,7 @@ public class ClientController : ControllerBase
     /// </summary>
     /// <returns>Retourne l'id de l'article qui a été softdelete</returns>
     [HttpDelete("{id}")]
+    [Authorize()]
     public async Task<IActionResult> SoftDeleteClient(int id)
     {
         var result = await _clientService.SoftDeleteClientAsync(id);
@@ -79,7 +80,7 @@ public class ClientController : ControllerBase
     [HttpGet("{id}")]
     public async Task<ActionResult> GetClientById(int id)
     {
-        var result = await _clientService.GetClientBydId(id);
+        var result = await _clientService.GetClientCommandeBydId(id);
         return result.Success ? Ok(result) : BadRequest(result);
     }
 

@@ -10,6 +10,7 @@ public class CommandeOutputDto
     public int ClientId { get; set; }
     public int? LivraisonId { get; set; }
     public int? FactureId { get; set; }
+    public string? Status { get; set; }
     public LivraisonOutputDto livraison { get; set; }
     public List<LigneCommandeOutputDto> LigneCommandes { get; set; }
 }

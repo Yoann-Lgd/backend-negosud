@@ -272,6 +272,7 @@ public class CommandeService : ICommandeService
                 await _commandeRepository.UpdateCommandeFieldsAsync(new Commande
                 {
                     CommandeId = commandeId,
+                    Status = "En attente d'expédition",
                     Valide = true,
                     FactureId = facture.FactureId
                 });
