@@ -23,7 +23,7 @@ public class BonCommandeController : ControllerBase
     /// </summary>
     /// <returns>Un booléan response</returns>
     [HttpPost("create")]
-    [Authorize]
+    [Authorize(Roles = "admin")]
     public async Task<IActionResult> CreateCommande([FromBody] BonCommandeCreateInputDto bonCommandeCreateInput)
     {
         var result = await _bonCommandeService.CreateBonCommande(bonCommandeCreateInput);
@@ -35,7 +35,7 @@ public class BonCommandeController : ControllerBase
     /// </summary>
     /// <returns>Retourne toutes les commandes fournisseurs, les lignes de commandes</returns>
     [HttpGet]
-    [Authorize]
+    [Authorize(Roles = "admin")]
     public async Task<ActionResult> GetBonCommandes()
     {
         var result = await _bonCommandeService.GetAllBonCommandes();
@@ -48,7 +48,7 @@ public class BonCommandeController : ControllerBase
     /// </summary>
     /// <returns>Retourne la commande, les lignes de commandes</returns>
     [HttpGet("{id}")]
-    [Authorize]
+    [Authorize(Roles = "admin")]
     public async Task<ActionResult> GetBonCommandeById(int id)
     {
         var result = await _bonCommandeService.GetBonCommandeById(id);

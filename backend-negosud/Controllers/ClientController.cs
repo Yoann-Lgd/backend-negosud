@@ -78,6 +78,7 @@ public class ClientController : ControllerBase
     }
     
     [HttpGet("{id}")]
+    [Authorize]
     public async Task<ActionResult> GetClientById(int id)
     {
         var result = await _clientService.GetClientCommandeBydId(id);
