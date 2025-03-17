@@ -1,5 +1,6 @@
 using backend_negosud.DTOs.Commande_client;
 using backend_negosud.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace backend_negosud.Controllers;
@@ -20,6 +21,7 @@ public class PanierController : ControllerBase
     /// </summary>
     /// <returns>Le panier du client</returns>
     [HttpGet("{id}")]
+    [Authorize]
     public async Task<IActionResult> GetBasketClient(int id)
     {
         var result = await _panierService.GetBasketByClientId(id);
@@ -32,6 +34,7 @@ public class PanierController : ControllerBase
     /// </summary>
     /// <returns>Le panier créé</returns>
     [HttpPost("create")]
+    [Authorize]
     public async Task<IActionResult> CreateBasket([FromBody] PanierInputDto panierInputDto)
     {
         var result = await _panierService.CreatePanier(panierInputDto);
@@ -47,6 +50,7 @@ public class PanierController : ControllerBase
     /// <param name="quantite">La nouvelle quantité de l'article. Si la quantité est zéro, l'article sera supprimé du panier.</param>
     /// <returns>Le panier modifié.</returns>
     [HttpPut("update")]
+    [Authorize]
     public async Task<IActionResult> UpdateBasket([FromBody] PanierUpdateInputDto panierInputDto)
     {
         var result = await _panierService.UpdatePanier(panierInputDto);
@@ -59,6 +63,7 @@ public class PanierController : ControllerBase
     /// </summary>
     /// <returns>Le panier modifié</returns>
     [HttpPut("extend/{id}")]
+    [Authorize]
     public async Task<IActionResult> ExtendBasketDuration(int id)
     {
         var result = await _panierService.ExtendDurationBasket(id);
@@ -85,6 +90,7 @@ public class PanierController : ControllerBase
     /// <param name="id"></param>
     /// <returns>l'id du panier supprimer</returns>
     [HttpDelete("delete/{id}")]
+    [Authorize]
     public async Task<IActionResult> DeleteBasket(int id)
     {
         var result = await _panierService.DeletePanier(id);
@@ -97,6 +103,7 @@ public class PanierController : ControllerBase
     /// </summary>
     /// <returns>l'id de la ligne supprimée</returns>
     [HttpDelete("delete/ligne-commande")]
+    [Authorize]
     public async Task<IActionResult> DeleteLigneDeCommande([FromBody]PanierDeleteLigneInputDto panierInputDto)
     {
         var result = await _panierService.DeleteLigneCommande(panierInputDto);

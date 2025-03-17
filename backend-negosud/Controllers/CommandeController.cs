@@ -1,5 +1,6 @@
 using backend_negosud.DTOs.Commande_client;
 using backend_negosud.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace backend_negosud.Controllers;
@@ -15,12 +16,14 @@ public class CommandeController : ControllerBase
         _commandeService = commandeService;
     }
     [HttpGet]
+    [Authorize]
     public async Task<IActionResult> Get()
     {
         return Ok(await _commandeService.GetAllCommandes());
     }
 
     [HttpGet("{id}")]
+    [Authorize]
     public async Task<IActionResult> GetCommandeById(int id)
     {
         return Ok(await _commandeService.GetCommandeById(id));
@@ -32,6 +35,7 @@ public class CommandeController : ControllerBase
     /// </summary>
     /// <returns>La commande créée</returns>
     [HttpPost("create")]
+    [Authorize]
     public async Task<IActionResult> CreateCommande([FromBody] CommandeInputDto commandeInput)
     {
         var result = await _commandeService.CreateCommande(commandeInput);
@@ -44,6 +48,7 @@ public class CommandeController : ControllerBase
     /// </summary>
     /// <returns>Retourne l'id de le commande qui a été softdelete</returns>
     [HttpDelete("{id}")]
+    [Authorize(Roles = "admin")]
     public async Task<IActionResult> SoftDeleteCommande(int id)
     {
         var result = await _commandeService.SoftDeleteAsync(id);
